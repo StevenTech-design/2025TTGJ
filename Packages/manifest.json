@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "com.code-philosophy.luban": "https://gitee.com/focus-creative-games/luban_unity.git",
+    "com.code-philosophy.luban": "file:../com.code-philosophy.luban@005c365bac",
     "com.boxqkrtm.ide.cursor": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
-    "com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+    "com.cysharp.unitask": "file:../com.cysharp.unitask@ec9204d381",
     "com.unity.addressables": "1.22.3",
     "com.unity.collab-proxy": "2.9.3",
     "com.unity.ide.rider": "3.0.34",
