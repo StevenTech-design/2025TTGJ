@@ -1,7 +1,12 @@
 namespace TTGJ.Common
 {
     public enum EventType
-    { 
-        None,
+    {
+    
+        ItemAdded,
+        ItemRemoved,
+        ItemUsed,
+        OpenInventory,
+        CloseInventory
     }
 }

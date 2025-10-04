@@ -1,12 +1,12 @@
 {
   "dependencies": {
-    "com.code-philosophy.luban": "file:../com.code-philosophy.luban@005c365bac",
     "com.boxqkrtm.ide.cursor": "https://github.com/boxqkrtm/com.unity.ide.cursor.git",
+    "com.code-philosophy.luban": "file:../com.code-philosophy.luban@005c365bac",
     "com.cysharp.unitask": "file:../com.cysharp.unitask@ec9204d381",
     "com.unity.addressables": "1.22.3",
     "com.unity.collab-proxy": "2.9.3",
     "com.unity.ide.rider": "3.0.34",
-    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.ide.visualstudio": "2.0.23",
     "com.unity.ide.vscode": "1.2.5",
     "com.unity.render-pipelines.universal": "14.0.11",
     "com.unity.test-framework": "1.1.33",
