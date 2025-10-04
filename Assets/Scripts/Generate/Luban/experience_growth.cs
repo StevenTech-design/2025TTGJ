@@ -19,27 +19,27 @@ namespace cfg
         /// <summary>
         /// 最快,初期升级非常快，但后期所需经验值大幅增加。
         /// </summary>
-        ​​Erratic​​ = 0,
+        Erratic = 0,
         /// <summary>
         /// 快,整体升级速度较快，达到100级所需的总经验值相对较少。
         /// </summary>
-        ​​Fast​​ = 1,
+        Fast = 1,
         /// <summary>
         /// 较快,升级所需经验值呈平稳的抛物线增长，是最常见的类型之一。
         /// </summary>
-        ​​Medium Fast​​ = 2,
+        MediumFast = 2,
         /// <summary>
         /// 较慢,升级曲线较为复杂，前期和中期升级速度适中。
         /// </summary>
-        ​​Medium Slow​​ = 3,
+        MediumSlow = 3,
         /// <summary>
         /// 慢,整体升级速度较慢，需要积累较多的经验值才能升级。
         /// </summary>
-        ​​Slow​​ = 4,
+        Slow = 4,
         /// <summary>
         /// 最慢,初期升级极慢，但从中期开始升级速度会显著加快
         /// </summary>
-        ​​Fluctuating​​ = 5,
+        Fluctuating = 5,
     }
 
 } 

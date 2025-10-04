@@ -16,7 +16,47 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: febc3200e003d824ba8f91f8c7bb59ab
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 054052e950ba44a3d9244010e20a14b5
+    m_Address: Generate/Luban/tbtypechart.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 05bcf58b4be8947aa9a383cadf590526
+    m_Address: Generate/Luban/tbmap.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 249e82bc2f39d462da0c8d6115f155b0
+    m_Address: Generate/Luban/tbglobal.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d3110340446a41f1b6f752eb7ee5f03
+    m_Address: Generate/Luban/tbpokemon.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bc0f238699034ffdb06fe7c38a3a376
+    m_Address: Generate/Luban/tbmove.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7d3576e7fbe547b396962147a77eef5
+    m_Address: Generate/Luban/tbinstance.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9ff94306ebf14d13b0c6a3e7080a6fd
+    m_Address: Generate/Luban/tbitem.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fd8f1a4cfbf284766bc0a15db196ab04
+    m_Address: Generate/Luban/tbpokemonmove.json
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3831100ea9e3b514898eab932a54f436, type: 2}
   m_SchemaSet:

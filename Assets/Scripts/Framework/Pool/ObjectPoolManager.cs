@@ -16,7 +16,7 @@ namespace TTGJ.Framework
             GameObject res = GetGameObjectByPool(fileName);
             if (res == null)
             {
-                res = await StResources.Instance.Load<GameObject>(path);
+                res = await StResources.Instance.LoadAsync<GameObject>(path);
             }
             return res;
         }

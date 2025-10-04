@@ -12,18 +12,18 @@ namespace TTGJ.Framework
         private string _resourcesPathRoot = Application.dataPath + "/Res/";
         private IResourcesLoader _resourcesLoader;
 
-        public async UniTask<T> Load<T>(string assetPath) where T : UnityEngine.Object
+        public async UniTask<T> LoadAsync<T>(string assetPath) where T : UnityEngine.Object
         {
 
             if (_resourcesLoader != null)
             {
-                return await _resourcesLoader.Load<T>(assetPath);
+                return await _resourcesLoader.LoadAsync<T>(assetPath);
             }
-            return await LoadInEditor<T>(assetPath);
+            return LoadInEditor<T>(assetPath);
 
         }
 
-        private async UniTask<T> LoadInEditor<T>(string assetPath) where T : UnityEngine.Object
+        private T LoadInEditor<T>(string assetPath) where T : UnityEngine.Object
         {
             string[] files = Directory.GetFiles(_resourcesPathRoot + Path.GetDirectoryName(assetPath),
                 Path.GetFileName(assetPath) + ".*");
