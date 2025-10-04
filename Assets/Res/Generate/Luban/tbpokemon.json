@@ -1,0 +1,182 @@
+[
+  {
+    "pokemonId": 1,
+    "name": "妙蛙种子",
+    "image": "pokemon_1",
+    "shiny_Image": "pokemon_shiny_1",
+    "pokemon_Type1": "Grass",
+    "attack": 49,
+    "defense": 49,
+    "hp": 45,
+    "sp_attack": 65,
+    "sp_defense": 65,
+    "speed": 45,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 1,
+    "evolution": {
+      "level": 16,
+      "pokemonID": 2
+    }
+  },
+  {
+    "pokemonId": 2,
+    "name": "妙蛙草",
+    "image": "pokemon_2",
+    "shiny_Image": "pokemon_shiny_2",
+    "pokemon_Type1": "Grass",
+    "attack": 62,
+    "defense": 63,
+    "hp": 60,
+    "sp_attack": 80,
+    "sp_defense": 80,
+    "speed": 60,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 2,
+    "evolution": {
+      "level": 32,
+      "pokemonID": 3
+    }
+  },
+  {
+    "pokemonId": 3,
+    "name": "妙蛙花",
+    "image": "pokemon_3",
+    "shiny_Image": "pokemon_shiny_3",
+    "pokemon_Type1": "Grass",
+    "attack": 100,
+    "defense": 123,
+    "hp": 80,
+    "sp_attack": 122,
+    "sp_defense": 120,
+    "speed": 80,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 3,
+    "evolution": {
+      "level": -1,
+      "pokemonID": -1
+    }
+  },
+  {
+    "pokemonId": 4,
+    "name": "小火龙",
+    "image": "pokemon_4",
+    "shiny_Image": "pokemon_shiny_4",
+    "pokemon_Type1": "Fire",
+    "attack": 52,
+    "defense": 43,
+    "hp": 39,
+    "sp_attack": 60,
+    "sp_defense": 50,
+    "speed": 65,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 1,
+    "evolution": {
+      "level": 16,
+      "pokemonID": 5
+    }
+  },
+  {
+    "pokemonId": 5,
+    "name": "火恐龙",
+    "image": "pokemon_5",
+    "shiny_Image": "pokemon_shiny_5",
+    "pokemon_Type1": "Fire",
+    "attack": 64,
+    "defense": 58,
+    "hp": 58,
+    "sp_attack": 80,
+    "sp_defense": 65,
+    "speed": 80,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 2,
+    "evolution": {
+      "level": 32,
+      "pokemonID": 6
+    }
+  },
+  {
+    "pokemonId": 6,
+    "name": "喷火龙",
+    "image": "pokemon_6",
+    "shiny_Image": "pokemon_shiny_6",
+    "pokemon_Type1": "Fire",
+    "attack": 104,
+    "defense": 78,
+    "hp": 78,
+    "sp_attack": 159,
+    "sp_defense": 115,
+    "speed": 100,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 3,
+    "evolution": {
+      "level": -1,
+      "pokemonID": -1
+    }
+  },
+  {
+    "pokemonId": 7,
+    "name": "杰尼龟",
+    "image": "pokemon_7",
+    "shiny_Image": "pokemon_shiny_7",
+    "pokemon_Type1": "Water",
+    "attack": 48,
+    "defense": 65,
+    "hp": 44,
+    "sp_attack": 50,
+    "sp_defense": 64,
+    "speed": 43,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 1,
+    "evolution": {
+      "level": 16,
+      "pokemonID": 8
+    }
+  },
+  {
+    "pokemonId": 8,
+    "name": "卡咪龟",
+    "image": "pokemon_8",
+    "shiny_Image": "pokemon_shiny_8",
+    "pokemon_Type1": "Water",
+    "attack": 63,
+    "defense": 80,
+    "hp": 59,
+    "sp_attack": 65,
+    "sp_defense": 80,
+    "speed": 58,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 2,
+    "evolution": {
+      "level": 32,
+      "pokemonID": 9
+    }
+  },
+  {
+    "pokemonId": 9,
+    "name": "水箭龟",
+    "image": "pokemon_9",
+    "shiny_Image": "pokemon_shiny_9",
+    "pokemon_Type1": "Water",
+    "attack": 103,
+    "defense": 120,
+    "hp": 79,
+    "sp_attack": 135,
+    "sp_defense": 115,
+    "speed": 78,
+    "capture_rate": 45,
+    "base_happiness": "",
+    "experience_growth": 3,
+    "evolution": {
+      "level": -1,
+      "pokemonID": -1
+    }
+  }
+]

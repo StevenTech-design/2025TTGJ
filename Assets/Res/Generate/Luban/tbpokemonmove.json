@@ -1,0 +1,416 @@
+[
+  {
+    "pokemonId": 1,
+    "name": "妙蛙种子",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 20
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 2,
+    "name": "妙蛙草",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 3,
+    "name": "妙蛙花",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 4,
+    "name": "小火龙",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 23
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 5,
+    "name": "火恐龙",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 24
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 6,
+    "name": "喷火龙",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 25
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 7,
+    "name": "杰尼龟",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 26
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 8,
+    "name": "卡咪龟",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 27
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  },
+  {
+    "pokemonId": 9,
+    "name": "水箭龟",
+    "lowSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 28
+      }
+    ],
+    "mediumSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 21
+      }
+    ],
+    "highSkill": [
+      {
+        "skillID": 1001,
+        "probability": 40
+      },
+      {
+        "skillID": 1003,
+        "probability": 40
+      },
+      {
+        "skillID": 1006,
+        "probability": 22
+      }
+    ]
+  }
+]

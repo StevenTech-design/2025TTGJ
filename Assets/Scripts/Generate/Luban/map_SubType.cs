@@ -9,26 +9,25 @@
 
 
 
-namespace cfg.test
+namespace cfg
 { 
-    public enum ETestQuality
+    /// <summary>
+    /// 副本子类型
+    /// </summary>
+    public enum map_SubType
     {
         /// <summary>
-        /// 最高品质
+        /// 简单宝可梦
         /// </summary>
-        A = 1,
+        pokemon = 0,
         /// <summary>
-        /// 黑色的
+        /// boss宝可梦
         /// </summary>
-        B = 2,
+        bossPokemon = 1,
         /// <summary>
-        /// 蓝色的
+        /// npc对战
         /// </summary>
-        C = 3,
-        /// <summary>
-        /// 最差品质
-        /// </summary>
-        D = 4,
+        npc = 2,
     }
 
 } 

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1001,
+    "name": "金币",
+    "itemTips": "游戏内基础货币",
+    "sourceTips": "",
+    "type": 1,
+    "subType": 0,
+    "icon": 1001,
+    "model": "",
+    "quality": 0,
+    "operate": "",
+    "useParam": "",
+    "overlying": -1,
+    "sortId": 0
+  },
+  {
+    "id": 11001,
+    "name": "木头",
+    "itemTips": "建筑材料",
+    "sourceTips": "伐木场获得",
+    "type": 2,
+    "subType": 0,
+    "icon": 11001,
+    "model": "",
+    "quality": 0,
+    "operate": "%s售出",
+    "useParam": "1#1001#10",
+    "overlying": 999,
+    "sortId": 10
+  },
+  {
+    "id": 11002,
+    "name": "石头",
+    "itemTips": "建筑材料",
+    "sourceTips": "采石场获得",
+    "type": 2,
+    "subType": 0,
+    "icon": 11002,
+    "model": "",
+    "quality": 0,
+    "operate": "%s售出",
+    "useParam": "1#1001#20",
+    "overlying": 10,
+    "sortId": 10
+  },
+  {
+    "id": 21001,
+    "name": "测试不同类型",
+    "itemTips": "测试不同类型",
+    "sourceTips": "测试不同类型",
+    "type": 3,
+    "subType": 0,
+    "icon": 21001,
+    "model": "",
+    "quality": 4,
+    "operate": "%s售出",
+    "useParam": "1#1001#999",
+    "overlying": 999,
+    "sortId": 30
+  }
+]

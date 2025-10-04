@@ -1,0 +1,134 @@
+[
+  {
+    "id": 1001,
+    "name": "经典-1001",
+    "map_Type": 1,
+    "map_SubType": 1,
+    "lv": [
+      1,
+      2
+    ],
+    "shield": 0,
+    "coin": [
+      100200
+    ],
+    "startStoty": 0,
+    "jumpMap": false,
+    "endStoty": 0,
+    "reward": [
+      [
+        1001,
+        10
+      ],
+      [
+        2001,
+        30
+      ]
+    ]
+  },
+  {
+    "id": 1002,
+    "name": "经典-1002",
+    "map_Type": 1,
+    "map_SubType": 1,
+    "lv": [
+      2,
+      3
+    ],
+    "shield": 0,
+    "coin": [
+      100200
+    ],
+    "startStoty": 0,
+    "jumpMap": false,
+    "endStoty": 0,
+    "reward": [
+      [
+        1001,
+        10
+      ],
+      [
+        2001,
+        31
+      ]
+    ]
+  },
+  {
+    "id": 1003,
+    "name": "经典-1003",
+    "map_Type": 1,
+    "map_SubType": 1,
+    "lv": [
+      2,
+      3
+    ],
+    "shield": 0,
+    "coin": [
+      100200
+    ],
+    "startStoty": 0,
+    "jumpMap": true,
+    "endStoty": 0,
+    "reward": [
+      [
+        1001,
+        10
+      ],
+      [
+        2001,
+        32
+      ]
+    ]
+  },
+  {
+    "id": 1004,
+    "name": "经典-1004",
+    "map_Type": 1,
+    "map_SubType": 1,
+    "lv": [
+      2,
+      4
+    ],
+    "shield": 0,
+    "coin": [
+      100200
+    ],
+    "startStoty": 0,
+    "jumpMap": false,
+    "endStoty": 0,
+    "reward": [
+      [
+        1001,
+        10
+      ],
+      [
+        2001,
+        33
+      ]
+    ]
+  },
+  {
+    "id": 1006,
+    "name": "经典-1006",
+    "map_Type": 1,
+    "map_SubType": 2,
+    "lv": [],
+    "shield": 2,
+    "coin": [
+      100200
+    ],
+    "startStoty": 0,
+    "jumpMap": false,
+    "endStoty": 0,
+    "reward": [
+      [
+        1001,
+        10
+      ],
+      [
+        2001,
+        34
+      ]
+    ]
+  }
+]
