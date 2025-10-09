@@ -23,7 +23,7 @@ public class SkillCard : MonoBehaviour
     private async void RefreshData(){
         skillCost.text = skillData.Cost.ToString();
         skillName.text = skillData.Name;
-        skillQuality.sprite = await StResources.Instance.LoadAsync<Sprite>(skillData.Quality);
+        skillQuality.sprite = await StResources.Instance.LoadAsync<Sprite>(skillData.Quality.ToString());
         skillDescription.text = skillData.MoveTips;
     }
 }
