@@ -78,6 +78,36 @@ namespace TTGJ.Battle
 			return entity;
 		}
 
+        // 新增：泛型工厂，支持直接创建 AIPokemonEntity 等子类
+        public static T CreateFromConfig<T>(int pokemonId, int seed = 0, int initActionPoint = 1) where T : PokemonEntity, new()
+        {
+            var cfgPokemon = LubanManager.Instance.GetPokemon(pokemonId);
+            if (cfgPokemon == null) throw new Exception($"PokemonEntity: 未找到 pokemonId={pokemonId} 的配置。");
+
+            var entity = new T();
+            if (seed != 0)
+            {
+                entity._rng = new System.Random(seed);
+            }
+
+            entity.Id = cfgPokemon.PokemonId;
+            entity.Name = cfgPokemon.Name;
+
+            entity.BaseAttack = cfgPokemon.Attack;
+            entity.BaseDefense = cfgPokemon.Defense;
+            entity.BaseSpAttack = cfgPokemon.SpAttack;
+            entity.BaseSpDefense = cfgPokemon.SpDefense;
+            entity.BaseSpeed = cfgPokemon.Speed;
+            entity.BaseHP = cfgPokemon.Hp;
+
+            entity.MaxHP = Mathf.Max(1, entity.BaseHP);
+            entity.HP = entity.MaxHP;
+            entity.Shield = 0;
+            entity.ActionPoint = Mathf.Max(0, initActionPoint);
+
+            return entity;
+        }
+
 		// 用一组 moveId 配置招式（从 Luban 取）
 		public void SetMovesByIds(IEnumerable<int> moveIds, int maxCount = 4)
 		{

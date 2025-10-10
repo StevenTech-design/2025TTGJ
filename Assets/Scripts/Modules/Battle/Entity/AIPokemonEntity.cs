@@ -24,10 +24,13 @@ namespace TTGJ.Battle
                 skills = LubanManager.Instance.GetPokemonMove(Id).HighSkill;
             }
             int random = Random.Range(0, 100);
-            foreach (var skill in skills) {
-                if(random < skill.Probability) {
+            foreach (var skill in skills)
+            {
+                if (random < skill.Probability)
+                {
                     return LubanManager.Instance.GetMove(skill.SkillID);
                 }
+                random -= skill.Probability;
             }
             return null;
         }
