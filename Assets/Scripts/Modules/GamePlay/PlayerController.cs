@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TTGJ.Plant;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -70,6 +71,22 @@ namespace TTGJ.GamePlay
                 }
             }
             _currentHeight = 0;
+        }
+
+        public void ToPlant(Field field) { 
+            GameObject[] plants = _liftQueue.ToArray();
+            PlantBase targetPlant = null;
+            foreach (var plant in plants) { 
+                if(!plant.TryGetComponent<PlantBase>(out var plantBase)) { 
+                    continue;
+                }
+                targetPlant = plantBase;
+                break;
+            }
+            if(targetPlant == null) return;
+            GameObject seed = GameObject.Instantiate(targetPlant.gameObject);
+            seed.GetComponent<Collider>().enabled = true;
+            field.ToToPlanting(seed.GetComponent<PlantBase>());
         }
     }
 }

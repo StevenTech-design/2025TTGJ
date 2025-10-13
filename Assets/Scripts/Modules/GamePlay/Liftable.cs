@@ -10,11 +10,14 @@ namespace TTGJ.GamePlay
         protected bool isLiftable = true;
         protected Collider collider;
         protected Rigidbody rigidbody;
+        private void Awake() {
+            Initialize();
+        }
 
         public virtual bool IsLiftable() { return isLiftable; }
         public virtual void OnLift()
         {
-            Initialize();
+
             collider.enabled = false;
             rigidbody.isKinematic = true;
             isLiftable = false;

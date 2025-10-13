@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace TTGJ.Plant
 {
-    public class GhostPumpkin : Plant
+    public class GhostPumpkin : PlantBase
     {
         [SerializeField]
         private float intervalTimer = 0.5f;
@@ -22,7 +22,7 @@ namespace TTGJ.Plant
             currentTime = Time.time;
         }
         private void OnTriggerStay(Collider other) {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Building") || other.CompareTag("Field"))
             { 
                 return;
             }
@@ -32,6 +32,7 @@ namespace TTGJ.Plant
             }
             if (Time.time - currentTime >= intervalTimer) {
                 Bounce(other.gameObject);
+                Debug.Log("Bouncing pumpkin"+other.gameObject.name);
                 currentTime = Time.time;
             }
         }

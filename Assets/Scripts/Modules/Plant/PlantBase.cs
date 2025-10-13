@@ -7,9 +7,9 @@ namespace TTGJ.Plant
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
-    public class Plant :Liftable, ITeleport
+    public class PlantBase :Liftable, ITeleport
     {
-        public PlantState currentState = PlantState.Seed;
+        protected PlantState currentState = PlantState.Seed;
         [SerializeField]
         protected int growthTime = 10;
         protected int currentGrowthTime = 0;
@@ -41,7 +41,9 @@ namespace TTGJ.Plant
         }
         public virtual void OnHarvest()
         {
-
+            collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
+            collider.excludeLayers += 1 << LayerMask.NameToLayer("Default");
+            rigidbody.isKinematic = false;
         }
         public virtual void ChangeState(PlantState state)
         {
@@ -63,13 +65,21 @@ namespace TTGJ.Plant
 
         public virtual void OnTeleport()
         {
-
+            collider.isTrigger = false;
+            rigidbody.isKinematic = false;
+            collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
+            collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
         }
 
         public virtual void OnMature()
         {
+            collider.enabled = true;
             collider.isTrigger = true;
             rigidbody.isKinematic = true;
+        }
+        public PlantState GetCurrentState()
+        {
+            return currentState;
         }
 
         private void Update()
