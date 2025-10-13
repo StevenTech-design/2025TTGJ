@@ -1,54 +1,56 @@
 using System.Collections;
-
+using TTGJ.GamePlay;
 using TTGJ.Teleport;
 using UnityEngine;
 
 namespace TTGJ.Plant
 {
-    public class Plant : MonoBehaviour,ITeleport
+    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Rigidbody))]
+    public class Plant :Liftable, ITeleport
     {
         public PlantState currentState = PlantState.Seed;
         [SerializeField]
         protected int growthTime = 10;
-        [SerializeField]
-        protected Collider plantCollider;
         protected int currentGrowthTime = 0;
         protected Coroutine growthCoroutine;
-
-
-        private void Start() { 
-            growthCoroutine = StartCoroutine(Growth());
-        }
-
-
-        public virtual void OnWatering() {
+        public virtual void OnWatering()
+        {
             ++currentGrowthTime;
-            if (growthCoroutine != null && CheckGrowthFinish()) { 
+            if (growthCoroutine != null && CheckGrowthFinish())
+            {
                 StopCoroutine(growthCoroutine);
                 growthCoroutine = null;
                 ChangeState(PlantState.Mature);
                 return;
             }
         }
-        protected virtual bool CheckGrowthFinish(){
+        protected virtual bool CheckGrowthFinish()
+        {
             return currentGrowthTime >= growthTime;
         }
-        private IEnumerator Growth() { 
-            while (!CheckGrowthFinish()) { 
+        private IEnumerator Growth()
+        {
+            while (!CheckGrowthFinish())
+            {
                 currentGrowthTime++;
                 yield return new WaitForSeconds(1);
             }
             ChangeState(PlantState.Mature);
             growthCoroutine = null;
-            Debug.Log("Plant is mature");
         }
         public virtual void OnHarvest()
         {
-            
+
         }
-        public virtual void ChangeState(PlantState state) { 
+        public virtual void ChangeState(PlantState state)
+        {
             currentState = state;
-            switch (state) { 
+            switch (state)
+            {
+                case PlantState.Germination:
+                    growthCoroutine = StartCoroutine(Growth());
+                    break;
                 case PlantState.Mature:
                     OnMature();
                     break;
@@ -61,13 +63,25 @@ namespace TTGJ.Plant
 
         public virtual void OnTeleport()
         {
-            
+
         }
 
         public virtual void OnMature()
         {
-            
+            collider.isTrigger = true;
+            rigidbody.isKinematic = true;
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                ChangeState(PlantState.Mature);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                ChangeState(PlantState.Harvest);
+            }
+        }
     }
 }
