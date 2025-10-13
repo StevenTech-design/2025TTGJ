@@ -11,7 +11,7 @@ namespace TTGJ.GamePlay
         protected Collider collider;
         protected Rigidbody rigidbody;
 
-        protected virtual bool IsLiftable() { return isLiftable; }
+        public virtual bool IsLiftable() { return isLiftable; }
         public virtual void OnLift()
         {
             Initialize();
