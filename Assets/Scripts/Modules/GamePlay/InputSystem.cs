@@ -14,10 +14,10 @@ namespace TTGJ.GamePlay
         private float rayDistance = 1f;
 
         private Vector3 GetPlayerOffsetForward() { 
-            return player.transform.forward + new Vector3(0, 0.5f, 0);
+            return player.transform.forward + new Vector3(0, 0.2f, 0);
         }
         private Vector3 GetPlayerOffsetPosition() { 
-            return player.transform.position + new Vector3(0, 0.5f, 0);
+            return player.transform.position + new Vector3(0, 0.2f, 0);
         }
 
         private void Update()
@@ -46,7 +46,7 @@ namespace TTGJ.GamePlay
                     plantBase.ChangeState(PlantState.Harvest);
                     return;
                 }
-                if(plantBase.GetCurrentState() != PlantState.Seed) { 
+                if(plantBase != null && plantBase.GetCurrentState() != PlantState.Seed || plantBase.GetCurrentState() != PlantState.Harvest) { 
                     Debug.Log("Plant is not seed, cannot lift");
                     return;
                 }

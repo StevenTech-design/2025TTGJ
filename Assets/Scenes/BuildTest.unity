@@ -803,7 +803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524428345}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 545248792}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1124,7 +1124,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1451,7 +1451,7 @@ GameObject:
   - component: {fileID: 1222820981}
   - component: {fileID: 1222820983}
   - component: {fileID: 1222820984}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TeleportCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,7 +1555,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1405663216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TeleportTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

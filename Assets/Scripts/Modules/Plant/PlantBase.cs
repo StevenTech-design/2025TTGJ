@@ -7,7 +7,7 @@ namespace TTGJ.Plant
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
-    public class PlantBase :Liftable, ITeleport
+    public class PlantBase : Liftable, ITeleport
     {
         protected PlantState currentState = PlantState.Seed;
         [SerializeField]
@@ -41,6 +41,7 @@ namespace TTGJ.Plant
         }
         public virtual void OnHarvest()
         {
+            collider.isTrigger = false;
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Default");
             rigidbody.isKinematic = false;
@@ -69,6 +70,7 @@ namespace TTGJ.Plant
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
+            transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.up * 5;
         }
 
         public virtual void OnMature()
@@ -82,16 +84,9 @@ namespace TTGJ.Plant
             return currentState;
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                ChangeState(PlantState.Mature);
-            }
-            else if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                ChangeState(PlantState.Harvest);
-            }
+        public virtual void SpecialAction(PlantSpacialParam param)
+        { 
+            
         }
     }
 }

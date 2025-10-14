@@ -7,4 +7,12 @@ namespace TTGJ.Plant
         Mature = 2,
         Harvest = 3,
     }
+    public class PlantSpacialParam
+    {
+
+    }
+    public class PlantSpacialParam<T> : PlantSpacialParam
+    {
+        public T param;
+    }
 }

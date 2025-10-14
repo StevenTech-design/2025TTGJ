@@ -11,7 +11,7 @@ namespace TTGJ.Npc
         {
             GameObject ghostPumpkin = Instantiate(ghostPumpkinPrefab);
             ghostPumpkin.SetActive(true);
-            ghostPumpkin.transform.position = transform.forward *2 + transform.position;
+            ghostPumpkin.transform.position = transform.right * 2 + transform.position;
         }
     }
 }

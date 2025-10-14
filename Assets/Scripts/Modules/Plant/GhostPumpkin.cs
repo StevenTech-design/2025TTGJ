@@ -31,13 +31,17 @@ namespace TTGJ.Plant
                 return;
             }
             if (Time.time - currentTime >= intervalTimer) {
-                Bounce(other.gameObject);
+                SpecialAction(new PlantSpacialParam<GameObject> { param = other.gameObject });
                 Debug.Log("Bouncing pumpkin"+other.gameObject.name);
                 currentTime = Time.time;
             }
         }
-        private void Bounce(GameObject gameObject) { 
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.left * bounceForce, ForceMode.Impulse);
+        public override void SpecialAction(PlantSpacialParam param) { 
+            if (!(param is PlantSpacialParam<GameObject> plantSpacialParam))
+            {
+                return;
+            }
+            plantSpacialParam.param.GetComponent<Rigidbody>().AddForce(Vector3.left * bounceForce, ForceMode.Impulse);
         }
     }
 }
