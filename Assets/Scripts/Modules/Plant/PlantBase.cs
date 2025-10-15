@@ -16,6 +16,7 @@ namespace TTGJ.Plant
         protected Coroutine growthCoroutine;
         public virtual void OnWatering()
         {
+            Debug.Log("OnWatering");
             ++currentGrowthTime;
             if (growthCoroutine != null && CheckGrowthFinish())
             {
@@ -24,6 +25,13 @@ namespace TTGJ.Plant
                 ChangeState(PlantState.Mature);
                 return;
             }
+            
+            if (currentState != PlantState.Mature)
+            {
+                return;
+            }
+            
+            transform.localScale *= 1.2f;
         }
         protected virtual bool CheckGrowthFinish()
         {
@@ -33,7 +41,7 @@ namespace TTGJ.Plant
         {
             while (!CheckGrowthFinish())
             {
-                currentGrowthTime++;
+                ++currentGrowthTime;
                 yield return new WaitForSeconds(1);
             }
             ChangeState(PlantState.Mature);
@@ -61,7 +69,6 @@ namespace TTGJ.Plant
                     OnHarvest();
                     break;
             }
-            Debug.Log("Plant state is " + state);
         }
 
         public virtual void OnTeleport()
@@ -71,6 +78,7 @@ namespace TTGJ.Plant
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
             transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.up * 5;
+            transform.localScale = Vector3.one;
         }
 
         public virtual void OnMature()

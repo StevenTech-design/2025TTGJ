@@ -42,12 +42,11 @@ namespace TTGJ.GamePlay
                     return;
                 }
                 if (hit.collider.gameObject.TryGetComponent<PlantBase>(out var plantBase) && plantBase.GetCurrentState() == PlantState.Mature) { 
-                    Debug.Log("Mature plant, harvest");
                     plantBase.ChangeState(PlantState.Harvest);
                     return;
                 }
-                if(plantBase != null && plantBase.GetCurrentState() != PlantState.Seed || plantBase.GetCurrentState() != PlantState.Harvest) { 
-                    Debug.Log("Plant is not seed, cannot lift");
+                
+                if(plantBase != null && (plantBase.GetCurrentState() == PlantState.Germination || plantBase.GetCurrentState() == PlantState.Mature)) { 
                     return;
                 }
                 if (hit.collider.gameObject.TryGetComponent<Liftable>(out var liftable)) { 

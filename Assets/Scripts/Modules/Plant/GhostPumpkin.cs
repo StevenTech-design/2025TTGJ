@@ -32,7 +32,6 @@ namespace TTGJ.Plant
             }
             if (Time.time - currentTime >= intervalTimer) {
                 SpecialAction(new PlantSpacialParam<GameObject> { param = other.gameObject });
-                Debug.Log("Bouncing pumpkin"+other.gameObject.name);
                 currentTime = Time.time;
             }
         }
