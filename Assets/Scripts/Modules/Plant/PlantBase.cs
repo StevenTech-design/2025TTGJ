@@ -1,6 +1,6 @@
 using System.Collections;
 using TTGJ.GamePlay;
-using TTGJ.Teleport;
+using TTGJ.Item;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -80,6 +80,8 @@ namespace TTGJ.Plant
             transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.up * 5;
             transform.localScale = Vector3.one;
         }
+
+
 
         public virtual void OnMature()
         {

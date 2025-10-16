@@ -8,7 +8,7 @@ namespace TTGJ.GamePlay
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
-        private float speed = 3.5f;
+        public float speed = 3.5f;
         [SerializeField]
         private float dropForce = 10;
         [SerializeField]

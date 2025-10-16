@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TTGJ.Teleport
+namespace TTGJ.Item
 {
     public class Teleport : MonoBehaviour
     {

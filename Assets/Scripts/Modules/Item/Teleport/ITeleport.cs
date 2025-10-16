@@ -1,4 +1,4 @@
-namespace TTGJ.Teleport
+namespace TTGJ.Item
 {
     public interface ITeleport
     {
