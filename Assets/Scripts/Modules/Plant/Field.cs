@@ -4,7 +4,6 @@ namespace TTGJ.Plant
     public class Field : MonoBehaviour
     {
         private bool isPlanted = false;
-
         public void ToToPlanting(PlantBase plant)
         {
             isPlanted = true;
@@ -16,6 +15,10 @@ namespace TTGJ.Plant
         public bool IsPlanted()
         {
             return isPlanted;
+        }
+        public void ToOccupied()
+        {
+            isPlanted = true;
         }
         public void OnHarvest()
         {
