@@ -1,3 +1,4 @@
+using UnityEngine;
 namespace TTGJ.Buff
 {
     public class BuffBase : MonoBehaviour
@@ -18,8 +19,8 @@ namespace TTGJ.Buff
             Destroy(this);
         }
         protected virtual void OnBuffUpdate(float remainingTime)
-        { 
-            
+        {
+
         }
     }
 }

@@ -18,9 +18,9 @@ namespace TTGJ.Framework.Timer
             int timerId = GetNextTimerId();
             var timerTask = new TimerTask(timerId, duration, onComplete, onUpdate, loop);
             _timerTasks[timerId] = timerTask;
-            
+
             ExecuteTimer(timerTask).Forget();
-            
+
             return timerId;
         }
 
@@ -106,19 +106,19 @@ namespace TTGJ.Framework.Timer
                 do
                 {
                     await task.Execute();
-                    
+
                     if (task.IsCompleted && !task.Loop)
                     {
                         break;
                     }
-                    
+
                     if (task.Loop)
                     {
                         task.Reset();
                     }
-                    
+
                 } while (task.Loop && !task.IsCancelled);
-                
+
                 if (_timerTasks.ContainsKey(task.Id))
                 {
                     _timerTasks.Remove(task.Id);
@@ -135,96 +135,97 @@ namespace TTGJ.Framework.Timer
 
         #endregion
 
-    public class TimerTask
-    {
-        public int Id { get; private set; }
-        public float Duration { get; private set; }
-        public bool Loop { get; private set; }
-        public bool IsCompleted { get; private set; }
-        public bool IsCancelled { get; private set; }
-        public bool IsPaused { get; private set; }
-
-        private Action _onComplete;
-        private Action<float> _onUpdate;
-        private CancellationTokenSource _cancellationTokenSource;
-        private float _elapsedTime;
-        private float _pauseStartTime;
-
-        public TimerTask(int id, float duration, Action onComplete, Action<float> onUpdate = null, bool loop = false)
+        public class TimerTask
         {
-            Id = id;
-            Duration = duration;
-            Loop = loop;
-            _onComplete = onComplete;
-            _onUpdate = onUpdate;
-            _cancellationTokenSource = new CancellationTokenSource();
-            Reset();
-        }
+            public int Id { get; private set; }
+            public float Duration { get; private set; }
+            public bool Loop { get; private set; }
+            public bool IsCompleted { get; private set; }
+            public bool IsCancelled { get; private set; }
+            public bool IsPaused { get; private set; }
 
-        public async UniTask Execute()
-        {
-            _elapsedTime = 0f;
-            IsCompleted = false;
+            private Action _onComplete;
+            private Action<float> _onUpdate;
+            private CancellationTokenSource _cancellationTokenSource;
+            private float _elapsedTime;
+            private float _pauseStartTime;
 
-            while (_elapsedTime < Duration && !IsCancelled)
+            public TimerTask(int id, float duration, Action onComplete, Action<float> onUpdate = null, bool loop = false)
+            {
+                Id = id;
+                Duration = duration;
+                Loop = loop;
+                _onComplete = onComplete;
+                _onUpdate = onUpdate;
+                _cancellationTokenSource = new CancellationTokenSource();
+                Reset();
+            }
+
+            public async UniTask Execute()
+            {
+                _elapsedTime = 0f;
+                IsCompleted = false;
+
+                while (_elapsedTime < Duration && !IsCancelled)
+                {
+                    if (!IsPaused)
+                    {
+                        _elapsedTime += Time.deltaTime;
+
+                        _onUpdate?.Invoke(GetRemainingTime());
+                    }
+
+                    await UniTask.Yield(_cancellationTokenSource.Token);
+                }
+
+                if (!IsCancelled)
+                {
+                    IsCompleted = true;
+                    _onComplete?.Invoke();
+                }
+            }
+
+            public void Cancel()
+            {
+                IsCancelled = true;
+                _cancellationTokenSource?.Cancel();
+                _cancellationTokenSource?.Dispose();
+                _cancellationTokenSource = null;
+            }
+
+            public void Pause()
             {
                 if (!IsPaused)
                 {
-                    _elapsedTime += Time.deltaTime;
-                    
-                    _onUpdate?.Invoke(GetRemainingTime());
+                    IsPaused = true;
+                    _pauseStartTime = Time.time;
                 }
-
-                await UniTask.Yield(_cancellationTokenSource.Token);
             }
 
-            if (!IsCancelled)
+            public void Resume()
             {
-                IsCompleted = true;
-                _onComplete?.Invoke();
+                if (IsPaused)
+                {
+                    IsPaused = false;
+                }
             }
-        }
 
-        public void Cancel()
-        {
-            IsCancelled = true;
-            _cancellationTokenSource?.Cancel();
-            _cancellationTokenSource?.Dispose();
-            _cancellationTokenSource = null;
-        }
-
-        public void Pause()
-        {
-            if (!IsPaused)
+            public void Reset()
             {
-                IsPaused = true;
-                _pauseStartTime = Time.time;
-            }
-        }
-
-        public void Resume()
-        {
-            if (IsPaused)
-            {
+                _elapsedTime = 0f;
+                IsCompleted = false;
                 IsPaused = false;
             }
-        }
 
-        public void Reset()
-        {
-            _elapsedTime = 0f;
-            IsCompleted = false;
-            IsPaused = false;
-        }
+            public float GetRemainingTime()
+            {
+                return Mathf.Max(0f, Duration - _elapsedTime);
+            }
 
-        public float GetRemainingTime()
-        {
-            return Mathf.Max(0f, Duration - _elapsedTime);
-        }
-
-        public float GetProgress()
-        {
-            return Mathf.Clamp01(_elapsedTime / Duration);
+            public float GetProgress()
+            {
+                return Mathf.Clamp01(_elapsedTime / Duration);
+            }
         }
     }
 }
