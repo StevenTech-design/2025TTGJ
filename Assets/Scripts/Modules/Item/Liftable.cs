@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TTGJ.GamePlay
+namespace TTGJ.Item
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]

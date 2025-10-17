@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using TTGJ.GamePlay;
 using TTGJ.Item;
 using UnityEngine;
@@ -7,45 +9,35 @@ namespace TTGJ.Plant
 {
     [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
-    public class PlantBase : Liftable, ITeleport
+    public class PlantBase : Liftable, ITeleport, IDyeingable
     {
         protected PlantState currentState = PlantState.Seed;
+        [Tooltip("unit: millisecond")]
         [SerializeField]
-        protected int growthTime = 10;
-        protected int currentGrowthTime = 0;
-        protected Coroutine growthCoroutine;
-        public virtual void OnWatering()
+        protected int growthTime = 1000; 
+        [SerializeField]
+        protected int [] growthScale = { 1, 3,3, 5, 5 };
+        protected int currentGrouthCount = 0;
+        public async virtual void OnWatering()
         {
+            if(currentGrouthCount >= growthScale.Length) {
+                return;
+            }
+            if (!FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos,
+                                                growthScale[currentGrouthCount - 1],
+                                                growthScale[currentGrouthCount - 2]))
+            {
+                return;
+            }
             Debug.Log("OnWatering");
-            ++currentGrowthTime;
-            if (growthCoroutine != null && CheckGrowthFinish())
-            {
-                StopCoroutine(growthCoroutine);
-                growthCoroutine = null;
+            await UniTask.Delay(growthTime);
+            Debug.Log("Watering: Finished");
+            ++currentGrouthCount;
+            transform.localScale *= growthScale[currentGrouthCount - 1];
+            if (currentState == PlantState.Germination)
+            { 
                 ChangeState(PlantState.Mature);
-                return;
             }
-            
-            if (currentState != PlantState.Mature)
-            {
-                return;
-            }
-            
-            transform.localScale *= 1.2f;
-        }
-        protected virtual bool CheckGrowthFinish()
-        {
-            return currentGrowthTime >= growthTime;
-        }
-        private IEnumerator Growth()
-        {
-            while (!CheckGrowthFinish())
-            {
-                ++currentGrowthTime;
-                yield return new WaitForSeconds(1);
-            }
-            ChangeState(PlantState.Mature);
-            growthCoroutine = null;
         }
         public virtual void OnHarvest()
         {
@@ -60,7 +52,7 @@ namespace TTGJ.Plant
             switch (state)
             {
                 case PlantState.Germination:
-                    growthCoroutine = StartCoroutine(Growth());
+                    OnGermination();
                     break;
                 case PlantState.Mature:
                     OnMature();
@@ -81,7 +73,12 @@ namespace TTGJ.Plant
             transform.localScale = Vector3.one;
         }
 
-
+        public virtual void OnGermination()
+        {
+            collider.enabled = true;
+            collider.isTrigger = false;
+            rigidbody.isKinematic = true;
+        }
 
         public virtual void OnMature()
         {
@@ -97,6 +94,11 @@ namespace TTGJ.Plant
         public virtual void SpecialAction(PlantSpacialParam param)
         { 
             
+        }
+
+        public void Dyeing(Color color)
+        {
+            Debug.Log("Dyeing: " + color);
         }
     }
 }

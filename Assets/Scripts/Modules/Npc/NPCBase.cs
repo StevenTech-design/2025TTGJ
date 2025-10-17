@@ -1,5 +1,5 @@
-using TTGJ.GamePlay;
 using UnityEngine;
+using TTGJ.Item;
 
 namespace TTGJ.Npc
 {
