@@ -2,6 +2,7 @@ using UnityEngine;
 using TTGJ.Plant;
 using TTGJ.Npc;
 using TTGJ.Framework;
+using TTGJ.Item;
 
 namespace TTGJ.GamePlay
 {
