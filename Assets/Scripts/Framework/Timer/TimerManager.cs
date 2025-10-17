@@ -132,6 +132,7 @@ namespace TTGJ.Framework.Timer
                 }
             }
         }
+    }
 
         #endregion
 

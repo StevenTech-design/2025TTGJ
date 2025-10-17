@@ -1,3 +1,4 @@
+using UnityEngine;
 namespace TTGJ.Buff
 {
     public class BuffBase : MonoBehaviour
