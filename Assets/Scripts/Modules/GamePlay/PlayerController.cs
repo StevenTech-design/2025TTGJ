@@ -54,6 +54,7 @@ namespace TTGJ.GamePlay
             float height = targetHeight / 2 + _currentHeight;
             Debug.Log("height: " + height);
             target.transform.localPosition = new Vector3(0, height, 0);
+            target.transform.localRotation = Quaternion.identity;
             _currentHeight += targetHeight + listOffset;
         }
 
