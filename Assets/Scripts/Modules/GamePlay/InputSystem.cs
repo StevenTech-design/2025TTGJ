@@ -81,17 +81,24 @@ namespace TTGJ.GamePlay
             Ray forwardRay = new Ray(GetPlayerOffsetPosition(), GetPlayerOffsetForward());
             if (Physics.Raycast(forwardRay, out RaycastHit hit, rayDistance, pickableLayers))
             {
-                if (hit.collider.gameObject.TryGetComponent<NPCBase>(out var npc)) { 
-                    npc.OnInteract();
-                    Debug.Log("Interacting with NPC");
-                    return;
-                }
-                if (hit.collider.gameObject.TryGetComponent<PlantBase>(out var plant) 
-                                && plant.GetCurrentState() == PlantState.Mature 
-                                || plant.GetCurrentState() == PlantState.Germination) { 
-                    plant.OnWatering();
-                    Debug.Log("Watering plant");
-                    return;
+
+                if (hit.collider != null)
+                {
+                    
+                
+                    if (hit.collider.gameObject.TryGetComponent<NPCBase>(out var npc)) { 
+                        npc.OnInteract();
+                        Debug.Log("Interacting with NPC");
+                        return;
+                    }
+                    if (hit.collider.gameObject.TryGetComponent<PlantBase>(out var plant) 
+                                    && (plant.GetCurrentState() == PlantState.Mature 
+                                    || plant.GetCurrentState() == PlantState.Germination)) { 
+                        plant.OnWatering();
+                        Debug.Log("Watering plant");
+                        return;
+                    }
+                
                 }
                 
 
