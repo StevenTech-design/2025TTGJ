@@ -35,14 +35,19 @@ namespace TTGJ.GamePlay
             transform.rotation = Quaternion.LookRotation(direction);
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
+
         public void ToLift(GameObject target)
         {
             float targetHeight = 0;
             if (target.TryGetComponent<Collider>(out var collider))
             {
-                targetHeight = collider.bounds.size.y;
                 collider.enabled = false;
             }
+            if (target.TryGetComponent<MeshFilter>(out var filter))
+            {
+                targetHeight = filter.sharedMesh.bounds.size.y * target.transform.localScale.y;
+            }
+
             if(target.TryGetComponent<Liftable>(out var liftable))
             {
                 liftable.OnLift();
@@ -52,7 +57,7 @@ namespace TTGJ.GamePlay
 
             target.transform.SetParent(liftArea);
             float height = targetHeight / 2 + _currentHeight;
-            Debug.Log("height: " + height);
+            target.transform.localRotation = Quaternion.identity;
             target.transform.localPosition = new Vector3(0, height, 0);
             _currentHeight += targetHeight + listOffset;
         }
