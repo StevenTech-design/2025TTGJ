@@ -62,7 +62,7 @@ namespace TTGJ.Plant
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            FallCollisionBuff fallCollisionBuff = new FallCollisionBuff();
+            FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
             BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
         }
