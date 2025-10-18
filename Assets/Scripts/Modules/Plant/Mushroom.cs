@@ -8,7 +8,6 @@ namespace TTGJ.Plant
 {
     public class Mushroom : PlantBase
     {
-        [SerializeField]
         private float bounceForce = 10;
         private void OnTriggerEnter(Collider other)
         {
@@ -17,6 +16,7 @@ namespace TTGJ.Plant
                 return;
             }
             Vector3 direction = other.transform.position - transform.position;
+            direction.y = 0;
             if (other.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
             { 
                 rigidbody.AddForce(direction.normalized * bounceForce, ForceMode.Impulse);
@@ -25,18 +25,20 @@ namespace TTGJ.Plant
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            FallCollisionBuff fallCollisionBuff = new FallCollisionBuff();
+            FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
             BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
+            fallCollisionBuff.StartBuff();
         }
         public void OnFallCollision(Collision collision)
         {
-            Debug.Log("Mushroom OnFallCollision play bounce animation");
+            Debug.Log("Mushroom OnFallCollision play bounce animation" + collision.gameObject.name);
             if(!collision.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
             {
                 return;
             }
             Vector3 dir = collision.transform.position - transform.position;
+            dir.y = 0;
             rigidbody.AddForce(dir.normalized * bounceForce, ForceMode.Impulse);
         }
         public override void OnEat()

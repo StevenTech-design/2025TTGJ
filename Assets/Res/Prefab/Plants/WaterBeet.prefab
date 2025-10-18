@@ -51,7 +51,6 @@ MonoBehaviour:
   sackGo: {fileID: 1106296420532212970, guid: 7f180331596174ee787b82513367f043, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 6973194893775176287, guid: 0689ce8b29135c24fa2dcdb7f2076388, type: 3}
-  growthTime: 1000
   growthScale: 0100000003000000030000000500000005000000
 --- !u!64 &7336947594399493081
 MeshCollider:
@@ -99,9 +98,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!1 &2788091616252204340
 GameObject:
   m_ObjectHideFlags: 0

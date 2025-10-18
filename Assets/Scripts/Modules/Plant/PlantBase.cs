@@ -26,7 +26,6 @@ namespace TTGJ.Plant
         private GameObject currentModel;
 
         protected void Start() {
-            modelRoot = transform.GetChild(0);
             InitModel();
         }
 
@@ -92,6 +91,7 @@ namespace TTGJ.Plant
 
         public virtual void OnGermination()
         {
+            Initialize();
             collider.enabled = true;
             collider.isTrigger = false;
             rigidbody.isKinematic = true;
@@ -119,6 +119,9 @@ namespace TTGJ.Plant
             Debug.Log("Dyeing: " + color);
         }
         private void InitModel() {
+            if(modelRoot == null) {
+                modelRoot = transform.GetChild(0);
+            }
             DestoryPreModel();
             GameObject go = null;
             if (currentState == PlantState.Seed) {
@@ -136,7 +139,6 @@ namespace TTGJ.Plant
             Initialize();
         }
         private void DestoryPreModel() {
-            if(modelRoot == null) return;
             if(modelRoot.childCount > 0) {
                 Destroy(modelRoot.GetChild(0).gameObject);
             }
