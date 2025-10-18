@@ -6,7 +6,7 @@ namespace TTGJ.Buff
     {
         private float fastMoveRatio = 1.5f;
 
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
             FastMove();
@@ -22,7 +22,7 @@ namespace TTGJ.Buff
             player.speed *= fastMoveRatio;
         }
 
-        protected override void EndBuff()
+        public override void EndBuff()
         {
             PlayerController player = GetBuffTarget();
             if (player == null)

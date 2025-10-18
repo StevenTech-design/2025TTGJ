@@ -1,11 +1,13 @@
 using TTGJ.GamePlay;
+using UnityEngine;
 
 namespace TTGJ.Buff
 {
     public class BigModelBuff : BuffBase
     {
         private float modelScale = 1.5f;
-        protected override void StartBuff()
+        private Vector3 cameraOffset = new Vector3(0, 1, 0);
+        public override void StartBuff()
         {
             base.StartBuff();
             ToBigModel();
@@ -18,6 +20,7 @@ namespace TTGJ.Buff
                 return;
             }
             player.transform.localScale *= modelScale;
+            Camera.main.GetComponent<FollowTarget>().offset += cameraOffset;
         }
         private void DiscardBuff()
         { 
@@ -27,8 +30,9 @@ namespace TTGJ.Buff
                 return;
             }
             player.transform.localScale /= modelScale;
+            Camera.main.GetComponent<FollowTarget>().offset -= cameraOffset;
         }
-        protected override void EndBuff()
+        public override void EndBuff()
         {
             DiscardBuff();
             base.EndBuff();

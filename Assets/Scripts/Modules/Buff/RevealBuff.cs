@@ -2,7 +2,7 @@ namespace TTGJ.Buff
 {
     public class RevealBuff : BuffBase
     {
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
         }

@@ -12,7 +12,12 @@ namespace TTGJ.Buff
             {
                 buffs[target.gameObject] = new List<BuffBase>();
             }
+            for(int i = 0; i < buffs[target.gameObject].Count; i++) { 
+                buffs[target.gameObject][i].EndBuff();
+            }
+            buffs[target.gameObject].Clear();
             buffs[target.gameObject].Add(buff);
+            buff.StartBuff();
         }
         public void RemoveBuff(Transform target, BuffBase buff)
         {
@@ -27,6 +32,21 @@ namespace TTGJ.Buff
             {
                 buffs[target.gameObject].Clear();
             }
+        }
+        public void AddBuff(Transform target, List<BuffBase> buffList) { 
+            if (!buffs.ContainsKey(target.gameObject))
+            {
+                buffs[target.gameObject] = new List<BuffBase>();
+            }
+            for(int i = 0; i < buffs[target.gameObject].Count; i++) { 
+                buffs[target.gameObject][i].EndBuff();
+            }
+            buffs[target.gameObject].Clear();
+            buffs[target.gameObject].AddRange(buffList);
+            for(int i = 0; i < buffList.Count; i++) { 
+                buffList[i].StartBuff();
+            }
+            
         }
     }
 }

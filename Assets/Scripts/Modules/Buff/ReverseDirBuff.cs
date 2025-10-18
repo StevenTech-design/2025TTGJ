@@ -13,13 +13,13 @@ namespace TTGJ.Buff
             right = KeyCode.A
         };
         private MoveKeyCode originalKeyCode;
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
             originalKeyCode = InputSystem.Instance.GetMoveKeyCode();
             InputSystem.Instance.SetMoveKeyCode(reverseKeyCode);
         }
-        protected override void EndBuff()
+        public override void EndBuff()
         {
             InputSystem.Instance.SetMoveKeyCode(originalKeyCode);
             base.EndBuff();

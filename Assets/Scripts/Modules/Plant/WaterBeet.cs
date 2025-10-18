@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TTGJ.Common;
 using UnityEngine;
+using TTGJ.Buff;
 
 namespace TTGJ.Plant
 {
@@ -12,6 +14,10 @@ namespace TTGJ.Plant
             {
                 plant.OnWatering();
             }
+        }
+        public override void OnTeleport(Transform baseTeleportPos) { 
+            base.OnTeleport(baseTeleportPos);
+            BuffManager.Instance.AddBuff(transform,transform.TryAddComponent<FieldWateringBuff>());
         }
     }
 }

@@ -9,11 +9,11 @@ namespace TTGJ.Buff
         private int timerTaskId;
 
 
-        protected virtual void StartBuff()
+        public virtual void StartBuff()
         {
             timerTaskId = TimerManager.Instance.StartTimer(duration, EndBuff, OnBuffUpdate);
         }
-        protected virtual void EndBuff()
+        public virtual void EndBuff()
         {
             TimerManager.Instance.StopTimer(timerTaskId);
             BuffManager.Instance.RemoveBuff(transform, this);

@@ -9,7 +9,7 @@ namespace TTGJ.Buff
         private Color dyeingColor;
         [SerializeField]
         private LayerMask dyeingLayerMask;
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
             Dyeing();

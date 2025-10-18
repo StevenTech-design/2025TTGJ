@@ -1,10 +1,13 @@
+using TTGJ.Buff;
+using TTGJ.Common;
+using TTGJ.GamePlay;
 using TTGJ.Interactable;
 using TTGJ.Plant;
 using UnityEngine;
 
 namespace TTGJ.Plant
 {
-    public class Potato : PlantBase, IFallCollisionable
+    public class Potato : PlantBase
     {
         [Tooltip("unit: second")]
         [SerializeField]
@@ -36,11 +39,20 @@ namespace TTGJ.Plant
             GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
             potato.GetComponent<Potato>().ChangeState(PlantState.Harvest);
             potato.GetComponent<Potato>().OnTeleport(baseTeleportPos);
+
+            FallCollisionBuff fallCollisionBuff = new FallCollisionBuff();
+            fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
+            BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
         }
 
-        public void OnFallCollision(Collider other)
+        public void OnFallCollision(Collision collision)
         {
             Debug.Log("Potato OnFallCollision play pen pen pen");
+        }
+        public override void OnEat()
+        {
+            BuffBase buffBase = PlayerController.Instance.transform.TryAddComponent<FastMoveBuff>();
+            BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffBase);
         }
     }
 }

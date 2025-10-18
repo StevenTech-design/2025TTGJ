@@ -2,8 +2,6 @@ using UnityEngine;
 
 namespace TTGJ.Interactable
 {
-    [RequireComponent(typeof(Collider))]
-    [RequireComponent(typeof(Rigidbody))]
     public class Liftable : MonoBehaviour
     {
 
@@ -26,14 +24,14 @@ namespace TTGJ.Interactable
         {
             collider.enabled = true;
             rigidbody.isKinematic = false;
-            rigidbody.AddForce(dir * force, ForceMode.Impulse);
+            rigidbody.AddForce(dir * force);
             isLiftable = true;
         }
         protected virtual void Initialize()
         {
             if (collider != null && rigidbody != null) return;
-            collider = GetComponent<Collider>();
-            rigidbody = GetComponent<Rigidbody>();
+            collider = GetComponentInChildren<Collider>();
+            rigidbody = GetComponentInChildren<Rigidbody>();
         }
     }
 }

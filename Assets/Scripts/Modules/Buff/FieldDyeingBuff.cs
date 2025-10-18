@@ -6,7 +6,7 @@ namespace TTGJ.Buff
 {
     public class FieldDyeingBuff : BuffBase
     {
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
             Dyeing();

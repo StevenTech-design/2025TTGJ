@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using TTGJ.Plant;
+using UnityEngine;
 
 namespace TTGJ.Buff
 {
-    public class WateringBuff : BuffBase
+    public class FieldWateringBuff : BuffBase
     {
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
-            Watering();
-            EndBuff();
         }
         private void Watering()
         {
@@ -20,5 +19,13 @@ namespace TTGJ.Buff
                 plant.OnWatering();
             }
         }
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.transform.TryGetComponent<Cell>(out var cell)) { 
+                Watering();
+                EndBuff();
+            }
+        }
+
     }
 }

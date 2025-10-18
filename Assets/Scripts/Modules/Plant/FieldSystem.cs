@@ -38,8 +38,9 @@ namespace TTGJ.Plant
 
         private bool CheckCanPlant(Vector2Int cellPos, int currentSize, int preSize)
         {
-            if (cellPos.x - preSize < 0 || cellPos.x + currentSize > fields.Length
-            || cellPos.y - preSize < 0 || cellPos.y + currentSize > fields[0].Length)
+            // 检查边界：确保占领区域不会超出字段边界
+            if (cellPos.x - preSize < 0 || cellPos.x + currentSize >= fields.Length
+            || cellPos.y - preSize < 0 || cellPos.y + currentSize >= fields[0].Length)
             {
                 return false;
             }
@@ -148,6 +149,8 @@ namespace TTGJ.Plant
         }
         public void AddPlant(PlantBase plant, Vector2Int cellPos)
         {
+           Cell cell = plant.gameObject.TryAddComponent<Cell>();
+           cell.cellPos = cellPos;
             plantDic.Add(plant, cellPos);
         }
         public void RemovePlant(PlantBase plant)

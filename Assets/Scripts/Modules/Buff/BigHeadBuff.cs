@@ -5,7 +5,7 @@ namespace TTGJ.Buff
     {
         private float headScale;
 
-        protected override void StartBuff()
+        public override void StartBuff()
         {
             base.StartBuff();
             ToBigHead();
@@ -19,7 +19,7 @@ namespace TTGJ.Buff
             
         }
 
-        protected override void EndBuff()
+        public override void EndBuff()
         {
             DiscardBuff();
             base.EndBuff();
