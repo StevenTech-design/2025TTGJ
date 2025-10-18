@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using TTGJ.Plant;
-using TTGJ.Item;
+using TTGJ.Interactable;
 using UnityEngine;
 
 namespace TTGJ.GamePlay
@@ -92,6 +92,9 @@ namespace TTGJ.GamePlay
             GameObject seed = GameObject.Instantiate(targetPlant.gameObject);
             seed.GetComponent<Collider>().enabled = true;
             field.ToPlanting(seed.GetComponent<PlantBase>());
+        }
+        public void ToEat() { 
+            
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TTGJ.Item
+namespace TTGJ.Interactable
 {
     public interface IDyeingable
     {

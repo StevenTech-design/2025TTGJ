@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Cysharp.Threading.Tasks;
 using TTGJ.GamePlay;
-using TTGJ.Item;
+using TTGJ.Interactable;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -11,6 +11,8 @@ namespace TTGJ.Plant
     [RequireComponent(typeof(Rigidbody))]
     public class PlantBase : Liftable, ITeleport, IDyeingable
     {
+        [SerializeField]
+        public PlantType plantType;
         protected PlantState currentState = PlantState.Seed;
         [Tooltip("unit: millisecond")]
         [SerializeField]
@@ -63,14 +65,14 @@ namespace TTGJ.Plant
             }
         }
 
-        public virtual void OnTeleport()
+        public virtual void OnTeleport(Transform baseTeleportPos)
         {
             collider.isTrigger = false;
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
-            transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.up * 5;
             transform.localScale = Vector3.one;
+            transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
         }
 
         public virtual void OnGermination()

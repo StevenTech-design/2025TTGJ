@@ -1,5 +1,5 @@
 using TTGJ.GamePlay;
-using TTGJ.Item;
+using TTGJ.Interactable;
 using UnityEngine;
 namespace TTGJ.Buff
 {

@@ -1,4 +1,4 @@
-namespace TTGJ.Item
+namespace TTGJ.Interactable
 {
     public interface IEatable
     {

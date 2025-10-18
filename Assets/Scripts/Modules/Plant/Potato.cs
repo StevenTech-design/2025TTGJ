@@ -1,10 +1,10 @@
+using TTGJ.Interactable;
 using TTGJ.Plant;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TTGJ.Plant
 {
-    public class Potato : PlantBase
+    public class Potato : PlantBase, IFallCollisionable
     {
         [Tooltip("unit: second")]
         [SerializeField]
@@ -30,15 +30,17 @@ namespace TTGJ.Plant
                 }
             }
         }
-        public override void OnTeleport()
+        public override void OnTeleport(Transform baseTeleportPos)
         {
-            base.OnTeleport();
+            base.OnTeleport(baseTeleportPos);
             GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
             potato.GetComponent<Potato>().ChangeState(PlantState.Harvest);
-            potato.GetComponent<Potato>().OnTeleport();
+            potato.GetComponent<Potato>().OnTeleport(baseTeleportPos);
         }
-        
 
-        
+        public void OnFallCollision(Collider other)
+        {
+            Debug.Log("Potato OnFallCollision play pen pen pen");
+        }
     }
 }
