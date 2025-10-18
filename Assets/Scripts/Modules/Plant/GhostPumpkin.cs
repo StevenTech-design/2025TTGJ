@@ -1,4 +1,8 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using TTGJ.Buff;
+using TTGJ.Common;
+using TTGJ.GamePlay;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -41,6 +45,38 @@ namespace TTGJ.Plant
                 return;
             }
             plantSpacialParam.param.GetComponent<Rigidbody>().AddForce(Vector3.left * bounceForce, ForceMode.Impulse);
+        }
+
+        public override void OnEat()
+        {
+            base.OnEat();
+            List<BuffBase> buffList = new List<BuffBase>();
+            BuffBase flashBuff = PlayerController.Instance.transform.TryAddComponent<HeadFlashBuff>();
+            BuffBase replaceHeadBuff = PlayerController.Instance.transform.TryAddComponent<ReplaceHeadBuff>();
+            BuffBase revealBuff = PlayerController.Instance.transform.TryAddComponent<RevealBuff>();
+            buffList.Add(flashBuff);
+            buffList.Add(replaceHeadBuff);
+            buffList.Add(revealBuff);
+            BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffList);
+        }
+        public override void OnTeleport(Transform baseTeleportPos)
+        {
+            base.OnTeleport(baseTeleportPos);
+            FallCollisionBuff fallCollisionBuff = new FallCollisionBuff();
+            fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
+            BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
+        }
+        public async void OnFallCollision(Collision collision)
+        {
+            if (collision.gameObject.TryGetComponent<PlayerController>(out var player)) {
+                Camera.main.gameObject.SetActive(false);
+                await UniTask.Delay(1000);
+                Camera.main.gameObject.SetActive(true);
+            }else {
+                collision.gameObject.SetActive(false);
+                await UniTask.Delay(1000);
+                collision.gameObject.SetActive(true);
+            }
         }
     }
 }

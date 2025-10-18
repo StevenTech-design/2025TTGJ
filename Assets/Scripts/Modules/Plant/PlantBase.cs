@@ -1,51 +1,57 @@
+using System;
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using TTGJ.GamePlay;
-using TTGJ.Teleport;
+using TTGJ.Interactable;
 using UnityEngine;
 
 namespace TTGJ.Plant
 {
-    [RequireComponent(typeof(Collider))]
-    [RequireComponent(typeof(Rigidbody))]
-    public class PlantBase : Liftable, ITeleport
+    public class PlantBase : Liftable, ITeleport, IDyeingable, IEatable
     {
-        protected PlantState currentState = PlantState.Seed;
+        public PlantType plantType;
         [SerializeField]
-        protected int growthTime = 10;
-        protected int currentGrowthTime = 0;
-        protected Coroutine growthCoroutine;
-        public virtual void OnWatering()
+        protected GameObject sackGo;
+        [SerializeField]
+        protected GameObject grothGo;
+        [SerializeField]
+        protected GameObject realGo;
+        protected PlantState currentState = PlantState.Seed;
+        protected int growthTime = 1; 
+        [SerializeField]
+        protected int [] growthScale = { 1, 3,3, 5, 5 };
+        protected int currentGrouthCount = 0;
+
+        private Transform modelRoot;
+        private GameObject currentModel;
+
+        protected void Start() {
+            modelRoot = transform.GetChild(0);
+            InitModel();
+        }
+
+        public async virtual UniTask OnWatering()
         {
+            if(currentGrouthCount >= growthScale.Length) {
+                return;
+            }
             Debug.Log("OnWatering");
-            ++currentGrowthTime;
-            if (growthCoroutine != null && CheckGrowthFinish())
-            {
-                StopCoroutine(growthCoroutine);
-                growthCoroutine = null;
+            await UniTask.Delay(growthTime);
+            Debug.Log("Watering: Finished");
+            if (currentState == PlantState.Germination)
+            { 
                 ChangeState(PlantState.Mature);
+                ++currentGrouthCount;
                 return;
             }
-            
-            if (currentState != PlantState.Mature)
+            if (!FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos,
+                                                growthScale[currentGrouthCount - 1],
+                                                growthScale[currentGrouthCount]))
             {
                 return;
             }
-            
-            transform.localScale *= 1.2f;
-        }
-        protected virtual bool CheckGrowthFinish()
-        {
-            return currentGrowthTime >= growthTime;
-        }
-        private IEnumerator Growth()
-        {
-            while (!CheckGrowthFinish())
-            {
-                ++currentGrowthTime;
-                yield return new WaitForSeconds(1);
-            }
-            ChangeState(PlantState.Mature);
-            growthCoroutine = null;
+             ++currentGrouthCount;
+            transform.localScale *= growthScale[currentGrouthCount - 1];
         }
         public virtual void OnHarvest()
         {
@@ -53,6 +59,7 @@ namespace TTGJ.Plant
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Default");
             rigidbody.isKinematic = false;
+            transform.SetParent(null);
         }
         public virtual void ChangeState(PlantState state)
         {
@@ -60,10 +67,12 @@ namespace TTGJ.Plant
             switch (state)
             {
                 case PlantState.Germination:
-                    growthCoroutine = StartCoroutine(Growth());
+                    OnGermination();
+                    InitModel();
                     break;
                 case PlantState.Mature:
                     OnMature();
+                    InitModel();
                     break;
                 case PlantState.Harvest:
                     OnHarvest();
@@ -71,14 +80,22 @@ namespace TTGJ.Plant
             }
         }
 
-        public virtual void OnTeleport()
+        public virtual void OnTeleport(Transform baseTeleportPos)
         {
             collider.isTrigger = false;
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
-            transform.position = GameObject.FindGameObjectWithTag("Player").transform.position + Vector3.up * 5;
             transform.localScale = Vector3.one;
+            transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
+        }
+
+        public virtual void OnGermination()
+        {
+            collider.enabled = true;
+            collider.isTrigger = false;
+            rigidbody.isKinematic = true;
+            
         }
 
         public virtual void OnMature()
@@ -95,6 +112,40 @@ namespace TTGJ.Plant
         public virtual void SpecialAction(PlantSpacialParam param)
         { 
             
+        }
+
+        public void Dyeing(Color color)
+        {
+            Debug.Log("Dyeing: " + color);
+        }
+        private void InitModel() {
+            DestoryPreModel();
+            GameObject go = null;
+            if (currentState == PlantState.Seed) {
+                go = GameObject.Instantiate(sackGo);
+            }else if (currentState == PlantState.Germination) { 
+                go = GameObject.Instantiate(grothGo);
+            }else if (currentState == PlantState.Mature) { 
+                go = GameObject.Instantiate(realGo);
+            }
+            go.transform.SetParent(modelRoot);
+            go.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            go.transform.localScale = Vector3.one;
+            currentModel = go;
+            (collider as MeshCollider).sharedMesh = go.GetComponent<MeshFilter>().sharedMesh;
+            Initialize();
+        }
+        private void DestoryPreModel() {
+            if(modelRoot == null) return;
+            if(modelRoot.childCount > 0) {
+                Destroy(modelRoot.GetChild(0).gameObject);
+            }
+            currentModel = null;
+        }
+
+        public virtual void OnEat()
+        {
+           
         }
     }
 }
