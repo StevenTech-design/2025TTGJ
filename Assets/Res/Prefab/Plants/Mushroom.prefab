@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9152040515989166213}
   - component: {fileID: 9183116696832330896}
-  - component: {fileID: -2793500637274334733}
   - component: {fileID: 8672236734852264253}
+  - component: {fileID: 906583460691993054}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -52,29 +52,6 @@ MonoBehaviour:
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 919132149155446097, guid: 74f7d7314d7479e44b420f651201f9fb, type: 3}
   growthScale: 0100000003000000030000000500000005000000
-  bounceForce: 10
---- !u!64 &-2793500637274334733
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5307470222436125774}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!54 &8672236734852264253
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -102,6 +79,27 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 2
+--- !u!65 &906583460691993054
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5307470222436125774}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &7148639454035805985
 GameObject:
   m_ObjectHideFlags: 0

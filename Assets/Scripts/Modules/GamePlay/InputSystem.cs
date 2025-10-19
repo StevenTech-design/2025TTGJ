@@ -198,7 +198,7 @@ namespace TTGJ.GamePlay
                 halfExtents,
                 Quaternion.identity,
                 interactionLayers,
-                QueryTriggerInteraction.Ignore
+                QueryTriggerInteraction.Collide
             );
 
             Array.Sort(colliders, (a, b) => (a.transform.position - center).sqrMagnitude.CompareTo((b.transform.position - center).sqrMagnitude));

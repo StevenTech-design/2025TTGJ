@@ -100,6 +100,7 @@ namespace TTGJ.GamePlay
             GameObject seed = GameObject.Instantiate(targetPlant.gameObject);
             seed.GetComponent<Collider>().enabled = true;
             field.ToPlanting(seed.GetComponent<PlantBase>());
+            seed.GetComponent<PlantBase>().ChangeState(PlantState.Germination);
         }
         public bool CanEat()
         {

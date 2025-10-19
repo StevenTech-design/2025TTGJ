@@ -68,13 +68,13 @@ namespace TTGJ.Plant
             switch (state)
             {
                 case PlantState.Germination:
-                    OnGermination();
                     InitModel();
+                    OnGermination();
                     Debug.Log("ChangeState: Germination");
                     break;
                 case PlantState.Mature:
-                    OnMature();
                     InitModel();
+                    OnMature();
                     break;
                 case PlantState.Harvest:
                     OnHarvest();
@@ -137,8 +137,6 @@ namespace TTGJ.Plant
             go.transform.SetParent(modelRoot);
             go.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             go.transform.localScale = Vector3.one;
-            (collider as MeshCollider).sharedMesh = go.GetComponent<MeshFilter>().sharedMesh;
-            Initialize();
         }
         private void DestoryPreModel() {
             if(modelRoot.childCount > 0) {
