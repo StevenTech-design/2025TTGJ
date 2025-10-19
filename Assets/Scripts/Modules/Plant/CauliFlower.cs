@@ -10,7 +10,7 @@ namespace TTGJ.Plant
             Debug.Log("CauliFlower OnTriggerEnter  mei mei");
         }
 
-        public override void OnHarvest()
+        protected override void OnHarvest()
         {
             base.OnHarvest();
             Debug.Log("Become sheep");

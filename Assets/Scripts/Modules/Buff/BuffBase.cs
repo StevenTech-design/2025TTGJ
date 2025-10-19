@@ -17,7 +17,7 @@ namespace TTGJ.Buff
         {
             TimerManager.Instance.StopTimer(timerTaskId);
             BuffManager.Instance.RemoveBuff(transform, this);
-            Destroy(this);
+            Destroy(GetComponent<BuffBase>());
         }
         protected virtual void OnBuffUpdate(float remainingTime)
         {

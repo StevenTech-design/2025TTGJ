@@ -19,11 +19,10 @@ namespace TTGJ.Plant
         protected PlantState currentState = PlantState.Seed;
         protected int growthTime = 1; 
         [SerializeField]
-        protected int [] growthScale = { 1, 3,3, 5, 5 };
+        protected int [] growthScale = { 1, 2, 3};
         protected int currentGrouthCount = 0;
 
         private Transform modelRoot;
-        private GameObject currentModel;
 
         protected void Start() {
             InitModel();
@@ -52,7 +51,7 @@ namespace TTGJ.Plant
              ++currentGrouthCount;
             transform.localScale *= growthScale[currentGrouthCount - 1];
         }
-        public virtual void OnHarvest()
+        protected virtual void OnHarvest()
         {
             collider.isTrigger = false;
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
@@ -63,11 +62,15 @@ namespace TTGJ.Plant
         public virtual void ChangeState(PlantState state)
         {
             currentState = state;
+            if (currentState == PlantState.Germination) { 
+                return;
+            }
             switch (state)
             {
                 case PlantState.Germination:
                     OnGermination();
                     InitModel();
+                    Debug.Log("ChangeState: Germination");
                     break;
                 case PlantState.Mature:
                     OnMature();
@@ -134,7 +137,6 @@ namespace TTGJ.Plant
             go.transform.SetParent(modelRoot);
             go.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             go.transform.localScale = Vector3.one;
-            currentModel = go;
             (collider as MeshCollider).sharedMesh = go.GetComponent<MeshFilter>().sharedMesh;
             Initialize();
         }
@@ -142,12 +144,20 @@ namespace TTGJ.Plant
             if(modelRoot.childCount > 0) {
                 Destroy(modelRoot.GetChild(0).gameObject);
             }
-            currentModel = null;
         }
 
         public virtual void OnEat()
         {
            
+        }
+        public override bool CheckCanLift()
+        {
+            return currentState == PlantState.Harvest || currentState == PlantState.Seed;
+        }
+
+        public bool CanEat()
+        {
+            return currentState == PlantState.Harvest;
         }
     }
 }

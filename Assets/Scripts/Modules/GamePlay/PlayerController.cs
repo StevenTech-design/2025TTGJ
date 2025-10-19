@@ -78,6 +78,10 @@ namespace TTGJ.GamePlay
             }
             _currentHeight = 0;
         }
+        public bool CanDrop()
+        {
+            return _liftList.Count > 0;
+        }
 
         public void ToPlant(Field field)
         {
@@ -95,6 +99,17 @@ namespace TTGJ.GamePlay
             GameObject seed = GameObject.Instantiate(targetPlant.gameObject);
             seed.GetComponent<Collider>().enabled = true;
             field.ToPlanting(seed.GetComponent<PlantBase>());
+        }
+        public bool CanEat()
+        {
+            foreach (var list in _liftList)
+            {
+                if (list.TryGetComponent<IEatable>(out var eatable) && eatable.CanEat())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public void ToEat()
         {

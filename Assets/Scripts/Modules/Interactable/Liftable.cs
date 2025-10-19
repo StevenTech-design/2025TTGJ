@@ -34,5 +34,8 @@ namespace TTGJ.Interactable
             collider = GetComponentInChildren<Collider>();
             rigidbody = GetComponentInChildren<Rigidbody>();
         }
+        public virtual bool CheckCanLift() { 
+            return true;
+        }
     }
 }
