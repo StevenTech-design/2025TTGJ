@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Toon_Water
+  m_Shader: {fileID: 4800000, guid: 8e1b8270261d3c9479002425a8ea2761, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _CousticsTex:
+        m_Texture: {fileID: 2800000, guid: 72417ee6f632e4e4aabc8c81143957bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: af935955fc4d1504482e7ec6f0fd0665, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RainDropTex:
+        m_Texture: {fileID: 2800000, guid: 36470d9a8273acc4b9439246996bea8c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RippleTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _displacement:
+        m_Texture: {fileID: 2800000, guid: 0d3a11ac864a34c4690bb004db190c67, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CoustExp: 2.3
+    - _CousticsInt: 5
+    - _CousticsRange: 0.8
+    - _CousticsScale: 10.28
+    - _CousticsSpeed: -8
+    - _DeepRange: 0.34
+    - _DisplacementAmount: 0.01
+    - _Float7: 0.2
+    - _FoamBlend: 0.054
+    - _FoamDissolve: 2.37
+    - _FoamFrequency: 28.27
+    - _FoamRange: 0.9
+    - _FoamSpeed: -1.53
+    - _FoamWidth: 1.07
+    - _FresnelPower: 20
+    - _NormalScale: 2.15
+    - _NormalTilling: 30
+    - _RainDropSpeed: 1
+    - _RainInt: 1.1
+    - _RainTilling: 0.5
+    - _ReflectInt: 1
+    - _ReflectPower: 5
+    - _ReflectionDisTort: 8.85
+    - _ShoreEdge: 0
+    - _ShoreEdgeInt: 0.15
+    - _ShoreEdgeWidth: 0.223
+    - _ShoreRange: 0.33
+    - _UniderWaterDistort: 9.1
+    - __dirty: 0
+    - _boguanInt: 0.96
+    m_Colors:
+    - _CousticsSpeed: {r: -8, g: 0, b: 0, a: 0}
+    - _DeepColor: {r: 0, g: 0.5882354, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 0.3647059}
+    - _FoamNoise: {r: 40, g: 40, b: 0, a: 0}
+    - _FresnelCol: {r: 0, g: 0.45294017, b: 1, a: 1}
+    - _NormalSpeed: {r: -8, g: 0, b: 0, a: 0}
+    - _ShallowColor: {r: 0, g: 0.78090096, b: 1, a: 0.3529412}
+    - _ShoreCol: {r: 1, g: 1, b: 1, a: 0.99607843}
+    - _WaveASpeedXYSteepnesswavelength: {r: 3, g: 4, b: 0.76, a: 50}
+    - _WaveB: {r: -0.72, g: -1.06, b: 1.84, a: 50.17}
+    - _WaveC: {r: 1, g: 0.5, b: 1, a: 50}
+    - _WaveColor: {r: 0.5031445, g: 0.5031445, b: 0.5031445, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

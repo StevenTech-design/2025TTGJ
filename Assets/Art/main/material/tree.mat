@@ -113,14 +113,14 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FresnelPow: 1
+    - _FresnelPow: 4.71
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutLineColor: 0.15
-    - _OutlineWidth: 2.49
+    - _OutLineColor: 0
+    - _OutlineWidth: 4.53
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -134,7 +134,7 @@ Material:
     - _Toon_Theshold: 0.38
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _colorSaturation: 2.5
+    - _colorSaturation: 2.75
     - _specInt: 0.1
     - fresnelOFF: 0
     m_Colors:
@@ -142,6 +142,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
+    - _OutLineColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _colorA: {r: 0.8553459, g: 0.8553459, b: 0.8553459, a: 1}
     - _colorB: {r: 0.74213827, g: 0.74213827, b: 0.74213827, a: 1}

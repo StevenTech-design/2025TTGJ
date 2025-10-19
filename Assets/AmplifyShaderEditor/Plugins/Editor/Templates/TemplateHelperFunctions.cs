@@ -48,9 +48,10 @@ namespace AmplifyShaderEditor
 		SV_InstanceID,
 		INTERNALTESSPOS,
 		INSTANCEID_SEMANTIC,
+		VERTEXID_SEMANTIC,
+		PRIMITIVEID_SEMANTIC,
 		BLENDWEIGHTS,
 		BLENDINDICES
-
 	}
 
 	public enum TemplateInfoOnSematics
@@ -81,9 +82,13 @@ namespace AmplifyShaderEditor
 		OTHER,
 		VFACE,
 		SHADOWCOORDS,
+		INSTANCEID,
 		VERTEXID,
+		PRIMITIVEID,
 		BLENDWEIGHTS,
-		BLENDINDICES
+		BLENDINDICES,
+		OBJECT_POSITION,
+		VIEW_POSITION
 	}
 
 	public enum TemplateShaderPropertiesIdx
@@ -475,7 +480,7 @@ namespace AmplifyShaderEditor
 			int nonLightmappedOnly;
 			float diffuseScale;
 			float specularScale;
-		}; 
+		};
 		*/
 		public static string HDLightInfoFormat = "_DirectionalLightDatas[{0}].{1}";
 
@@ -640,6 +645,8 @@ namespace AmplifyShaderEditor
 			{"wvd"  ,TemplateInfoOnSematics.WORLD_VIEW_DIR},
 			{"wp"   ,TemplateInfoOnSematics.WORLD_POSITION},
 			{"rwp"  ,TemplateInfoOnSematics.RELATIVE_WORLD_POS},
+			{"op"   ,TemplateInfoOnSematics.OBJECT_POSITION},
+			{"vp"   ,TemplateInfoOnSematics.VIEW_POSITION},
 			{"vf"   ,TemplateInfoOnSematics.VFACE},
 			{"sc"   ,TemplateInfoOnSematics.SHADOWCOORDS}
 		};
@@ -667,8 +674,10 @@ namespace AmplifyShaderEditor
 			{TemplateInfoOnSematics.WORLD_VIEW_DIR,"ASE_NEEDS_FRAG_WORLD_VIEW_DIR"},
 			{TemplateInfoOnSematics.WORLD_POSITION,"ASE_NEEDS_FRAG_WORLD_POSITION"},
 			{TemplateInfoOnSematics.RELATIVE_WORLD_POS,"ASE_NEEDS_FRAG_RELATIVE_WORLD_POS"},
+			{TemplateInfoOnSematics.OBJECT_POSITION,"ASE_NEEDS_FRAG_OBJECT_POSITION"},
+			{TemplateInfoOnSematics.VIEW_POSITION,"ASE_NEEDS_FRAG_VIEW_POSITION"},
 			{TemplateInfoOnSematics.VFACE,"ASE_NEEDS_FRAG_VFACE"},
-			{TemplateInfoOnSematics.SHADOWCOORDS,"ASE_NEEDS_FRAG_SHADOWCOORDS"}
+			{TemplateInfoOnSematics.SHADOWCOORDS,"ASE_NEEDS_FRAG_SHADOWCOORDS"},
 		};
 
 		public static readonly Dictionary<TemplateInfoOnSematics, string> InfoToDefineVertex = new Dictionary<TemplateInfoOnSematics, string>
@@ -694,6 +703,8 @@ namespace AmplifyShaderEditor
 			{TemplateInfoOnSematics.WORLD_VIEW_DIR,"ASE_NEEDS_VERT_WORLD_VIEW_DIR"},
 			{TemplateInfoOnSematics.WORLD_POSITION,"ASE_NEEDS_VERT_WORLD_POSITION"},
 			{TemplateInfoOnSematics.RELATIVE_WORLD_POS,"ASE_NEEDS_VERT_RELATIVE_WORLD_POS"},
+			{TemplateInfoOnSematics.OBJECT_POSITION,"ASE_NEEDS_VERT_OBJECT_POSITION"},
+			{TemplateInfoOnSematics.VIEW_POSITION,"ASE_NEEDS_VERT_VIEW_POSITION"},
 			{TemplateInfoOnSematics.VFACE,"ASE_NEEDS_VERT_VFACE"},
 			{TemplateInfoOnSematics.SHADOWCOORDS,"ASE_NEEDS_VERT_SHADOWCOORDS"}
 		};
@@ -702,8 +713,8 @@ namespace AmplifyShaderEditor
 		{
 			{TemplateInfoOnSematics.POSITION,GeneratorUtils.VertexPosition4Str },
 			{TemplateInfoOnSematics.CLIP_POS,GeneratorUtils.ClipPositionStr },
-			{TemplateInfoOnSematics.SCREEN_POSITION,GeneratorUtils.ScreenPositionStr },
-			{TemplateInfoOnSematics.SCREEN_POSITION_NORMALIZED,GeneratorUtils.ScreenPositionNormalizedStr },
+			{TemplateInfoOnSematics.SCREEN_POSITION,GeneratorUtils.ScreenPosRawStr },
+			{TemplateInfoOnSematics.SCREEN_POSITION_NORMALIZED,GeneratorUtils.ScreenPosNormStr },
 			{TemplateInfoOnSematics.COLOR, "ase_color" },
 			{TemplateInfoOnSematics.TEXTURE_COORDINATES0, "ase_uv0" },
 			{TemplateInfoOnSematics.TEXTURE_COORDINATES1, "ase_uv1" },
@@ -717,8 +728,10 @@ namespace AmplifyShaderEditor
 			{TemplateInfoOnSematics.WORLD_VIEW_DIR, GeneratorUtils.WorldViewDirectionStr},
 			{TemplateInfoOnSematics.WORLD_POSITION, GeneratorUtils.WorldPositionStr},
 			{TemplateInfoOnSematics.RELATIVE_WORLD_POS, GeneratorUtils.RelativeWorldPositionStr},
+			{TemplateInfoOnSematics.OBJECT_POSITION, GeneratorUtils.VertexPosition3Str},
+			{TemplateInfoOnSematics.VIEW_POSITION, GeneratorUtils.ViewPositionStr},
 			{TemplateInfoOnSematics.VFACE, GeneratorUtils.VFaceStr},
-			{TemplateInfoOnSematics.SHADOWCOORDS, GeneratorUtils.ShadowCoordsStr}
+			{TemplateInfoOnSematics.SHADOWCOORDS, GeneratorUtils.ShadowCoordsStr},
 		};
 
 
@@ -741,6 +754,8 @@ namespace AmplifyShaderEditor
 			{TemplateInfoOnSematics.WORLD_VIEW_DIR, WirePortDataType.FLOAT3},
 			{TemplateInfoOnSematics.WORLD_POSITION, WirePortDataType.FLOAT3},
 			{TemplateInfoOnSematics.RELATIVE_WORLD_POS, WirePortDataType.FLOAT3},
+			{TemplateInfoOnSematics.OBJECT_POSITION, WirePortDataType.FLOAT3},
+			{TemplateInfoOnSematics.VIEW_POSITION, WirePortDataType.FLOAT3},
 			{TemplateInfoOnSematics.VFACE, WirePortDataType.FLOAT},
 			{TemplateInfoOnSematics.SHADOWCOORDS, WirePortDataType.FLOAT4},
 		};
@@ -929,6 +944,7 @@ namespace AmplifyShaderEditor
 		public static readonly string InlinePattern = @"\/\*ase_inline_begin\*\/(.*?)\/\*ase_inline_end\*\/";
 
 		public static readonly string SRPConditionPattern = @"\/\*ase_srp_cond_begin:([==|!=|>=|<=|>|<]*)(\d*)\*\/(?s)(.*?)\s\/\*ase_srp_cond_end\*\/";
+		public static readonly string UnityConditionPattern = @"\/\*ase_unity_cond_begin:([==|!=|>=|<=|>|<]*)(\d*)\*\/(?s)(.*?)\s\/\*ase_unity_cond_end\*\/";
 
 		public static readonly string SubShaderLODPattern = @"\sLOD\s+(\d+)";
 
@@ -1133,7 +1149,7 @@ namespace AmplifyShaderEditor
 																								passId);
 						propertiesList.Add( newData );
 						duplicatesHelper.Add( newData.PropertyName, newData );
-					}	
+					}
 				}
 			}
 		}
@@ -1162,7 +1178,7 @@ namespace AmplifyShaderEditor
 		{
 			int typeIdx = (int)TemplateShaderGlobalsIdx.Type;
 			int nameIdx = (int)TemplateShaderGlobalsIdx.Name;
-			
+
 			// removes structs
 			propertyData = Regex.Replace( propertyData, StructsRemoval, "" );
 			MatchCollection matchCollection = Regex.Matches( propertyData, ShaderGlobalsOverallPattern );
@@ -1631,7 +1647,7 @@ namespace AmplifyShaderEditor
 			bool noMatches = true;
 			blendDataObj.ValidBlendOp = true;
 			string property = string.Empty;
-			// TODO: OPTIMIZE REGEX EXPRESSIONS TO NOT CATCH EMPTY GROUPS 
+			// TODO: OPTIMIZE REGEX EXPRESSIONS TO NOT CATCH EMPTY GROUPS
 			Match match = Regex.Match( blendOpData, pattern );
 			{
 				if( match.Groups.Count == 3 )
@@ -1714,11 +1730,6 @@ namespace AmplifyShaderEditor
 				blendDataObj.ValidBlendOp = false;
 		}
 
-		struct SRPConditionalTag
-		{
-
-		}
-
 		public static string ProcessSRPConditionals( string body )
 		{
 			int srpVersion = ASEPackageManagerHelper.PackageSRPVersion;
@@ -1759,7 +1770,7 @@ namespace AmplifyShaderEditor
 					}
 					else
 					{
-						// @diogo: fell here? ignore SRP conditional
+						// @diogo: fell here? ignore conditional
 						body = body.Replace( signature, string.Empty );
 					}
 
@@ -1767,7 +1778,112 @@ namespace AmplifyShaderEditor
 					processedSignatures.Add( signature );
 				}
 			}
-			return body;			
+			return body;
+		}
+
+		public static int GetUnityVersion()
+		{
+			var versionParts = Application.unityVersion.Split( '.', 'f' );
+			if ( versionParts.Length != 4 || versionParts[ 0 ].Length < 4 )
+			{
+				// @diogo: invalid Unity version format; ignore these conditionals
+				return 0;
+			}
+
+			bool testMajor = int.TryParse( versionParts[ 0 ], out int major );
+			bool testMinor = int.TryParse( versionParts[ 1 ], out int minor );
+			bool testPatch = int.TryParse( versionParts[ 2 ], out int patch );
+			if ( !testMajor || !testMinor || !testPatch )
+			{
+				// @diogo: invalid Unity version format; ignore these conditionals
+				return 0;
+			}
+
+			return major * 10000 + minor * 100 + patch;
+		}
+
+		public static bool GetUnityBetaVersion( out int betaVersion )
+		{
+			string version = Application.unityVersion;
+			if ( !version.Contains( "b" ) )
+			{
+				betaVersion = 0;
+				return false;
+			}
+
+			var versionParts = version.Split( 'b' );
+			if ( versionParts.Length != 2 || versionParts[ 0 ].Length < 4 )
+			{
+				// @diogo: invalid Unity version format; ignore these conditionals
+				betaVersion = 0;
+				return false;
+			}
+
+			bool testBeta = int.TryParse( versionParts[ 1 ], out int beta );
+			if ( !testBeta )
+			{
+				// @diogo: invalid Unity version format; ignore these conditionals
+				betaVersion = 0;
+				return false;
+			}
+
+			betaVersion = beta;
+			return true;
+		}
+
+		public static string ProcessUnityConditionals( string body )
+		{
+			int unityVersion = GetUnityVersion();
+			if ( unityVersion <= 0 )
+			{
+				return body;
+			}
+			var processedSignatures = new HashSet<string>();
+
+			foreach ( Match match in Regex.Matches( body, UnityConditionPattern ) )
+			{
+				string signature;
+				if ( match.Success && match.Groups.Count == 4 && !processedSignatures.Contains( signature = match.Groups[ 0 ].Value ) )
+				{
+					string comparisonOp = match.Groups[ 1 ].Value;
+					bool validVersion = int.TryParse( match.Groups[ 2 ].Value, out int version );
+					string content = match.Groups[ 3 ].Value;
+
+					if ( validVersion && !string.IsNullOrEmpty( comparisonOp ) && version >= 20190000 )
+					{
+						bool passed = false;
+						switch ( comparisonOp )
+						{
+							case "==": passed = ( unityVersion == version ); break;
+							case "!=": passed = ( unityVersion != version ); break;
+							case ">=": passed = ( unityVersion >= version ); break;
+							case "<=": passed = ( unityVersion <= version ); break;
+							case ">" : passed = ( unityVersion > version ); break;
+							case "<" : passed = ( unityVersion < version ); break;
+						}
+
+						if ( passed )
+						{
+							// @diogo: test passed? include conditional text
+							body = body.Replace( signature, content );
+						}
+						else
+						{
+							// @diogo: test failed? exclude conditional text
+							body = body.Replace( signature, string.Empty );
+						}
+					}
+					else
+					{
+						// @diogo: fell here? ignore conditional
+						body = body.Replace( signature, string.Empty );
+					}
+
+					// @diogo: mark as processed to prevent duplicates
+					processedSignatures.Add( signature );
+				}
+			}
+			return body;
 		}
 
 		public static void FetchLocalVars( string body, ref List<TemplateLocalVarData> localVarList, TemplateFunctionData vertexFunction, TemplateFunctionData fragFunction )
@@ -1830,7 +1946,7 @@ namespace AmplifyShaderEditor
 					idManager.RegisterTag( id, prop );
 				}
 			}
-		}		
+		}
 
 		public static TemplateSRPType CreateTags( ref TemplateTagsModuleData tagsObj, bool isSubShader )
 		{
@@ -1973,7 +2089,7 @@ namespace AmplifyShaderEditor
 					{
 						semantics = (TemplateSemantics)Enum.Parse( typeof( TemplateSemantics ), match.Groups[ 3 ].Value );
 					}
-					catch(Exception e) 
+					catch(Exception e)
 					{
 						Debug.LogException( e );
 					}
@@ -2191,8 +2307,8 @@ namespace AmplifyShaderEditor
 					}
 				}
 
-				/*TODO: 
-				1) Remove interpDataList.Add( templateVertexData ); from initial foreach 
+				/*TODO:
+				1) Remove interpDataList.Add( templateVertexData ); from initial foreach
 				2) When looping though each foreach array element, create a new TemplateVertexData
 				from the one containted on the interpDataDict and add it to interpDataList
 				*/
@@ -2241,7 +2357,7 @@ namespace AmplifyShaderEditor
 				inspectorContainer.Data = match.Groups[ 1 ].Value;
 
 				if( inspectorContainer.Data.Equals( "UnityEditor.Experimental.Rendering.HDPipeline.HDLitGUI" ) )
-					inspectorContainer.Data = "UnityEditor.Rendering.HighDefinition.HDLitGUI";				
+					inspectorContainer.Data = "UnityEditor.Rendering.HighDefinition.HDLitGUI";
 			}
 			else
 			{

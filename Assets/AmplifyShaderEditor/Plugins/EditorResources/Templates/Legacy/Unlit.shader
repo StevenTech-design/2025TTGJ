@@ -4,7 +4,7 @@ Shader /*ase_name*/ "Hidden/Templates/Unlit" /*end*/
 	{
 		/*ase_props*/
 	}
-	
+
 	SubShader
 	{
 		/*ase_subshader_options:Name=Additional Options
@@ -13,12 +13,12 @@ Shader /*ase_name*/ "Hidden/Templates/Unlit" /*end*/
 				Absolute:SetPortName:1,Vertex Position
 				Relative:SetPortName:1,Vertex Offset
 		*/
-		
+
 		Tags { "RenderType"="Opaque" }
 		LOD 100
 
 		/*ase_all_modules*/
-		
+
 		/*ase_pass*/
 		Pass
 		{
@@ -43,7 +43,7 @@ Shader /*ase_name*/ "Hidden/Templates/Unlit" /*end*/
 				/*ase_vdata:p=p;c=c*/
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
-			
+
 			struct v2f
 			{
 				float4 vertex : SV_POSITION;
@@ -56,7 +56,7 @@ Shader /*ase_name*/ "Hidden/Templates/Unlit" /*end*/
 			};
 
 			/*ase_globals*/
-			
+
 			v2f vert ( appdata v /*ase_vert_input*/)
 			{
 				v2f o;
@@ -82,7 +82,7 @@ Shader /*ase_name*/ "Hidden/Templates/Unlit" /*end*/
 				#endif
 				return o;
 			}
-			
+
 			fixed4 frag (v2f i /*ase_frag_input*/) : SV_Target
 			{
 				UNITY_SETUP_INSTANCE_ID(i);
@@ -92,12 +92,12 @@ Shader /*ase_name*/ "Hidden/Templates/Unlit" /*end*/
 				/*ase_local_var:wp*/float3 WorldPosition = i.worldPos;
 				#endif
 				/*ase_frag_code:i=v2f*/
-				
+
 				finalColor = /*ase_frag_out:Frag Color;Float4*/fixed4(1,1,1,1)/*end*/;
 				return finalColor;
 			}
 			ENDCG
 		}
 	}
-	CustomEditor "ASEMaterialInspector"
+	CustomEditor "AmplifyShaderEditor.MaterialInspector"
 }

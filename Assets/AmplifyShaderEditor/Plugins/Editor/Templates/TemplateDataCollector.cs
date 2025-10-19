@@ -15,6 +15,14 @@ namespace AmplifyShaderEditor
 		Safe
 	}
 
+	public enum DepthMode
+	{
+		DepthLinearEye,
+		DepthLinear01,
+		DepthEye,
+		Depth01,
+	}
+
 	public class InterpDataHelper
 	{
 		public string VarName;
@@ -317,11 +325,35 @@ namespace AmplifyShaderEditor
 			m_vertexInputParams.Add( semantic, new TemplateInputParameters( type, precision, name, semantic ) );
 		}
 
+		public string GetInstanceId()
+		{
+			var precision = PrecisionType.Float;
+			bool useMasterNodeCategory = true;
+			MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment;
+
+			m_currentDataCollector.AddToDirectives( "#define INSTANCEID_SEMANTIC SV_InstanceID" );
+
+			if ( HasInfo( TemplateInfoOnSematics.INSTANCEID, useMasterNodeCategory, customCategory ) )
+			{
+				InterpDataHelper info = GetInfo( TemplateInfoOnSematics.INSTANCEID, useMasterNodeCategory, customCategory );
+				return info.VarName;
+			}
+			else
+			{
+				MasterNodePortCategory category = useMasterNodeCategory ? m_currentDataCollector.PortCategory : customCategory;
+				string name = TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_InstanceID ];
+				string varName = RegisterInfoOnSemantic( category, TemplateInfoOnSematics.INSTANCEID, TemplateSemantics.INSTANCEID_SEMANTIC, name, WirePortDataType.UINT, precision, true );
+				return varName;
+			}
+		}
+
 		public string GetVertexId()
 		{
 			var precision = PrecisionType.Float;
 			bool useMasterNodeCategory = true;
 			MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment;
+
+			m_currentDataCollector.AddToDirectives( "#define VERTEXID_SEMANTIC SV_VertexID" );
 
 			WirePortDataType type = WirePortDataType.UINT;
 			if( HasInfo( TemplateInfoOnSematics.VERTEXID, useMasterNodeCategory, customCategory ) )
@@ -332,36 +364,20 @@ namespace AmplifyShaderEditor
 			else
 			{
 				MasterNodePortCategory portCategory = useMasterNodeCategory ? m_currentDataCollector.PortCategory : customCategory;
-				string name = "ase_vertexID";
-				return RegisterInfoOnSemantic( portCategory, TemplateInfoOnSematics.VERTEXID, TemplateSemantics.SV_VertexID, name, WirePortDataType.UINT, precision, true );
+				string name = TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_VertexID ];
+				return RegisterInfoOnSemantic( portCategory, TemplateInfoOnSematics.VERTEXID, TemplateSemantics.VERTEXID_SEMANTIC, name, WirePortDataType.UINT, precision, true );
 			}
-
-			// need to review this later
-			//if( m_vertexInputParams != null && m_vertexInputParams.ContainsKey( TemplateSemantics.SV_VertexID ) )
-			//{
-			//	if( m_currentDataCollector.PortCategory == MasterNodePortCategory.Vertex )
-			//		return m_vertexInputParams[ TemplateSemantics.SV_VertexID ].Name;
-			//}
-			//else
-			//{
-			//	RegisterVertexInputParams( WirePortDataType.UINT, PrecisionType.Float, TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_VertexID ], TemplateSemantics.SV_VertexID );
-			//}
-
-			//if( m_currentDataCollector.PortCategory != MasterNodePortCategory.Vertex )
-			//	RegisterCustomInterpolatedData( m_vertexInputParams[ TemplateSemantics.SV_VertexID ].Name, WirePortDataType.INT, PrecisionType.Float, m_vertexInputParams[ TemplateSemantics.SV_VertexID ].Name );
-
-			//return m_vertexInputParams[ TemplateSemantics.SV_VertexID ].Name;
 		}
-#if UNITY_EDITOR_WIN
+
 		public string GetPrimitiveId()
 		{
-			if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.SV_PrimitiveID ) )
+			if ( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.SV_PrimitiveID ) )
 				return m_fragmentInputParams[ TemplateSemantics.SV_PrimitiveID ].Name;
 
-			RegisterFragInputParams( WirePortDataType.UINT, PrecisionType.Half, TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_PrimitiveID ], TemplateSemantics.SV_PrimitiveID );
+			string name = TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_PrimitiveID ];
+			RegisterFragInputParams( WirePortDataType.UINT, PrecisionType.Half, name, TemplateSemantics.SV_PrimitiveID );
 			return m_fragmentInputParams[ TemplateSemantics.SV_PrimitiveID ].Name;
 		}
-#endif
 
 		public string GetURPMainLight( int uniqueId, string shadowCoords = null )
 		{
@@ -385,7 +401,7 @@ namespace AmplifyShaderEditor
 					m_currentDataCollector.AddToDirectives( "#define ASE_NEED_CULLFACE 1" );
 					m_currentDataCollector.AddToDirectives( "#endif //ASE_NEED_CULLFACE" );
 					return result;
-				} 
+				}
 				else
 				{
 					if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.SV_IsFrontFacing ) )
@@ -395,7 +411,7 @@ namespace AmplifyShaderEditor
 					RegisterFragInputParams( WirePortDataType.FLOAT, PrecisionType.Half, TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_IsFrontFacing ], TemplateSemantics.SV_IsFrontFacing, custom );
 					return m_fragmentInputParams[ TemplateSemantics.SV_IsFrontFacing ].Name;
 				}
-			} 
+			}
 			else
 			{
 				//if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.VFACE ) )
@@ -410,29 +426,6 @@ namespace AmplifyShaderEditor
 				RegisterFragInputParams( WirePortDataType.FLOAT , PrecisionType.Half , TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_IsFrontFacing ] , TemplateSemantics.SV_IsFrontFacing , custom );
 				return m_fragmentInputParams[ TemplateSemantics.SV_IsFrontFacing ].Name;
 
-			}
-		}
-
-		public string GetSVInstanceId( ref MasterNodeDataCollector dataCollector )
-		{
-
-			if( dataCollector.IsFragmentCategory )
-			{
-				if( m_fragmentInputParams != null && m_fragmentInputParams.ContainsKey( TemplateSemantics.SV_InstanceID ) )
-					return m_fragmentInputParams[ TemplateSemantics.SV_InstanceID ].Name;
-
-				string custom = "uint " + TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_InstanceID ] + " : SV_InstanceId";
-				RegisterFragInputParams( WirePortDataType.INT , PrecisionType.Half , TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_InstanceID ] , TemplateSemantics.SV_InstanceID , custom );
-				return m_fragmentInputParams[ TemplateSemantics.SV_InstanceID ].Name;
-			}
-			else
-			{
-				if( m_vertexInputParams != null && m_vertexInputParams.ContainsKey( TemplateSemantics.SV_InstanceID ) )
-					return m_vertexInputParams[ TemplateSemantics.SV_InstanceID ].Name;
-
-				string custom = "uint " + TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_InstanceID ] + " : SV_InstanceId";
-				RegisterVertexInputParams( WirePortDataType.INT, PrecisionType.Half , TemplateHelperFunctions.SemanticsDefaultName[ TemplateSemantics.SV_InstanceID ] , TemplateSemantics.SV_InstanceID, custom  );
-				return m_vertexInputParams[ TemplateSemantics.SV_InstanceID ].Name;
 			}
 		}
 
@@ -454,12 +447,12 @@ namespace AmplifyShaderEditor
 				return varName;
 
 
-			string shadowCoordsValue = string.Format( "TransformWorldToShadowCoord({0})", worldPos );
+			string shadowCoordsValue = string.Format( "TransformWorldToShadowCoord( {0} )", worldPos );
 			if( m_currentDataCollector.PortCategory == MasterNodePortCategory.Fragment )
 			{
 				worldPos = GetWorldPos( false, MasterNodePortCategory.Vertex );
 				m_currentDataCollector.AddLocalVariable( uniqueId, "#if defined(REQUIRES_VERTEX_SHADOW_COORD_INTERPOLATOR) //la" );
-				RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT4, precision, string.Format( "TransformWorldToShadowCoord({0})", worldPos ), false, MasterNodePortCategory.Fragment );
+				RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT4, precision, string.Format( "TransformWorldToShadowCoord( {0} )", worldPos ), false, MasterNodePortCategory.Fragment );
 				m_currentDataCollector.AddLocalVariable( uniqueId, "#elif defined(MAIN_LIGHT_CALCULATE_SHADOWS) //la" );
 				m_currentDataCollector.AddLocalVariable( uniqueId, precision, WirePortDataType.FLOAT4, varName, shadowCoordsValue );
 				m_currentDataCollector.AddLocalVariable( uniqueId, "#else //la" );
@@ -623,7 +616,7 @@ namespace AmplifyShaderEditor
 			}
 			else
 			{
-				//search if the correct vertex data is set ... 
+				//search if the correct vertex data is set ...
 				TemplateInfoOnSematics info = TemplateHelperFunctions.IntToInfo[ UVChannel ];
 				TemplateSemantics vertexSemantics = TemplateSemantics.NONE;
 				foreach( KeyValuePair<TemplateSemantics, TemplateVertexData> kvp in m_vertexDataDict )
@@ -635,7 +628,7 @@ namespace AmplifyShaderEditor
 					}
 				}
 
-				// if not, add vertex data and create interpolator 
+				// if not, add vertex data and create interpolator
 				if( vertexSemantics == TemplateSemantics.NONE )
 				{
 					vertexSemantics = TemplateHelperFunctions.IntToSemantic[ UVChannel ];
@@ -664,7 +657,7 @@ namespace AmplifyShaderEditor
 					bool isPosition = vertexSemantics == TemplateSemantics.POSITION || vertexSemantics == TemplateSemantics.POSITION;
 
 					string interpVarName = m_currentTemplateData.VertexFunctionData.OutVarName + "." + availableInterp.VarNameWithSwizzle;
-					InterpDataHelper vertInfo = m_availableVertData[ TemplateHelperFunctions.IntToUVChannelInfo[ UVChannel ] ];					
+					InterpDataHelper vertInfo = m_availableVertData[ TemplateHelperFunctions.IntToUVChannelInfo[ UVChannel ] ];
 					string interpDecl = string.Format( TemplateHelperFunctions.TemplateVariableDecl, interpVarName, TemplateHelperFunctions.AutoSwizzleData( vertInfo.VarName, vertInfo.VarType, size , isPosition ) );
 					m_currentDataCollector.AddToVertexInterpolatorsDecl( interpDecl );
 					string finalVarName = m_currentTemplateData.FragmentFunctionData.InVarName + "." + availableInterp.VarNameWithSwizzle;
@@ -738,23 +731,25 @@ namespace AmplifyShaderEditor
 				}
 
 				m_availableVertData.Add( info,
-				new InterpDataHelper( dataType,
-				string.Format( TemplateHelperFunctions.TemplateVarFormat,
-				m_currentTemplateData.VertexFunctionData.InVarName,
-				name ),true,true ) );
+					new InterpDataHelper( dataType,
+						string.Format( TemplateHelperFunctions.TemplateVarFormat,
+						m_currentTemplateData.VertexFunctionData.InVarName,
+						name ),true,true ) );
 
 				string vertInputVarType = UIUtils.PrecisionWirePortToCgType( precisionType, dataType );
+
 				m_currentDataCollector.AddToVertexInput(
-				string.Format( TemplateHelperFunctions.InterpFullSemantic,
-				vertInputVarType,
-				name,
-				semantic ) );
+					string.Format( TemplateHelperFunctions.InterpFullSemantic,
+						vertInputVarType,
+						name,
+						semantic ) );
+
 				RegisterOnVertexData( semantic, dataType, name );
 				return m_availableVertData[ info ].VarName;
 			}
 			else
 			{
-				//search if the correct vertex data is set ... 
+				//search if the correct vertex data is set ...
 				TemplateSemantics vertexSemantics = TemplateSemantics.NONE;
 				foreach( KeyValuePair<TemplateSemantics, TemplateVertexData> kvp in m_vertexDataDict )
 				{
@@ -765,7 +760,7 @@ namespace AmplifyShaderEditor
 					}
 				}
 
-				// if not, add vertex data and create interpolator 
+				// if not, add vertex data and create interpolator
 				if( vertexSemantics == TemplateSemantics.NONE )
 				{
 					vertexSemantics = semantic;
@@ -888,7 +883,7 @@ namespace AmplifyShaderEditor
 			{
 				if( !m_interpolatorData.AvailableInterpolators[ i ].IsFull	)
 				{
-					if( m_interpolatorData.AvailableInterpolators[ i ].Usage != 0 && 
+					if( m_interpolatorData.AvailableInterpolators[ i ].Usage != 0 &&
 						(m_interpolatorData.AvailableInterpolators[ i ].NoInterpolation != noInterpolationFlag ||
 						m_interpolatorData.AvailableInterpolators[ i ].Sample != sampleFlag ))
 						continue;
@@ -921,7 +916,7 @@ namespace AmplifyShaderEditor
 				}
 			}
 
-			// This area is reached if max available interpolators from shader model is reached 
+			// This area is reached if max available interpolators from shader model is reached
 			// Nevertheless, we register all new interpolators to that list so no imediate compilation errors are thrown
 			// A warning message is then thrown to warn the user about this
 			int newInterpId = 1 + TemplateHelperFunctions.SemanticToInt[ m_interpolatorData.AvailableInterpolators[ m_interpolatorData.AvailableInterpolators.Count - 1 ].Semantic ];
@@ -1005,7 +1000,9 @@ namespace AmplifyShaderEditor
 								info == TemplateInfoOnSematics.SCREEN_POSITION ||
 								info == TemplateInfoOnSematics.SCREEN_POSITION_NORMALIZED ||
 								info == TemplateInfoOnSematics.WORLD_POSITION ||
-								info == TemplateInfoOnSematics.RELATIVE_WORLD_POS;
+								info == TemplateInfoOnSematics.RELATIVE_WORLD_POS ||
+								info == TemplateInfoOnSematics.OBJECT_POSITION ||
+								info == TemplateInfoOnSematics.VIEW_POSITION;
 
 
 			MasterNodePortCategory category = useMasterNodeCategory ? m_currentDataCollector.PortCategory : customCategory;
@@ -1036,7 +1033,7 @@ namespace AmplifyShaderEditor
 					{
 						result = TemplateHelperFunctions.AutoSwizzleData( result, m_specialFragmentLocalVars[ info ].DataType, type, isPosition );
 					}
-					
+
 					string defineValue = string.Empty;
 					if( TemplateHelperFunctions.InfoToDefineFrag.TryGetValue( info, out defineValue ))
 						m_currentDataCollector.AddToDefines( -1, defineValue );
@@ -1073,7 +1070,15 @@ namespace AmplifyShaderEditor
 
 		public string GetVertexPosition( WirePortDataType type, PrecisionType precisionType, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
 		{
-			if( HasInfo( TemplateInfoOnSematics.POSITION, useMasterNodeCategory, customCategory ) )
+			PrecisionType precision = PrecisionType.Float;
+
+			string result = string.Empty;
+			if ( GetCustomInterpolatedData( TemplateInfoOnSematics.OBJECT_POSITION, WirePortDataType.FLOAT3, precision, ref result, useMasterNodeCategory, customCategory ) )
+			{
+				return result;
+			}
+
+			if ( HasInfo( TemplateInfoOnSematics.POSITION, useMasterNodeCategory, customCategory ) )
 			{
 				InterpDataHelper info = GetInfo( TemplateInfoOnSematics.POSITION, useMasterNodeCategory, customCategory );
 				if( type != WirePortDataType.OBJECT && type != info.VarType )
@@ -1104,9 +1109,9 @@ namespace AmplifyShaderEditor
 				m_currentDataCollector.AddToIncludes( -1, IsSRP ? InstancingLibSRP : InstancingLibStandard );
 				m_currentDataCollector.AddToVertexInput( Constants.InstanceIdMacro );
 				m_currentDataCollector.AddToInterpolators( Constants.InstanceIdMacro );
-				m_currentDataCollector.AddToLocalVariables( MasterNodePortCategory.Vertex, -1, string.Format( "UNITY_SETUP_INSTANCE_ID({0});", m_currentTemplateData.VertexFunctionData.InVarName ) );
-				m_currentDataCollector.AddToLocalVariables( MasterNodePortCategory.Vertex, -1, string.Format( "UNITY_TRANSFER_INSTANCE_ID({0}, {1});", m_currentTemplateData.VertexFunctionData.InVarName, m_currentTemplateData.VertexFunctionData.OutVarName ) );
-				m_currentDataCollector.AddToLocalVariables( MasterNodePortCategory.Fragment, -1, string.Format( "UNITY_SETUP_INSTANCE_ID({0});", m_currentTemplateData.FragmentFunctionData.InVarName ) );
+				m_currentDataCollector.AddToLocalVariables( MasterNodePortCategory.Vertex, -1, string.Format( "UNITY_SETUP_INSTANCE_ID( {0} );", m_currentTemplateData.VertexFunctionData.InVarName ) );
+				m_currentDataCollector.AddToLocalVariables( MasterNodePortCategory.Vertex, -1, string.Format( "UNITY_TRANSFER_INSTANCE_ID( {0}, {1} );", m_currentTemplateData.VertexFunctionData.InVarName, m_currentTemplateData.VertexFunctionData.OutVarName ) );
+				m_currentDataCollector.AddToLocalVariables( MasterNodePortCategory.Fragment, -1, string.Format( "UNITY_SETUP_INSTANCE_ID( {0} );", m_currentTemplateData.FragmentFunctionData.InVarName ) );
 			}
 		}
 
@@ -1161,9 +1166,9 @@ namespace AmplifyShaderEditor
 				string vertexNormal = GetVertexNormal( precisionType, false, MasterNodePortCategory.Vertex );
 				string formatStr = string.Empty;
 				if( IsSRP )
-					formatStr = "TransformObjectToWorldNormal({0})";
+					formatStr = "TransformObjectToWorldNormal( {0} )";
 				else
-					formatStr = "UnityObjectToWorldNormal({0})";
+					formatStr = "UnityObjectToWorldNormal( {0} )";
 				worldNormalValue = string.Format( formatStr, vertexNormal );
 			}
 
@@ -1184,7 +1189,7 @@ namespace AmplifyShaderEditor
 
 			string tanNormal = "tanNormal" + outputId;
 			m_currentDataCollector.AddLocalVariable( uniqueId, "float3 " + tanNormal + " = " + normal + ";" );
-			return string.Format( "float3(dot({1},{0}), dot({2},{0}), dot({3},{0}))", tanNormal, tanToWorld0, tanToWorld1, tanToWorld2 );
+			return string.Format( "float3( dot( {1}, {0} ), dot( {2}, {0} ), dot( {3}, {0} ) )", tanNormal, tanToWorld0, tanToWorld1, tanToWorld2 );
 		}
 
 		public string GetVertexTangent( WirePortDataType type, PrecisionType precisionType, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
@@ -1275,9 +1280,9 @@ namespace AmplifyShaderEditor
 				string formatStr = string.Empty;
 
 				if( IsSRP )
-					formatStr = "TransformObjectToWorldDir({0}.xyz)";
+					formatStr = "TransformObjectToWorldDir( {0}.xyz )";
 				else
-					formatStr = "UnityObjectToWorldDir({0})";
+					formatStr = "UnityObjectToWorldDir( {0} )";
 
 				worldTangentValue = string.Format( formatStr, vertexTangent );
 			}
@@ -1334,7 +1339,7 @@ namespace AmplifyShaderEditor
 
 			string worldNormal = GetWorldNormal( precisionType );
 			string worldViewDir = GetViewDir();
-			string worldRefl = string.Format( "reflect(-{0}, {1})", worldViewDir, worldNormal );
+			string worldRefl = string.Format( "reflect( -{0}, {1} )", worldViewDir, worldNormal );
 
 			if( normalize )
 				worldRefl = string.Format( "normalize( {0} )", worldRefl );
@@ -1386,49 +1391,121 @@ namespace AmplifyShaderEditor
 			//string vOutName = CurrentTemplateData.VertexFunctionData.OutVarName;
 			string fInName = CurrentTemplateData.FragmentFunctionData.InVarName;
 			string worldPos = GetWorldPos();
-			m_currentDataCollector.AddLocalVariable( uniqueId, "UNITY_LIGHT_ATTENUATION(ase_atten, " + fInName + ", " + worldPos + ")" );
+			m_currentDataCollector.AddLocalVariable( uniqueId, "UNITY_LIGHT_ATTENUATION( ase_atten, " + fInName + ", " + worldPos + " )" );
 			return "ase_atten";
 
 		}
 
 		public string GenerateRotationIndependentObjectScale( ref MasterNodeDataCollector dataCollector, int uniqueId )
 		{
-			string value = string.Empty;
-
-			if( m_currentSRPType != TemplateSRPType.BiRP )
-			{
-				value = "float3( length( GetWorldToObjectMatrix()[ 0 ].xyz ), length( GetWorldToObjectMatrix()[ 1 ].xyz ), length( GetWorldToObjectMatrix()[ 2 ].xyz ) )";
-			}
-			else
-			{
-				value = "float3( length( unity_WorldToObject[ 0 ].xyz ), length( unity_WorldToObject[ 1 ].xyz ), length( unity_WorldToObject[ 2 ].xyz ) )";
-			}
-			value = "( 1.0 / "+ value +" )";
+			string worldToObjectMatrix = ( m_currentSRPType == TemplateSRPType.BiRP ) ? "unity_WorldToObject" : "GetWorldToObjectMatrix()";
+			string value = string.Format( "( 1.0 / float3( length( {0}[ 0 ].xyz ), length( {0}[ 1 ].xyz ), length( {0}[ 2 ].xyz ) ) )", worldToObjectMatrix );
 			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ParentObjectScaleStr, value );
 			return GeneratorUtils.ParentObjectScaleStr;
 		}
 
 		public string GenerateObjectScale( ref MasterNodeDataCollector dataCollector, int uniqueId )
 		{
-			string value = string.Empty;
+			string worldToObjectMatrix = ( m_currentSRPType == TemplateSRPType.BiRP ) ? "unity_ObjectToWorld" : "GetObjectToWorldMatrix()";
+			string value = string.Format( "float3( length( {0}[ 0 ].xyz ), length( {0}[ 1 ].xyz ), length( {0}[ 2 ].xyz ) )", worldToObjectMatrix );
+			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ObjectScaleStr, value );
+			return GeneratorUtils.ObjectScaleStr;
+		}
 
-			if( m_currentSRPType != TemplateSRPType.BiRP )
+		public string GenerateObjectPosition( ref MasterNodeDataCollector dataCollector, int uniqueId )
+		{
+			string value = string.Empty;
+			if ( m_currentSRPType != TemplateSRPType.BiRP )
 			{
-				value = "float3( length( GetObjectToWorldMatrix()[ 0 ].xyz ), length( GetObjectToWorldMatrix()[ 1 ].xyz ), length( GetObjectToWorldMatrix()[ 2 ].xyz ) )";
+				value = "GetAbsolutePositionWS( UNITY_MATRIX_M._m03_m13_m23 )";
 			}
 			else
 			{
-				value = "float3( length( unity_ObjectToWorld[ 0 ].xyz ), length( unity_ObjectToWorld[ 1 ].xyz ), length( unity_ObjectToWorld[ 2 ].xyz ) )";
+				value = "UNITY_MATRIX_M._m03_m13_m23";
 			}
-			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ObjectScaleStr, value );
-			return GeneratorUtils.ObjectScaleStr;
+			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ObjectPositionStr, value );
+			return GeneratorUtils.ObjectPositionStr;
+		}
+
+		public string GenerateObjectBoundsMin( ref MasterNodeDataCollector dataCollector, int uniqueId )
+		{
+			string value = string.Empty;
+			if ( m_currentSRPType != TemplateSRPType.BiRP && ( ASEPackageManagerHelper.CurrentHDRPBaseline >= ASESRPBaseline.ASE_SRP_14 ||
+				ASEPackageManagerHelper.CurrentURPBaseline >= ASESRPBaseline.ASE_SRP_14  ) )
+			{
+				value = "unity_RendererBounds_Min.xyz";
+			}
+			else
+			{
+				value = "0"; // not supported
+			}
+			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ObjectBoundsMinStr, value );
+			return GeneratorUtils.ObjectBoundsMinStr;
+		}
+
+		public string GenerateObjectBoundsMax( ref MasterNodeDataCollector dataCollector, int uniqueId )
+		{
+			string value = string.Empty;
+			if ( m_currentSRPType != TemplateSRPType.BiRP && ( ASEPackageManagerHelper.CurrentHDRPBaseline >= ASESRPBaseline.ASE_SRP_14 ||
+				ASEPackageManagerHelper.CurrentURPBaseline >= ASESRPBaseline.ASE_SRP_14 ) )
+			{
+				value = "unity_RendererBounds_Max.xyz";
+			}
+			else
+			{
+				value = "0"; // not supported
+			}
+			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ObjectBoundsMaxStr, value );
+			return GeneratorUtils.ObjectBoundsMaxStr;
+		}
+
+		public string GenerateObjectBoundsSize( ref MasterNodeDataCollector dataCollector, int uniqueId )
+		{
+			string value = string.Empty;
+			if ( m_currentSRPType != TemplateSRPType.BiRP && ( ASEPackageManagerHelper.CurrentHDRPBaseline >= ASESRPBaseline.ASE_SRP_14 ||
+				ASEPackageManagerHelper.CurrentURPBaseline >= ASESRPBaseline.ASE_SRP_14 ) )
+			{
+				value = "( unity_RendererBounds_Max.xyz - unity_RendererBounds_Min.xyz )";
+			}
+			else
+			{
+				value = "0"; // not supported
+			}
+			dataCollector.AddLocalVariable( uniqueId, PrecisionType.Float, WirePortDataType.FLOAT3, GeneratorUtils.ObjectBoundsSizeStr, value );
+			return GeneratorUtils.ObjectBoundsSizeStr;
+		}
+
+		public string GetPosition( PositionNode.Space space, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			// overriding precision
+			var precision = PrecisionType.Float;
+
+			string result;
+			if ( space == PositionNode.Space.Object )
+			{
+				result = GetVertexPosition( WirePortDataType.FLOAT3, precision, useMasterNodeCategory, customCategory );
+			}
+			else if ( space == PositionNode.Space.RelativeWorld )
+			{
+
+				result = GetRelativeWorldPos( useMasterNodeCategory, customCategory );
+			}
+			else if ( space == PositionNode.Space.View )
+			{
+				result = GetViewPos( useMasterNodeCategory, customCategory );
+			}
+			else // PositionNode.Space.World
+			{
+				result = GetWorldPos( useMasterNodeCategory, customCategory );
+			}
+			return result;
 		}
 
 		public string GetWorldPos( bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
 		{
 			// overriding precision
 			var precision = PrecisionType.Float;
-			
+
 			string result = string.Empty;
 			if( GetCustomInterpolatedData( TemplateInfoOnSematics.WORLD_POSITION, WirePortDataType.FLOAT3, precision, ref result, useMasterNodeCategory, customCategory ) )
 			{
@@ -1464,19 +1541,79 @@ namespace AmplifyShaderEditor
 			{
 				if( m_currentSRPType == TemplateSRPType.HDRP )
 				{
-					worldPosConversion = string.Format( "GetAbsolutePositionWS( TransformObjectToWorld( ({0}).xyz ) )", vertexPos );
+					worldPosConversion = string.Format( "GetAbsolutePositionWS( TransformObjectToWorld( ( {0} ).xyz ) )", vertexPos );
 				}
 				else if( m_currentSRPType == TemplateSRPType.URP )
 				{
-					worldPosConversion = string.Format( "TransformObjectToWorld( ({0}).xyz )", vertexPos );
+					worldPosConversion = string.Format( "TransformObjectToWorld( ( {0} ).xyz )", vertexPos );
 				}
 				else
 				{
-					worldPosConversion = string.Format( "mul(unity_ObjectToWorld, float4( ({0}).xyz, 1 )).xyz", vertexPos );
+					worldPosConversion = string.Format( "mul( unity_ObjectToWorld, float4( ( {0} ).xyz, 1 ) ).xyz", vertexPos );
 				}
 			}
 			RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT3, precision, worldPosConversion, useMasterNodeCategory, customCategory );
 			return varName;
+		}
+
+		public string GetRelativeWorldPos( bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			PrecisionType precision = PrecisionType.Float;
+
+			string result = string.Empty;
+			if ( GetCustomInterpolatedData( TemplateInfoOnSematics.RELATIVE_WORLD_POS, WirePortDataType.FLOAT3, precision, ref result, useMasterNodeCategory, customCategory ) )
+			{
+				return result;
+			}
+
+			if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.RelativeWorldPositionStr ) )
+			{
+				string positionOS = GetVertexPosition( WirePortDataType.FLOAT4, precision, false, MasterNodePortCategory.Vertex );
+				string positionCS = GetClipPos( false, MasterNodePortCategory.Vertex );
+				string invProjMatrix = GeneratorUtils.GenerateInverseProjection( ref m_currentDataCollector, -1, precision, false, MasterNodePortCategory.Vertex );
+
+				if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.ViewHPositionStr ) )
+				{
+					m_currentDataCollector.AddToVertexLocalVariables( -1, precision, WirePortDataType.FLOAT4, GeneratorUtils.ViewHPositionStr,
+						string.Format( "mul( {0}, {1} )", invProjMatrix, GeneratorUtils.ClipPositionStr ) );
+				}
+
+				m_currentDataCollector.AddToVertexLocalVariables( -1, precision, WirePortDataType.FLOAT3, GeneratorUtils.RelativeWorldPositionStr,
+					string.Format( "mul( ( float3x3 )UNITY_MATRIX_I_V, {0}.xyz / {0}.w )", GeneratorUtils.ViewHPositionStr ) );
+
+				RegisterCustomInterpolatedData( GeneratorUtils.RelativeWorldPositionStr, WirePortDataType.FLOAT3, precision, GeneratorUtils.RelativeWorldPositionStr, useMasterNodeCategory, customCategory );
+			}
+			return GeneratorUtils.RelativeWorldPositionStr;
+		}
+
+		public string GetViewPos( bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			PrecisionType precision = PrecisionType.Float;
+
+			string result = string.Empty;
+			if ( GetCustomInterpolatedData( TemplateInfoOnSematics.VIEW_POSITION, WirePortDataType.FLOAT3, precision, ref result, useMasterNodeCategory, customCategory ) )
+			{
+				return result;
+			}
+
+			MasterNodePortCategory portCategory = useMasterNodeCategory ? m_currentDataCollector.PortCategory : customCategory;
+
+			if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.ViewPositionStr ) )
+			{
+				if ( portCategory == MasterNodePortCategory.Vertex || portCategory == MasterNodePortCategory.Tessellation )
+				{
+					string positionOS = GetVertexPosition( WirePortDataType.FLOAT3, precision, useMasterNodeCategory, customCategory );
+					result = string.Format( IsSRP ? "TransformWorldToView( TransformObjectToWorld( {0} ) )" : "UnityObjectToViewPos( {0} )", positionOS );
+				}
+				else
+				{
+					string positionWS = GetWorldPos( useMasterNodeCategory, customCategory );
+					result = string.Format( IsSRP ? "TransformWorldToView( {0} )" : "UnityWorldToViewPos( {0} )", positionWS );
+				}
+
+				m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT3, GeneratorUtils.ViewPositionStr, result );
+			}
+			return GeneratorUtils.ViewPositionStr;
 		}
 
 		public string GetClipPosForValue( string customVertexPos, string outputId, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
@@ -1496,13 +1633,13 @@ namespace AmplifyShaderEditor
 			{
 				default:
 				case TemplateSRPType.BiRP:
-				formatStr = "UnityObjectToClipPos({0})";
+				formatStr = "UnityObjectToClipPos( {0} )";
 				break;
 				case TemplateSRPType.HDRP:
-				formatStr = "TransformWorldToHClip( TransformObjectToWorld({0}))";
+				formatStr = "TransformWorldToHClip( TransformObjectToWorld( ( {0} ).xyz ) )";
 				break;
 				case TemplateSRPType.URP:
-				formatStr = "TransformObjectToHClip(({0}).xyz)";
+				formatStr = "TransformObjectToHClip( ( {0} ).xyz )";
 				break;
 			}
 
@@ -1530,13 +1667,13 @@ namespace AmplifyShaderEditor
 			{
 				default:
 				case TemplateSRPType.BiRP:
-				formatStr = "UnityObjectToClipPos({0})";
+				formatStr = "UnityObjectToClipPos( {0} )";
 				break;
 				case TemplateSRPType.HDRP:
-				formatStr = "TransformWorldToHClip( TransformObjectToWorld({0}))";
+				formatStr = "TransformWorldToHClip( TransformObjectToWorld( ( {0} ).xyz ) )";
 				break;
 				case TemplateSRPType.URP:
-				formatStr = "TransformObjectToHClip(({0}).xyz)";
+				formatStr = "TransformObjectToHClip( ( {0} ).xyz )";
 				break;
 			}
 
@@ -1558,40 +1695,42 @@ namespace AmplifyShaderEditor
 			string screenPosConversion = string.Empty;
 			if( m_currentSRPType == TemplateSRPType.HDRP )
 			{
-				screenPosConversion = string.Format( "ComputeScreenPos( {0} , _ProjectionParams.x )", clipSpacePos );
+				screenPosConversion = string.Format( "ComputeScreenPos( {0}, _ProjectionParams.x )", clipSpacePos );
 			}
 			else
 			{
-				screenPosConversion = string.Format( "ComputeScreenPos({0})", clipSpacePos );
+				screenPosConversion = string.Format( "ComputeScreenPos( {0} )", clipSpacePos );
 			}
 			RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT4, precision, screenPosConversion, useMasterNodeCategory, customCategory );
 			return varName;
 		}
 
-		public string GetScreenPos( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		public string GetScreenPosRaw( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
 		{
 			// overriding precision
 			precision = PrecisionType.Float;
 
 			string result = string.Empty;
-			if( GetCustomInterpolatedData( TemplateInfoOnSematics.SCREEN_POSITION, WirePortDataType.FLOAT4, precision, ref result, useMasterNodeCategory, customCategory ) )
+			if ( GetCustomInterpolatedData( TemplateInfoOnSematics.SCREEN_POSITION, WirePortDataType.FLOAT4, precision, ref result, useMasterNodeCategory, customCategory ) )
 			{
 				return result;
 			}
 
 			string varName = UIUtils.GetInputValueFromType( SurfaceInputs.SCREEN_POS );
-			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
+			if ( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
+			{
 				return varName;
+			}
 
 			string clipSpacePos = GetClipPos( false, MasterNodePortCategory.Vertex );
 			string screenPosConversion = string.Empty;
-			if( m_currentSRPType == TemplateSRPType.HDRP )
+			if ( m_currentSRPType == TemplateSRPType.HDRP )
 			{
-				screenPosConversion = string.Format( "ComputeScreenPos( {0} , _ProjectionParams.x )", clipSpacePos );
+				screenPosConversion = string.Format( "ComputeScreenPos( {0}, _ProjectionParams.x )", clipSpacePos );
 			}
 			else
 			{
-				screenPosConversion = string.Format( "ComputeScreenPos({0})", clipSpacePos );
+				screenPosConversion = string.Format( "ComputeScreenPos( {0} )", clipSpacePos );
 			}
 			RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT4, precision, screenPosConversion, useMasterNodeCategory, customCategory );
 			return varName;
@@ -1605,83 +1744,170 @@ namespace AmplifyShaderEditor
 				return result;
 			}
 
-			string varName = GeneratorUtils.ScreenPositionNormalizedStr;// "norm" + UIUtils.GetInputValueFromType( SurfaceInputs.SCREEN_POS );
-			string screenPos = GetScreenPos( precision, useMasterNodeCategory, customCategory );
-			string clipPlaneTestOp = string.Format( "{0}.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? {0}.z : {0}.z * 0.5 + 0.5;", varName );
-			m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT4, varName, string.Format( GeneratorUtils.NormalizedScreenPosFormat, screenPos ) );
-			m_currentDataCollector.AddLocalVariable( -1, clipPlaneTestOp );
+			if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.ScreenPosNormStr ) )
+			{
+				string screenPos = GetScreenPosRaw( precision, useMasterNodeCategory, customCategory );
+				string clipPlaneTestOp = string.Format( "{0}.z = ( UNITY_NEAR_CLIP_VALUE >= 0 ) ? {0}.z : {0}.z * 0.5 + 0.5;", GeneratorUtils.ScreenPosNormStr );
+				m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT4, GeneratorUtils.ScreenPosNormStr, string.Format( GeneratorUtils.NormalizedScreenPosFormat, screenPos ) );
+				m_currentDataCollector.AddLocalVariable( -1, clipPlaneTestOp );
+			}
+			return GeneratorUtils.ScreenPosNormStr;
+		}
+
+		public string GetScreenPosCenter( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			string screenPosNorm = GetScreenPosNormalized( precision, useMasterNodeCategory, customCategory );
+			if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.ScreenPosCenterStr ) )
+			{
+				string value = string.Format( "float4( {0}.xy * 2 - 1, 0, 0 )", screenPosNorm );
+				m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT4, GeneratorUtils.ScreenPosCenterStr, value );
+			}
+			return GeneratorUtils.ScreenPosCenterStr;
+		}
+
+		public string GetScreenPosTiled( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.ScreenPosTiledStr ) )
+			{
+				string screenPosNorm = GetScreenPosNormalized( precision, useMasterNodeCategory, customCategory );
+				string value = string.Format( "frac( float4( ( {0}.x * 2 - 1 ) * _ScreenParams.x / _ScreenParams.y, {0}.y * 2 - 1, 0, 0 ) )", screenPosNorm );
+				m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT4, GeneratorUtils.ScreenPosTiledStr, value );
+			}
+			return GeneratorUtils.ScreenPosTiledStr;
+		}
+
+		public string GetScreenPosPixel( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			if ( !m_currentDataCollector.HasLocalVariableByName( GeneratorUtils.ScreenPosPixelStr ) )
+			{
+				string screenPosNorm = GetScreenPosNormalized( precision, useMasterNodeCategory, customCategory );
+				GeneratorUtils.GenerateScreenPosNormToPixelFunction( ref m_currentDataCollector );
+				m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT4, GeneratorUtils.ScreenPosPixelStr, GeneratorUtils.GenerateScreenPosNormToPixelFunctionCall( screenPosNorm ) );
+			}
+			return GeneratorUtils.ScreenPosPixelStr;
+		}
+
+		public string GetSurfaceDepth( DepthMode depthMode, PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment )
+		{
+			string screenPos = GetScreenPosRaw( precision, useMasterNodeCategory, customCategory );
+			string instruction = string.Format( "{0}.z / {0}.w", screenPos );
+			string varName;
+
+			switch ( depthMode )
+			{
+				case DepthMode.DepthLinearEye:
+				{
+					instruction = GeneratorUtils.ApplyLinearDepthModifier( ref m_currentDataCollector, instruction, depthMode );
+					varName = GeneratorUtils.DepthLinearEyeStr;
+					break;
+				}
+				case DepthMode.DepthLinear01:
+				{
+					instruction = GeneratorUtils.ApplyLinearDepthModifier( ref m_currentDataCollector, instruction, depthMode );
+					varName = GeneratorUtils.DepthLinear01Str;
+					break;
+				}
+				case DepthMode.DepthEye:
+				{
+					instruction = string.Format( "( {0} ) * ( _ProjectionParams.z - _ProjectionParams.y )", instruction );
+					varName = GeneratorUtils.DepthEyeStr;
+					break;
+				}
+				case DepthMode.Depth01:
+				default:
+				{
+					varName = GeneratorUtils.DepthRawStr;
+					break;
+				}
+			}
+
+			m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT, varName, instruction );
 			return varName;
 		}
 
-		public string GetViewDir( bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, NormalizeType normalizeType = NormalizeType.Regular )
+		public string GetViewVector( PrecisionType precisionType = PrecisionType.Float, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, ViewSpace space = ViewSpace.World )
 		{
-			// overriding precision
-			var precision = PrecisionType.Float;
-
-			string result = string.Empty;
-			if( GetCustomInterpolatedData( TemplateInfoOnSematics.WORLD_VIEW_DIR, WirePortDataType.FLOAT3, precision, ref result, useMasterNodeCategory, customCategory ) )
-				return result;
-
-			string varName = GeneratorUtils.WorldViewDirectionStr;//UIUtils.GetInputValueFromType( SurfaceInputs.VIEW_DIR );
-			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
+			string varName;
+			switch ( space )
+			{
+				case ViewSpace.Tangent: varName = GeneratorUtils.TangentViewVectorStr; break;
+				case ViewSpace.Object: varName = GeneratorUtils.ObjectViewVectorStr; break;
+				case ViewSpace.View: varName = GeneratorUtils.ViewViewVectorStr; break;
+				case ViewSpace.World:
+				default: varName = GeneratorUtils.WorldViewVectorStr; break;
+			}
+			if ( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
+			{
 				return varName;
+			}
 
 			string worldPos = GetWorldPos();
+			string viewVectorWS = "( _WorldSpaceCameraPos.xyz - " + worldPos + " )";
 
-			string formatStr = string.Empty;
-			if( IsSRP )
-				formatStr = "( _WorldSpaceCameraPos.xyz - {0} )";
-			else
-				formatStr = "UnityWorldSpaceViewDir({0})";
-
-			string viewDir = string.Format( formatStr, worldPos );
-			m_currentDataCollector.AddLocalVariable( -1, precision, WirePortDataType.FLOAT3, varName, viewDir );
-
-			switch( normalizeType )
+			string viewVector;
+			if ( space == ViewSpace.Tangent )
 			{
-				default:
-				case NormalizeType.Off:
-				break;
-				case NormalizeType.Regular:
-				m_currentDataCollector.AddLocalVariable( -1, varName + " = normalize(" + varName + ");" );
-				break;
-				case NormalizeType.Safe:
-				m_currentDataCollector.AddLocalVariable( -1, varName + " = " + TemplateHelperFunctions.SafeNormalize( m_currentDataCollector, varName ) + ";" );
-				break;
+				string tanToWorld0, tanToWorld1, tanToWorld2;
+				GetWorldTangentTf( precisionType, out tanToWorld0, out tanToWorld1, out tanToWorld2 );
+
+				viewVector = string.Format( " {0} * {3}.x + {1} * {3}.y  + {2} * {3}.z", tanToWorld0, tanToWorld1, tanToWorld2, viewVectorWS );
+			}
+			else if ( space == ViewSpace.Object )
+			{
+				string worldToObjectMatrix = ( m_currentSRPType == TemplateSRPType.BiRP ) ? "unity_WorldToObject" : "GetWorldToObjectMatrix()";
+				viewVector = string.Format( "mul( ( float3x3 ){0}, {1} )", worldToObjectMatrix, viewVectorWS );
+
+			}
+			else if ( space == ViewSpace.View )
+			{
+				viewVector = string.Format( "mul( ( float3x3 )UNITY_MATRIX_V, {0} )", viewVectorWS );
+			}
+			else
+			{
+				viewVector = viewVectorWS;
 			}
 
+			m_currentDataCollector.AddLocalVariable( -1, precisionType, WirePortDataType.FLOAT3, varName, viewVector );
 
-			//RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT3, PrecisionType.Float, viewDir, useMasterNodeCategory, customCategory );
 			return varName;
 		}
 
-		public string GetTangentViewDir( PrecisionType precisionType, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, NormalizeType normalizeType = NormalizeType.Regular )
+		public string GetViewDir( PrecisionType precisionType = PrecisionType.Float, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, NormalizeType normalizeType = NormalizeType.Regular, ViewSpace space = ViewSpace.World )
 		{
-			string varName = GeneratorUtils.TangentViewDirectionStr;
-			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
-				return varName;
-
-			string tanToWorld0 = string.Empty;
-			string tanToWorld1 = string.Empty;
-			string tanToWorld2 = string.Empty;
-
-			GetWorldTangentTf( precisionType, out tanToWorld0, out tanToWorld1, out tanToWorld2 );
-			string viewDir = GetViewDir();
-			string tanViewDir = string.Format( " {0} * {3}.x + {1} * {3}.y  + {2} * {3}.z", tanToWorld0, tanToWorld1, tanToWorld2, viewDir );
-
-			m_currentDataCollector.AddLocalVariable( -1, precisionType, WirePortDataType.FLOAT3, varName, tanViewDir );
-			switch( normalizeType )
+			if ( space == ViewSpace.World )
 			{
-				default:
-				case NormalizeType.Off: break;
-				case NormalizeType.Regular:
-				m_currentDataCollector.AddLocalVariable( -1, varName + " = normalize(" + varName + ");" );
-				break;
-				case NormalizeType.Safe:
-				m_currentDataCollector.AddLocalVariable( -1, varName + " = " + TemplateHelperFunctions.SafeNormalize( m_currentDataCollector, varName ) + ";" );
-				break;
+				string result = string.Empty;
+				if ( GetCustomInterpolatedData( TemplateInfoOnSematics.WORLD_VIEW_DIR, WirePortDataType.FLOAT3, precisionType, ref result, useMasterNodeCategory, customCategory ) )
+				{
+					return result;
+				}
 			}
 
+			string varName;
+			switch ( space )
+			{
+				case ViewSpace.Tangent: varName = ( normalizeType == NormalizeType.Regular ) ? GeneratorUtils.TangentViewDirectionStr : GeneratorUtils.TangentViewDirectionSafeStr; break;
+				case ViewSpace.Object: varName = ( normalizeType == NormalizeType.Regular ) ? GeneratorUtils.ObjectViewDirectionStr : GeneratorUtils.ObjectViewDirectionSafeStr; break;
+				case ViewSpace.View: varName = ( normalizeType == NormalizeType.Regular ) ? GeneratorUtils.ViewViewDirectionStr : GeneratorUtils.ViewViewDirectionSafeStr; break;
+				case ViewSpace.World:
+				default: varName = ( normalizeType == NormalizeType.Regular ) ? GeneratorUtils.WorldViewDirectionStr : GeneratorUtils.WorldViewDirectionSafeStr; break;
+			}
+
+			if ( !m_currentDataCollector.HasLocalVariableByName( varName ) )
+			{
+				string viewVector = GetViewVector( precisionType, useMasterNodeCategory, customCategory, space );
+
+				if ( normalizeType == NormalizeType.Regular )
+				{
+					viewVector = "normalize( " + viewVector + " )";
+				}
+				else if ( normalizeType == NormalizeType.Safe )
+				{
+					viewVector = TemplateHelperFunctions.SafeNormalize( m_currentDataCollector, viewVector );
+				}
+
+				m_currentDataCollector.AddLocalVariable( -1, precisionType, WirePortDataType.FLOAT3, varName, viewVector );
+			}
 			return varName;
 		}
 
@@ -1728,7 +1954,7 @@ namespace AmplifyShaderEditor
 			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
 				return varName;
 
-			string result = string.Format( "float3x3({0}.x,{1}.x,{2}.x,{0}.y,{1}.y,{2}.y,{0}.z,{1}.z,{2}.z)", worldTangent, worldBinormal, worldNormal );
+			string result = string.Format( "float3x3( {0}.x, {1}.x, {2}.x, {0}.y, {1}.y, {2}.y, {0}.z, {1}.z, {2}.z )", worldTangent, worldBinormal, worldNormal );
 			m_currentDataCollector.AddLocalVariable( -1, precisionType, WirePortDataType.FLOAT3x3, GeneratorUtils.TangentToWorldFastStr, result );
 			return GeneratorUtils.TangentToWorldFastStr;
 		}
@@ -1750,7 +1976,7 @@ namespace AmplifyShaderEditor
 			string varName = GeneratorUtils.WorldToTangentStr;// "worldToTanMat";
 			if( HasCustomInterpolatedData( varName, useMasterNodeCategory, customCategory ) )
 				return varName;
-			string worldTanMat = string.Format( "float3x3({0},{1},{2})", worldTangent, worldBinormal, worldNormal );
+			string worldTanMat = string.Format( "float3x3( {0}, {1}, {2} )", worldTangent, worldBinormal, worldNormal );
 
 			m_currentDataCollector.AddLocalVariable( -1, precisionType, WirePortDataType.FLOAT3x3, varName, worldTanMat );
 			return varName;
@@ -1768,16 +1994,16 @@ namespace AmplifyShaderEditor
 
 			string formatStr = string.Empty;
 			if( IsSRP )
-				formatStr = "TransformWorldToView(TransformObjectToWorld({0}))";
+				formatStr = "TransformWorldToView( TransformObjectToWorld( {0} ) )";
 			else
-				formatStr = "UnityObjectToViewPos({0})";
+				formatStr = "UnityObjectToViewPos( {0} )";
 
 			string objectToViewPosValue = string.Format( formatStr, vertexPos );
 			RegisterCustomInterpolatedData( varName, WirePortDataType.FLOAT3, precision, objectToViewPosValue, useMasterNodeCategory, customCategory );
 			return varName;
 		}
 
-		public string GetEyeDepth( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, int viewSpace = 0 )
+		public string GetEyeDepth( PrecisionType precision, bool useMasterNodeCategory = true, MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, bool linear01 = false )
 		{
 			// overriding precision
 			precision = PrecisionType.Float;
@@ -1787,7 +2013,7 @@ namespace AmplifyShaderEditor
 				return varName;
 			string objectToView = GetObjectToViewPos( precision, false, MasterNodePortCategory.Vertex );
 			string eyeDepthValue = string.Format( "-{0}.z", objectToView );
-			if( viewSpace == 1 )
+			if( linear01 )
 			{
 				eyeDepthValue += " * _ProjectionParams.w";
 			}
@@ -1816,7 +2042,7 @@ namespace AmplifyShaderEditor
 			{
 				default:
 				case TemplateSRPType.BiRP:
-				objectSpaceLightDir = string.Format( "ObjSpaceLightDir({0})", vertexPos );
+				objectSpaceLightDir = string.Format( "ObjSpaceLightDir( {0} )", vertexPos );
 				break;
 				case TemplateSRPType.HDRP:
 				string worldSpaceLightDir = GetWorldSpaceLightDir( precisionType, useMasterNodeCategory, customCategory );
@@ -1852,7 +2078,7 @@ namespace AmplifyShaderEditor
 				{
 					lightVar = "_MainLightPosition.xyz";
 				}
-				return m_currentDataCollector.SafeNormalizeLightDir ? string.Format( "SafeNormalize({0})", lightVar ) : lightVar;
+				return m_currentDataCollector.SafeNormalizeLightDir ? string.Format( "SafeNormalize( {0} )", lightVar ) : lightVar;
 			}
 
 			string varName = "worldSpaceLightDir";
@@ -1860,17 +2086,17 @@ namespace AmplifyShaderEditor
 				return varName;
 
 			string worldPos = GetWorldPos( useMasterNodeCategory, customCategory );
-			string worldSpaceLightDir = string.Format( "UnityWorldSpaceLightDir({0})", worldPos );
+			string worldSpaceLightDir = string.Format( "UnityWorldSpaceLightDir( {0} )", worldPos );
 			if( m_currentDataCollector.SafeNormalizeLightDir )
 			{
 				if( IsSRP )
 				{
-					worldSpaceLightDir = string.Format( "SafeNormalize{0})", worldSpaceLightDir );
+					worldSpaceLightDir = string.Format( "SafeNormalize( {0} )", worldSpaceLightDir );
 				}
 				else
 				{
 					m_currentDataCollector.AddToIncludes( -1, Constants.UnityBRDFLib );
-					worldSpaceLightDir = string.Format( "Unity_SafeNormalize({0})", worldSpaceLightDir );
+					worldSpaceLightDir = string.Format( "Unity_SafeNormalize( {0} )", worldSpaceLightDir );
 				}
 			}
 
@@ -1878,7 +2104,7 @@ namespace AmplifyShaderEditor
 			return varName;
 		}
 
-		public void RegisterCustomInterpolatedData( string name, WirePortDataType dataType, PrecisionType precision, string vertexInstruction, bool useMasterNodeCategory = true, 
+		public void RegisterCustomInterpolatedData( string name, WirePortDataType dataType, PrecisionType precision, string vertexInstruction, bool useMasterNodeCategory = true,
 													MasterNodePortCategory customCategory = MasterNodePortCategory.Fragment, bool noInterpolationFlag = false, bool sampleFlag = false )
 		{
 			bool addLocalVariable = !name.Equals( vertexInstruction );

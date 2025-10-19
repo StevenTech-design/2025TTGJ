@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player
-  m_Shader: {fileID: 4800000, guid: e3d9d8127e0cbc941b482e5a9abc4b08, type: 3}
+  m_Shader: {fileID: 4800000, guid: 533f531b31336044bafdb32a571d5b4f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -82,23 +82,23 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutLineColor: 1
-    - _OutlineWidth: 0.62
+    - _OutlineWidth: 0.515
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Toon_Hardness: 100
-    - _Toon_Theshold: 0.241
+    - _Toon_Theshold: 0.122
     - _UVSec: 0
     - _ZWrite: 1
-    - _colorSaturation: 2.69
+    - _colorSaturation: 2
     - _specInt: 0
     - fresnelOFF: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
-    - _OutLineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _colorA: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _OutLineColor: {r: 0.8050314, g: 0.8050314, b: 0.8050314, a: 1}
+    - _colorA: {r: 0.8050314, g: 0.8050314, b: 0.8050314, a: 1}
     - _colorB: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
   m_BuildTextureStacks: []
