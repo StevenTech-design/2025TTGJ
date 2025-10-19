@@ -63,9 +63,6 @@ namespace TTGJ.Plant
         public virtual void ChangeState(PlantState state)
         {
             currentState = state;
-            if (currentState == PlantState.Germination) { 
-                return;
-            }
             switch (state)
             {
                 case PlantState.Germination:
@@ -100,7 +97,7 @@ namespace TTGJ.Plant
             collider.enabled = true;
             collider.isTrigger = true;
             rigidbody.isKinematic = true;
-            
+            Debug.Log("OnGermination: " + collider.isTrigger);
         }
 
         public virtual void OnMature()
