@@ -9,9 +9,9 @@ namespace TTGJ.Plant
     public class Mushroom : PlantBase
     {
         private float bounceForce = 10;
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
-            if(currentState != PlantState.Mature) { 
+            if(currentState < PlantState.Mature) { 
                 return;
             }
             if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
