@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1001,
+    "name": "花椰菜汤",
+    "costMainBuckets_1": 5001,
+    "costMainBuckets_2": 2013,
+    "rewardBoxId": 5009,
+    "sound": ""
+  },
+  {
+    "id": 1002,
+    "name": "土豆-巨大作物",
+    "costMainBuckets_1": 2001,
+    "costMainBuckets_2": 2001,
+    "rewardBoxId": 3001,
+    "sound": ""
+  }
+]

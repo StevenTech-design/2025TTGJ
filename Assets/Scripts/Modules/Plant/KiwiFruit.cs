@@ -35,14 +35,14 @@ namespace TTGJ.Plant
         public void OnEat(PlayerController player)
         {
             // 启动角色变成猕猴桃的效果
-            StartCoroutine(KiwiTransformCoroutine(player));
+            //StartCoroutine(KiwiTransformCoroutine(player));
             
             // 销毁当前猕猴桃对象
             gameObject.SetActive(false);
             Destroy(gameObject, 0.1f);
         }
         
-        private IEnumerator KiwiTransformCoroutine(PlayerController player)
+        /* private IEnumerator KiwiTransformCoroutine(PlayerController player)
         {
             // 保存玩家的原始状态
             Vector3 originalScale = player.transform.localScale;
@@ -71,6 +71,6 @@ namespace TTGJ.Plant
             player.CanMove = originalCanMove;
             
             Debug.Log("Player returned to normal after eating kiwi");
-        }
+        } */
     }
 }

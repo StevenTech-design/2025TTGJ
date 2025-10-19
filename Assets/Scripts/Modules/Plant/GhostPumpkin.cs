@@ -1,8 +1,11 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -12,44 +15,11 @@ namespace TTGJ.Plant
         [SerializeField]
         private float intervalTimer = 0.5f;
         private float currentTime;
-        [SerializeField]
-        private float bounceForce = 10;
-        private void OnTriggerEnter(Collider other) {
-            if (currentState != PlantState.Mature)
-            {
-                return;
-            }
-            if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
-            { 
-                return;
-            }
-            
-            currentTime = Time.time;
-        }
-        private void OnTriggerStay(Collider other) {
-            if (currentState != PlantState.Mature)
-            {
-                return;
-            }
-            if (other.gameObject.layer == LayerMask.NameToLayer("Building") || other.CompareTag("Field"))
-            { 
-                return;
-            }
-            if (currentState != PlantState.Mature)
-            {
-                return;
-            }
-            if (Time.time - currentTime >= intervalTimer) {
-                SpecialAction(new PlantSpacialParam<GameObject> { param = other.gameObject });
-                currentTime = Time.time;
-            }
-        }
-        public override void SpecialAction(PlantSpacialParam param) { 
-            if (!(param is PlantSpacialParam<GameObject> plantSpacialParam))
-            {
-                return;
-            }
-            plantSpacialParam.param.GetComponent<Rigidbody>().AddForce(Vector3.left * bounceForce, ForceMode.Impulse);
+        private GameObject currentEatObject;
+        
+
+        private void Flashing() { 
+            transform.DOScale(Vector3.one * 1.5f, 1).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
         }
 
         public override void OnEat()
@@ -67,24 +37,43 @@ namespace TTGJ.Plant
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
-            fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
-            BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
+            // FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
+            // fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
+            // BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
+            collider.isTrigger = true;
         }
-        public async void OnFallCollision(Collision collision)
+        public override void OnMature()
         {
-            if (collision.gameObject.TryGetComponent<PlayerController>(out var player)) {
-                Camera.main.gameObject.SetActive(false);
-                await UniTask.Delay(1000);
-                Camera.main.gameObject.SetActive(true);
-            }else {
-                if (collision.gameObject.CompareTag("Field")) {
-                    return;
-                }
-                collision.gameObject.SetActive(false);
-                await UniTask.Delay(1000);
-                collision.gameObject.SetActive(true);
-            }
+            base.OnMature();
+            Flashing();
         }
+        private async Task OnTriggerEnterAsync(Collider other) {
+            if (other.gameObject.CompareTag("Field") || other.gameObject.layer == LayerMask.NameToLayer("Building") || currentEatObject != null) { 
+                return;
+            }
+            currentEatObject = other.gameObject;
+            other.gameObject.SetActive(false);
+            await UniTask.Delay(1000);
+            other.gameObject.SetActive(true);
+            if(other.gameObject.TryGetComponent<Rigidbody>(out var rigidbody)) {
+                rigidbody.AddForce(Vector3.left * 10, ForceMode.Impulse);
+            }
+            currentEatObject = null;
+        }
+        // public async void OnFallCollision(Collision collision)
+        // {
+        //     if (collision.gameObject.TryGetComponent<PlayerController>(out var player)) {
+        //         Camera.main.gameObject.SetActive(false);
+        //         await UniTask.Delay(1000);
+        //         Camera.main.gameObject.SetActive(true);
+        //     }else {
+        //         if (collision.gameObject.CompareTag("Field")) {
+        //             return;
+        //         }
+        //         collision.gameObject.SetActive(false);
+        //         await UniTask.Delay(1000);
+        //         collision.gameObject.SetActive(true);
+        //     }
+        // }
     }
 }

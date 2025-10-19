@@ -57,54 +57,6 @@ namespace TTGJ.Luban
             }
         }
 
-        public cfg.pokemon GetPokemon(int id)
-        {
-            CheckInitialized();
-            return _tables.TbPokemon.GetOrDefault(id);
-        }
-
-        public cfg.move GetMove(int id)
-        {
-            CheckInitialized();
-            return _tables.TbMove.GetOrDefault(id);
-        }
-
-        public cfg.item GetItem(int id)
-        {
-            CheckInitialized();
-            return _tables.TbItem.GetOrDefault(id);
-        }
-
-        public cfg.map GetMap(int id)
-        {
-            CheckInitialized();
-            return _tables.TbMap.GetOrDefault(id);
-        }
-
-        public cfg.instance GetInstance(int id)
-        {
-            CheckInitialized();
-            return _tables.TbInstance.GetOrDefault(id);
-        }
-
-        public cfg.global GetGlobal(int id)
-        {
-            CheckInitialized();
-            return _tables.TbGlobal.GetOrDefault(id);
-        }
-
-        public cfg.pokemonMove GetPokemonMove(int id)
-        {
-            CheckInitialized();
-            return _tables.TbPokemonMove.GetOrDefault(id);
-        }
-
-        public cfg.typeChart GetTypeChart(int id)
-        {
-            CheckInitialized();
-            return _tables.TbTypeChart.GetOrDefault(id);
-        }
-
         #endregion
 
         #region Private Methods

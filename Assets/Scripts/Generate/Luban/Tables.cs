@@ -14,38 +14,23 @@ namespace cfg
 {
 public partial class Tables
 {
-    public TbPokemon TbPokemon {get; }
-    public TbPokemonMove TbPokemonMove {get; }
-    public TbMap TbMap {get; }
-    public TbItem TbItem {get; }
-    public TbInstance TbInstance {get; }
-    public TbMove TbMove {get; }
-    public TbTypeChart TbTypeChart {get; }
     public TbGlobal TbGlobal {get; }
+    public TbItemNew TbItemNew {get; }
+    public TBItemCombine TBItemCombine {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
-        TbPokemon = new TbPokemon(loader("tbpokemon"));
-        TbPokemonMove = new TbPokemonMove(loader("tbpokemonmove"));
-        TbMap = new TbMap(loader("tbmap"));
-        TbItem = new TbItem(loader("tbitem"));
-        TbInstance = new TbInstance(loader("tbinstance"));
-        TbMove = new TbMove(loader("tbmove"));
-        TbTypeChart = new TbTypeChart(loader("tbtypechart"));
         TbGlobal = new TbGlobal(loader("tbglobal"));
+        TbItemNew = new TbItemNew(loader("tbitemnew"));
+        TBItemCombine = new TBItemCombine(loader("tbitemcombine"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
-        TbPokemon.ResolveRef(this);
-        TbPokemonMove.ResolveRef(this);
-        TbMap.ResolveRef(this);
-        TbItem.ResolveRef(this);
-        TbInstance.ResolveRef(this);
-        TbMove.ResolveRef(this);
-        TbTypeChart.ResolveRef(this);
         TbGlobal.ResolveRef(this);
+        TbItemNew.ResolveRef(this);
+        TBItemCombine.ResolveRef(this);
     }
 }
 
