@@ -23,6 +23,9 @@ namespace TTGJ.Plant
 
         private void OnTriggerStay(Collider other)
         {
+            if(currentState != PlantState.Mature) { 
+                return;
+            }
             if (Time.time - matureTime >= matureBoomTime)
             {
                 //TODO: Create 5 havest potato

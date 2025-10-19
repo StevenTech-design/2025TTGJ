@@ -7,6 +7,9 @@ namespace TTGJ.Plant
     {
         private void OnTriggerEnter(Collider other)
         {
+            if(currentState != PlantState.Mature) { 
+                return;
+            }
             Debug.Log("CauliFlower OnTriggerEnter  mei mei");
         }
 

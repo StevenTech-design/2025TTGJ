@@ -85,6 +85,7 @@ namespace TTGJ.GamePlay
 
         public void ToPlant(Field field)
         {
+            if (field.IsPlanted()) return;
             PlantBase targetPlant = null;
             foreach (var plant in _liftList)
             {

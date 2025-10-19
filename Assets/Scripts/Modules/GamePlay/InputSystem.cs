@@ -41,8 +41,6 @@ namespace TTGJ.GamePlay
         [SerializeField]
         private PlayerController player;
         [SerializeField]
-        private LayerMask liftableLayers = ~0;
-        [SerializeField]
         private LayerMask interactionLayers = ~0;
         [SerializeField]
         private CommandInfo commandInfoUI;
@@ -183,7 +181,7 @@ namespace TTGJ.GamePlay
                   || plant.GetCurrentState() == PlantState.Germination)) { 
                 return (true, InteractionType.Warning);
             }
-            if(collider.CompareTag("Field")) { 
+            if(collider.CompareTag("Field") && collider.TryGetComponent<Field>(out var field) && !field.IsPlanted()) { 
                 return (true, InteractionType.Planting);
             }
             if(collider.CompareTag("NPC")) { 
@@ -194,7 +192,7 @@ namespace TTGJ.GamePlay
         private (Collider, InteractionType) GetBestAdaptorObj(Func<Collider,(bool, InteractionType)> checkInteractable)
         {
             Vector3 center = player.transform.position + player.transform.forward * 0.2f;
-            Vector3 halfExtents = new Vector3(0.3f, 0.5f, 0.25f); // 对应 1 x 1.8 x 0.5 的盒子
+            Vector3 halfExtents = new Vector3(0.3f, 1f, 0.25f); // 对应 1 x 1.8 x 0.5 的盒子
             Collider[] colliders = Physics.OverlapBox(
                 center,
                 halfExtents,
@@ -233,6 +231,16 @@ namespace TTGJ.GamePlay
                 }
             }
             return true;
+        }
+        private void OnDrawGizmos()
+        {
+            Vector3 center = player.transform.position + player.transform.forward * 0.2f;
+            Vector3 halfExtents = new Vector3(0.3f, 1f, 0.25f);
+
+            Gizmos.color = Color.red;
+
+            Gizmos.matrix = Matrix4x4.identity;
+            Gizmos.DrawWireCube(center, halfExtents * 2f);
         }
     }
 }

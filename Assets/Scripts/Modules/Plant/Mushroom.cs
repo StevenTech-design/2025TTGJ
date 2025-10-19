@@ -11,6 +11,9 @@ namespace TTGJ.Plant
         private float bounceForce = 10;
         private void OnTriggerEnter(Collider other)
         {
+            if(currentState != PlantState.Mature) { 
+                return;
+            }
             if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
             {
                 return;

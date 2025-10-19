@@ -15,17 +15,22 @@ namespace TTGJ.Plant
         [SerializeField]
         private float bounceForce = 10;
         private void OnTriggerEnter(Collider other) {
-            if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
-            { 
-                return;
-            }
             if (currentState != PlantState.Mature)
             {
                 return;
             }
+            if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
+            { 
+                return;
+            }
+            
             currentTime = Time.time;
         }
         private void OnTriggerStay(Collider other) {
+            if (currentState != PlantState.Mature)
+            {
+                return;
+            }
             if (other.gameObject.layer == LayerMask.NameToLayer("Building") || other.CompareTag("Field"))
             { 
                 return;

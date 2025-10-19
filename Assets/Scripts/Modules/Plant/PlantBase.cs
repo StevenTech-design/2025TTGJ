@@ -96,7 +96,7 @@ namespace TTGJ.Plant
         {
             Initialize();
             collider.enabled = true;
-            collider.isTrigger = false;
+            collider.isTrigger = true;
             rigidbody.isKinematic = true;
             
         }
