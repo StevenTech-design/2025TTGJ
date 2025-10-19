@@ -64,7 +64,6 @@ namespace TTGJ.Plant
                 case PlantState.Germination:
                     InitModel();
                     OnGermination();
-                    Debug.Log("ChangeState: Germination");
                     break;
                 case PlantState.Mature:
                     InitModel();
@@ -146,7 +145,7 @@ namespace TTGJ.Plant
         }
         public override bool CheckCanLift()
         {
-            return currentState == PlantState.Harvest || currentState == PlantState.Seed && isLiftable;
+            return (currentState == PlantState.Harvest || currentState == PlantState.Seed) && isLiftable;
         }
 
         public bool CanEat()

@@ -22,5 +22,6 @@ namespace TTGJ.Plant
             base.OnTeleport(baseTeleportPos);
             BuffManager.Instance.AddBuff(transform,transform.TryAddComponent<FieldWateringBuff>());
         }
+        
     }
 }

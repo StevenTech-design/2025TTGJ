@@ -96,7 +96,7 @@ namespace TTGJ.GamePlay
                 targetPlant = plantBase;
                 break;
             }
-            if (targetPlant == null) return;
+            if (targetPlant == null || targetPlant.GetCurrentState() != PlantState.Seed) return;
             GameObject seed = GameObject.Instantiate(targetPlant.gameObject);
             seed.GetComponent<Collider>().enabled = true;
             field.ToPlanting(seed.GetComponent<PlantBase>());
