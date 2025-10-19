@@ -60,7 +60,7 @@ namespace AmplifyShaderEditor
 		protected int m_shaderLOD = 0;
 
 		[SerializeField]
-		protected int m_shaderModelIdx = 2;
+		protected int m_shaderModelIdx = 3;
 
 		[SerializeField]
 		protected Shader m_currentShader;
@@ -537,6 +537,10 @@ namespace AmplifyShaderEditor
 			if( UIUtils.CurrentShaderVersion() > 2404 )
 			{
 				m_customInspectorName = GetCurrentParam( ref nodeParams );
+				if ( m_customInspectorName.Equals( Constants.OldCustomInspector ) )
+				{
+					m_customInspectorName = Constants.DefaultCustomInspector;
+				}
 			}
 
 			if( UIUtils.CurrentShaderVersion() > 6101 )
@@ -638,6 +642,8 @@ namespace AmplifyShaderEditor
 
 		protected void UpdateShaderAsset( ref string pathname, ref string shaderBody, bool isFullPath )
 		{
+			shaderBody = UIUtils.ForceLFLineEnding( shaderBody );
+
 			// Generate Graph info
 			shaderBody += ContainerGraph.ParentWindow.GenerateGraphInfo();
 
@@ -660,7 +666,7 @@ namespace AmplifyShaderEditor
 
 			//else
 			//{
-			//	// need to always get asset datapath because a user can change and asset location from the project window 
+			//	// need to always get asset datapath because a user can change and asset location from the project window
 			//	AssetDatabase.ImportAsset( AssetDatabase.GetAssetPath( m_currentShader ) );
 			//	//ShaderUtil.UpdateShaderAsset( m_currentShader, ShaderBody );
 			//	//ShaderImporter importer = (ShaderImporter)ShaderImporter.GetAtPath( AssetDatabase.GetAssetPath( CurrentShader ) );
@@ -1041,7 +1047,7 @@ namespace AmplifyShaderEditor
 				m_shaderLOD = Mathf.Max( 0, value );
 			}
 		}
-		public bool SamplingMacros 
+		public bool SamplingMacros
 		{
 			get { return m_samplingMacros; }
 			set

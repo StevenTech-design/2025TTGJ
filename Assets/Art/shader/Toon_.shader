@@ -23,7 +23,7 @@
 
         [Header(Outline)]
         _OutlineWidth ("外描边宽度", Range(0, 10)) = 0.24
-        _OutLineColor ("外描边颜色强度", float) = 0.5
+        [HDR]_OutLineColor ("外描边颜色强度", color) = (0.5,0,0,1)
 
         [Header(PostProcess)]
         _colorSaturation("饱和度" ,range(0,10)) = 2.5
@@ -87,6 +87,8 @@
                 half4 _FresnelColor;
                 float _FresnelPow;
                 float fresnelOFF;
+
+
             CBUFFER_END
 
             Varyings vert (Attributes input)
@@ -171,6 +173,7 @@
             {
                 float2 uv : TEXCOORD0;
                 float4 positionHCS : SV_POSITION;
+                half4 outlineColor : TEXCOORD1;
             };
 
             TEXTURE2D(_BaseMap);
@@ -178,8 +181,10 @@
             
             CBUFFER_START(UnityPerMaterial)
                 float _OutlineWidth;
-                float _OutLineColor;
+                half4 _OutLineColor;
             CBUFFER_END
+
+
 
             Varyings vert (Attributes input)
             {
@@ -192,11 +197,11 @@
                 // 将法线转换到观察空间并进行扩展
                 float3 positionVS = TransformWorldToView(TransformObjectToWorld(positionOS));
                 float3 normalVS = TransformWorldToViewDir(TransformObjectToWorldNormal(normalOS));
-                
+                //float outlineStrength = UNITY_ACCESS_INSTANCED_PROP(Props, _OutLineColor);
                 positionVS += normalVS * _OutlineWidth * 0.01;
                 output.positionHCS = TransformWViewToHClip(positionVS);
                 output.uv = input.uv0;
-                
+                output.outlineColor = _OutLineColor; // HDR 高亮
                 return output;
             }
 
@@ -207,8 +212,8 @@
                 half maxComponent = max(max(BaseCol.r, BaseCol.g), BaseCol.b) - 0.004;
                 half3 saturatedColor = step(maxComponent.rrr, BaseCol) * BaseCol;
                 saturatedColor = lerp(BaseCol.rgb, saturatedColor, 0.6);
-                half3 outlineColor = 0.8 * saturatedColor * BaseCol * _OutLineColor;
-
+                
+                half3 outlineColor = 0.8 * saturatedColor * BaseCol * input.outlineColor.rgb;
                 return half4(outlineColor, 1.0);
             }
             ENDHLSL

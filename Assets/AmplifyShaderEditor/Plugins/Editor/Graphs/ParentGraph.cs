@@ -401,7 +401,7 @@ namespace AmplifyShaderEditor
 			for( int i = 0; i < m_nodes.Count; i++ )
 			{
 				if( m_nodes[ i ] != null )
-				{					
+				{
 					UndoUtils.ClearUndo( m_nodes[ i ] );
 					m_nodes[ i ].Destroy();
 					GameObject.DestroyImmediate( m_nodes[ i ] );
@@ -431,7 +431,7 @@ namespace AmplifyShaderEditor
 			{
 				m_lodMultiPassMasterNodes[ i ].Clear();
 			}
-			
+
 			m_texturePropertyNodes.Clear();
 			m_textureArrayNodes.Clear();
 			m_screenColorNodes.Clear();
@@ -500,7 +500,7 @@ namespace AmplifyShaderEditor
 			{
 				if( node.InputPorts[ i ].ExternalReferences.Count > 0 && node.InputPorts[ i ].ExternalReferences[ 0 ].WireStatus == WireStatus.Highlighted )
 				{
-					// even though node is deselected, it receives wire highlight from a previous one 
+					// even though node is deselected, it receives wire highlight from a previous one
 					return;
 				}
 			}
@@ -603,7 +603,7 @@ namespace AmplifyShaderEditor
 
 			m_masterNodeId = Constants.INVALID_NODE_ID;
 			m_validNodeId = 0;
-			
+
 			m_nodeGrid.Destroy();
 			//m_nodeGrid = null;
 
@@ -1037,14 +1037,14 @@ namespace AmplifyShaderEditor
 
 			propertyNode.PropertyNameFromTemplate( data );
 
-			// Create a negative unique Id to separate it from 
-			// the regular ids on the main nodes list 
+			// Create a negative unique Id to separate it from
+			// the regular ids on the main nodes list
 			// Its begins at -2 since -1 is used to detect invalid values
 			int uniqueId = -( m_internalTemplateNodesList.Count + 2 );
 			propertyNode.SetBaseUniqueId( uniqueId );
 
 			//Register into Float/Int Nodes list to be available inline
-			// Unique Id must be already set at this point to properly 
+			// Unique Id must be already set at this point to properly
 			// create array
 			if( data.PropertyDataType == WirePortDataType.FLOAT ||
 				data.PropertyDataType == WirePortDataType.INT )
@@ -1092,7 +1092,7 @@ namespace AmplifyShaderEditor
 		public void ForceReOrder()
 		{
 			// @diogo: replaced Sort() with OrderBy() for stable sorting
-			m_nodes.OrderBy( s => s.Depth );
+			m_nodes = m_nodes.OrderBy( s => s.Depth ).ToList();
 		}
 
 		public bool Draw( DrawInfo drawInfo )
@@ -1446,9 +1446,9 @@ namespace AmplifyShaderEditor
 
 			if( repaintMaterialInspector )
 			{
-				if( ASEMaterialInspector.Instance != null )
+				if( MaterialInspector.Instance != null )
 				{
-					ASEMaterialInspector.Instance.Repaint();
+					MaterialInspector.Instance.Repaint();
 				}
 			}
 
@@ -2400,7 +2400,7 @@ namespace AmplifyShaderEditor
 				else
 				{
 					DestroyImmediate( node );
-				}					
+				}
 				IsDirty = true;
 				m_markToReOrder = true;
 			}
@@ -2955,9 +2955,9 @@ namespace AmplifyShaderEditor
 					}
 				}
 			}
-			
+
 			// @diogo: replaced Sort() with OrderBy() for stable sorting
-			m_nodes.OrderBy( s => s.GraphDepth );
+			m_nodes = m_nodes.OrderByDescending( s => s.GraphDepth ).ToList();
 		}
 
 		public void WriteToString( ref string nodesInfo, ref string connectionsInfo )
@@ -3322,7 +3322,7 @@ namespace AmplifyShaderEditor
 					masterNode.InputPorts[ i ].Visible = true;
 				}
 			}
-			
+
 		}
 
 		public MasterNode ReplaceMasterNode( AvailableShaderTypes newType, bool writeDefaultData = false, TemplateDataParent templateData = null )
@@ -3567,7 +3567,7 @@ namespace AmplifyShaderEditor
 						//currentPosition.y += newMasterNode.HeightEstimate + 10;
 					}
 				}
-				
+
 				RefreshLinkedMasterNodes( false );
 				OnRefreshLinkedPortsComplete();
 			}
@@ -3881,13 +3881,13 @@ namespace AmplifyShaderEditor
 				}
 				return 0;
 			});
-			
+
 			for( int lodIdx = 0; lodIdx < m_lodMultiPassMasterNodes.Count; lodIdx++ )
 			{
 				for( int nodeIdx = 0; nodeIdx < m_lodMultiPassMasterNodes[ lodIdx ].Count; nodeIdx++ )
 				{
 					m_lodMultiPassMasterNodes[ lodIdx ].NodesList[ nodeIdx ].LODIndex = lodIdx;
-				}	
+				}
 			}
 		}
 
@@ -3929,7 +3929,7 @@ namespace AmplifyShaderEditor
 				return null;
 			}
 		}
-		
+
 
 
 		public NodeAvailability CurrentCanvasMode { get { return m_currentCanvasMode; } set { m_currentCanvasMode = value; ParentWindow.LateRefreshAvailableNodes(); } }
@@ -4045,10 +4045,10 @@ namespace AmplifyShaderEditor
 		public bool IsHDRP { get { return m_currentSRPType == TemplateSRPType.HDRP; } }
 		public bool IsLWRP { get { return m_currentSRPType == TemplateSRPType.URP; } }
 		public bool IsStandardSurface { get { return GetNode( m_masterNodeId ) is StandardSurfaceOutputNode; } }
-		
-		public bool SamplingMacros { 
+
+		public bool SamplingMacros {
 			get { return m_samplingThroughMacros; }
-			set { m_samplingThroughMacros = value; } 
+			set { m_samplingThroughMacros = value; }
 		}
 		public bool HasLODs { get { return m_lodMultiPassMasterNodes[ 0 ].Count > 0; } }
 		//public bool HasLodMultiPassNodes

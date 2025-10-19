@@ -52,13 +52,15 @@ Shader /*ase_name*/"Hidden/Templates/UI-Default"/*end*/
         CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma target 3.0
+            #pragma target 3.5
 
             #include "UnityCG.cginc"
             #include "UnityUI.cginc"
 
             #pragma multi_compile_local _ UNITY_UI_CLIP_RECT
             #pragma multi_compile_local _ UNITY_UI_ALPHACLIP
+
+            /*ase_pragma*/
 
             struct appdata_t
             {
@@ -89,7 +91,7 @@ Shader /*ase_name*/"Hidden/Templates/UI-Default"/*end*/
             float _UIMaskSoftnessY;
 
             /*ase_globals*/
-            
+
             v2f vert(appdata_t v /*ase_vert_input*/)
             {
                 v2f OUT;
@@ -145,5 +147,5 @@ Shader /*ase_name*/"Hidden/Templates/UI-Default"/*end*/
         ENDCG
         }
     }
-    CustomEditor "ASEMaterialInspector"
+    CustomEditor "AmplifyShaderEditor.MaterialInspector"
 }

@@ -1,3 +1,419 @@
+v1.9.8.1
+
+   Editor
+      * Changed "ASEMaterialInspector" to "AmplifyShaderEditor.MaterialInspector"
+
+   Templates
+      * Added "op" (posOS) and "vp" (posVS) to template local vars options
+      * Fixed Surface shader errors using Depth Fade and Tessellation combined (#368)
+      * Fixed a few implicit truncation warnings for operations involving clip position
+
+   Nodes
+      * Added error info when "Indirect Specular Light" node is used on HDRP
+      * Added "Variable Mode" option to "Texel Size" node to control constant decl (#369)
+      * Added preview to "Reflection Probe" node
+      * Changed "Reflection Probe" node default Normal OS input now vertex normal
+      * Fixed "Reflection Probe" node broken in URP Forward+ (#334)
+      * Fixed "Indirect Diffuse Light" node on URP 10x to 17x (#232)
+      * Fixed "Indirect Specular Light" node breaking in URP Forward+ (#220)
+      * Fixed "View Dir" node in HDRP/URP obj-space and tangent-space outputs (#370)
+      * Fixed Parallax view direction issues (#373)
+
+v1.9.8
+
+   Editor
+      * Updated default shader target for Surface shaders to 3.5
+      * Fixed loading a shader sometimes shows an empty canvas (nodes out of view)
+      * Fix bug in "Clear Log on Update" preferences option hiding messages
+
+   Templates
+      * Updated all templates to shader target 3.5
+      * Updated Fog, Vertex Lighting, Depth Output, Early-Z in URP 12x-17x (#349, #274)
+      * Updated decal templates to use correct relative-world position (URP 12-17x)
+      * Fixed Lit and Hair template api errors in HDRP 14x
+      * Fixed "Alpha Clipping" in URP 12x to 17x
+      * Fixed duplicated ase_local_var in HDRP templates 10x to 17x
+
+   Nodes
+      * Added new "Position" node that can output in different spaces (#364)
+      * Added new "Normal Face" node that can output in different spaces (#354)
+      * Added numerically stable camera-relative world position to "Normal Face" node
+      * Added extended Mode options to "Screen Position" node, matching SG (#144)
+      * Added "Inverse Model Matrix" node that outputs unity_WorldToObject
+      * Changed "Model Matrix" to output unity_ObjectToWorld, not UNITY_MATRIX_M
+      * Changed "Screen Depth" to remove linear toggle and extend depth mode
+      * Changed "Surface Depth" node, depth mode options now match "Screen Depth"
+      * Fixed div by zero in "Main Light Color" node when there are no lights (#367)
+      * Fixed errors and warnings in "Transform Direction" node (#359)
+      * Fixed errors and warnings in "Transform Position" node (#359)
+      * Fixed errors and warnings in "Grab Screen Color" nodes (#359)
+      * Fixed "Dither" node implicit truncation warnings
+      * Fixed "Dither" node large float precision issues when using tessellation
+      * Fixed "World Normal Face" node not correcting for projection flip
+      * Fixed "World Normal Face" node large-float precision issues (#354)
+      * Fixed "Screen Position" node not considering Vertex Offset in HDRP 10x-17x (#346)
+      * Fixed "Screen Position" Normalized preview Z output
+
+v1.9.7.1
+
+   Editor
+      * Added ASE_VERSION define to all generated shaders
+
+   Templates
+      * Fixed URP 14x templates missing "Alpha Clipping" options and other changes
+
+   Nodes
+      * Updated "Common Transform Matrices" node to add InvP, InvVP and InvMVP
+      * Updated "Inverse View Projection Matrix" node to be compatible with BiRP
+      * Updated "Inverse Projection Matrix" node to be compatible with BiRP
+
+v1.9.7
+
+   Editor
+      * Added "Shader Graph to ASE" link button to Start Screen
+      * Shader inspector button "Open in Shader Editor" now greyed for non-ASE shaders
+
+   Templates
+      * Added template ase_subshader_options action conditionals and RefreshOption
+      * Added "Alpha Clipping" option to URP templates 10x-17x
+      * Fixed renderQueue based on AlphaTest/Transparency on URP templates 10x-17x
+      * Fixed missing light shadows in Transmission/Translucency on URP 10x-17x (#344)
+      * Fixed "Legacy/Lit" template error when using Baked Lightmap debug VIS (#244)
+
+   Nodes
+      * Added "View Vector" node (#57)
+      * Added "Object" and "View" space options to "View Dir" node
+      * Added Normalize option to "Normal Reconstruct Z" (#342)
+      * Added "Rounded Polygon" node
+      * Added "Fade Transition" node (#56)
+      * Added Saturation node (#64)
+      * Updated "Diffuse And Specular From Metallic" to work on any SRP, not just BiRP
+      * Updated "Polygon" node with minor improvements
+      * Updated "Rectangle" and "Rounded Rectangle" nodes with minor improvements
+      * Renamed "Light Color" node to "Main Light Color" (#310)
+      * Renamed "Light Attenuation" node to "Main Light Attenuation" (#310)
+      * Deprecated "Object Space View Dir" and "World Space View Dir" nodes (#315)
+      * Fixed SRP's additional lights Function for Light Layers on SRP 14+ (#325)
+      * Fixed invalid preview of the Dot Product Node (#338)
+      * Fixed matrix default values on Function Inputs (#335)
+      * Fixed "Switch" node Dynamic Branch bug (#348)
+      * Fixed "Parallax Occlusion Mapping" tex port disconnecting on changes (#255.B)
+      * Fixed "Grid" and "Rectangle" nodes throwing warning floatdiv/zero (#336)
+      * Fixed "Parallax Occlusion Mapping" node visual errors in WebGL2 (#339)
+      * Fixed "SRP Additional Light" no shadows unless "Use Shadow Mask" (#280)
+      * Fixed "Custom Expression" handling of unconnected SamplerState inputs (#318)
+      * Fixed invalid "screenPosition" when using "Depth Fade" and "Dither" nodes (#333)
+      * Fixed error using "Surface Depth" when connected "Local Vertex Offset" (#331)
+      * Fixed "Dither" node handling of unstable precision inputs (#266)
+
+v1.9.6.3
+
+   Templates
+      * Updated URP ShadowCaster template code to match Unity 6000.0.14 (#329)
+
+   Nodes
+      * Fixed "Instance ID" node causing errors when connected to vertex output (#291)
+
+v1.9.6.2
+
+   Editor
+      * Fixed ASE material inspector preview broken when using custom meshes (#324)
+
+   Templates
+      * Fixed invalid subscript probeOcclusion errors in URP 17x (#326)
+
+   Nodes
+      * Added "Exposure" node (#72)
+      * Added "Apply Exposure" (def:ON) to "Fetch Lightmap Value" and "Sample Lightmap"
+      * Fixed "Fetch Lightmap Value" and "Sample Lightmap" not respecting exposure
+
+v1.9.6.1
+
+   Samples
+      * Fixed URP 17x sample errors on Unity 6000.0.9+
+      * Removed deprecated shader from URP samples (10x to 17x)
+
+v1.9.6
+
+   Nodes
+      * Updated "Indirect Diffuse Light" node to support Unity6000.0.9+ (#321)
+      * Removed "Back Normal WS" input from "Sample Lightmap" to prevent mistakes (#322)
+
+   Templates
+      * Updated support for Unity6000.0.9+, ignoring older versions (#319)
+      * Fixed RemapFoveatedRenderingResolve related shader errors on MacOS/Metal (#320)
+
+v1.9.5.1
+
+   Nodes
+      * Fixed "Transform Position" breaking when using "Clip" transform target
+
+v1.9.5
+
+   Editor
+      * Added ability to sort input and output ports, on a per node basis
+      * Additional change to old fix related to nodes sometimes missing attributes (#296)
+
+   Nodes
+      * Fixed "SRP Bake GI" node support for adaptive probe volumes
+      * Changed "Transform Position" node output to vec4 with target transform "Clip"
+      * Changed "SRP Baked GI" input port "Screen Position" now expects Normalized (xyz/w)
+      * Added "Instance ID" node "Procedural" toggle to support procedural instancing
+      * Added "Transform Position" node "Screen" target transform
+      * Added "Use Alpha" option to "Color" node to output RGB when false (default = true)
+      * Added extra RGB output port to "Color" nodes
+      * Added extra RGB output port to "Texture Sample" node
+
+v1.9.4.4
+
+   Editor
+      * Changed "Template *" nodes to show property name as sub-title, instead of title
+
+   Nodes
+      * Fixed dithering broken with vertex offset/position on URP Unlit (all versions)
+      * Fixed duplicated declarations generated by "Reciprocal" node
+      * Fixed "SRP Baked GI" node causing flickering on HDRP 15+
+
+v1.9.4.3
+
+   Editor
+      * Added "Disable Material Mode" user preferences option
+
+   Nodes
+      * Fixed "Object Bounds" node not generating code reliably on URP 14x+
+
+v1.9.4.2
+
+   Nodes
+      * Fixed "Indirect Diffuse Light" node failing to generate code in URP Unlit
+
+v1.9.4.1
+
+   Nodes
+      * Reverted branch code optimizations due to errors on "If" and "Switch" nodes
+
+v1.9.4
+
+   Editor
+      * Template-restricted/specific nodes now show errors with Surface shader (#299)
+      * Fixed nodes sometimes missing attributes (#296)
+      * Fixed swizzle node preview (#292)
+      * Fixed "forwardadd" option added to URP/HDRP with "Instanced Terrain" (#300)
+
+   Templates
+      * Added Lit/Unlit option for "Enable SSAO" URP 10-17x (#289)
+      * Added Lit/Unlit option for "Receive shadows" URP 10-17x (#233)
+      * Added Lighting Model option (PBR or Simple) to URP Lit 12-17x
+      * Fixed Lit/Unlit missing DOTS support in ExtraPrePass URP 10-17x (#286)
+      * Fixed Unlit missing FoveatedRenderingKeywords.hlsl URP 14-17x (#288)
+      * Fixed Lit LOD Cross Fade pragma in Forward and Gbuffer passes URP 16x
+      * Fixed Lit/Fabric Decal error in 2023.1.0 HDRP 15x (#293)
+      * Fixed Premultiply shader bug in URP Unlit template, all versions (#301)
+      * Fixed terrain instancing in BiRP templates
+      * Fixed foveated rendering related errors on macOS (URP 14) using Forward+ (#238)
+
+   Nodes
+      * Added "Object Bounds" node
+      * Added "Object Position" node
+      * Added "Compute Mip Level" node
+      * Added "Alpha Split" node
+      * Added "Alpha Merge" node
+      * Added "Flip" node
+      * Added "Nand" node
+      * Added "Not" node
+      * Added "Is Infinite" node
+      * Added "Is NaN" node
+      * Added "Current Frame" output to "Flipbook UV Animation" node
+      * Added "Max Frame" property to "Flipbook UV Animation" node
+      * Added "Switch" node support for "dynamic_branch" pragma
+      * Renamed "Static Switch" node to "Switch"
+      * Updated "Light Attenuation" node for URP 14.0.9 to 17 (#238)
+      * Fixed "SRP Baked GI" and "Indirect Diffuse Light" nodes in HDRP 17x (#285)
+      * Fixed "If" node code generation to take proper advantage of dynamic branching
+      * Fixed "Billboard" node generating implicit vector casting
+      * Fixed "Dither" node causing crashes on PS5
+      * Fixed "SRP Baked GI" node in Unity 16x 2023.2.20+ (#298)
+      * Fixed "SRP Baked GI" node error in Unity 14x 2022.3.26+ (#297)
+      * Fixed "Flipbook" node to also work with Clamp wrap mode (#304)
+      * Fixed timing issues in "Flipbook UV Animation" node
+      * Fixed "Indirect Diffuse Lighting" generating code in "Meta" pass (#232)
+
+v1.9.3.3
+
+   Editor
+      * Added support for Unity 6 (preview)
+      * Split Preferences into User-level and Project-level settings
+      * Added template ase_unity_cond_begin/end replacement tags (Unity version)
+      * Added template ability to set port actions via LinkId instead of Id/Name
+
+   Templates
+      * SRP 17x templates updated per Unity 6.0.0b13
+      * Updated HDRP Hair templates
+      * Fixed Double Sided Mode in HDRP templates (#279)
+      * Added conservative depth option to HDRP templates
+      * Fixed decal error in Decal template in HDRP 12x 14x
+      * Added missing Dots include in URP Unlit DepthNormal pass (#267)
+      * Fixed incorrect include for Foveated Rendering in URP
+      * Updated all templates 10x to 17x
+
+   Nodes
+      * Fixed DepthFade and ScreenDepth code generation in URP (#271)
+
+v1.9.3.2
+
+   Templates
+      * Fixed URP 14x template compile errors in some Unity versions
+
+v1.9.3.1
+
+   Editor
+      * Potential fix ASEPackageManagerHelper exceptions in batchmode (#237)
+
+   Templates
+      * Added URP 2D templates to SRP 17x
+      * Fixed URP 2D templates color change bug in 15x and 16x (#211)
+
+   Nodes
+      * Added min/max/steps inputs to "Parallax Occlusion Mapping" node (#163)
+
+v1.9.3
+
+   Editor
+      * Fixed inline properties sometimes losing connection (#212)
+      * Fixed broken double-click to change property names (#231)
+      * Fixed broken "Reset and Forget All" in ASE Preferences
+
+   Templates
+      * Added support for URP/HDRP 17x (Unity 2023.3.0b4)
+      * Updated URP/HDRP with latest unity changes (10x to 17x)
+      * Updated HDRP Refraction (10x to 17x)
+      * Fixed HDRP logic issues in SSR (10x to 17x)
+      * Fixed HDRP FullscreenDebug pass errors (#246)
+      * Fixed HDRP Unlit build errors (#247)
+
+   Nodes
+      * Updated "Polar Coordinate" node
+      * Updated "Flipbook" node
+      * Updated "SRP Additional Light" node
+
+   Samples
+      * Removed URP Reflection Probe sample (moved to Amplify Shader Pack)
+      * Removed URP Terrain sample (moved to Amplify Shader Pack)
+      * Removed unused assets
+
+v1.9.2.2
+
+   Templates
+      * Massive template URP template update (all SRP versions)
+      * Massive template HDRP template update (all SRP versions)
+      * Added Local Vertex Tangent to Surface shader Master Node input
+      * Deprecated duplicated DepthNormals pass in URP Unlit 12x
+
+   Nodes
+      * Fixed Normalize node when using safe mode
+      * Improved "World Normal Face" shader function precision
+      * Added Safe Normalize toggle to "World Normal Face"
+      * Fixed SRP Additional Light shader function
+      * Fixed Flipbook shader function
+
+v1.9.2.1
+
+   Templates
+      * Added initial support for URP/HDRP 17
+      * Updated all URP/HDRP templates
+      * Force AlphaToMask Off on URP ScenePicking/SceneSelection passes
+      * Fixed URP 14x 15x 16x Decal not working properly on Mac (#217)
+      * Fixed HDRP 12x 14x 15x 16x Unlit errors on Shadow Matte option (#218)
+
+   Nodes
+      * Fixed World Normal node sometimes generating errors on iOS platform (#225)
+      * Fixed dither node not updating subtitle when switching pattern (#229)
+      * Fixed errors in Light Color Node (#227)
+
+   Editor
+      * Proper fix for guistyle typo warning
+
+v1.9.2
+
+   Highlights
+      * Added support for 2023.2 and URP/HDRP 16x
+      * Added URP/HDRP 16x samples
+      * Fixed URP/HDRP 15x samples
+      * Added "Always Align to Grid" option to Preferences
+
+   Editor
+      * Node lengths now align to grid during snap
+      * Node header height now same regardless of subtitle
+      * Shader Function node Icon now white
+      * Removed [ASEBegin]/[ASEEnd] SRP tags
+
+   Samples
+      * Fixed Built-in samples
+      * Removed some Built-in samples conflicting with ASP
+
+v1.9.1.9
+
+   Editor
+      * Adjusted UIUtils toolbar style fix to include Unity 2021.3
+      * Switched from http to https as workaround for connection issues
+
+   Templates
+      * Fixed Decal related errors in Lit template (HDRP 14x 15x)
+      * Fixed OUTPUT_SH errors on URP 15x
+
+v1.9.1.8
+
+   Editor
+      * Fixed Undo-related error spam (#205)
+      * Fix for UIUtils console spam on Unity 2022.3+ (#208)
+      * Fixed "Indirect Diffuse Light" node errors on URP 15 (#209)
+      * Added "Device Depth" node; depth range compatible with "Depth Value" input
+
+   Templates
+      * Fixed "Depth Value" input issues on URP (#190)
+      * Fixed EarlyZ errors on URP (#191)
+      * Fixed "Depth Offset" input issues on HDRP
+
+v1.9.1.7
+
+   Editor
+      * Fixed Start Screen high CPU/GPU usage
+
+   Templates
+      * Fixed decal angle fade in (HDRP 12x 14x 15x)
+      * Fixed positionCS errors in Lit shader (URP 15x)
+
+v1.9.1.6
+
+   Editor
+      * Added support for Unity 2023
+      * Fixed NRE caused by Shader Function additional directives
+      * Fixed resize NRE in functions switch
+      * Increased MaxAllowedAmount in FunctionSwitch from 9 to 10
+      * Fixed GetScriptingDefineSymbolsForGroup deprecation warnings
+
+   Samples
+      * Added samples for SRP 15x
+
+   Nodes
+      * New "Metal Reflectance" node
+      * New "All" node
+      * New "Any" node
+      * New "Reciprocal" node
+      * New "Bacteria Smoothstep" node
+      * New "World Normal Face" node
+      * Update "Bacteria Smoothstep" node
+      * Added tags "refl reflect reflection" to "Reflect" node
+      * Renamed "Light" category to "Lighting"
+      * Added SRP 16x to "SwitchBySRPVersion" Node
+
+   Templates
+      * New SRP templates 15x
+      * Added ase_pragma to "UI-Default" template
+      * Updated SRP templates (10x 12x 14x)
+      * Fixed color mask for light layers in HDRP (12x)
+      * Fixed URP terrain instancing (12x 14x)
+
 v1.9.1.5
 
    Editor
@@ -192,16 +608,16 @@ v1.9.0
    Important
       * Raised minimum Unity support to 2019.4 LTS
       * Raised minimum URP support to 10
-      * Raised minimum HDRP support to 10   
-   
+      * Raised minimum HDRP support to 10
+
    Known Issues
       * URP 2D/Sprite templates may not work properly (update due in 1.9.1)
-   
+
    Improvements
       * Improved support for SRP 10+ package (10xx to 11xx)
       * Improved support for SRP 12+ package (12xx to 13xx)
-      * Improved ASE startup time 
-   
+      * Improved ASE startup time
+
    Templates
       * Added "Forward Only" option to relevant shader templates
       * Added template authoring 'ase_srp_cond' tags for SRP version conditional usage
@@ -220,18 +636,18 @@ v1.9.0
       * Removed legacy HDRP templates below 10x
       * Removed legacy Lightweight templates
       * Removed deprecated DefaultUnlit and HD/PBR shaders
-   
+
    Nodes
       * Added "Switch By SRP Version" node which relies on active SRP package
       * Added additional texture property default values (linearGrey, red)
-   
+
    Preferences
       * Added "Log Batch Compilation" option to ASE prefs to log timed batch compile
       * Added "Log Shader Compilation" option to ASE prefs to log timed compile
       * Added "Force Template Inline Properties" prefs toggle (off by default)
       * Removed Async compilation warning message and respective toggle in preferences
       * Removed legacy Substance Node support
-   
+
    Editor
       * Added ASE version to 'Made with Amplify Shader Editor' comment on first line
       * Removed deprecated sample buttons from start screen
@@ -312,7 +728,7 @@ v1.8.9 rev 27:
 * Improvements:
     * Added new Anisotropic Filtering setup on 'Sampler State' node
         * Only available on Unity 2021.2 and above
-    * Added Color Mask option into 'Outline' node 
+    * Added Color Mask option into 'Outline' node
 
 v1.8.9 rev 26:
 * Improvements:
@@ -320,7 +736,7 @@ v1.8.9 rev 26:
 
 v1.8.9 rev 25:
 * Improvements:
-    * Added new 'Force Template Min. Shader Model' preferences option 
+    * Added new 'Force Template Min. Shader Model' preferences option
         * Active by default
         * If active, when loading a shader its shader model will be replaced by the one specified in template if what is loaded is below the one set over the template
         * To disable this behavior please toggle off Preferences > Amplify Shader Editor > Force Template Min. Shader Model
@@ -387,7 +803,7 @@ v1.8.9 rev 18:
 
 * Fixes:
     * Fixed both URP Lit and Unlit templates not taking punctual light shadows into account over shadowcaster pass
-    * Fixed issue with internal drag and drop tool error on Unity 2021.2 
+    * Fixed issue with internal drag and drop tool error on Unity 2021.2
     * URP 2D Lit is now compatible with SRP v12
 
 * Improvements:
@@ -425,7 +841,7 @@ v1.8.9 rev 15:
 
 * Improvements:
     * Forced ASE symbol check with InitializeOnLoad so custom nodes ( using that symbol ) can be taken into account when opening an ASE canvas for the first time
-    * Added custom url setup for shader functions, if a custom url is set it will be called when user hits F1 over the SF 
+    * Added custom url setup for shader functions, if a custom url is set it will be called when user hits F1 over the SF
         * Default node url will be created and used if no custom one is set
     * ASE now takes asmdefs in project into account when registering valid node types
 
@@ -520,7 +936,7 @@ v1.8.9 rev 10:
     * Fixed multiple redefinition warnings on MultiPassUnlit template
     * Fixed issue with obsolete Decal custom inspector on HDRP 10 being used on HDRP 11
     * Fixed issue on incorrect naming when creating shaders/shader functions on local packages
-    * Had to revert node previews render texture format to its original one 
+    * Had to revert node previews render texture format to its original one
         * Time based previews weren't working correctly due to lack of precision over new format
 
 * Improvements:
@@ -560,7 +976,7 @@ v1.8.9 rev 06:
 * Fixes:
     * Fixed issue with property nodes set in Fetch mode not properly releasing their property names
     * Sampler state generation now takes node variable mode into account to prevent compilation errors
-        * Variable declaration disabled in Fetch mode 
+        * Variable declaration disabled in Fetch mode
     * Fetch Lightmap Value SF 'Texture Object' node using unity_Lightmap now on Fetch mode
         * Texture object and sampler state were being incorrectly declared over Unity Built In
 
@@ -586,7 +1002,7 @@ v1.8.9 rev 03:
         * Only available for URP
 
 * Improvements:
-    * Added Legacy Behavior for 'LOD Fade' node over 2019 and above 
+    * Added Legacy Behavior for 'LOD Fade' node over 2019 and above
         * Values given by internal variable unity_LODFade.x now can be either positive (fade-out) or negative (fade-in)
              * Toggling Legacy option makes that value given is similar to old one ( always positive and sum of fade in/out is 1 )
     * Added new Apply To Id over 'Voronoi' node to apply smoothess to IDs
@@ -606,7 +1022,7 @@ v1.8.9 rev 02:
 
 * Improvements:
     * Internal AddRGBToHSVFunction is now static (API)
-    * 'HD Emission' node is now imported with main package 
+    * 'HD Emission' node is now imported with main package
         * Adding failsafe and error message to when used outside an HDRP shader
     * Adding File mode into 'Custom Expression' node
         * User can drag and drop a .cginc/.hlsl file into the new Source field and will automatically include it on shader as an #include
@@ -954,7 +1370,7 @@ v1.8.5 rev 03:
 * Fixes:
     * Fixed issue on 'Blend Normals' node preview not taking SRP options into account
     * Fixed visual issue on node properties menu over nodes:
-        * Template Parameter 
+        * Template Parameter
         * Template Local Var
         * Template Vertex Data
         * Template Fragment Data
@@ -1031,7 +1447,7 @@ v1.8.4 rev 02:
 * Improvements:
     * Updated the Four Splats First Pass Terrain shader function to include a new option for SRP terrain to allow per pixel normals
     * 'Static Switch' node
-        * Now allows editing of certain parameters while in Fetch mode 
+        * Now allows editing of certain parameters while in Fetch mode
         * Now allow the explicit naming of the keyword created besides the automatic one with a lock button
     * Forcing vertex position w component to 1 when setting a new offset or position over Standard Surface type shaders
         * Prevent real-time shadow issues on vertex manipulation
@@ -1343,7 +1759,7 @@ v1.7.8 rev 01:
         * Inverse operation of the 'Lerp' node
 
 * Improvements:
-    * Update HD templates to v.7.1.8 and above 
+    * Update HD templates to v.7.1.8 and above
 
 * Fixes:
     * Fixed issue with 'Component Mask' node preview not correctly showing alpha channel in all situations
@@ -1393,9 +1809,9 @@ v1.7.7 rev 02:
     * Decode Directional Lightmap shader function now compatible with all pipelines
     * Added events that can be registered externally which indicate shader type change and shader save (API)
         * IOUtils.OnShaderSavedEvent called when shader is saved
-        * IOUtils.OnShaderTypeChangedEvent called when shader 
+        * IOUtils.OnShaderTypeChangedEvent called when shader
         * Registered functions must receive three arguments
-            * Shader shader: Current shader being modified 
+            * Shader shader: Current shader being modified
             * bool isTemplate: Current shader type is template based
             * string type: GUID of template in use or string.empty if Standard Surface
 
@@ -1575,7 +1991,7 @@ v1.7.4 rev 01:
     * Fixed preview issue on 'Panner' node
     * Fixed preview issue on 'Rotator' node
     * Fixed issue on ignored Passes over SubShader options appearing on both shader reload hot code reload
-    * Fixed issue with 'Parallax Occlusion Mapping' node when used on shader functions 
+    * Fixed issue with 'Parallax Occlusion Mapping' node when used on shader functions
     * Fixed issue with setting directly the property name over its textfield wouldn't trigger the duplicates prevention system
 
 * Improvements:
@@ -1673,7 +2089,7 @@ v1.7.1 rev 08:
     * Fixed issue on 'Register Local Var' not allowing to reset name to loaded one
     * Fixed Console Log issues with Personal Skin
     * Fixed issue on overwriting Render Type custom values over a template(API)
-    * Fixed issue on local variables generation over the 'Unpack Scale Normal' node 
+    * Fixed issue on local variables generation over the 'Unpack Scale Normal' node
     * Fixed issue with setting special tags over template options (API)
 
 * Improvements:
@@ -1743,7 +2159,7 @@ v1.7.0 rev 09:
 * Improvements:
     * Changing Variable Mode from Fetch to Create no longer rewrites property name on Property Nodes
     * Improved property renaming when duplicating Property nodes
-    * Added property name to items on Material Properties list 
+    * Added property name to items on Material Properties list
         * Can be clicked to focus on specified node
 
 v1.7.0 rev 08:
@@ -1764,7 +2180,7 @@ v1.7.0 rev 06:
         * Converts a VR screen position into a non-VR one
 
 * Fixes:
-    * Fixed issue with both 'Gradient' and 'Gradient Sample' nodes on Lightweight/Universal 
+    * Fixed issue with both 'Gradient' and 'Gradient Sample' nodes on Lightweight/Universal
     * Fixed 'Voronoi' node issue over templates
     * 'Reconstruct World Position From Depth' now correctly works on VR
 
@@ -1788,13 +2204,13 @@ v1.7.0 rev 05:
     * Fixed issue on incorrect reading over Depth Offset values from shader
     * Minor fix on templates post-processor to prevent null pointer exceptions
 
-* Improvements: 
+* Improvements:
     * Unity global variables used as inline properties on templates are now registered so they can be correctly maintained over the final shaders
     * Added LOD Cross Fade into Lightweight RP templates
     * Added Inherit type into precision popup and made sure most nodes can now compile with the proper precision type
         * Some nodes have a specific precision on purpose
     * Improved 'Diffusion Profile' node behavior
-        * Added material property attribute 
+        * Added material property attribute
         * Updated source code able to create profile properties in HDRP 7.X
 
 v1.7.0 rev 04:
@@ -1895,7 +2311,7 @@ v1.6.9 rev 01:
 
 v1.6.9 rev 00:
 * Fixes:
-    * Fixed 'Component Mask' node preview 
+    * Fixed 'Component Mask' node preview
 
 v1.6.8 rev 07:
 * New Nodes:
@@ -2016,7 +2432,7 @@ v1.6.7 rev 02:
 
 v1.6.7 rev 01:
 * Fixes:
-    * Changed how depth fetch is done to prevent issues on single pass vr 
+    * Changed how depth fetch is done to prevent issues on single pass vr
     * Tweaked 'World Position' node preview shader to prevent issues over PS4
     * Fixed issue on 'World to Object' node when used on templates
     * Fixed 'Custom Expression' node issue with Auto-Register on shader functions
@@ -2024,7 +2440,7 @@ v1.6.7 rev 01:
 * Improvements:
     * Post-Processing Tool now works under a InvariantCulture to be region independent
     * 'Static Switch' node now supports both shader_feature_local and multi_compile_local
-        * Only available on Unity 2019.1 and above 
+        * Only available on Unity 2019.1 and above
         * Activate the Is Local toggle over the node properties
 
 v1.6.7 rev 00:
@@ -2102,14 +2518,14 @@ v1.6.3 rev 08:
 
 v1.6.3 rev 07:
 * Fixes:
-    * Removed unnecessary code being used when on Custom Lighting 
+    * Removed unnecessary code being used when on Custom Lighting
     * Fixed 'Light Color' node not being correctly reset when on subtractive lightmaps
         * Removed gi.light.color usage from Blinn Phong Light shader function as it was a temporary fix for the above
 
 v1.6.3 rev 06:
 * Fixes:
     * Fixed issues on 'Light Attenuation' node over Lightweight SRP
-        * Removed incorrect N.L contribution 
+        * Removed incorrect N.L contribution
         * Fixed issue on duplicate variables when using multiple nodes
 
 v1.6.3 rev 05:
@@ -2153,7 +2569,7 @@ v1.6.3 rev 02:
     * Fixed issue on Multi Pass Distortion sample not taking skybox into account
 
 * Improvements:
-    * User can now specify sub-shader tags 
+    * User can now specify sub-shader tags
         * Moved RenderType tag to sub-shader level
 
 v1.6.3 rev 01:
@@ -2317,7 +2733,7 @@ v1.6.1 rev 04:
     * Fixed issue with uniform keyword usage inside cbuffers (SRP templates) over PS4
     * Fixed issue with 'Common Transform Matrices' node over SRP templates
     * Fixed object to world/world to object space transform on transform nodes over HD templates
-        * 'Transform Position', 'Object To World' and 'World To Object' nodes 
+        * 'Transform Position', 'Object To World' and 'World To Object' nodes
         * They now take SHADEROPTIONS_CAMERA_RELATIVE_RENDERING keyword into account
     * Fixed issue with 'Pixelate UV' node when used over vertex functions
     * Fixed foldout issue between Additional Surface Options and Custom SubShader Tags on Surface node properties
@@ -2358,7 +2774,7 @@ v1.6.1 rev 01:
 
 v1.6.1 rev 00:
 * Fixes:
-    * Excluding Primitive ID source code from MacOS 
+    * Excluding Primitive ID source code from MacOS
 
 v1.6.0 rev 00:
 * Improvements:
@@ -2397,7 +2813,7 @@ v1.5.9 rev 01:
 v1.5.9 rev 00:
 * Fixes:
     * 'Grab Screen Color' node now also working on Lightweight SRP v3.x.x
-    * Fixed possible issue with Shader Function creation callback not being inside AmplifyShaderEditor namespace 
+    * Fixed possible issue with Shader Function creation callback not being inside AmplifyShaderEditor namespace
 
 v1.5.8 rev 03:
 * Fixes:
@@ -2528,7 +2944,7 @@ v1.5.6 rev 06:
     * Property Name and Values get its label clamped when too big
         * Full original name and value is shown over its node tooltip
     * Hidden tag on template shader names no longer created a category called Hidden
-    * Adding new ase_funcs tag functionality to determine where function code should be injected 
+    * Adding new ase_funcs tag functionality to determine where function code should be injected
         * If not specified, functions are grouped with global variables as before
     * Improved template reloading after being manually edited
 
@@ -2695,7 +3111,7 @@ v1.5.4 dev 06:
     * Fixed issue on shader function directives not being written on template based shaders
     * Fixed serialization issue on saving/loading shader function directives
     * Fixed issue with using 'Texture Array' node inside shader functions
-    * Fixed shader compilation errors on'Parallax Occlusion Mapping' 
+    * Fixed shader compilation errors on'Parallax Occlusion Mapping'
         * Now it does not generate code if no 'Texture Object' node is connected to it
     * Fixed issue on 'Grab Screen Color' node not updating reference list correctly when copy/pasted
     * Fixed issue with Undo'ing a 'Grab Screen Color' node on reference mode
@@ -2768,7 +3184,7 @@ v1.5.3 dev 12:
 v1.5.3 dev 11:
 * Fixes:
     * Fixed issue on not correctly cleaning Undo stack when changing master node
-    * Fixed multiple issues with safe normalize operation over world light dir and view dir 
+    * Fixed multiple issues with safe normalize operation over world light dir and view dir
     * Fixed world light dir issues over Lightweight SRP
     * Fixed GPU instancing compile issues on Lightweight SRP
     * Fixed issue on Includes/Pragmas/Defines UI not showing when no other modules over a template
@@ -2806,7 +3222,7 @@ v1.5.3 dev 09:
 v1.5.3 dev 08:
 * Fixes:
     * Fixed Instance ID issue over Lightweight SRP template
- 
+
 * Improvements:
     * Added API option to remove includes on data collector
     * Stencil can now be toggled off on templates which have it
@@ -2834,8 +3250,8 @@ v1.5.3 dev 07:
 * Fixes:
     * Fixed issue on using depth operations on particle template
     * Fixed sometimes light attenuation not showing up correctly
-    * Fixed allowing to open unity built-in shaders on ASE 
-    * Fixed issue on using incorrect port value on 'Refract' node 
+    * Fixed allowing to open unity built-in shaders on ASE
+    * Fixed issue on using incorrect port value on 'Refract' node
     * Fixed issue on Texture Object type nodes loosing texture type after load
 
 v1.5.3 dev 06:
@@ -2860,7 +3276,7 @@ v1.5.3 dev 06:
     * Fixed issue over templates on not assuming inline properties when loading/saving Cull Mode module
     * Fixed incorrect cast and type assignment on connections between 'Texture Object' and 'Texture Sample' nodes
     * Fixed issue on deleting outputs on shader functions and later opening the shaders that use it
-    * Fixed issues on Vertex Offset port on Lightweight PBR template 
+    * Fixed issues on Vertex Offset port on Lightweight PBR template
     * Fixed issue on not correctly loading 'Rotate About Axis' node from old shaders
     * Fixed issue on header not showing with texture properties with the NoScaleOffset attribute
 
@@ -2872,7 +3288,7 @@ v1.5.3 dev 05:
     * Fixed issue on Specular workflow over Lightweight PBR template
 
 * Improvements:
-    * Cull Mode can now be modified over outline node 
+    * Cull Mode can now be modified over outline node
 
 v1.5.3 dev 04:
 * New nodes:
@@ -2961,7 +3377,7 @@ v1.5.2 dev 05:
         * Now compatible across all Unity versions
     * Re-factored Global variables behavior over property type nodes
         * Material values can no longer be edited
-        * Auto-fetching global variables values every 2 seconds 
+        * Auto-fetching global variables values every 2 seconds
     * Parameter type can be changed in node over texture type nodes
     * Removing automatic header creation by properties under shader functions
         * User now can manually set headers on property type nodes via its attributes
@@ -3026,7 +3442,7 @@ v1.5.2 dev 03:
 v1.5.2 dev 02:
 * Improvements:
     * Added Safe Normalize option to 'World Space Light Dir' node
-        * Assures vector is not zero even if there's no lights in scene 
+        * Assures vector is not zero even if there's no lights in scene
     * Added Safe Normalize option to 'View Dir' node
         * Assures vector is not zero even if there's no cameras on scene
     * Property names can neither be or start with numerical values nor Unity reserved names
@@ -3076,8 +3492,8 @@ v1.5.1 dev 05:
 
 * Fixes:
     * Fixed possible issue with 'Desaturate' node on PS4
-    * Fixed issues with Undo/Redo operations over Wire nodes 
-    * Fixed light color and light dir info on 'Light Color' 
+    * Fixed issues with Undo/Redo operations over Wire nodes
+    * Fixed light color and light dir info on 'Light Color'
         * Now takes into account Unity different behaviors between versions
     * Fixed issue on loading canvas on ASE tabs pointing to inexistent resources
 
@@ -3098,12 +3514,12 @@ v1.5.1 dev 04:
     * Custom Editor/Inspector option is now available over templates
     * Updated both Lightweight template and samples to new beta version
         * Template now support vertex offset and alpha test
-    * Nodes internal data can be viewed directly on canvas 
+    * Nodes internal data can be viewed directly on canvas
         * Can be turned on/off through the 'I' key
     * Added Editable If Custom Drawer by BinaryCats
-    * Dynamic interpolator cap now respecting pass choice on graph 
+    * Dynamic interpolator cap now respecting pass choice on graph
     * Updating current templates to be dynamically cap'ed
-    * 'Light Color' and 'World Space Light Dir' nodes now behave properly when used with lightmaps 
+    * 'Light Color' and 'World Space Light Dir' nodes now behave properly when used with lightmaps
 
 * Fixes:
     * Fixed issue with incorrectly trying to write fragment instructions on template without specified frag code area
@@ -3116,7 +3532,7 @@ v1.5.1 dev 03:
     * Melting by Gil Damoiseaux
 
 * Improvements:
-    * Extended functionalities on 'Custom Expression' node 
+    * Extended functionalities on 'Custom Expression' node
         * Added Auto-Register toggle to create custom functions even if not connected to output node
         * Added void to Output Type
         * Call Mode toggle is now a Mode dropdown
@@ -3150,7 +3566,7 @@ v1.5.1 dev 01:
     * Fixed initialization issue on Default UI template
     * Fixed issue with accessing uninitialized textures on 'Triplanar Sample' node
     * Fixed preview issue on 'Template Parameter' node
-    * Fixed issue locking picker on texture type nodes to current type when auto-cast is on 
+    * Fixed issue locking picker on texture type nodes to current type when auto-cast is on
 
 * Improvements:
     * Improved 'Break To Components' generated code
@@ -3251,10 +3667,10 @@ v1.4.4 dev 04:
         * Improved its interface to better accommodate new options
     * Added new keywords to 'Static Switch' Keyword dropdown
     * Increase max port count for 'Function Switch' node to 9
-    * Added/Changed shortcuts for various nodes 
-        * R - Create 'Register Local Var' node 
+    * Added/Changed shortcuts for various nodes
+        * R - Create 'Register Local Var' node
         * G - Create 'Get Local Var' node
-        * Z - Create 'Swizzle' node 
+        * Z - Create 'Swizzle' node
         * X - Create 'Cross' product node
         * Period(.) - Create 'Dot' product node
         * B - Create 'Break to Components' node
@@ -3292,7 +3708,7 @@ v1.4.4 dev 02:
         * Updated Orientation Based Sprite sample to include fix
 
 * Improvements:
-    * Changed texture array creator to support compressed formats 
+    * Changed texture array creator to support compressed formats
     * Added custom inspector for texture arrays to allows previewing their contents on the inspector window
     * Added new Set Unique option into 'Custom Expression' node
         * If toggled off, generated internal function doesn't use unique id on its name
@@ -3376,7 +3792,7 @@ v1.4.2 dev 06:
     * Added some minor improvements into 'Register Local Var'/'Get Local Var' node usage
         * 'Register Local Var' node is now highlighted if one of its 'Get Local Var' nodes are selected
         * 'Register Local Var' node now lists and can focus each 'Get Local Var' which uses it
-    * Added reference capabilities to 'Function Switch' 
+    * Added reference capabilities to 'Function Switch'
         * One node can now control different paths of a shader function graph
 
 v1.4.2 dev 05:
@@ -3384,7 +3800,7 @@ v1.4.2 dev 05:
     * Fixed Undo issues with connections created/deleted by drag + Alt
     * Fixed issue on templates vertex local variables when using 'Vertex To Fragment' node
     * Fixed bug where 'Function Switch' node options were being incorrectly saved which caused a crash on load
-    * Fixed shader 'Function Switch' node options not being correctly ordered all the time 
+    * Fixed shader 'Function Switch' node options not being correctly ordered all the time
     * Fixed connection signal detection to make 'Function Switch' nodes know when to turn on
 
 v1.4.2 dev 04:
@@ -3437,7 +3853,7 @@ v1.4.2 dev 01:
 * Improvements:
     * Lowered Shader Model target of Custom Lighting Toon example to be compatible with MacOs
     * Improved generated code for 'Grab Screen Color' and 'Grab Screen Position' nodes
-    * Changed automatic generation of 'Grab Screen Color' node to make sure normalization is happening only once 
+    * Changed automatic generation of 'Grab Screen Color' node to make sure normalization is happening only once
     * Added a toggle on 'Grab Screen Color' node which chooses if it normalizes/projects the input or not (default OFF)
 
 * Fixes:
@@ -3453,7 +3869,7 @@ v1.4.1 dev 02:
     * Encode Depth Normal
 
 * Improvements:
-    * Added internal data into shader functions 
+    * Added internal data into shader functions
         * If inputs are unconnected is now possible to change the default value from its node property panel
     * Property type nodes can now keep material value when not connected to an Output node
     * Tweaked 'Static Switch' node properties
@@ -3587,7 +4003,7 @@ v1.3.9 dev 02:
 
 v1.3.9 dev 01:
 * Fixes:
-    * Fixed issue with 'Texture Coordinates' node not generating proper code for sizes bigger than float2 
+    * Fixed issue with 'Texture Coordinates' node not generating proper code for sizes bigger than float2
     * Fixed issue on reading old shaders data into new ASE versions
     * Fixed issue on custom colored categories
 
@@ -3595,7 +4011,7 @@ v1.3.9 dev 01:
     * Updated various samples that were still compiled on older ASE versions
     * ASE window now loses text focus when losing its focus to prevent UI issues
     * Added proper Texcoord support in custom shadow caster
-    * Added new toggle on 'Screen Depth' and 'Depth Fade' nodes to disable conversion from log to linear space 
+    * Added new toggle on 'Screen Depth' and 'Depth Fade' nodes to disable conversion from log to linear space
         * Important for Orthographic camera projections where Depth Buffer values are already stored in linear space
 
 v1.3.8 dev 02/03:
@@ -3638,7 +4054,7 @@ v1.3.7 dev 05/06:
     * Shader Functions are now loaded by guid and fallback to name search method if load fails
     * Added custom categories for shader functions
         * Recompiled existing shader functions to account for new categories
-    * Improved 'Triplanar Sample' node texture array support 
+    * Improved 'Triplanar Sample' node texture array support
         * Now allows different index for each texture when doing triplanar in cylindrical mode
     * Area from picking inputs from connections now only take the port icon into account and only include the label when dropping the connection
     * Added preview for 'Static Switch' node
@@ -3695,7 +4111,7 @@ v1.3.6 dev 01:
 
 v1.3.5 dev 02:
 * New Tool:
-    * Added Texture Array Creator tool 
+    * Added Texture Array Creator tool
         * Available at Window > Amplify Shader Editor > Texture Array Creator
 
 * Fixes:
@@ -3752,7 +4168,7 @@ v1.3.3 dev 01:
     * Fixed duplication error on UV generation code
 
 * Improvements:
-    * Added Alpha To Coverage option ( tied to Opacity port being active ) 
+    * Added Alpha To Coverage option ( tied to Opacity port being active )
     * Opacity Mask now only generates code if connected
     * Blend ops defaults are now OFF instead of ADD
     * Blend ops now pick the respective refined options when a specific blend mode is selected to make it easy to switch between them and the custom option ( opaque doesn't change anything )
@@ -3799,7 +4215,7 @@ v1.3.2 dev 03:
 
 v1.3.2 dev 02:
 * New Shader Functions:
-    * 'Bidirectional Parallax Mapping' 
+    * 'Bidirectional Parallax Mapping'
         * Mimics iterative Parallax Mapping with reference plane
     * 'Reconstruct World Position From Depth'
 
@@ -3850,7 +4266,7 @@ v1.3.2 dev 01:
 
 * Improvements:
     * Added toggle button into 'Static Switch' node
-    * Improved wire auto-connection to node when its created from the context palette when dragging a wire 
+    * Improved wire auto-connection to node when its created from the context palette when dragging a wire
     * Auto screen UVs from 'Grab Screen Color' node now also take Unity Single Pass Stereo into account
     * Improved code generation on screen position related nodes
     * Activating internal port data into 'Toggle Switch' node
@@ -3861,18 +4277,18 @@ v1.3.2 dev 01:
 v1.3.1 dev 11:
 * Fixes:
     * Fixed incorrect UV variable name on Post-Process template
-    * Fixed Perforce integration again 
+    * Fixed Perforce integration again
     * Fixed preview on 'Fresnel' node for the new tangent mode
     * Fixed issue with 'Screen Position' subtitle
     * Fixed issue with 'Vertex to Fragment' node on templates
 
 * Improvements:
-    * Added two additional nodes to templates,'Template Vertex Data' and 'Template Fragment Data' 
+    * Added two additional nodes to templates,'Template Vertex Data' and 'Template Fragment Data'
         * These nodes allow direct access to vertex and interpolated fragment data from the template
     * Adding vertex code entry tag into Post-Process template
     * Improved fail-safe behavior on attempt to write vertex code on template with no vertex tag declared
     * Minor tweaks on some nodes port names and order
-    * 'Dither' node now has a input port that allows the use of a custom dither pattern 
+    * 'Dither' node now has a input port that allows the use of a custom dither pattern
     * 'Vertex to Fragment' node no longer generates unnecessary code and now acts as a relay if connected to a vertex path
 
 v1.3.1 dev 10:
@@ -3908,7 +4324,7 @@ v1.3.1 dev 07:
 * Fixes:
     * Fixed issue on 'Simple Contrast' node ignoring Value internal data
     * Fixed issue on nodes preview data not being written when its internal data is read from shader
-    * Fixed 'Texture Sampler' node to output a Color instead of Vector type 
+    * Fixed 'Texture Sampler' node to output a Color instead of Vector type
     * Fixed 'Swizzle' node not detecting changes on its input ports
     * Fixed issue on allowing invalid characters when typing a custom keyword on the 'Static Switch' node
 
@@ -3924,7 +4340,7 @@ v1.3.1 dev 06:
     * Fixed issue on template output node attempting to access template data before its initialization is complete
     * Fixed issue with validate/execute commands like duplicate on Mac
     * Fixed issue on not updating correctly mouse position when doing multiple pastes/duplicates
-    * Fixed disappearing titles when selecting 'Register Local Var' nodes being used by 'Get Local Var' nodes located outside the visible graph area 
+    * Fixed disappearing titles when selecting 'Register Local Var' nodes being used by 'Get Local Var' nodes located outside the visible graph area
     * 'Toggle Switch' node now properly casts its main port type for both input ports
 
 v1.3.1 dev 05:
@@ -3993,7 +4409,7 @@ v1.3.1 dev 02:
 v1.3.1 dev 01:
 * Fixes:
     * Fixed issue on copy-pasting custom lighting nodes
-    * Fixed issue on null pointer reference on preview material when hitting play mode 
+    * Fixed issue on null pointer reference on preview material when hitting play mode
 
 * Improvements:
     * Added upper left widgets into several nodes to change important properties directly on node body
@@ -4023,7 +4439,7 @@ v1.3.0 dev 03:
 
 v1.3.0 dev 02:
 * Fixes:
-    * Fixed issue with Output Node Opacity Mask port not working with Custom Lighting 
+    * Fixed issue with Output Node Opacity Mask port not working with Custom Lighting
     * Fixed errors with some nodes inside shader function
 
 * Improvements:
@@ -4076,7 +4492,7 @@ v1.2.0 dev 01:
 
 * Improvements:
     * Texture Object type nodes no longer auto-set the 'Texture Sampler' Normal Map option
-        * Normal Map option was renamed to Unpack Normal Map 
+        * Normal Map option was renamed to Unpack Normal Map
         * A warning is shown if a Texture Object marked as normal map is connected to a 'Texture Sampler' node with the Unpack Normal Map options turned off
 
 v1.1.0 dev 13:
@@ -4100,7 +4516,7 @@ v1.1.0 dev 12:
 * Fixes:
     * Fixed issue with creating legacy code for LOD Cross Fade on Unity v.2017 and above
     * Fixed issue on 'Lerp' node not adjusting correctly when disconnecting input ports
-    * Fixing issue with node drag with snap 
+    * Fixing issue with node drag with snap
         * Now done by having both Ctrl+Shift pressed
 
 * Improvements:
@@ -4144,7 +4560,7 @@ v1.1.0 dev 07:
     * Fixed issue with having 'Custom Expression' nodes with similar port names
 
 * Improvements
-    * Small improvements on canvas zoom behavior 
+    * Small improvements on canvas zoom behavior
 
 v1.1.0 dev 06:
 * New Features:
@@ -4205,7 +4621,7 @@ v1.1.0 dev 03:
 
 * Improvements:
     * 'Texture Array' node:
-        * Now work with shader functions 
+        * Now work with shader functions
         * Added derivative option to 'Texture Array' node
         * Minor tweak on tooltip text
 
@@ -4247,7 +4663,7 @@ v1.0.0 dev 11:
         * Escape: Hides Search Bar
 
 * New samples:
-    * UV Light Reveal 
+    * UV Light Reveal
 
 * Fixes:
     * Fixed issue on creating unnecessary casts from floats
@@ -4296,7 +4712,7 @@ v1.0.0 dev 08:
     * Fixed issue on 'Get Local Var' nodes getting wrong ids on certain situations when a 'Register Local Var' node is deleted
     * Small fix to force property name update when changing type on property nodes
     * Fixed issue where 'View Dir' node was generating code in the wrong space when in vertex function for both world space and tangent space
-    
+
 v1.0.0 dev 07:
 * Fixes:
     * Fixed name conflict on 'Custom Expression' node
@@ -4352,7 +4768,7 @@ v1.0.0 dev 04:
 
 v1.0.0 dev 03:
 * New Features:
-    * Custom Lighting 
+    * Custom Lighting
         * New Nodes: ( can only be used on this light model )
             * Indirect Diffuse Light
             * Indirect Specular Light
@@ -4432,8 +4848,8 @@ v0.7.2 dev 06:
 v0.7.2 dev 05:
 * Improvements:
     * Changed tool tip display to trigger when mouse is on top of the node ( now displays below the node)
-    * Shader Functions 
-        * Added default values for input node in SF (these are used when there's no connection) 
+    * Shader Functions
+        * Added default values for input node in SF (these are used when there's no connection)
         * Added port restrictions to dynamic node types
         * Changed way input node work with restrictions when changing type to prevent invalid connections
 
@@ -4481,7 +4897,7 @@ v0.7.2 dev 01:
     * Fixed issue on inverted Receive Shadows toggle
 
 * Improvements:
-    * Can Copy/Paste between different Shaders and Shader Functions 
+    * Can Copy/Paste between different Shaders and Shader Functions
     * Shader properties created by Refraction, Translucency, Mask Value and Tessellation now appear on the Output node Material Properties list and can be reordered
     * Preventing UndoParentNode to generate DefaultValue conflicts caused by other plugins
     * Removed warnings generated on some situations by the 'Screen Position' node
@@ -4558,7 +4974,7 @@ v0.7.0 dev 01:
 
 * Fixes:
     * Fixed issue on deleting nodes with Wire nodes on their connections
-   
+
 v0.6.1 dev 05:
 * Fixes:
     * Fixed issue with custom Shadow Caster on Vulkan
@@ -4568,7 +4984,7 @@ v0.6.1 dev 04:
     * Renaming 'Texture Sampler' Type property Instance to Reference and prevent confusion with GPU Instanced properties
 
 * Fixes:
-    * Fixed issue on unnecessary saves on Live mode 
+    * Fixed issue on unnecessary saves on Live mode
         * Also increased Inactivity time from 0.5s to 1s
     * Fixed issues on some node interactions not being detected by live mode ( and thus not being flagged to save )
     * Fixed issue on 'Rotator' node not correctly generating local values according to vertex/frag
@@ -4583,8 +4999,8 @@ v0.6.1 dev 03:
 
 * Improvements:
     * Node property title changes according to selected node
-    * Added Multi-Line mode to wires ( Ctrl + W ) 
-    * Added ability to change 'Triplanar Sampler' node name 
+    * Added Multi-Line mode to wires ( Ctrl + W )
+    * Added ability to change 'Triplanar Sampler' node name
     * Improved wire connections rendering while zoomed
     * Tweaked live mode to save only when user is inactive for 0.5s
 
@@ -4598,14 +5014,14 @@ v0.6.1 dev 02:
     * Added Vertex Output ( can now change from Relative/Local Vertex Offset to Absolute/Local Vertex Position )
     * Added Smear Sample
     * Added Unlit Light Model
-    * Added simpler 'Time' node 
+    * Added simpler 'Time' node
     * Added 'Depth Fade' node
     * Added 'Camera Depth' Fade node
 
 * Improvements:
     * Adding node info into Helper Window
     * Adding drag and drag valid unity assets list to helper window
-    * 'Screen Position' and 'Grab Screen Position' now have a Output dropdown on its properties instead of a Toggle 
+    * 'Screen Position' and 'Grab Screen Position' now have a Output dropdown on its properties instead of a Toggle
     * Improved GPU instancing example by adding a C# illustrating how to set instanced properties
 
 * Fixes:
@@ -4651,14 +5067,14 @@ v0.5.1 dev 011:
 
 v0.5.1 dev 010:
 * Added 'Desaturate' node
-* Fixed small visual issue with Color Mask UI 
+* Fixed small visual issue with Color Mask UI
 * Improved overall UI performance
 
 v0.5.1 dev 009:
 * Linking both Up/Down keys and right mouse dragging to scroll behavior into menus
 * Canvas zoom can be changed by right mouse dragging while pressing Alt key
 * Fixing multiple issues with 'Swizzle' node
-* Heavily optimized drawing the node lines 
+* Heavily optimized drawing the node lines
 * Fixed issue with loading default shaders to ports
 
 v0.5.1 dev 008:
@@ -4667,8 +5083,8 @@ v0.5.1 dev 008:
 * Fixed order issues on 'Commentary' node
 * Fixed issue with BurnEffect sample
 * Majorly improved Previews update speed
-* Added LOD levels to previews ( sampler and texture arrays ) 
-* Added many more node previews 
+* Added LOD levels to previews ( sampler and texture arrays )
+* Added many more node previews
 * Updated TriplanarProjection and ParallaxMappingIterations samples
 * Optimization on drawing wires
 * 'World Normal', 'World Reflection' and 'Fresnel' input ports now modify their previews
@@ -4682,7 +5098,7 @@ v0.5.1 dev 006:
 * Added new Helper Window accessible via the right most button on the graph window
 * (De)Activating Tessellation and Outlines forces shader to save
 * Expanded the amount of nodes with available preview
-* Added fail safe to continue loading shader if in-existing community nodes are detected 
+* Added fail safe to continue loading shader if in-existing community nodes are detected
 * Added Normal Map unpacking to 'Texture Array' node and updated its sample
 * Fixed issues on Debug Port usage
 * Fixed issues on 'Flipbook UV Animation' when property nodes are connected to rows and column input ports
@@ -4721,31 +5137,31 @@ v0.5.0 dev 005:
 * Fixed issue on reading alpha:fade option from older versions
 * Tweaked 'Component Mask' node
 * Tweaked 'Pi' node
-* Improved 'Substance Sample' node previewer 
+* Improved 'Substance Sample' node previewer
 * Refraction to now have Specularity into account
-* Removed warnings on importing ASE to Unity v5.6.0 
+* Removed warnings on importing ASE to Unity v5.6.0
 
 v0.5.0 dev 004:
 * Added new Outline option on Master Node properties
 * Tweaked Tessellation material update
 
 v0.5.0 dev 003:
-* Fixed issue with Live Mode load/save state 
+* Fixed issue with Live Mode load/save state
 * Fixed repaint issue with picking ports
 * Tweaked 'Substance Sample' node preview
 * Adding Toggle Attribute to 'Switch Toggle' node
 
 v0.5.0 dev 002:
-* 'Texture Coordinate' now support float3 or float4 output types 
-* Changed Colored ports saving mechanism 
+* 'Texture Coordinate' now support float3 or float4 output types
+* Changed Colored ports saving mechanism
 * Tweaked how ports are saved/loaded via shader meta to easily modify existing nodes port amount without breaking older versions (API)
 * Tweaked Simple Noise example
 * Tweaked Read Atlas examples
 * Tweaked Translucency example
 * Minor tweak on 'Texture Sample' node
-* Fixed issue with local variable declaration on Master Node Debug port 
+* Fixed issue with local variable declaration on Master Node Debug port
 * Fixed issue with Screen Space Curvature example
-* Fixed issue with reading fade parameter on master node 
+* Fixed issue with reading fade parameter on master node
 * Fixed issue with Transparency shader
 
 v0.5.0 dev 001:
@@ -4773,7 +5189,7 @@ v0.4.0 dev 003:
 * Added check to prevent division by zero warning with 'Grab Screen Position' and 'Screen Position' nodes
 
 v0.4.0 dev 002:
-* Forcing LF on all shaders to prevent CRLF mixed with LF when upgrading them  
+* Forcing LF on all shaders to prevent CRLF mixed with LF when upgrading them
 * Fixed issues with custom shader inspector
 
 v0.4.0 dev 001:
@@ -4782,7 +5198,7 @@ v0.4.0 dev 001:
 * Added new Refraction Example ( AmplifyShaderEditor/Official/ObjectNormalRefraction )
 * Added new Vertex Normal port into Master Node
 * Small update to Material and Shader mode borders
-* Parameter types can now be changed from node itself on property nodes via dropdown on its upper left corner 
+* Parameter types can now be changed from node itself on property nodes via dropdown on its upper left corner
 * Various fixes from the way the Blend Mode works to take new translucent option into account
 * Fixed issue with connections from cache when changing Light Mode on Master Node not respecting port availability
 * Changed Refracted Shadow demo blend mode
@@ -4802,7 +5218,7 @@ v0.3.2 dev 003:
 * Added 'Linear to Gamma' and 'Gamma to Linear' nodes
 * Majorly revamped the UI for the master nodes options
 * Revamped Blend Modes and added additional options
-* Added pos-load test on nodes invalid connections to prevent issues with older ASE versions 
+* Added pos-load test on nodes invalid connections to prevent issues with older ASE versions
 
 v0.3.2 dev 001:
 * Added custom shadow caster
@@ -4823,23 +5239,23 @@ v0.3.1 dev 009:
 v0.3.1 dev 008:
 * Small fix to 'Virtual Texture Object' node
 * Fixed issues on 'Texture Sample' node
-* Fixed issue on not correctly unregistering nodes from 'Commentary' nodes when they were deleted 
+* Fixed issue on not correctly unregistering nodes from 'Commentary' nodes when they were deleted
 * Fixed issue when reading old shaders created with v0.2.4 dev 004
 * Fixed issue with 'Texture Coordinates' node when using Tessellation
 * Fixed issues and tweaked overall normals generation
 * Fixed issue on 'Vector From Matrix' node
 * Fixed issue on ASE canvas camera incorrectly panning when hitting a tooltip with Middle/Right Mouse Button
-* Fixed connection errors with 'Vector From Matrix' node 
+* Fixed connection errors with 'Vector From Matrix' node
 * Fixed issue with 'Vertex To Fragment' node
-* Deprecated 'Local Position' node 
-* Added 'Grab Screen Position' node 
+* Deprecated 'Local Position' node
+* Added 'Grab Screen Position' node
 * Tweaks on nodes and ports names to maintain overall consistency
 * Added new Scale and Offset option on 'Screen Position' node
 * 'Register Local Var' node now also has system to prevent duplicate names
 
 v0.3.1 dev 007:
 * Added auto-order option into 'Register Local Var' node
-* Added new 'Improved Read From Atlas Tiled' example 
+* Added new 'Improved Read From Atlas Tiled' example
 * Added 'Simplified Fmod' node
 
 v0.3.1 dev 006:
@@ -4854,7 +5270,7 @@ v0.3.1 dev 005
 * Added new 'Scale and Offset' node
 * Fixed issues on 'Vertex Binormal World' and '[VS]Vertex Tangent' nodes
 * Fixed issues with 'Texture Sample' nodes created via dragging a texture to ASE
-* Fixed issue with 'Scale' node 
+* Fixed issue with 'Scale' node
 * Fixed issues on incorrectly reading 'Receive Shadows' parameter from ASE shader previous to v0.2.5
 
 v0.3.1 dev 004
@@ -4885,19 +5301,19 @@ v0.3.0 dev 004
 v0.3.0 dev 003
 * Fixed crash from infinite loop generated on port 'Tex' at 'Texture Sample' node
 * Fixed cast issue when using internal port data on some nodes
-* Fixed issues with local variables generation  
+* Fixed issues with local variables generation
 * Tweaked Vertex Displacement port on Master Node
 * Added ability to specify range of valid data types for input ports ( API )
 * Locked 'Tex' port from 'Texture Sample' node to only allow connections to 'Texture Object' nodes
 
 v0.3.0 dev 002
-* Updated POM to clip edges using a tilling parameter 
+* Updated POM to clip edges using a tilling parameter
 * Updated the sand POM example and its height texture
 * Updated Water sample
 * 'Vertex NormalWorld', 'World Position' and 'View Dir' nodes now also output into vertex offset correctly
 * All editor resources are loaded via their own guid
 * Added Tessellation port into master node to be able to create custom Tessellation behaviors
-    * Tessellation parameters ( excluding Phong ) on Master Node Properties will be deactivated if its port is being used   	
+    * Tessellation parameters ( excluding Phong ) on Master Node Properties will be deactivated if its port is being used
     * Created Nodes for each of the builtin Tessellation functions
         * Distance-base Tessellation
         * Edge Length Tessellation
@@ -4915,7 +5331,7 @@ v0.3.0 dev 001
 * Texture Sampler will quietly ignore virtual object if AT is not found in project and will not generate a broken shader
 * Deprecated nodes are automatically excluded from the palette
 * Updated version in all samples
-* Optimized 'Multiply' and 'Divide' nodes 
+* Optimized 'Multiply' and 'Divide' nodes
 * Added Edge Length based tessellation
 * Added Fixed Amount based tessellation
 
@@ -4927,17 +5343,17 @@ v0.2.6 dev 001
 * Fixed issue for translucency on point lights
 * Fixed issues on 'Texture Coordinates' node
 * Fixed issue on not correctly syncing ASE when when hitting paste button on our custom inspector
-* Avoiding null pointer exception when compiling a 'Texel Size' node without references 
+* Avoiding null pointer exception when compiling a 'Texel Size' node without references
 * Re-Organized ASE folder system and added initial pop-up window to clean old/deprecated data
 * Tweaked Default/Material values UI on Property nodes
 * Node Properties window can now be show by double clicking a node
-* Renamed Uniform parameter type to Global 
+* Renamed Uniform parameter type to Global
 * Added Distance-Based tessellation. Can be activated/configured on Master Node properties
     * Added Tessellation sample
 * Added emission baking support. Queue must be set to "Geometry" to work properly
 * Added Tiled Atlas sample
 * Added scenes for each sample
-* Added tool tips for Master Node properties 
+* Added tool tips for Master Node properties
 
 v0.2.5 dev 004
 * Added Parallax Occlusion Mapping node (uses linear search with customizable samples in conjuntion with interval mapping for refinement of sidewalls)
@@ -4953,13 +5369,13 @@ v0.2.5 dev 003
 * Fixed issues with 'Texture Sample' node not reading the correct values from older shaders versions
 * Fixed issues with instanced texture samples
 * Fixed issues with 'Texel Size' node
-* Fixed issues with adding new categories on community created nodes 
-    * Custom category colors can now also be set up via NodeAttributes(...) 
+* Fixed issues with adding new categories on community created nodes
+    * Custom category colors can now also be set up via NodeAttributes(...)
 * Created simpler method ( GeneratePortInstructions(...) ) to generate input instructions. Handy for community members which are creating new custom nodes
 * Fixed issue with propagating incorrect port types on master node when loading shader from older versions
 * Fixed issues with parallax example
 * Alpha channel/Opacity port is forced to 1 if Keep Alpha is set to true and port is not connected to prevent UI issues
-* Added index property in '[VS] Vertex TexCoord' node and marked '[VS] Vertex TexCoord1' node as deprecated 
+* Added index property in '[VS] Vertex TexCoord' node and marked '[VS] Vertex TexCoord1' node as deprecated
 * Tweaked collision area on minimize/maximize buttons on lateral windows
 * Small optimization on 'Custom Expression' node
 * Added support for virtual texturing via Amplify Texture
@@ -4973,9 +5389,9 @@ v0.2.5 dev 002
 * Added Stencil Buffer support
 * Added Depth foldout with access to ZWrite, ZTest and Offset configuration
 * Added AMPLIFY_SHADER_EDITOR preprocessor directive
-* Fixed issue on not resetting instance variables counter on reset/load 
+* Fixed issue on not resetting instance variables counter on reset/load
 * Overall fixes on node UI and its adaptation when zooming out
- 
+
 
 v0.2.5 dev 001
 * Added Color Mask option on Master Node
@@ -4985,11 +5401,11 @@ v0.2.5 dev 001
 * Minor tweak on palette foldout behavior
 
 
-v0.2.4 dev 007 
+v0.2.4 dev 007
 * Fixed issue on wrong auto-snapping wires with invisible, locked ports
 * Fixed issue with version control on Master Node
 * Added Transmission input port on Master Node
-* Added 'Mip Mode' in 'Texture Sample' node 
+* Added 'Mip Mode' in 'Texture Sample' node
 * Property names can now be changed directly on node by double clicking on it
 * Properties can be reordered through drag and drop operations on the Master Node properties via the Available Properties foldout area
 * Min/Max values on 'Ranged Float' nodes can be modified directly on canvas
@@ -5007,7 +5423,7 @@ v0.2.4 dev 006 ( for internal reasons we had to skip dev 005 )
     * You can always reset to our own by hitting the Reset button next to hit
 * Updated Rim Light Sample to use the new Space option on the 'View Dir' node
 * Updated Parallax Sample to use the new Space option on the 'View Dir' node
-* Added 'Translucency' input port into Master Node 
+* Added 'Translucency' input port into Master Node
 * Added 'Dithering' node
 * Added Matcap Sample
 * Added Dithering Sample
@@ -5018,8 +5434,8 @@ v0.2.4 dev 004
 * Fixed issues with wire shader
 * Fixed issues with 'Texture Coordinates' node
 * Removed warnings occurring on Unity v5.5
-* Fixed issue with 'Append' Node 
-* Fixed issue with ASE Custom Material Inspector 
+* Fixed issue with 'Append' Node
+* Fixed issue with ASE Custom Material Inspector
 * Tweaked 'Local Vertex Pos' node to output differently if generating code for vertex or fragment ports
 
 v0.2.4 dev 003
@@ -5028,7 +5444,7 @@ v0.2.4 dev 003
 * Tweaked 'View Dir' node so you're able to choose between getting the result in tangent or world space
 * Tweaked 'World Space Light Dir' to no longer use internal input port data when nothing is connected, instead worldPos is automaticaly fed into it
 * Added Unity version check for wires shader and fix compatibility issues
-* Added Normalize toggle into 'Screen Position' node 
+* Added Normalize toggle into 'Screen Position' node
 * Community Node additions
     * Tobias Pott
         * Added 'Swizzle' node
@@ -5044,10 +5460,10 @@ v0.2.4 dev 002
 * Fixed issue with property nodes uniform variables not taking selected precision into account
 
 v0.2.4 dev 001
-* Added 'Parallax Mapping' node 
-* Added 'Negate' node 
-* Added Fake Window user sample 
-* Added Parallax Mapping example with 4 iterations using the basic Parallax Mapping node 
+* Added 'Parallax Mapping' node
+* Added 'Negate' node
+* Added Fake Window user sample
+* Added Parallax Mapping example with 4 iterations using the basic Parallax Mapping node
 
 v0.2.3 dev 002
 * Added 'Custom Expression' node
@@ -5073,7 +5489,7 @@ v0.2.3 dev 001
 * Fixed issue with 'Multiply' node on Matrix/Vector multiplications
 * Fixed issue with 'Break To Components' node
 * Fixed issue with 'Component Mask' node
-* Fixed issue with wrong type propagation when replacing node connections 
+* Fixed issue with wrong type propagation when replacing node connections
 * Fixed issue with instance references being lost on 'Texture Sample' and 'Screen Color' nodes
 * Tweaked 'Object to World' and 'World to Object' nodes to be more compile friendly
 * Added 'Model' matrix node
@@ -5092,12 +5508,12 @@ v0.2.2 dev 001
     * Hold 'P' key to enable debug mode and release it to disable it
     * Double hit 'P' key to toggle  debug mode on. Double hit 'P' key again to disable it.
 * Added 'Matrix From Vectors' node
-* Fixed issue with 'Vertex Binormal World' node	
+* Fixed issue with 'Vertex Binormal World' node
 * Added 'Shader Model' dropdown on Master Node properties
 * Community Node additions
     * The Four Headed Cat
         * Fixed issues with 'Logical Operator' nodes
-    
+
 v0.2.1 dev 001
 * Fixed multiple issues importing current version on top of v0.1.0 dev 001
 
@@ -5107,7 +5523,7 @@ v0.2.0 dev 003
 v0.2.0 dev 002
 * Improved duplicate code detection system
 * Slight improvement on save/update times ( important for Live Mode )
-* Fixed issue with 'Texture Sample' node incorrectly outputting a float4 when no texture assigned and on Normal mode 
+* Fixed issue with 'Texture Sample' node incorrectly outputting a float4 when no texture assigned and on Normal mode
 * Fixed issue on not opening the correct shader from a material inspector if a new one is selected from its dropdown
 * Fixed issue with 'Length' node incorrectly changing its output type
 * Community Node additions
@@ -5126,11 +5542,11 @@ v0.2.0 dev 001
         * Logical If
         * Pixelate
 * Community Samples additions
-    * The Four Headed Cat 
+    * The Four Headed Cat
         * DissolveBurn
     * Mourelas Konstantinos
         * EnvironmentGradient
-        
+
 v0.1.5 dev 001
 * Community Node additions
     * The Four Headed Cat ( moved to a separate 'Logical Operators' category )
@@ -5145,8 +5561,8 @@ v0.1.5 dev 001
         * Vertex Binormal World
 * 'Register Local Var' node changes:
     * Is now independent from Master Node execution order and generates activation signals
-    * Will always be executed even if not connected to Master Node 
-    * Fixed issue updating name string array when loading from file		
+    * Will always be executed even if not connected to Master Node
+    * Fixed issue updating name string array when loading from file
     * Added order index to control their declaration order( lesser index declared first )
 * Fixed issue on port type change not propagating in certain nodes
 * Hitting Escape key will disable context palette menu if active
@@ -5159,8 +5575,8 @@ v0.1.4 dev 002
 
 0.1.4 dev 001
 * Fixed issue with order index not being correctly read/written
-* Redone Refraction Shader according to rea suggestion 
-* Register Local Var node now has a title style similar to Property Nodes with the local var name always visible 
+* Redone Refraction Shader according to rea suggestion
+* Register Local Var node now has a title style similar to Property Nodes with the local var name always visible
 * Added Get Local Var Node. It allows the user to use already registered local vars anywhere in the graph
 * Added Custom Node Remap ("TFHC - Remap") created by user benderete
 * Fixed issue on Texture Sample UV port not correctly casting to float2 when needed
@@ -5169,7 +5585,7 @@ v0.1.4 dev 002
 v0.1.3 dev 003
 * Added RegisterLocalVar node. This is a node to improve shader readability in certain situations, as it forces the shader to create a local var containing its input value and always use that as output
 * Added Screen Color Texture Reference feature
-* Created Simple Refraction example ( Samples/SimpleRefraction ) 
+* Created Simple Refraction example ( Samples/SimpleRefraction )
 * Fixed issues with sampler instance resizing
 * Fixed issue with Fresnel node incident vector
 * Fixed issue with attempting connection removal on inexistent nodes ( bug affecting Append node )
@@ -5177,7 +5593,7 @@ v0.1.3 dev 003
 
 v0.1.3 dev 002
 * Fixed multiple issues with deleting a Texture Sample node being referenced by other nodes
-* Tweaked Texture Sample reference UI 
+* Tweaked Texture Sample reference UI
 
 v0.1.3 dev 001
 * Fixed issue when releasing mouse drag on menu areas not resetting auto*pan
@@ -5189,26 +5605,26 @@ v0.1.3 dev 001
 * Added small 'Made with Amplify Shader Editor' info as comment on generated shaders
 
 v0.1.2 dev 003
-* Fixed issues with opening materials via inspector with no ASE window initialized  
+* Fixed issues with opening materials via inspector with no ASE window initialized
 
 v0.1.2 dev 002
 * Added GPU Instancing ( see Samples/SimpleGPUInstancing example )
-* Added Screen Color node 
+* Added Screen Color node
 * Fixed issue on version testing
-* Tweaked Master Node icon 
+* Tweaked Master Node icon
 * Added additional icon into top-left master node node indicating if gpu instancing is being used or not
 
 v0.1.2 dev 001
 * Fixed typo on Texture Coordinate node
 * Added explicit control on Render Type and Queue. They will be automatically set when a Blend Mode is selected.
 * Added Fresnel node
-* Fixed Trigonometry typo 
+* Fixed Trigonometry typo
 * Improved local var generation on op nodes
 * Added FWidth node
 * Fixed issue with not immediately updating shader when hitting the Live Shader Mode button
 
 v0.1.1 dev 001
-* Community Contribution from kebrus: Added Rotator node, rotates UV Coordinates/ Vector2 nodes 
+* Community Contribution from kebrus: Added Rotator node, rotates UV Coordinates/ Vector2 nodes
 * Fixed Vector2 Append Node bug
 * Fixed Int to Float cast issues
 * Added Shader title area on top canvas to forbidden node interaction area

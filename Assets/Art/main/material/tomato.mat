@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Pow_spec: 8.1
+    - Pow_spec: 10.6
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -113,14 +113,14 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FresnelPow: 1
+    - _FresnelPow: 10
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutLineColor: 0.5
-    - _OutlineWidth: 0.48
+    - _OutLineColor: 10
+    - _OutlineWidth: 0.5
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
