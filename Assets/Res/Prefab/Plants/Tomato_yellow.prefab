@@ -82,7 +82,7 @@ MonoBehaviour:
   plantType: 3
   sackGo: {fileID: 1106296420532212970, guid: 7f180331596174ee787b82513367f043, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
-  realGo: {fileID: 0}
+  realGo: {fileID: 3267203323797050971}
   growthScale: 0100000003000000030000000500000005000000
 --- !u!54 &-7743481559323814651
 Rigidbody:
@@ -148,7 +148,7 @@ PrefabInstance:
     - target: {fileID: 2744307296402984387, guid: 5caa57cfd4f7a654a8b5d2d0e9eba011,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.20480514
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 2744307296402984387, guid: 5caa57cfd4f7a654a8b5d2d0e9eba011,
         type: 3}
@@ -198,11 +198,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3269169533422442361, guid: 5caa57cfd4f7a654a8b5d2d0e9eba011,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6794996649644387843}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5caa57cfd4f7a654a8b5d2d0e9eba011, type: 3}
 --- !u!4 &2746246551794240737 stripped
 Transform:
@@ -216,24 +212,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2564346694238498}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &6794996649644387843
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3267203323797050971}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.35833865, y: 0.34523118, z: 0.3583386}
-  m_Center: {x: 0, y: 0.17250392, z: 0.00000017136335}

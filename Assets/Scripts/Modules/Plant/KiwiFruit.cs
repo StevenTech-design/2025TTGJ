@@ -42,15 +42,15 @@ namespace TTGJ.Plant
             Destroy(gameObject, 0.1f);
         }
         
-        /* private IEnumerator KiwiTransformCoroutine(PlayerController player)
+        private IEnumerator KiwiTransformCoroutine(PlayerController player)
         {
             // 保存玩家的原始状态
             Vector3 originalScale = player.transform.localScale;
-            bool originalCanMove = player.CanMove;
+            //bool originalCanMove = player.CanMove;
             
             // 改变玩家状态，使其变成猕猴桃并滚动前进
             player.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f); // 变大
-            player.CanMove = true;
+            //player.CanMove = true;
             
             // 持续30秒
             float duration = 30f;
@@ -68,9 +68,9 @@ namespace TTGJ.Plant
             
             // 恢复玩家的原始状态
             player.transform.localScale = originalScale;
-            player.CanMove = originalCanMove;
+            //player.CanMove = originalCanMove;
             
             Debug.Log("Player returned to normal after eating kiwi");
-        } */
+        }
     }
 }

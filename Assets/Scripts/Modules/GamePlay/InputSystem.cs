@@ -116,10 +116,11 @@ namespace TTGJ.GamePlay
         }
         private void CheckPlayerDrop()
         {
-            if (player.CanDrop())
+            if (!player.CanDrop())
             {
-                currentCommandinfo.Add((KeyCode.K, "Drop"));
+                return;
             }
+            currentCommandinfo.Add((KeyCode.K, "Drop"));
             if(Input.GetKeyDown(KeyCode.K)) { 
                 _pressDropTime = Time.time;
                 return;
