@@ -208,6 +208,7 @@ namespace TTGJ.GamePlay
             if (targetPlant == null) return;
             targetPlant.OnEat();
             ObjectPoolManager.Instance.ReturnGameObjectToPool(targetPlant.gameObject);
+            _liftList.Remove(targetPlant.gameObject);
             RefleshLiftQueue();
         }
         private void RefleshLiftQueue()

@@ -15,6 +15,9 @@ namespace TTGJ.Buff
         }
         public virtual void EndBuff()
         {
+            if (transform == null) {
+                return;
+            }
             TimerManager.Instance.StopTimer(timerTaskId);
             BuffManager.Instance.RemoveBuff(transform, this);
             Destroy(GetComponent<BuffBase>());
