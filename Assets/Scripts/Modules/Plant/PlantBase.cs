@@ -57,6 +57,7 @@ namespace TTGJ.Plant
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Default");
             rigidbody.isKinematic = false;
+            isLiftable = false;
             transform.SetParent(null);
         }
         public virtual void ChangeState(PlantState state)
@@ -90,6 +91,7 @@ namespace TTGJ.Plant
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
             transform.localScale = Vector3.one;
             transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
+            isLiftable = true;
         }
 
         public virtual void OnGermination()
@@ -150,7 +152,7 @@ namespace TTGJ.Plant
         }
         public override bool CheckCanLift()
         {
-            return currentState == PlantState.Harvest || currentState == PlantState.Seed;
+            return currentState == PlantState.Harvest || currentState == PlantState.Seed && isLiftable;
         }
 
         public bool CanEat()

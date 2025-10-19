@@ -78,6 +78,9 @@ namespace TTGJ.Plant
                 await UniTask.Delay(1000);
                 Camera.main.gameObject.SetActive(true);
             }else {
+                if (collision.gameObject.CompareTag("Field")) {
+                    return;
+                }
                 collision.gameObject.SetActive(false);
                 await UniTask.Delay(1000);
                 collision.gameObject.SetActive(true);
