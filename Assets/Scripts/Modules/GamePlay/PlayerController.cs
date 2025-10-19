@@ -61,10 +61,9 @@ namespace TTGJ.GamePlay
             var target =_liftList.Dequeue();
             target.GetComponent<Liftable>().OnDrop(dropDirection, dropForce);
             target.transform.SetParent(null);
-            _currentHeight = 0;
+            RefreshLiftQueue();
         }
         public void LongTimeDrop() { 
-            Debug.Log("LongTimeDrop: " + _liftList.Count);
             Vector3 dropDirection = (transform.forward + Vector3.up).normalized;
             while (_liftList.Count > 0)
             {
