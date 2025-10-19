@@ -19,7 +19,7 @@ namespace TTGJ.Buff
             {
                 return;
             }
-            player.transform.localScale *= modelScale;
+            player.transform.localScale = new Vector3(modelScale, modelScale, modelScale);
             Camera.main.GetComponent<FollowTarget>().offset += cameraOffset;
         }
         private void DiscardBuff()
@@ -29,7 +29,7 @@ namespace TTGJ.Buff
             {
                 return;
             }
-            player.transform.localScale /= modelScale;
+            player.transform.localScale = Vector3.one;
             Camera.main.GetComponent<FollowTarget>().offset -= cameraOffset;
         }
         public override void EndBuff()

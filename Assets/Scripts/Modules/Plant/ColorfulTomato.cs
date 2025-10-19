@@ -5,15 +5,19 @@ namespace TTGJ.Plant
 {
     public class ColorfulTomato : PlantBase
     {
-        private void OnTriggerEnter(Collider other)
+        [SerializeField]
+        private Color dyeingColor;
+        private async void OnTriggerEnter(Collider other)
         {
             if(currentState != PlantState.Mature) { 
                 return;
             }
+            Debug.Log("ColorfulTomato OnTriggerEnter watering plant");
              List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos,growthScale[currentGrouthCount -1]);
              foreach (var plant in plants)
              {
-                _ = plant.OnWatering();
+                await plant.OnWatering();
+                plant.Dyeing(dyeingColor);
                 Debug.Log("ColorfulTomato OnTriggerEnter watering plant dyeing");
              }
         }

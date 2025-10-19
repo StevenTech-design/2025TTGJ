@@ -42,8 +42,8 @@ namespace TTGJ.Plant
             GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
             potato.GetComponent<Potato>().ChangeState(PlantState.Harvest);
             potato.GetComponent<Potato>().OnTeleport(baseTeleportPos);
-
-            FallCollisionBuff fallCollisionBuff = new FallCollisionBuff();
+            BuffManager.Instance.RemoveAllBuff(transform);
+            FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
             BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
         }
@@ -54,6 +54,7 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
+            BuffManager.Instance.RemoveAllBuff(PlayerController.Instance.transform);
             BuffBase buffBase = PlayerController.Instance.transform.TryAddComponent<FastMoveBuff>();
             BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffBase);
         }

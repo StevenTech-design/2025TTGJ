@@ -29,6 +29,9 @@ namespace TTGJ.Buff
 
         protected PlayerController GetBuffTarget()
         {
+            if (transform == null) {
+                return null;
+            }
             return transform.GetComponent<PlayerController>();
         }
     }

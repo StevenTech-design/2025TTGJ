@@ -105,7 +105,7 @@ namespace TTGJ.GamePlay
             if (target.TryGetComponent<IEatable>(out var eatable) && eatable.CanEat())
             {
                 eatable.OnEat();
-                ObjectPoolManager.Instance.ReturnGameObjectToPool(target);
+                Destroy(target);
             }else if (target.TryGetComponent<Rigidbody>(out var rigidbody)) { 
                 rigidbody.isKinematic = false;
                 rigidbody.AddForce(-transform.forward * 10, ForceMode.Impulse);
@@ -113,6 +113,7 @@ namespace TTGJ.GamePlay
             }
             _liftList.Dequeue();
             RefreshLiftQueue();
+            Debug.Log("ToEat: " + _liftList.Count);
         }
         public GameObject GetLiftObject() { 
             if (_liftList.Count == 0) return null;

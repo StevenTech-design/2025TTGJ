@@ -21,6 +21,7 @@ namespace TTGJ.Plant
         }
         public override void OnTeleport(Transform baseTeleportPos) { 
             base.OnTeleport(baseTeleportPos);
+            BuffManager.Instance.RemoveAllBuff(transform);
             BuffManager.Instance.AddBuff(transform,transform.TryAddComponent<FieldWateringBuff>());
         }
         private void OnCollisionStay(Collision collision) { 

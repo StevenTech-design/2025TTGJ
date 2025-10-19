@@ -47,6 +47,11 @@ namespace TTGJ.Plant
             base.OnMature();
             Flashing();
         }
+        protected override void OnHarvest()
+        {
+            base.OnHarvest();
+            transform.DOKill();
+        }
         private async Task OnTriggerEnter(Collider other) {
             if (other.gameObject.CompareTag("Field") || other.gameObject.layer == LayerMask.NameToLayer("Building") || currentEatObject != null) { 
                 return;

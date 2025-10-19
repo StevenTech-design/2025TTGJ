@@ -22,13 +22,19 @@ namespace TTGJ.Plant
         protected int [] growthScale = { 1, 2, 3};
         protected int currentGrouthCount = 0;
 
+        private Color originalColor;
         private Transform modelRoot;
+
+        protected void Start() {
+            //originalColor = GetComponentInChildren<Renderer>().material.color;
+        }
 
         public async virtual UniTask OnWatering()
         {
             if(currentGrouthCount >= growthScale.Length) {
                 return;
             }
+            //GetComponentInChildren<Renderer>().material.color = originalColor;
             Debug.Log("OnWatering");
             await UniTask.Delay(growthTime);
             Debug.Log("Watering: Finished");
@@ -84,6 +90,7 @@ namespace TTGJ.Plant
             transform.localScale = Vector3.one;
             transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
             isLiftable = true;
+            rigidbody.constraints = RigidbodyConstraints.None;
         }
 
         public virtual void OnGermination()
@@ -113,7 +120,7 @@ namespace TTGJ.Plant
 
         public void Dyeing(Color color)
         {
-            Debug.Log("Dyeing: " + color);
+            //GetComponentInChildren<Renderer>().material.color = color;
         }
         private void InitModel() {
             Debug.Log("InitModel: " + currentState);

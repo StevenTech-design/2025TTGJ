@@ -28,6 +28,7 @@ namespace TTGJ.Plant
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
+            BuffManager.Instance.RemoveAllBuff(transform);
             FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
             BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
@@ -46,6 +47,7 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
+            BuffManager.Instance.RemoveAllBuff(transform);
             BuffBase buffBase = PlayerController.Instance.transform.TryAddComponent<ReverseDirBuff>();
             BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffBase);
         }

@@ -4769,11 +4769,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato_green
       objectReference: {fileID: 0}
-    - target: {fileID: 5157116932662141194, guid: 90aad1377e6f4406bbdc4e53d33d3234,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7077399909363204851, guid: 90aad1377e6f4406bbdc4e53d33d3234,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5159,11 +5154,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato_red
       objectReference: {fileID: 0}
-    - target: {fileID: 3584847297144793883, guid: db7fe91e14be74e998fdbc0dda4ac509,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7680885558640235935, guid: db7fe91e14be74e998fdbc0dda4ac509,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5338,6 +5328,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5000329922381509367, guid: b364de5bf2076494ea714495a6532e4f,
+        type: 3}
+      propertyPath: liftArea
+      value: 
+      objectReference: {fileID: 784684118}
     - target: {fileID: 6380065368820969571, guid: b364de5bf2076494ea714495a6532e4f,
         type: 3}
       propertyPath: m_IsActive
@@ -5398,7 +5393,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5000329922381509367, guid: b364de5bf2076494ea714495a6532e4f, type: 3}
+    - {fileID: 2809213106622404398, guid: b364de5bf2076494ea714495a6532e4f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8980178914733749955, guid: b364de5bf2076494ea714495a6532e4f,
@@ -5625,7 +5622,7 @@ PrefabInstance:
     - target: {fileID: 677833053487941743, guid: a84a9385160994a63a60c541a16d8c2e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 0.656
       objectReference: {fileID: 0}
     - target: {fileID: 677833053487941743, guid: a84a9385160994a63a60c541a16d8c2e,
         type: 3}
@@ -5669,18 +5666,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2746246551794240737, guid: a84a9385160994a63a60c541a16d8c2e,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746246551794240737, guid: a84a9385160994a63a60c541a16d8c2e,
+        type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49
+      value: -0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746246551794240737, guid: a84a9385160994a63a60c541a16d8c2e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 7038769811200094278, guid: a84a9385160994a63a60c541a16d8c2e,
         type: 3}
       propertyPath: m_Name
       value: Tomato_yellow
-      objectReference: {fileID: 0}
-    - target: {fileID: 7038769811200094278, guid: a84a9385160994a63a60c541a16d8c2e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
