@@ -24,10 +24,6 @@ namespace TTGJ.Plant
 
         private Transform modelRoot;
 
-        protected void Start() {
-            InitModel();
-        }
-
         public async virtual UniTask OnWatering()
         {
             if(currentGrouthCount >= growthScale.Length) {
@@ -121,6 +117,7 @@ namespace TTGJ.Plant
             Debug.Log("Dyeing: " + color);
         }
         private void InitModel() {
+            Debug.Log("InitModel: " + currentState);
             if(modelRoot == null) {
                 modelRoot = transform.GetChild(0);
             }
