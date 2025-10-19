@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TTGJ.Common;
 using UnityEngine;
 using TTGJ.Buff;
+using Unity.VisualScripting;
 
 namespace TTGJ.Plant
 {
@@ -21,6 +22,11 @@ namespace TTGJ.Plant
         public override void OnTeleport(Transform baseTeleportPos) { 
             base.OnTeleport(baseTeleportPos);
             BuffManager.Instance.AddBuff(transform,transform.TryAddComponent<FieldWateringBuff>());
+        }
+        private void OnCollisionStay(Collision collision) { 
+            if(collision.transform.TryGetComponent<Cell>(out var cell)) { 
+                Destroy(gameObject);
+            }
         }
         
     }
