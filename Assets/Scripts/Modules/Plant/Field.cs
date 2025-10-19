@@ -24,11 +24,10 @@ namespace TTGJ.Plant
         {
             isPlanted = true;
         }
-        public void OnHarvest()
+        public void Release()
         {
             isPlanted = false;
             occupiedPlant = null;
-            FieldSystem.Instance.RemovePlant(occupiedPlant);
         }
         public PlantBase GetOccupiedPlant()
         {

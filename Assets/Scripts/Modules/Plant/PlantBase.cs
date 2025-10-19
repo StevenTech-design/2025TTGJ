@@ -61,6 +61,7 @@ namespace TTGJ.Plant
             rigidbody.isKinematic = false;
             isLiftable = false;
             transform.SetParent(null);
+            FieldSystem.Instance.RemovePlant(this);
         }
         public virtual void ChangeState(PlantState state)
         {

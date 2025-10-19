@@ -14,7 +14,7 @@ namespace TTGJ.GamePlay
             offset = transform.position - target.position;
         }
 
-        private void LateUpdate()
+        private void FixedUpdate()
         {
             if (target == null) return;
 

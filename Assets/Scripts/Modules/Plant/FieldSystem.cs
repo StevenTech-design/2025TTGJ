@@ -156,7 +156,9 @@ namespace TTGJ.Plant
         }
         public void RemovePlant(PlantBase plant)
         {
+            Vector2Int cellPos = plantDic[plant];
             plantDic.Remove(plant);
+            fields[cellPos.x][cellPos.y].Release();
         }
     }    
 }
