@@ -38,7 +38,6 @@ namespace TTGJ.Plant
 
         private bool CheckCanPlant(Vector2Int cellPos, int currentSize, int preSize)
         {
-            // 检查边界：确保占领区域不会超出字段边界
             if (cellPos.x - preSize < 0 || cellPos.x + currentSize >= fields.Length
             || cellPos.y - preSize < 0 || cellPos.y + currentSize >= fields[0].Length)
             {
@@ -85,6 +84,8 @@ namespace TTGJ.Plant
         }
         public bool ToOccupied(Vector2Int cellPos, int currentSize, int preSize)
         {
+            currentSize = Mathf.CeilToInt(currentSize / 2.0f);
+            preSize = Mathf.CeilToInt(preSize / 2.0f);
             if (!CheckCanPlant(cellPos, currentSize, preSize))
             {
                 return false;

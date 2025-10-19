@@ -6,6 +6,7 @@ using TTGJ.UI;
 using TTGJ.GamePlay;
 using System;
 using TTGJ.Plant;
+using cfg;
 
 namespace TTGJ.GamePlay
 {
@@ -41,11 +42,15 @@ namespace TTGJ.GamePlay
         [SerializeField]
         private PlayerController player;
         [SerializeField]
+        private float longTimeDropTime = 1f;
+        private float _pressDropTime = 0;
+        [SerializeField]
         private LayerMask interactionLayers = ~0;
         [SerializeField]
         private CommandInfo commandInfoUI;
         private List<(KeyCode, string)> currentCommandinfo = new();
         private List<(KeyCode, string)> previewCommandinfo = new();
+        
 
 
 
@@ -54,10 +59,11 @@ namespace TTGJ.GamePlay
             
             CheckLiftOrHaverstObject();
             CheckPlayerDrop();
+            CheckInteractLiftObject();
             //CheckPlayerEat();
             //CheckPlayerWatering();
             //CheckInteraction();
-            //RefreshCommandInfo();
+            RefreshCommandInfo();
 
             currentCommandinfo.Clear();
         }
@@ -67,10 +73,22 @@ namespace TTGJ.GamePlay
             if (liftObject == null) { 
                 return;
             }
-            currentCommandinfo.Add((KeyCode.K,"Drop"));
-            if (liftObject.TryGetComponent<Kettle>(out var kettle)) {
-                currentCommandinfo.Add((KeyCode.J, "Watering"));
+            currentCommandinfo.Add((KeyCode.J,"Use"));
+            if (!Input.GetKeyDown(KeyCode.J)) { 
+                return;
             }
+            if(liftObject.TryGetComponent<Kettle>(out var kettle)) { 
+                kettle.ToWatering();
+                return;
+            }
+            Field currentField = null;
+            if (liftObject.TryGetComponent<PlantBase>(out var plant) && plant.GetCurrentState() == PlantState.Seed && CheckField(out currentField)) { 
+                player.ToPlant(currentField);
+                return;
+            }else if (plant != null && plant.GetCurrentState() == PlantState.Seed) { 
+                return;
+            }
+            player.ToEat();
         }
 
         private void FixedUpdate()
@@ -100,13 +118,20 @@ namespace TTGJ.GamePlay
         {
             if (player.CanDrop())
             {
-                currentCommandinfo.Add((KeyCode.Q, "Drop"));
-
+                currentCommandinfo.Add((KeyCode.K, "Drop"));
             }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                player.ToDrop();
+            if(Input.GetKeyDown(KeyCode.K)) { 
+                _pressDropTime = Time.time;
+                return;
             }
+            if(!Input.GetKeyUp(KeyCode.K)) { 
+                return;
+            }
+            if(Time.time - _pressDropTime >= longTimeDropTime) { 
+                player.LongTimeDrop();
+                return;
+            }
+            player.ToDrop();
         }
         private void CheckPlayerMove()
         {
@@ -186,25 +211,21 @@ namespace TTGJ.GamePlay
             }
             return (false, InteractionType.None);
         }
-        private (bool, InteractionType) CheckInteractable(Collider collider)
-        {
-            if(collider.TryGetComponent<PlantBase>(out var plant) 
-               && (plant.GetCurrentState() == PlantState.Mature 
-                  || plant.GetCurrentState() == PlantState.Germination)) { 
-                return (true, InteractionType.Warning);
+        private bool CheckField(out Field currentField) { 
+            Ray ray = new Ray(player.transform.position + Vector3.up * 0.1f, -player.transform.up);
+            if (Physics.Raycast(ray, out RaycastHit hit, 10f, interactionLayers)) { 
+                if (hit.collider.TryGetComponent<Field>(out var field) && !field.IsPlanted()) { 
+                    currentField = field;
+                    return true;
+                }
             }
-            if(collider.CompareTag("Field") && collider.TryGetComponent<Field>(out var field) && !field.IsPlanted()) { 
-                return (true, InteractionType.Planting);
-            }
-            if(collider.CompareTag("NPC")) { 
-                return (true, InteractionType.NPC);
-            }
-            return (false, InteractionType.None);
+            currentField = null;
+            return false;
         }
         private (Collider, InteractionType) GetBestAdaptorObj(Func<Collider,(bool, InteractionType)> checkInteractable)
         {
             Vector3 center = player.transform.position + player.transform.forward * 0.2f;
-            Vector3 halfExtents = new Vector3(0.3f, 1f, 0.25f); // 对应 1 x 1.8 x 0.5 的盒子
+            Vector3 halfExtents = new Vector3(0.3f, 1f, 0.5f); // 对应 1 x 1.8 x 0.5 的盒子
             Collider[] colliders = Physics.OverlapBox(
                 center,
                 halfExtents,

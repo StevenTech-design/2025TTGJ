@@ -43,38 +43,38 @@ namespace TTGJ.GamePlay
 
         public void ToLift(GameObject target)
         {
-            float targetHeight = 0;
-            if (target.TryGetComponent<Collider>(out var collider))
-            {
-                collider.enabled = false;
-            }
-            if (target.TryGetComponent<MeshFilter>(out var filter))
-            {
-                targetHeight = filter.sharedMesh.bounds.size.y * target.transform.localScale.y;
-            }
-
             if (target.TryGetComponent<Liftable>(out var liftable))
             {
                 liftable.OnLift();
             }
-
             _liftList.Enqueue(target.gameObject);
 
             target.transform.SetParent(liftArea);
-            float height = targetHeight / 2 + _currentHeight;
-            target.transform.localRotation = Quaternion.identity;
-            target.transform.localPosition = new Vector3(0, height, 0);
-            _currentHeight += targetHeight + listOffset;
+            target.transform.SetLocalPositionAndRotation(new Vector3(0, _currentHeight, 0), Quaternion.identity);
+            _currentHeight += listOffset;
+            Debug.Log("ToLift: " + _liftList.Count);
         }
 
         public void ToDrop()
         {
             Vector3 dropDirection = (transform.forward + Vector3.up).normalized;
-            _liftList.Dequeue().GetComponent<Liftable>().OnDrop(dropDirection, dropForce);
+            var target =_liftList.Dequeue();
+            target.GetComponent<Liftable>().OnDrop(dropDirection, dropForce);
+            target.transform.SetParent(null);
             _currentHeight = 0;
         }
         public void LongTimeDrop() { 
-
+            Debug.Log("LongTimeDrop: " + _liftList.Count);
+            Vector3 dropDirection = (transform.forward + Vector3.up).normalized;
+            while (_liftList.Count > 0)
+            {
+                GameObject target = _liftList.Dequeue();
+                target.transform.SetParent(null);
+                if (target.TryGetComponent<Liftable>(out var liftable))
+                {
+                    liftable.OnDrop(dropDirection, dropForce);
+                }
+            }
         }
         public bool CanDrop()
         {
@@ -107,11 +107,16 @@ namespace TTGJ.GamePlay
             {
                 eatable.OnEat();
                 ObjectPoolManager.Instance.ReturnGameObjectToPool(target);
-                _liftList.Dequeue();
+            }else if (target.TryGetComponent<Rigidbody>(out var rigidbody)) { 
+                rigidbody.isKinematic = false;
+                rigidbody.AddForce(-transform.forward * 10, ForceMode.Impulse);
+                target.transform.GetComponent<Collider>().isTrigger = false;
             }
+            _liftList.Dequeue();
             RefreshLiftQueue();
         }
         public GameObject GetLiftObject() { 
+            if (_liftList.Count == 0) return null;
             return _liftList.Peek();
         }
         private void RefreshLiftQueue() { 
