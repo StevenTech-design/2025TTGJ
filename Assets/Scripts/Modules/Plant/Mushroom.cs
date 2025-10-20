@@ -8,30 +8,37 @@ namespace TTGJ.Plant
 {
     public class Mushroom : PlantBase
     {
-        private float bounceForce = 10;
+        [SerializeField]
+        private float bounceForce = 5;
+        private void OnCollisionEnter(Collision collision)
+        {
+            BounceObject(collision.collider);
+        }
         private void OnTriggerStay(Collider other)
         {
-            if(currentState < PlantState.Mature) { 
-                return;
-            }
-            if (other.gameObject.layer == LayerMask.NameToLayer("Building"))
+            BounceObject(other);
+        }
+        private void BounceObject(Collider collider)
+        {
+            if (currentState < PlantState.Mature)
             {
                 return;
             }
-            Vector3 direction = other.transform.position - transform.position;
-            direction.y = 0;
-            if (other.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
-            { 
+            if (collider.gameObject.layer == LayerMask.NameToLayer("Building"))
+            {
+                return;
+            }
+            Vector3 direction = collider.transform.position - transform.position;
+            if (collider.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
+            {
                 rigidbody.AddForce(direction.normalized * bounceForce, ForceMode.Impulse);
             }
         }
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            BuffManager.Instance.RemoveAllBuff(transform);
-            FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
+            FallCollisionBuff fallCollisionBuff = BuffManager.Instance.AddBuff<FallCollisionBuff>(transform);
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
-            BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
             fallCollisionBuff.StartBuff();
         }
         public void OnFallCollision(Collision collision)
@@ -47,9 +54,8 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
-            BuffManager.Instance.RemoveAllBuff(transform);
-            BuffBase buffBase = PlayerController.Instance.transform.TryAddComponent<ReverseDirBuff>();
-            BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffBase);
+            BuffBase buffBase = BuffManager.Instance.AddBuff<ReverseDirBuff>(PlayerController.Instance.transform);
+            buffBase.StartBuff();
         }
     }
 }

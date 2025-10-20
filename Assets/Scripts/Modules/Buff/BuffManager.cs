@@ -7,28 +7,25 @@ namespace TTGJ.Buff
     public class BuffManager : Singleton<BuffManager>
     {
         private Dictionary<GameObject, List<BuffBase>> buffs = new Dictionary<GameObject, List<BuffBase>>();
-        public void  AddBuff(Transform target, BuffBase buff)
+        public T AddBuff<T>(Transform target,bool isOverride = true) where T : BuffBase
         {
             if (!buffs.ContainsKey(target.gameObject))
             {
                 buffs[target.gameObject] = new List<BuffBase>();
             }
-            for(int i = 0; i < buffs[target.gameObject].Count; i++) { 
-                if(buffs[target.gameObject][i] == null) {
-                    continue;
-                }
-                buffs[target.gameObject][i].EndBuff();
+            if (isOverride)
+            { 
+                RemoveAllBuff(target);
             }
-            buffs[target.gameObject].Clear();
-            buffs[target.gameObject].Add(buff);
-            buff.StartBuff();
+            return target.GetComponent<T>();
         }
         public void RemoveBuff(Transform target, BuffBase buff)
         {
-            if (buffs.ContainsKey(target.gameObject))
+            if (!buffs.ContainsKey(target.gameObject))
             {
-                buffs[target.gameObject].Remove(buff);
+                return;
             }
+            buffs[target.gameObject].Remove(buff);
         }
         public void RemoveAllBuff(Transform target)
         {
@@ -36,30 +33,16 @@ namespace TTGJ.Buff
             {
                 return;
             }
-            for(int i = 0; i < buffs[target.gameObject].Count; i++) { 
-                if(buffs[target.gameObject][i] == null) {
+            for (int i = 0; i < buffs[target.gameObject].Count; i++)
+            {
+                if (buffs[target.gameObject][i] == null)
+                {
                     continue;
                 }
                 buffs[target.gameObject][i].EndBuff();
             }
             buffs[target.gameObject].Clear();
             buffs.Remove(target.gameObject);
-        }
-        public async UniTask AddBuff(Transform target, List<BuffBase> buffList) { 
-            if (!buffs.ContainsKey(target.gameObject))
-            {
-                buffs[target.gameObject] = new List<BuffBase>();
-            }
-            for(int i = 0; i < buffs[target.gameObject].Count; i++) { 
-                buffs[target.gameObject][i].EndBuff();
-            }
-            buffs[target.gameObject].Clear();
-            await UniTask.Delay(200);
-            buffs[target.gameObject].AddRange(buffList);
-            for(int i = 0; i < buffList.Count; i++) { 
-                buffList[i].StartBuff();
-            }
-            
         }
     }
 }

@@ -102,6 +102,11 @@ namespace TTGJ.Luban
             };
         }
 
+        public cfg.ItemNew GetItemNew(int id)
+        {
+            return _tables.TbItemNew.Get(id);
+        }
+
         #endregion
     }
 }

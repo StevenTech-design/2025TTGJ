@@ -30,9 +30,8 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
-            BuffManager.Instance.RemoveAllBuff(PlayerController.Instance.transform);
-            BuffBase buffBase = PlayerController.Instance.transform.TryAddComponent<BigModelBuff>();
-            BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffBase );
+            BuffBase buffBase = BuffManager.Instance.AddBuff<BigModelBuff>(PlayerController.Instance.transform);
+            buffBase.StartBuff();
         }
     }
 }

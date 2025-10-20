@@ -6,16 +6,11 @@ using TTGJ.Framework;
 
 namespace TTGJ.GamePlay
 {
-    public class PlayerController : MonoSingleton<PlayerController>
+    public partial class PlayerController : MonoSingleton<PlayerController>
     {
         public float speed = 3.5f;
         [SerializeField]
         private float dropForce = 10;
-        [SerializeField]
-        private float dropAngle = 60f;
-        [SerializeField]
-        private float interactDistance = 2f; // 交互距离
-
         private Rigidbody _rigidbody;
 
         [SerializeField]
@@ -23,20 +18,27 @@ namespace TTGJ.GamePlay
 
         private Queue<GameObject> _liftList = new();
         [SerializeField]
-        private float listOffset = 0.5f;
+        private float listOffset = 1f;
         private float _currentHeight = 0;
         [SerializeField]
         private float _longTimeDropforce = 0;
-        
+
 
 
         private void Awake()
         {
-            _rigidbody = GetComponentInChildren<Rigidbody>();
+            _rigidbody = GetComponent<Rigidbody>();
+            _animator = GetComponentInChildren<Animator>();
         }
 
         public void ToMove(Vector3 direction)
         {
+            if (direction == Vector3.zero)
+            {
+                IsMove = false;
+                return;
+            }
+            IsMove = true;
             transform.rotation = Quaternion.LookRotation(direction);
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
@@ -52,7 +54,8 @@ namespace TTGJ.GamePlay
             target.transform.SetParent(liftArea);
             target.transform.SetLocalPositionAndRotation(new Vector3(0, _currentHeight, 0), Quaternion.identity);
             _currentHeight += listOffset;
-            Debug.Log("ToLift: " + _liftList.Count);
+            PlayLiftAnimation();
+            IsLift = _liftList.Count > 0;
         }
 
         public void ToDrop()
@@ -61,9 +64,11 @@ namespace TTGJ.GamePlay
             var target =_liftList.Dequeue();
             target.GetComponent<Liftable>().OnDrop(dropDirection, dropForce);
             target.transform.SetParent(null);
+            IsLift = _liftList.Count > 0;
             RefreshLiftQueue();
         }
-        public void LongTimeDrop() { 
+        public void LongTimeDrop()
+        {
             Vector3 dropDirection = (transform.forward + Vector3.up).normalized;
             while (_liftList.Count > 0)
             {
@@ -74,6 +79,7 @@ namespace TTGJ.GamePlay
                     liftable.OnDrop(dropDirection, dropForce);
                 }
             }
+            IsLift = _liftList.Count > 0;
         }
         public bool CanDrop()
         {
@@ -113,7 +119,6 @@ namespace TTGJ.GamePlay
             }
             _liftList.Dequeue();
             RefreshLiftQueue();
-            Debug.Log("ToEat: " + _liftList.Count);
         }
         public GameObject GetLiftObject() { 
             if (_liftList.Count == 0) return null;
@@ -124,7 +129,7 @@ namespace TTGJ.GamePlay
             foreach (var target in _liftList)
             {
                 target.transform.localPosition = new Vector3(0, _currentHeight, 0);
-                _currentHeight += 0.5f;
+                _currentHeight += listOffset;
             }
         }
     }

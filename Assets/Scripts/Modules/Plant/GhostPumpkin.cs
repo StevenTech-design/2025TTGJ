@@ -25,21 +25,16 @@ namespace TTGJ.Plant
         public override void OnEat()
         {
             base.OnEat();
-            List<BuffBase> buffList = new List<BuffBase>();
-            BuffBase flashBuff = PlayerController.Instance.transform.TryAddComponent<HeadFlashBuff>();
-            BuffBase replaceHeadBuff = PlayerController.Instance.transform.TryAddComponent<ReplaceHeadBuff>();
-            BuffBase revealBuff = PlayerController.Instance.transform.TryAddComponent<RevealBuff>();
-            buffList.Add(flashBuff);
-            buffList.Add(replaceHeadBuff);
-            buffList.Add(revealBuff);
-            BuffManager.Instance.AddBuff(PlayerController.Instance.transform, buffList);
+            HeadFlashBuff flashBuff = BuffManager.Instance.AddBuff<HeadFlashBuff>(PlayerController.Instance.transform,false);
+            ReplaceHeadBuff replaceHeadBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.Instance.transform,false);
+            RevealBuff revealBuff = BuffManager.Instance.AddBuff<RevealBuff>(PlayerController.Instance.transform,false);
+            flashBuff.StartBuff();
+            replaceHeadBuff.StartBuff();
+            revealBuff.StartBuff();
         }
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            // FallCollisionBuff fallCollisionBuff = transform.TryAddComponent<FallCollisionBuff>();
-            // fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
-            // BuffManager.Instance.AddBuff(transform, fallCollisionBuff);
             collider.isTrigger = true;
         }
         public override void OnMature()
@@ -65,20 +60,5 @@ namespace TTGJ.Plant
             }
             currentEatObject = null;
         }
-        // public async void OnFallCollision(Collision collision)
-        // {
-        //     if (collision.gameObject.TryGetComponent<PlayerController>(out var player)) {
-        //         Camera.main.gameObject.SetActive(false);
-        //         await UniTask.Delay(1000);
-        //         Camera.main.gameObject.SetActive(true);
-        //     }else {
-        //         if (collision.gameObject.CompareTag("Field")) {
-        //             return;
-        //         }
-        //         collision.gameObject.SetActive(false);
-        //         await UniTask.Delay(1000);
-        //         collision.gameObject.SetActive(true);
-        //     }
-        // }
     }
 }

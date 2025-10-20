@@ -83,10 +83,6 @@ namespace TTGJ.GamePlay
             if (!Input.GetKeyDown(KeyCode.J)) { 
                 return;
             }
-            if(liftObject.TryGetComponent<Kettle>(out var kettle)) { 
-                kettle.ToWatering();
-                return;
-            }
             Field currentField = null;
             if (liftObject.TryGetComponent<PlantBase>(out var plant) && plant.GetCurrentState() == PlantState.Seed && CheckField(out currentField)) { 
                 player.ToPlant(currentField);
@@ -168,10 +164,7 @@ namespace TTGJ.GamePlay
             {
                 direction += Vector3.right;
             }
-            if (direction != Vector3.zero)
-            {
-                player.ToMove(direction);
-            }
+             player.ToMove(direction);
         }
 
         public MoveKeyCode GetMoveKeyCode()

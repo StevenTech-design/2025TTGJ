@@ -13,19 +13,26 @@ namespace TTGJ.Plant
             if(currentState != PlantState.Mature) { 
                 return;
             }
-            List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, growthScale[currentGrouthCount - 1]);
-            foreach (var plant in plants)
-            {
-                plant.OnWatering();
-            }
+            WateringOther();
         }
         public override void OnTeleport(Transform baseTeleportPos) { 
             base.OnTeleport(baseTeleportPos);
-            BuffManager.Instance.RemoveAllBuff(transform);
-            BuffManager.Instance.AddBuff(transform,transform.TryAddComponent<FieldWateringBuff>());
+            BuffBase buffBase = BuffManager.Instance.AddBuff<FieldWateringBuff>(transform);
+            buffBase.StartBuff();
         }
-        private void OnCollisionStay(Collision collision) { 
-            if(collision.transform.TryGetComponent<Cell>(out var cell)) { 
+        private void WateringOther()
+        { 
+            List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, growthScale[currentGrouthCount - 1]);
+            foreach (var plant in plants)
+            {
+                _ = plant.OnWatering();
+            }
+        }
+        private void OnCollisionStay(Collision collision)
+        {
+            if (collision.transform.TryGetComponent<Cell>(out var cell))
+            {
+                WateringOther();
                 Destroy(gameObject);
             }
         }
