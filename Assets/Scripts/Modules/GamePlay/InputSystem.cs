@@ -104,7 +104,8 @@ namespace TTGJ.GamePlay
         private void CheckLiftOrHaverstObject()
         {
             var result = GetBestAdaptorObj(CheckSpace);
-            if (result.Item1 == null) { 
+            if (result.Item1 == null) {
+                UnhightlightTarget(_currentHightlightObject);
                 return;
             }
             currentCommandinfo.Add((KeyCode.Space, result.Item2.ToString()));
@@ -173,34 +174,6 @@ namespace TTGJ.GamePlay
             }
         }
 
-        // private void CheckInteraction()
-        // {
-        //     var result = GetBestAdaptorObj(CheckInteractable);
-        //     if (result.Item1 == null) { 
-        //         return;
-        //     }
-        //     currentCommandinfo.Add((KeyCode.J, result.Item2.ToString()));
-        //     if (!Input.GetKeyDown(KeyCode.J)) { 
-        //         return;
-        //     }
-        //     switch(result.Item2) { 
-        //         case InteractionType.Planting:
-        //             player.ToPlant(result.Item1.GetComponent<Field>());
-        //             break;
-        //     }
-        // }
-        // private void CheckPlayerEat()
-        // {
-        //     if (player.CanEat())
-        //     {
-        //         currentCommandinfo.Add((KeyCode.K, "Eat"));
-        //     }
-        //     if (!Input.GetKeyDown(KeyCode.K))
-        //     {
-        //         return;
-        //     }
-        //     player.ToEat();
-        // }
         public MoveKeyCode GetMoveKeyCode()
         {
             return currentMoveKeyCode;

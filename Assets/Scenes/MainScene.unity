@@ -2402,6 +2402,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   commandInfoUI: {fileID: 9129673}
+  outlineColor: {r: 5, g: 5, b: 2.3, a: 1}
+  intensity: 1
 --- !u!4 &1009920909
 Transform:
   m_ObjectHideFlags: 0
@@ -5125,7 +5127,7 @@ PrefabInstance:
     - target: {fileID: 7680885558640235935, guid: db7fe91e14be74e998fdbc0dda4ac509,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: 7680885558640235935, guid: db7fe91e14be74e998fdbc0dda4ac509,
         type: 3}
@@ -5135,7 +5137,7 @@ PrefabInstance:
     - target: {fileID: 7680885558640235935, guid: db7fe91e14be74e998fdbc0dda4ac509,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.611
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 7680885558640235935, guid: db7fe91e14be74e998fdbc0dda4ac509,
         type: 3}
