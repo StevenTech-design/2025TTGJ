@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
@@ -12,12 +13,12 @@ namespace TTGJ.Plant
         public async override UniTask OnWatering()
         {
             await base.OnWatering();
-            if(currentGrouthCount < 0 || currentGrouthCount >= growthScale.Length) return;
-            transform.localScale = new Vector3(growthScale[currentGrouthCount - 1], 5, growthScale[currentGrouthCount - 1]);
+            if (currentGrouthCount < 0 || currentGrouthCount >= growthScale.Length) return;
+            transform.DOScale(new Vector3(growthScale[currentGrouthCount - 1], 5, growthScale[currentGrouthCount - 1]),0.5f);
         }
         public override void OnMature()
         {
-            transform.localScale = new Vector3(1f, 5f, 1f);
+            transform.DOScaleY(5, 0.5f);
         }
 
         public void OnFallCollision(Collider other)

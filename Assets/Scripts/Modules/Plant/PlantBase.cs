@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using Cysharp.Threading.Tasks;
-using TTGJ.GamePlay;
 using TTGJ.Interactable;
 using UnityEngine;
-
+using DG.Tweening;
 namespace TTGJ.Plant
 {
     public class PlantBase : Liftable, ITeleport, IDyeingable, IEatable
@@ -50,8 +47,8 @@ namespace TTGJ.Plant
             {
                 return;
             }
-             ++currentGrouthCount;
-            transform.localScale *= growthScale[currentGrouthCount - 1];
+            ++currentGrouthCount;
+            transform.DOScale(growthScale[currentGrouthCount - 1],0.5f);
         }
         protected virtual void OnHarvest()
         {
