@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: aea68a3910dbfd045af5255b0a1cf8df, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0ea4ea642819fd64a823d468588794d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Pow_spec: 4.4
+    - Pow_spec: 3
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutLineColor: 0
-    - _OutlineWidth: 4.53
+    - _OutlineWidth: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -131,19 +131,19 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Toon_Hardness: 20
-    - _Toon_Theshold: 0.38
+    - _Toon_Theshold: 0.44
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _colorSaturation: 2.75
-    - _specInt: 0.1
+    - _colorSaturation: 2.6
+    - _specInt: 0
     - fresnelOFF: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
-    - _OutLineColor: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
+    - _OutLineColor: {r: 0.11771604, g: 0.23270428, b: 0.0446382, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _colorA: {r: 0.8553459, g: 0.8553459, b: 0.8553459, a: 1}
-    - _colorB: {r: 0.74213827, g: 0.74213827, b: 0.74213827, a: 1}
+    - _colorA: {r: 0.88483477, g: 0.9496855, b: 0.002986232, a: 1}
+    - _colorB: {r: 0.8050314, g: 0.8050314, b: 0.8050314, a: 1}
   m_BuildTextureStacks: []
