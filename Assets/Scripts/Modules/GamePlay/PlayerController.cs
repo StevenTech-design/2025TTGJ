@@ -117,7 +117,9 @@ namespace TTGJ.GamePlay
                 rigidbody.AddForce(-transform.forward * 10, ForceMode.Impulse);
                 target.transform.GetComponent<Collider>().isTrigger = false;
             }
+            PlayEatAnimation();
             _liftList.Dequeue();
+            IsLift = _liftList.Count > 0;
             RefreshLiftQueue();
         }
         public GameObject GetLiftObject() { 
