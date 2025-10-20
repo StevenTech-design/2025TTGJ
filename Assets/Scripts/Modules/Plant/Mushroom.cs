@@ -50,7 +50,7 @@ namespace TTGJ.Plant
             }
             Vector3 dir = collision.transform.position - transform.position;
             dir.y = 0;
-            rigidbody.AddForce(dir.normalized * bounceForce, ForceMode.Impulse);
+            rigidbody.AddForce(dir.normalized * bounceForce * Time.deltaTime, ForceMode.Impulse);
         }
         public override void OnEat()
         {
