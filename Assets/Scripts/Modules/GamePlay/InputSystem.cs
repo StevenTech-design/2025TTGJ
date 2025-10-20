@@ -50,13 +50,19 @@ namespace TTGJ.GamePlay
         private CommandInfo commandInfoUI;
         private List<(KeyCode, string)> currentCommandinfo = new();
         private List<(KeyCode, string)> previewCommandinfo = new();
+        private GameObject _currentHightlightObject = null;
+        [SerializeField]
+        private Color outlineColor = new Color(5f, 5f, 2.3f, 1f);
+        [SerializeField]
+        [Range(0f, 20f)]
+        private float intensity = 1f;
         
 
 
 
         private void Update()
         {
-            
+
             CheckLiftOrHaverstObject();
             CheckPlayerDrop();
             CheckInteractLiftObject();
@@ -102,7 +108,9 @@ namespace TTGJ.GamePlay
                 return;
             }
             currentCommandinfo.Add((KeyCode.Space, result.Item2.ToString()));
-            if (!Input.GetKeyDown(KeyCode.Space)) { 
+            HightlightTarget(result.Item1.gameObject);
+            if (!Input.GetKeyDown(KeyCode.Space))
+            {
                 return;
             }
             switch(result.Item2) { 
@@ -266,6 +274,35 @@ namespace TTGJ.GamePlay
             }
             return true;
         }
+        private void HightlightTarget(GameObject gameObject)
+        {
+            if(gameObject == null || gameObject == _currentHightlightObject) { 
+                return;
+            }
+            UnhightlightTarget(_currentHightlightObject);
+            var render = gameObject.GetComponentInChildren<Renderer>();
+            if (render != null)
+            {
+                MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+                propertyBlock.SetColor("_OutLineColor", outlineColor * intensity);
+                render.SetPropertyBlock(propertyBlock);
+            }
+            _currentHightlightObject = gameObject;
+        }
+        private void UnhightlightTarget(GameObject gameObject)
+        {
+            if(_currentHightlightObject == null) { 
+                return;
+            }
+            var render = _currentHightlightObject.GetComponentInChildren<Renderer>();
+            if (render != null)
+            {
+                MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
+                propertyBlock.SetColor("_OutLineColor", new Color(0.3f, 0.3f, 0.3f, 1f));
+                render.SetPropertyBlock(propertyBlock);
+            }
+        }
+
         private void OnDrawGizmos()
         {
             Vector3 center = player.transform.position + player.transform.forward * 0.2f;
