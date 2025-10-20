@@ -52,21 +52,28 @@ namespace TTGJ.Plant
             transform.DOKill();
         }
         private async void OnCollisionEnter(Collision collision) {
+            GameObject other = GetOther(collision);
             if (currentState != PlantState.Harvest 
-            ||collision.gameObject.CompareTag("Field") 
-            || collision.gameObject.layer == LayerMask.NameToLayer("Building") 
+            || other.CompareTag("Field") 
+            || other.layer == LayerMask.NameToLayer("Building") 
             || currentEatObject != null) { 
                 return;
             }
-            currentEatObject = collision.gameObject;
-            collision.gameObject.SetActive(false);
+            currentEatObject = other;
+            other.SetActive(false);
             await UniTask.Delay(1000);
-            collision.gameObject.SetActive(true);
-            if(collision.gameObject.TryGetComponent<Rigidbody>(out var rigidbody)) {
-                collision.transform.position = transform.position + Vector3.left * 2;
+            other.SetActive(true);
+            if(other.TryGetComponent<Rigidbody>(out var rigidbody)) {
+                other.transform.position = transform.position + Vector3.left * 2;
                 rigidbody.AddForce(force * Time.deltaTime * Vector3.left, ForceMode.Impulse);
             }
             currentEatObject = null;
+        }
+        public GameObject GetOther(Collision collision) {
+            if (collider.attachedRigidbody.gameObject == this.gameObject) { 
+                return collider.gameObject;
+            }
+            return collider.attachedRigidbody.gameObject;
         }
     }
 }
