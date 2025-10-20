@@ -6,7 +6,7 @@ namespace TTGJ.Buff
 {
     public class BuffBase : MonoBehaviour
     {
-        public float duration = 2;
+        public float duration = 30;
         private int timerTaskId;
         public Action OnBuffStartCallback;
         public Action<float> OnBuffUpdateCallback;
@@ -26,7 +26,9 @@ namespace TTGJ.Buff
             OnBuffEndCallback?.Invoke();
             TimerManager.Instance.StopTimer(timerTaskId);
             BuffManager.Instance.RemoveBuff(transform, this);
-            Destroy(GetComponent<BuffBase>());
+            Debug.Log("EndBuff");
+            Destroy(this);
+           
         }
         protected virtual void OnBuffUpdate(float remainingTime)
         {
@@ -35,7 +37,7 @@ namespace TTGJ.Buff
 
         protected PlayerController GetBuffTarget()
         {
-            if (transform == null) {
+            if (this == null) {
                 return null;
             }
             return transform.GetComponent<PlayerController>();

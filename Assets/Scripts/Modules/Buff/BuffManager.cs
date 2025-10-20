@@ -1,8 +1,7 @@
 using TTGJ.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading.Tasks;
-using TTGJ.Common;
+
 namespace TTGJ.Buff
 {
     public class BuffManager : Singleton<BuffManager>
@@ -12,13 +11,16 @@ namespace TTGJ.Buff
         {
             if (!buffs.ContainsKey(target.gameObject))
             {
-                buffs[target.gameObject] = new List<BuffBase>();
+                buffs.Add(target.gameObject, new List<BuffBase>());
             }
             if (isOverride)
             { 
                 RemoveAllBuff(target);
             }
-            return target.TryAddComponent<T>();
+            T buffer = target.gameObject.AddComponent<T>();
+            Debug.Log("AddBuff");
+            buffs[target.gameObject].Add(buffer);
+            return buffer;
         }
         public void RemoveBuff(Transform target, BuffBase buff)
         {
@@ -38,12 +40,12 @@ namespace TTGJ.Buff
             {
                 if (buffs[target.gameObject][i] == null)
                 {
+
                     continue;
                 }
                 buffs[target.gameObject][i].EndBuff();
             }
             buffs[target.gameObject].Clear();
-            buffs.Remove(target.gameObject);
         }
     }
 }

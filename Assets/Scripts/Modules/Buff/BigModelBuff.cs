@@ -23,12 +23,14 @@ namespace TTGJ.Buff
             Camera.main.GetComponent<FollowTarget>().offset += cameraOffset;
         }
         private void DiscardBuff()
-        { 
+        {
+            Debug.Log("DiscardBuff");
             PlayerController player = GetBuffTarget();
             if (player == null)
             {
                 return;
             }
+            Debug.Log("FollowTarget");
             player.transform.localScale = Vector3.one;
             Camera.main.GetComponent<FollowTarget>().offset -= cameraOffset;
         }
