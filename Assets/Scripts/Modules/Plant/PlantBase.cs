@@ -54,6 +54,7 @@ namespace TTGJ.Plant
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Default");
             rigidbody.isKinematic = false;
+            rigidbody.useGravity = true;
             isLiftable = false;
             transform.SetParent(null);
             FieldSystem.Instance.RemovePlant(this);
