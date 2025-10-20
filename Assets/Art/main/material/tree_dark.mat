@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: tree
+  m_Name: tree_dark
   m_Shader: {fileID: 4800000, guid: 533f531b31336044bafdb32a571d5b4f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 0ea4ea642819fd64a823d468588794d6, type: 3}
+        m_Texture: {fileID: 2800000, guid: aea68a3910dbfd045af5255b0a1cf8df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -131,10 +131,10 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Toon_Hardness: 20
-    - _Toon_Theshold: 0.44
+    - _Toon_Theshold: 0.52
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _colorSaturation: 2.6
+    - _colorSaturation: 2
     - _specInt: 0
     - fresnelOFF: 0
     m_Colors:
@@ -144,6 +144,6 @@ Material:
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
     - _OutLineColor: {r: 0.11771604, g: 0.23270428, b: 0.0446382, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _colorA: {r: 0.88483477, g: 0.9496855, b: 0.002986232, a: 1}
-    - _colorB: {r: 0.8050314, g: 0.8050314, b: 0.8050314, a: 1}
+    - _colorA: {r: 0.67295593, g: 0.67295593, b: 0.67295593, a: 1}
+    - _colorB: {r: 0.8805031, g: 0.8805031, b: 0.8805031, a: 1}
   m_BuildTextureStacks: []

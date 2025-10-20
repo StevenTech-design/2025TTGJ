@@ -13,12 +13,12 @@
         _colorB("中间阴影颜色",Color)= (0.5,0.5,0.5,1)
 
         [Header(Specular)]
-        _specInt("高光强度",float) = 1.0
+        _specInt("高光强度",float) = 0.0
         Pow_spec("高光范围",Range(0.01,100)) = 1.0
         
         [Header(Fresnel)]
         [Enum(Off, 0, On, 1)]fresnelOFF ("边缘光 OFF or ON",Int) = 1 
-        _FresnelPow ("边缘光范围", Range(0, 10))= 1
+        _FresnelPow ("边缘光范围", Range(0, 10))= 0
         _FresnelColor("边缘光颜色",color) = (1,1,1,0)
 
         [Header(Outline)]

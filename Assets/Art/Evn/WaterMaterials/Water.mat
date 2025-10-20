@@ -18,7 +18,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: _UnderDisort _WaterOpacity
@@ -148,7 +148,7 @@ Material:
     - _NormalScale: 8
     - _OpacityRange: 0.55
     - _Powerexp: 1.2
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _ReFOcclution: 1
     - _ReceiveShadows: 0
@@ -205,7 +205,7 @@ Material:
     - _FoamNoise: {r: 20, g: 20, b: 0, a: 0}
     - _FoamNoise1: {r: 50, g: 0, b: 0, a: 0}
     - _FormCol: {r: 1, g: 1, b: 1, a: 0}
-    - _FresnelCol: {r: 0, g: 0.9411764, b: 1, a: 0}
+    - _FresnelCol: {r: 0, g: 0.116505146, b: 1, a: 1}
     - _NormalSpeed: {r: -5, g: 3, b: 0, a: 0}
     - _ReflNormalSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _SSS_Col: {r: 0.21686237, g: 0.3506429, b: 0.5345911, a: 0}
