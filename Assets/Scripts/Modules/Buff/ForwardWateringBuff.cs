@@ -8,16 +8,22 @@ namespace TTGJ.Buff
     public class ForwardWateringBuff : BuffBase
     {
         private LayerMask interactionLayers = ~0;
+        private float interval = 2f;
+        private float lastWateringTime = 0;
         protected override void OnBuffUpdate(float remainingTime)
         {
-            ToWatering();
+            if (Time.time - lastWateringTime >= interval)
+            {
+                ToWatering();
+                lastWateringTime = Time.time;
+            }
         }
         public void ToWatering() { 
             Collider collider = GetBestAdaptorObj(CheckCanWatering);
             if (collider == null) { 
                 return;
             }
-            _ = collider.gameObject.GetComponent<PlantBase>().OnWatering();
+            collider.gameObject.GetComponent<PlantBase>().OnWatering();
         }
         private Collider GetBestAdaptorObj(Func<Collider,bool> checkInteractable)
         {

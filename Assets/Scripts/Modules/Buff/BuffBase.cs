@@ -6,7 +6,7 @@ namespace TTGJ.Buff
 {
     public class BuffBase : MonoBehaviour
     {
-        public float duration = 30;
+        public float duration = 2;
         private int timerTaskId;
         public Action OnBuffStartCallback;
         public Action<float> OnBuffUpdateCallback;

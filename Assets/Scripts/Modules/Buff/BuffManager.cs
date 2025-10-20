@@ -2,6 +2,7 @@ using TTGJ.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using TTGJ.Common;
 namespace TTGJ.Buff
 {
     public class BuffManager : Singleton<BuffManager>
@@ -17,7 +18,7 @@ namespace TTGJ.Buff
             { 
                 RemoveAllBuff(target);
             }
-            return target.GetComponent<T>();
+            return target.TryAddComponent<T>();
         }
         public void RemoveBuff(Transform target, BuffBase buff)
         {

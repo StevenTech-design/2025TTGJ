@@ -102,6 +102,7 @@ namespace TTGJ.GamePlay
             var result = GetBestAdaptorObj(CheckSpace);
             if (result.Item1 == null) {
                 UnhightlightTarget(_currentHightlightObject);
+                _currentHightlightObject = null;
                 return;
             }
             currentCommandinfo.Add((KeyCode.Space, result.Item2.ToString()));
@@ -257,10 +258,10 @@ namespace TTGJ.GamePlay
         }
         private void UnhightlightTarget(GameObject gameObject)
         {
-            if(_currentHightlightObject == null) { 
+            if(gameObject == null) { 
                 return;
             }
-            var render = _currentHightlightObject.GetComponentInChildren<Renderer>();
+            var render = gameObject.GetComponentInChildren<Renderer>();
             if (render != null)
             {
                 MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();

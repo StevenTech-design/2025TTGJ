@@ -22,19 +22,17 @@ namespace TTGJ.Plant
         private Color originalColor;
         private Transform modelRoot;
 
-        protected void Start() {
-            //originalColor = GetComponentInChildren<Renderer>().material.color;
+        protected void Start()
+        {
+            
         }
 
-        public async virtual UniTask OnWatering()
+        public void OnWatering()
         {
             if(currentGrouthCount >= growthScale.Length) {
                 return;
             }
-            //GetComponentInChildren<Renderer>().material.color = originalColor;
-            Debug.Log("OnWatering");
-            await UniTask.Delay(growthTime);
-            Debug.Log("Watering: Finished");
+            Debug.Log("Watering");
             if (currentState == PlantState.Germination)
             { 
                 ChangeState(PlantState.Mature);

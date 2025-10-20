@@ -12,7 +12,7 @@ namespace TTGJ.Editor
     {
         private string className = "ResPathConfig";
         private string outputPath = "Assets/Scripts/Generate/ResPathConfig.cs";
-        private static string resFolderPath = "Assets/Res";
+        private static string resFolderPath = "Assets/Resources/Res";
 
         [MenuItem("Tools/Generate ResPathConfig")]
         public static void ShowWindow()
@@ -45,7 +45,7 @@ namespace TTGJ.Editor
             string resFolderFullPath = Path.GetFullPath(resFolderPath).Replace("\\", "/");
 
             StringBuilder builder = new StringBuilder();
-            builder.AppendLine("namespace Dm.TwistedFate.TexasHoldem");
+            builder.AppendLine("namespace TTGJ.Generate");
             builder.AppendLine("{");
             builder.AppendLine($"    public static class {className}");
             builder.AppendLine("    {");

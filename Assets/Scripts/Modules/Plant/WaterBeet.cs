@@ -25,7 +25,7 @@ namespace TTGJ.Plant
             List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, growthScale[currentGrouthCount - 1]);
             foreach (var plant in plants)
             {
-                _ = plant.OnWatering();
+                plant.OnWatering();
             }
         }
         private void OnCollisionStay(Collision collision)

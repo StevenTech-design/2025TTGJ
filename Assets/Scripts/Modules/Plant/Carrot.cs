@@ -10,9 +10,9 @@ namespace TTGJ.Plant
 {
     public class Carrot : PlantBase
     {
-        public async override UniTask OnWatering()
+        public void OnWatering()
         {
-            await base.OnWatering();
+            base.OnWatering();
             if (currentGrouthCount < 0 || currentGrouthCount >= growthScale.Length) return;
             transform.DOScale(new Vector3(growthScale[currentGrouthCount - 1], 5, growthScale[currentGrouthCount - 1]),0.5f);
         }

@@ -4,6 +4,8 @@ using TTGJ.Interactable;
 using System;
 using TTGJ.Buff;
 using TTGJ.Framework;
+using TTGJ.GamePlay;
+using TTGJ.Generate;
 
 namespace TTGJ.GamePlay
 {
@@ -20,10 +22,10 @@ namespace TTGJ.GamePlay
             buffBase.OnBuffEndCallback += OnForwardWateringBuffEnd;
             buffBase.StartBuff();
         }
-        private async void OnForwardWateringBuffEnd()
+        private void OnForwardWateringBuffEnd()
         {
-            GameObject kettle = await StResources.Instance.LoadAsync<GameObject>("Assets/Res/Prefabs/Kettle.prefab");
-            kettle.transform.position = PlayerController.Instance.transform.position - PlayerController.Instance.transform.forward * 0.2f;
+            GameObject kettle = GameObject.Instantiate(Resources.Load<GameObject>("Res/"+ResPathConfig.Plants_Kettle));
+            kettle.transform.position = PlayerController.Instance.transform.position - PlayerController.Instance.transform.forward * 2f;
             kettle.transform.rotation = PlayerController.Instance.transform.rotation;
             kettle.GetComponent<Rigidbody>().AddForce(-PlayerController.Instance.transform.forward * 3, ForceMode.Impulse);
         }
