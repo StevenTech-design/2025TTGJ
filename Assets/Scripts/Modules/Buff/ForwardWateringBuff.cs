@@ -8,7 +8,7 @@ namespace TTGJ.Buff
     public class ForwardWateringBuff : BuffBase
     {
         private LayerMask interactionLayers = ~0;
-        private float interval = 2f;
+        private float interval = 0.5f;
         private float lastWateringTime = 0;
         protected override void OnBuffUpdate(float remainingTime)
         {
