@@ -35,7 +35,6 @@ namespace TTGJ.Plant
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            collider.isTrigger = true;
         }
         public override void OnMature()
         {
