@@ -48,7 +48,7 @@ namespace TTGJ.Plant
             transform.DOKill();
         }
         private async Task OnTriggerEnter(Collider other) {
-            if (other.gameObject.CompareTag("Field") || other.gameObject.layer == LayerMask.NameToLayer("Building") || currentEatObject != null) { 
+            if (currentState != PlantState.Harvest ||other.gameObject.CompareTag("Field") || other.gameObject.layer == LayerMask.NameToLayer("Building") || currentEatObject != null) { 
                 return;
             }
             currentEatObject = other.gameObject;

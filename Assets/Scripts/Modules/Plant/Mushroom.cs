@@ -31,7 +31,7 @@ namespace TTGJ.Plant
             Vector3 direction = collider.transform.position - transform.position;
             if (collider.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
             {
-                rigidbody.AddForce(direction.normalized * bounceForce, ForceMode.Impulse);
+                rigidbody.AddForce(bounceForce * Time.deltaTime * direction.normalized, ForceMode.Impulse);
             }
         }
         public override void OnTeleport(Transform baseTeleportPos)
