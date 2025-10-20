@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutLineColor: 0
-    - _OutlineWidth: 4.53
+    - _OutlineWidth: 1.76
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
