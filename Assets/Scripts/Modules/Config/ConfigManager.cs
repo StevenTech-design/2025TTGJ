@@ -76,9 +76,9 @@ namespace TTGJ.Config
             }
             if (!plantGrowthConfigs.TryGet(itemType, out PlantGrowthConfig config))
             {
-                return growthCount - 1 < defaultOccupiedFieldSize.Count
-                ? defaultOccupiedFieldSize[growthCount - 1]
-                : defaultOccupiedFieldSize[defaultOccupiedFieldSize.Count - 1];
+                return growthCount < defaultOccupiedFieldSize.Count
+                ? defaultOccupiedFieldSize[growthCount]
+                : defaultOccupiedFieldSize[^1];
             }
             return config.occupiedFieldSize[growthCount - 1];
         }
