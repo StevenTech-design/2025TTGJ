@@ -40,9 +40,6 @@ namespace TTGJ.Luban
             {
                 Debug.Log("LubanManager: 开始初始化数据表...");
 
-                // 初始化 Addressables（可选）
-                Addressables.InitializeAsync().WaitForCompletion();
-
                 var loader = CreateJsonLoader();
 
                 _tables = new cfg.Tables(loader);
@@ -75,13 +72,13 @@ namespace TTGJ.Luban
         {
             return (string tableName) =>
             {
-                string fileName = $"Generate/Luban/{tableName}.json";
+                string fileName = $"Generate/Luban/{tableName}";
 
                 // 1️⃣ 先尝试 Addressables
                 try
                 {
-                    var handle = Addressables.LoadAssetAsync<TextAsset>(fileName);
-                    var asset = handle.WaitForCompletion();
+                    var asset = StResources.Instance.LoadByResources<TextAsset>(fileName);
+                    
 
                     if (asset != null)
                         return JSON.Parse(asset.text);
@@ -106,6 +103,37 @@ namespace TTGJ.Luban
         {
             return _tables.TbItemNew.Get(id);
         }
+        private cfg.TBItemCombine GetTBItemCombine()
+        {
+            return _tables.TBItemCombine;
+        }
+        public cfg.ItemCombine GetItemCombine(int id)
+        {
+            return _tables.TBItemCombine.Get(id);
+        }
+        public cfg.ItemCombine GetCombineItem(int itemId1, int itemId2)
+        {
+            var itemCombine = GetTBItemCombine();
+            foreach (var item in itemCombine.DataList)
+            {
+                if ((item.CostMainBuckets1 == itemId1 && item.CostMainBuckets2 == itemId2)
+                || item.CostMainBuckets1 == itemId2 && item.CostMainBuckets2 == itemId1)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public int EvolutionId(int id)
+        {
+            var item = GetItemNew(id);
+            if (item == null)
+            {
+                return -1;
+            }
+            return item.EvoId;
+        }
+
 
         #endregion
     }

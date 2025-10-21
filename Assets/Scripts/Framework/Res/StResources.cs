@@ -10,6 +10,7 @@ namespace TTGJ.Framework
     public class StResources : Singleton<StResources>
     {
         private string _resourcesPathRoot = Application.dataPath + "/Res/";
+        private string resourcesPathPrefix = "Res/";
         private IResourcesLoader _resourcesLoader;
 
         public async UniTask<T> LoadAsync<T>(string assetPath) where T : UnityEngine.Object
@@ -52,6 +53,17 @@ namespace TTGJ.Framework
             {
                 _resourcesLoader.Release(obj);
             }
+        }
+        public T LoadByResources<T>(string assetPath) where T : UnityEngine.Object
+        { 
+            string fullPath = resourcesPathPrefix + assetPath;
+            Debug.Log("LoadByResources: " + fullPath);
+            T asset = Resources.Load<T>(fullPath);
+            if (asset == null)
+            {
+                Debug.LogWarning("Asset not found at " + fullPath);
+            }
+            return asset;
         }
     }
 }

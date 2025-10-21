@@ -15,7 +15,7 @@ if dotnet "$GEN_CLIENT" \
   -d json \
   --conf "$CONF_ROOT/luban.conf" \
   -x outputCodeDir=../../../Assets/Scripts/Generate/Luban \
-  -x outputDataDir=../../../Assets/Res/Generate/Luban \
+  -x outputDataDir=../../../Assets/Resources/Res/Generate/Luban \
   "$@"; then
   echo "[Luban] Removing auxiliary build directories..."
   find ../../../Assets/Scripts/Generate/Luban -type d \( -name bin -o -name obj \) -prune -exec rm -rf {} +

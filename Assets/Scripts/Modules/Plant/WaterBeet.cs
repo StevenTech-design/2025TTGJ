@@ -3,6 +3,7 @@ using TTGJ.Common;
 using UnityEngine;
 using TTGJ.Buff;
 using Unity.VisualScripting;
+using TTGJ.Config;
 
 namespace TTGJ.Plant
 {
@@ -22,7 +23,8 @@ namespace TTGJ.Plant
         }
         private void WateringOther()
         { 
-            List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, growthScale[currentGrouthCount - 1]);
+            int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
+            List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, currentOccupiedFieldSize);
             foreach (var plant in plants)
             {
                 plant.OnWatering();

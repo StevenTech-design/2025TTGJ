@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TTGJ.Config;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -12,7 +13,8 @@ namespace TTGJ.Plant
             if(currentState != PlantState.Mature) { 
                 return;
             }
-             List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos,growthScale[currentGrouthCount -1]);
+            int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
+             List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos,currentOccupiedFieldSize);
              foreach (var plant in plants)
              {
                 plant.OnWatering();

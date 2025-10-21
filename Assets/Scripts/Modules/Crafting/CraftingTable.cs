@@ -1,24 +1,48 @@
 using System.Collections.Generic;
-using TTGJ.Framework;
+using TTGJ.Interactable;
+using TTGJ.Luban;
 using UnityEngine;
 
 namespace TTGJ.Crafting
 {
     public class CraftingTable : MonoBehaviour
     {
-        List<ICraftable> craftables = new List<ICraftable>();
-        private void OnTriggerEnter(Collider other)
+        private List<Liftable> liftables = new List<Liftable>();
+        private void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.TryGetComponent<ICraftable>(out var craftable))
+            if (liftables.Count >= 2)
             {
-                craftables.Add(craftable);
-                ObjectPoolManager.Instance.ReturnGameObjectToPool(other.gameObject);
+                return;
+            }
+            if (other.gameObject.TryGetComponent<Liftable>(out var liftable))
+            {
+                liftables.Add(liftable);
+                liftable.gameObject.SetActive(false);
+            }
+            if (liftables.Count == 2)
+            {
+                ToCraft();
             }
         }
-        private void ToCraft() { 
-            Debug.Log("ToCraft");
-            craftables.Clear();
-            Debug.Log("ToCraft: Finished");
+        private void ToCraft()
+        {
+            var combineItem = GetTargetCraftObject();
+            if (combineItem != null)
+            {
+                Debug.Log("ToCraft: " + combineItem.Name);
+            }
+            else
+            { 
+                Debug.Log("No combine item back to player");
+            }
+            liftables.Clear();
+        }
+        private cfg.ItemCombine GetTargetCraftObject()
+        {
+            var combineItem = LubanManager.Instance.GetCombineItem((int)liftables[0].itemType, (int)liftables[1].itemType);
+            Debug.Log(combineItem);
+            return combineItem;
+            
         }
     }
 }

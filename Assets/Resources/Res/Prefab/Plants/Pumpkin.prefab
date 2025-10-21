@@ -79,13 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e02969fbd124d90af03b00cc82980a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantType: 4
-  sackGo: {fileID: 1106296420532212970, guid: 7f180331596174ee787b82513367f043, type: 3}
+  itemType: 2003
+  sackGo: {fileID: 187643349536211303, guid: c09296ff0e2d9864a9716a6f3d27036c, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 4780466632502316927, guid: 63ff23ec584c16b4387f14aab91cb43e, type: 3}
-  growthScale: 0100000003000000030000000500000005000000
-  intervalTimer: 0.5
-  bounceForce: 10
+  interval: 0.3
+  force: 10
 --- !u!54 &5395214388324662349
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,9 +109,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 80
-  m_CollisionDetection: 2
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6863081067357122783
 BoxCollider:
   m_ObjectHideFlags: 0

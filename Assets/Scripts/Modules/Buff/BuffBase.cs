@@ -1,4 +1,5 @@
 using System;
+using TTGJ.Config;
 using TTGJ.Framework.Timer;
 using TTGJ.GamePlay;
 using UnityEngine;
@@ -6,11 +7,14 @@ namespace TTGJ.Buff
 {
     public class BuffBase : MonoBehaviour
     {
-        public float duration = 30;
+        public float duration;
+        public float checkInterval;
         private int timerTaskId;
+        private float lastCheckTime;
         public Action OnBuffStartCallback;
         public Action<float> OnBuffUpdateCallback;
         public Action OnBuffEndCallback;
+        protected PlantGrowthConfig plantGrowthConfig;
 
 
         public virtual void StartBuff()
@@ -20,7 +24,8 @@ namespace TTGJ.Buff
         }
         public virtual void EndBuff()
         {
-            if (transform == null) {
+            if (transform == null)
+            {
                 return;
             }
             OnBuffEndCallback?.Invoke();
@@ -28,19 +33,33 @@ namespace TTGJ.Buff
             BuffManager.Instance.RemoveBuff(transform, this);
             Debug.Log("EndBuff");
             Destroy(this);
-           
+
         }
         protected virtual void OnBuffUpdate(float remainingTime)
         {
+            if (Time.time - lastCheckTime < checkInterval)
+            {
+                return;
+            }
+            lastCheckTime = Time.time;
             OnBuffUpdateCallback?.Invoke(remainingTime);
         }
 
         protected PlayerController GetBuffTarget()
         {
-            if (this == null) {
+            if (this == null)
+            {
                 return null;
             }
             return transform.GetComponent<PlayerController>();
+        }
+        public virtual BuffType GetBuffType()
+        {
+            return BuffType.None;
+        }
+        protected void InitPlantGrowthConfig()
+        { 
+            
         }
     }
 }

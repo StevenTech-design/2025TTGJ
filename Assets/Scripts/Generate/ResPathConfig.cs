@@ -3,6 +3,7 @@
     public static class ResPathConfig
     {
         public const string Animation = "Animation";
+        public const string Config = "Config";
         public const string Generate = "Generate";
         public const string Prefab = "Prefab";
         public const string Shader = "Shader";
@@ -12,6 +13,8 @@
         public const string Prefab_Plants = "Prefab/Plants";
         public const string Prefab_UI = "Prefab/UI";
         public const string UI_Panel = "UI/Panel";
+        public const string Config_BuffConfigAsset = "Config/BuffConfigAsset";
+        public const string Config_PlantGrowthConfigAsset = "Config/PlantGrowthConfigAsset";
         public const string Shader_RenderBorder = "Shader/RenderBorder";
         public const string UI_File_829123__ratolojanaharyaro__stede_golena_san_massimo_4 = "UI/829123__ratolojanaharyaro__stede-golena-san-massimo-4";
         public const string Player_PlayerAnimator = "Animation/Player/PlayerAnimator";
@@ -23,12 +26,11 @@
         public const string Plants_Kettle = "Prefab/Plants/Kettle";
         public const string Plants_Kiwi = "Prefab/Plants/Kiwi";
         public const string Plants_Mushroom = "Prefab/Plants/Mushroom";
+        public const string Plants_Potato = "Prefab/Plants/Potato";
         public const string Plants_Pumpkin = "Prefab/Plants/Pumpkin";
         public const string Plants_Sack = "Prefab/Plants/Sack";
         public const string Plants_Seedling = "Prefab/Plants/Seedling";
-        public const string Plants_Tomato_green = "Prefab/Plants/Tomato_green";
-        public const string Plants_Tomato_red = "Prefab/Plants/Tomato_red";
-        public const string Plants_Tomato_yellow = "Prefab/Plants/Tomato_yellow";
+        public const string Plants_Tomato = "Prefab/Plants/Tomato";
         public const string Plants_WaterBeet = "Prefab/Plants/WaterBeet";
         public const string UI_CommandInfo = "Prefab/UI/CommandInfo";
     }
