@@ -5503,6 +5503,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cauliflower
       objectReference: {fileID: 0}
+    - target: {fileID: 2799931849176849345, guid: ac331813310e048a2989e0f73813c227,
+        type: 3}
+      propertyPath: sheepPrefab
+      value: 
+      objectReference: {fileID: 919132149155446097, guid: 191d79db999fde04ba5c49c8c57a6539,
+        type: 3}
     - target: {fileID: 5498065468484279238, guid: ac331813310e048a2989e0f73813c227,
         type: 3}
       propertyPath: m_LocalPosition.x

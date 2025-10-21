@@ -5,6 +5,8 @@ namespace TTGJ.Plant
 {
     public class CauliFlower : PlantBase
     {
+        [SerializeField]
+        private GameObject sheepPrefab;
         private void OnTriggerEnter(Collider other)
         {
             if(currentState != PlantState.Mature) { 
@@ -16,7 +18,11 @@ namespace TTGJ.Plant
         protected override void OnHarvest()
         {
             base.OnHarvest();
-            Debug.Log("Become sheep");
+            Destroy(modelRoot.GetChild(0).gameObject);
+            GameObject sheep = GameObject.Instantiate(sheepPrefab, transform.position, transform.rotation);
+            sheep.transform.SetParent(modelRoot);
+            sheep.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            sheep.transform.localScale = Vector3.one;
         }
 
          
