@@ -20,7 +20,8 @@ namespace TTGJ.Buff
         }
         public virtual void EndBuff()
         {
-            if (transform == null) {
+            if (transform == null)
+            {
                 return;
             }
             OnBuffEndCallback?.Invoke();
@@ -28,7 +29,7 @@ namespace TTGJ.Buff
             BuffManager.Instance.RemoveBuff(transform, this);
             Debug.Log("EndBuff");
             Destroy(this);
-           
+
         }
         protected virtual void OnBuffUpdate(float remainingTime)
         {
@@ -37,10 +38,15 @@ namespace TTGJ.Buff
 
         protected PlayerController GetBuffTarget()
         {
-            if (this == null) {
+            if (this == null)
+            {
                 return null;
             }
             return transform.GetComponent<PlayerController>();
+        }
+        public virtual BuffType GetBuffType()
+        {
+            return BuffType.None;
         }
     }
 }

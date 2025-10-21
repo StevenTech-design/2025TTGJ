@@ -1,20 +1,23 @@
 using TTGJ.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using TTGJ.Config;
+using TTGJ.Generate;
 
 namespace TTGJ.Buff
 {
     public class BuffManager : Singleton<BuffManager>
     {
+        BuffConfigAsset buffConfigs;
         private Dictionary<GameObject, List<BuffBase>> buffs = new Dictionary<GameObject, List<BuffBase>>();
-        public T AddBuff<T>(Transform target,bool isOverride = true) where T : BuffBase
+        public T AddBuff<T>(Transform target, bool isOverride = true) where T : BuffBase
         {
             if (!buffs.ContainsKey(target.gameObject))
             {
                 buffs.Add(target.gameObject, new List<BuffBase>());
             }
             if (isOverride)
-            { 
+            {
                 RemoveAllBuff(target);
             }
             T buffer = target.gameObject.AddComponent<T>();
@@ -46,6 +49,23 @@ namespace TTGJ.Buff
                 buffs[target.gameObject][i].EndBuff();
             }
             buffs[target.gameObject].Clear();
+        }
+        private float GetBuffDuration<T>(T buff) where T : BuffBase
+        {
+            if (buffConfigs == null)
+            { 
+                InitBuffConfigs();
+            }
+            if (!buffConfigs.TryGet(buff.GetBuffType(), out float duration))
+            {
+                return 30f;
+            }
+            return duration;
+        }
+        private void InitBuffConfigs()
+        {
+            buffConfigs = StResources.Instance.LoadByResources<BuffConfigAsset>(ResPathConfig.Config_BuffConfigAsset);
+            buffConfigs.RebuildCache();
         }
     }
 }

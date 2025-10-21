@@ -24,7 +24,7 @@ namespace TTGJ.GamePlay
         }
         private void OnForwardWateringBuffEnd()
         {
-            GameObject kettle = GameObject.Instantiate(Resources.Load<GameObject>("Res/"+ResPathConfig.Plants_Kettle));
+            GameObject kettle = GameObject.Instantiate(StResources.Instance.LoadByResources<GameObject>(ResPathConfig.Plants_Kettle));
             kettle.transform.position = PlayerController.Instance.transform.position - PlayerController.Instance.transform.forward * 2f;
             kettle.transform.rotation = PlayerController.Instance.transform.rotation;
             kettle.GetComponent<Rigidbody>().AddForce(-PlayerController.Instance.transform.forward * 3, ForceMode.Impulse);

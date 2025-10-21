@@ -16,7 +16,6 @@ namespace TTGJ.Plant
         [SerializeField] private float interval = 0.3f;
         [SerializeField] private float force = 10;
         private Tween blinkTween;
-        private GameObject model;
 
         
 

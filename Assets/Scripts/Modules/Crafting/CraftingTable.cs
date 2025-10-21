@@ -1,24 +1,29 @@
 using System.Collections.Generic;
 using TTGJ.Framework;
+using TTGJ.Interactable;
 using UnityEngine;
 
 namespace TTGJ.Crafting
 {
     public class CraftingTable : MonoBehaviour
     {
-        List<ICraftable> craftables = new List<ICraftable>();
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.gameObject.TryGetComponent<ICraftable>(out var craftable))
+        private List<Liftable> liftables = new List<Liftable>();
+        private void OnCollisionEnter(Collision other) {
+            if (liftables.Count >= 2) {
+                return;
+            }
+            if (other.gameObject.TryGetComponent<Liftable>(out var liftable))
             {
-                craftables.Add(craftable);
-                ObjectPoolManager.Instance.ReturnGameObjectToPool(other.gameObject);
+                liftables.Add(liftable);
+            }
+            if (liftables.Count == 2)
+            { 
+                ToCraft();
             }
         }
-        private void ToCraft() { 
-            Debug.Log("ToCraft");
-            craftables.Clear();
-            Debug.Log("ToCraft: Finished");
+        private void ToCraft()
+        {
+            
         }
     }
 }
