@@ -75,113 +75,113 @@ namespace TTGJ.Modules.TaskSystem
             });
         }
 
-        /// <summary>
-        /// 加载剧情数据
-        /// </summary>
-        private void LoadPlotData()
-        {
-            // 根据数据表信息加载剧情数据
-            AddPlotData(new PlotData {
-                id = "M_0001", 
-                name = "接受初始任务", 
-                npcId = 0, 
-                textTime = "先到农场试试手吧！#2", 
-                emoTime = "微笑#1", 
-                nextId = 0
-            });
+        // /// <summary>
+        // /// 加载剧情数据
+        // /// </summary>
+        // private void LoadPlotData()
+        // {
+        //     // 根据数据表信息加载剧情数据
+        //     AddPlotData(new PlotData {
+        //         id = "M_0001", 
+        //         name = "接受初始任务", 
+        //         npcId = 0, 
+        //         textTime = "先到农场试试手吧！#2", 
+        //         emoTime = "微笑#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0001_1", 
-                name = "进行中剧情", 
-                npcId = 0, 
-                textTime = "成为农场主，种植是关键！#2", 
-                emoTime = "思考#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0001_1", 
+        //         name = "进行中剧情", 
+        //         npcId = 0, 
+        //         textTime = "成为农场主，种植是关键！#2", 
+        //         emoTime = "思考#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0001_2", 
-                name = "完成初始任务", 
-                npcId = 0, 
-                textTime = "你已经是合格的农场主了！#2", 
-                emoTime = "开心#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0001_2", 
+        //         name = "完成初始任务", 
+        //         npcId = 0, 
+        //         textTime = "你已经是合格的农场主了！#2", 
+        //         emoTime = "开心#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0002", 
-                name = "接受种植任务", 
-                npcId = 0, 
-                textTime = "想成为合格的农场主，就先种10个土豆吧！#2", 
-                emoTime = "鼓励#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0002", 
+        //         name = "接受种植任务", 
+        //         npcId = 0, 
+        //         textTime = "想成为合格的农场主，就先种10个土豆吧！#2", 
+        //         emoTime = "鼓励#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0002_1", 
-                name = "种植任务进行中", 
-                npcId = 0, 
-                textTime = "真奇怪，甜菜种子总是给我更多收获！#2", 
-                emoTime = "疑惑#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0002_1", 
+        //         name = "种植任务进行中", 
+        //         npcId = 0, 
+        //         textTime = "真奇怪，甜菜种子总是给我更多收获！#2", 
+        //         emoTime = "疑惑#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0002_2", 
-                name = "完成种植任务", 
-                npcId = 0, 
-                textTime = "你种好了，可以让我作物生长更快！#2", 
-                emoTime = "满意#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0002_2", 
+        //         name = "完成种植任务", 
+        //         npcId = 0, 
+        //         textTime = "你种好了，可以让我作物生长更快！#2", 
+        //         emoTime = "满意#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0003", 
-                name = "接受清理任务", 
-                npcId = 0, 
-                textTime = "我讨厌杂草，它们总是给我更多麻烦！#2", 
-                emoTime = "生气#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0003", 
+        //         name = "接受清理任务", 
+        //         npcId = 0, 
+        //         textTime = "我讨厌杂草，它们总是给我更多麻烦！#2", 
+        //         emoTime = "生气#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0003_1", 
-                name = "清理任务进行中", 
-                npcId = 0, 
-                textTime = "清洁是时代发展的重要因素，真好！#2", 
-                emoTime = "认真#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0003_1", 
+        //         name = "清理任务进行中", 
+        //         npcId = 0, 
+        //         textTime = "清洁是时代发展的重要因素，真好！#2", 
+        //         emoTime = "认真#1", 
+        //         nextId = 0
+        //     });
 
-            AddPlotData(new PlotData {
-                id = "M_0003_2", 
-                name = "完成清理任务", 
-                npcId = 0, 
-                textTime = "高效率！没有了杂草，农场看起来清爽多了！#2", 
-                emoTime = "高兴#1", 
-                nextId = 0
-            });
+        //     AddPlotData(new PlotData {
+        //         id = "M_0003_2", 
+        //         name = "完成清理任务", 
+        //         npcId = 0, 
+        //         textTime = "高效率！没有了杂草，农场看起来清爽多了！#2", 
+        //         emoTime = "高兴#1", 
+        //         nextId = 0
+        //     });
 
-            // 开场主线剧情
-            AddPlotData(new PlotData {
-                id = "G001", 
-                name = "开场主线", 
-                npcId = 11000, 
-                textTime = "欢迎来到尾砂岛！#3", 
-                emoTime = "无#0", 
-                nextId = 1
-            });
+        //     // 开场主线剧情
+        //     AddPlotData(new PlotData {
+        //         id = "G001", 
+        //         name = "开场主线", 
+        //         npcId = 11000, 
+        //         textTime = "欢迎来到尾砂岛！#3", 
+        //         emoTime = "无#0", 
+        //         nextId = 1
+        //     });
 
-            // 日常对话剧情
-            AddPlotData(new PlotData {
-                id = "F001", 
-                name = "npc日常对话", 
-                npcId = 11002, 
-                textTime = "想念做发型和帽子悲伤表情#3", 
-                emoTime = "悲伤#1", 
-                nextId = 0
-            });
-        }
+        //     // 日常对话剧情
+        //     AddPlotData(new PlotData {
+        //         id = "F001", 
+        //         name = "npc日常对话", 
+        //         npcId = 11002, 
+        //         textTime = "想念做发型和帽子悲伤表情#3", 
+        //         emoTime = "悲伤#1", 
+        //         nextId = 0
+        //     });
+        // }
 
         /// <summary>
         /// 添加剧情数据到字典
@@ -194,44 +194,44 @@ namespace TTGJ.Modules.TaskSystem
             }
         }
 
-        /// <summary>
-        /// 加载NPC对话数据
-        /// </summary>
-        private void LoadNpcDialogData()
-        {
-            // 根据数据表信息加载NPC对话数据
-            AddNpcDialogData(new NpcDialogData {
-                id = "N_11000", 
-                name = "甜菜女士", 
-                npcId = 0, 
-                textTime = "0#2", 
-                emoTime = "表情#1"
-            });
+        // /// <summary>
+        // /// 加载NPC对话数据
+        // /// </summary>
+        // private void LoadNpcDialogData()
+        // {
+        //     // 根据数据表信息加载NPC对话数据
+        //     AddNpcDialogData(new NpcDialogData {
+        //         id = "N_11000", 
+        //         name = "甜菜女士", 
+        //         npcId = 0, 
+        //         textTime = "0#2", 
+        //         emoTime = "表情#1"
+        //     });
 
-            AddNpcDialogData(new NpcDialogData {
-                id = "N_11001", 
-                name = "花椒变成羊", 
-                npcId = 1, 
-                textTime = "1#2", 
-                emoTime = "表情#1"
-            });
+        //     AddNpcDialogData(new NpcDialogData {
+        //         id = "N_11001", 
+        //         name = "花椒变成羊", 
+        //         npcId = 1, 
+        //         textTime = "1#2", 
+        //         emoTime = "表情#1"
+        //     });
 
-            AddNpcDialogData(new NpcDialogData {
-                id = "N_11002", 
-                name = "程序员", 
-                npcId = 2, 
-                textTime = "2#2", 
-                emoTime = "表情#1"
-            });
+        //     AddNpcDialogData(new NpcDialogData {
+        //         id = "N_11002", 
+        //         name = "程序员", 
+        //         npcId = 2, 
+        //         textTime = "2#2", 
+        //         emoTime = "表情#1"
+        //     });
 
-            AddNpcDialogData(new NpcDialogData {
-                id = "N_11003", 
-                name = "一只隐藏的羊", 
-                npcId = 3, 
-                textTime = "3#2", 
-                emoTime = "表情#1"
-            });
-        }
+        //     AddNpcDialogData(new NpcDialogData {
+        //         id = "N_11003", 
+        //         name = "一只隐藏的羊", 
+        //         npcId = 3, 
+        //         textTime = "3#2", 
+        //         emoTime = "表情#1"
+        //     });
+        // }
 
         /// <summary>
         /// 添加NPC对话数据到字典
@@ -327,16 +327,16 @@ namespace TTGJ.Modules.TaskSystem
             });
         }
 
-        /// <summary>
-        /// 添加剧情数据到字典
-        /// </summary>
-        private void AddPlotData(PlotData data)
-        {
-            if (!plotDataDic.ContainsKey(data.id))
-            {
-                plotDataDic.Add(data.id, data);
-            }
-        }
+        // /// <summary>
+        // /// 添加剧情数据到字典
+        // /// </summary>
+        // private void AddPlotData(PlotData data)
+        // {
+        //     if (!plotDataDic.ContainsKey(data.id))
+        //     {
+        //         plotDataDic.Add(data.id, data);
+        //     }
+        // }
 
         /// <summary>
         /// 加载NPC对话数据
@@ -377,16 +377,16 @@ namespace TTGJ.Modules.TaskSystem
             });
         }
 
-        /// <summary>
-        /// 添加NPC对话数据到字典
-        /// </summary>
-        private void AddNpcDialogData(NpcDialogData data)
-        {
-            if (!npcDialogDataDic.ContainsKey(data.id))
-            {
-                npcDialogDataDic.Add(data.id, data);
-            }
-        }
+        // /// <summary>
+        // /// 添加NPC对话数据到字典
+        // /// </summary>
+        // private void AddNpcDialogData(NpcDialogData data)
+        // {
+        //     if (!npcDialogDataDic.ContainsKey(data.id))
+        //     {
+        //         npcDialogDataDic.Add(data.id, data);
+        //     }
+        // }
 
         /// <summary>
         /// 加载玩家任务进度

@@ -30,6 +30,7 @@ namespace TTGJ.Plant
         }
         public override void OnDrop(Vector3 dir, float force)
         {
+             base.OnDrop(dir, force);
              rigidbody.centerOfMass = new Vector3(0, -1, 0);
         }
     }
