@@ -24,6 +24,7 @@ namespace TTGJ.Interactable
         public virtual void OnDrop(Vector3 dir, float force)
         {
             rigidbody = gameObject.AddComponent<Rigidbody>();
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             collider.enabled = true;
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
