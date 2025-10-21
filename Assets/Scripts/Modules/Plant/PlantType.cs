@@ -2,7 +2,7 @@ namespace TTGJ.Plant
 {
     public enum ItemType
     {
-        Kettle = 1001,
+        Kettle = 5001,
         NPC = 1002,
         //Plants
         Potato = 2001,

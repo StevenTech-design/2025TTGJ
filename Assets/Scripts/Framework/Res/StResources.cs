@@ -57,6 +57,7 @@ namespace TTGJ.Framework
         public T LoadByResources<T>(string assetPath) where T : UnityEngine.Object
         { 
             string fullPath = resourcesPathPrefix + assetPath;
+            Debug.Log("LoadByResources: " + fullPath);
             T asset = Resources.Load<T>(fullPath);
             if (asset == null)
             {

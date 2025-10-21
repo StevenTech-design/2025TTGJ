@@ -23,7 +23,10 @@ public sealed partial class ItemNew : Luban.BeanBase
         { if(!_buf["itemType"].IsNumber) { throw new SerializationException(); }  ItemType = _buf["itemType"]; }
         { if(!_buf["model"].IsString) { throw new SerializationException(); }  Model = _buf["model"]; }
         { if(!_buf["model_size"].IsNumber) { throw new SerializationException(); }  ModelSize = _buf["model_size"]; }
-        { if(!_buf["evo_id"].IsNumber) { throw new SerializationException(); }  EvoId = _buf["evo_id"]; }
+        {
+        	var __evo = _buf["evo_id"];
+        	EvoId = (__evo != null && __evo.IsNumber) ? __evo : 0; // tolerate missing evo_id by defaulting to 0
+        }
         { if(!_buf["drawing"].IsNumber) { throw new SerializationException(); }  Drawing = _buf["drawing"]; }
         { if(!_buf["collision"].IsNumber) { throw new SerializationException(); }  Collision = _buf["collision"]; }
         { if(!_buf["lift"].IsNumber) { throw new SerializationException(); }  Lift = _buf["lift"]; }

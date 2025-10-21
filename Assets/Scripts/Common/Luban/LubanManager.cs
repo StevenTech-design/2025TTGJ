@@ -40,9 +40,6 @@ namespace TTGJ.Luban
             {
                 Debug.Log("LubanManager: 开始初始化数据表...");
 
-                // 初始化 Addressables（可选）
-                Addressables.InitializeAsync().WaitForCompletion();
-
                 var loader = CreateJsonLoader();
 
                 _tables = new cfg.Tables(loader);
@@ -75,13 +72,13 @@ namespace TTGJ.Luban
         {
             return (string tableName) =>
             {
-                string fileName = $"Generate/Luban/{tableName}.json";
+                string fileName = $"Generate/Luban/{tableName}";
 
                 // 1️⃣ 先尝试 Addressables
                 try
                 {
-                    var handle = Addressables.LoadAssetAsync<TextAsset>(fileName);
-                    var asset = handle.WaitForCompletion();
+                    var asset = StResources.Instance.LoadByResources<TextAsset>(fileName);
+                    
 
                     if (asset != null)
                         return JSON.Parse(asset.text);

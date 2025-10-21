@@ -139,7 +139,9 @@ namespace TTGJ.GamePlay
         }
         private float GetTargetHeight(Liftable liftable)
         { 
-            return LubanManager.Instance.GetItemNew((int)liftable.itemType).Height;
+            var itemNew = LubanManager.Instance.GetItemNew((int)liftable.itemType);
+            if (itemNew == null) return 1;
+            return itemNew.Height;
         }
     }
 }
