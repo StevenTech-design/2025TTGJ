@@ -69,11 +69,19 @@ namespace TTGJ.Plant
             }
             currentEatObject = null;
         }
-        public GameObject GetOther(Collision collision) {
-            if (collider.attachedRigidbody.gameObject == this.gameObject) { 
-                return collider.gameObject;
+        public GameObject GetOther(Collision collision)
+        {
+            if (collision?.collider == null)
+            {
+                return null;
             }
-            return collider.attachedRigidbody.gameObject;
+
+            if (collision.collider.attachedRigidbody?.gameObject == this.gameObject)
+            {
+                return collision.collider.gameObject;
+            }
+
+            return collision.collider.attachedRigidbody?.gameObject ?? collision.collider.gameObject;
         }
     }
 }
