@@ -25,6 +25,7 @@ namespace TTGJ.Plant
         { 
             int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
             List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, currentOccupiedFieldSize);
+            Debug.Log("WateringOther: " + plants.Count);
             foreach (var plant in plants)
             {
                 plant.OnWatering();

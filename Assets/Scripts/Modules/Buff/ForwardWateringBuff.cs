@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TTGJ.GamePlay;
 using TTGJ.Plant;
 using UnityEngine;
@@ -18,14 +19,26 @@ namespace TTGJ.Buff
                 lastWateringTime = Time.time;
             }
         }
-        public void ToWatering() { 
-            Collider collider = GetBestAdaptorObj(CheckCanWatering);
-            if (collider == null) { 
+        public void ToWatering()
+        {
+            var colliders = GetAdaptorObjs(CheckCanWatering);
+            if (colliders == null || colliders.Count == 0)
+            {
                 return;
             }
-            collider.gameObject.GetComponent<PlantBase>().OnWatering();
+            foreach (var collider in colliders)
+            {
+                if (collider.gameObject.TryGetComponent<Field>(out var field))
+                {
+                    field.ToWet();
+                }
+                else if (collider.gameObject.TryGetComponent<PlantBase>(out var plant))
+                {
+                    plant.OnWatering();
+                }
+            }
         }
-        private Collider GetBestAdaptorObj(Func<Collider,bool> checkInteractable)
+        private List<Collider> GetAdaptorObjs(Func<Collider,bool> checkInteractable)
         {
             Vector3 center = PlayerController.Instance.transform.position + PlayerController.Instance.transform.forward * 0.2f;
             Vector3 halfExtents = new Vector3(0.3f, 1f, 0.25f);
@@ -36,19 +49,18 @@ namespace TTGJ.Buff
                 interactionLayers,
                 QueryTriggerInteraction.Collide
             );
-
-            Array.Sort(colliders, (a, b) => (a.transform.position - center).sqrMagnitude.CompareTo((b.transform.position - center).sqrMagnitude));
+            List<Collider> result = new();
             foreach (var collider in colliders)
             {
                var checkResult = checkInteractable.Invoke(collider);
                if(checkResult) { 
-                return (collider);
+                result.Add(collider);
                }
             }
-            return null;
+            return result;
         }
-        private bool CheckCanWatering(Collider collider) { 
-            return collider.gameObject.TryGetComponent<PlantBase>(out var plant) 
+        private bool CheckCanWatering(Collider collider) {
+            return collider.gameObject.TryGetComponent<Field>(out _) || collider.gameObject.TryGetComponent<PlantBase>(out var plant) 
                     && (plant.GetCurrentState() == PlantState.Mature || plant.GetCurrentState() == PlantState.Germination);
         }
 
