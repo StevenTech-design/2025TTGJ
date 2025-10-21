@@ -19,7 +19,7 @@ namespace TTGJ.Plant
         protected int currentGrouthCount = 0;
 
         private Color originalColor;
-        private Transform modelRoot;
+        protected Transform modelRoot;
 
         protected void Start()
         {
@@ -49,7 +49,7 @@ namespace TTGJ.Plant
         }
         protected virtual void OnHarvest()
         {
-            collider.isTrigger = false;
+            collider.isTrigger = true;
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers += 1 << LayerMask.NameToLayer("Default");
             rigidbody.isKinematic = false;
