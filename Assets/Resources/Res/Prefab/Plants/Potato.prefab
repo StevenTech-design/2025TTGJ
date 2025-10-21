@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3734246146714202786}
   - component: {fileID: 7339570886954410808}
   - component: {fileID: 8617314682993797206}
+  - component: {fileID: 2250023350473863727}
   m_Layer: 0
   m_Name: Potato
   m_TagString: Untagged
@@ -82,6 +83,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2250023350473863727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825261040610285934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3999858e2813a1a41a7d694b94ba2ef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 2001
+  sackGo: {fileID: 3018594825997760935, guid: 2615070ea29b45a469d387039930325e, type: 3}
+  grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
+  realGo: {fileID: 1825261040610285934}
+  matureBoomTime: 10
 --- !u!1 &6495424408358200534
 GameObject:
   m_ObjectHideFlags: 0

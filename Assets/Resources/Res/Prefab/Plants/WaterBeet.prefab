@@ -47,11 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9f3792f43752f478db585a1864a666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantType: 6
-  sackGo: {fileID: 1106296420532212970, guid: 7f180331596174ee787b82513367f043, type: 3}
+  itemType: 2005
+  sackGo: {fileID: 7124481396365049284, guid: df9d02448c8a47048844b4cfc2110c4b, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 6973194893775176287, guid: 0689ce8b29135c24fa2dcdb7f2076388, type: 3}
-  growthScale: 0100000003000000030000000500000005000000
 --- !u!54 &-6698914338722568918
 Rigidbody:
   m_ObjectHideFlags: 0

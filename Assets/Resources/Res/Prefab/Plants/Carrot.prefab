@@ -80,10 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2004
-  sackGo: {fileID: 1106296420532212970, guid: 7f180331596174ee787b82513367f043, type: 3}
+  sackGo: {fileID: 3062765406674461836, guid: 0ca60ed5587c2034f9e78b23759d5edf, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
-  realGo: {fileID: 7695927303821115883, guid: b09db9be679e8d34984536a421018c26, type: 3}
-  growthScale: 0100000003000000030000000500000005000000
+  realGo: {fileID: 7430102131803020214}
 --- !u!54 &5298645673280605615
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -200,6 +199,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09db9be679e8d34984536a421018c26, type: 3}
+--- !u!1 &7430102131803020214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6660504301711450538, guid: b09db9be679e8d34984536a421018c26,
+    type: 3}
+  m_PrefabInstance: {fileID: 4284009401561725468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7806662477156811020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6279440593752472336, guid: b09db9be679e8d34984536a421018c26,
