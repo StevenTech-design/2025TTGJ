@@ -15,5 +15,6 @@ namespace TTGJ.Buff
         ReverseDir,
         FieldWatering,
         ForwardWateringBuff,
+        SmallModel,
     }
 }

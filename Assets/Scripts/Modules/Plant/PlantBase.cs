@@ -175,5 +175,10 @@ namespace TTGJ.Plant
                 itemType = (ItemType)LubanManager.Instance.GetItemNew((int)itemType).EvoId;
             }
         }
+        public override void OnLift()
+        {
+            base.OnLift();
+            
+        }
     }
 }

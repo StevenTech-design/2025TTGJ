@@ -1,3 +1,4 @@
+using TTGJ.Common;
 using TTGJ.Plant;
 using UnityEngine;
 
@@ -17,14 +18,12 @@ namespace TTGJ.Interactable
         public virtual bool IsLiftable() { return isLiftable; }
         public virtual void OnLift()
         {
-
+            Destroy(GetComponent<Rigidbody>());
             collider.enabled = false;
-            rigidbody.isKinematic = true;
-            rigidbody.useGravity = false;
-            isLiftable = false;
         }
         public virtual void OnDrop(Vector3 dir, float force)
         {
+            rigidbody = gameObject.AddComponent<Rigidbody>();
             collider.enabled = true;
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
