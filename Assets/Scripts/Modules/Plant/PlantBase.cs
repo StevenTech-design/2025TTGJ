@@ -2,6 +2,8 @@ using Cysharp.Threading.Tasks;
 using TTGJ.Interactable;
 using UnityEngine;
 using DG.Tweening;
+using TTGJ.Config;
+using TTGJ.Luban;
 namespace TTGJ.Plant
 {
     public class PlantBase : Liftable, ITeleport, IDyeingable, IEatable
@@ -13,39 +15,41 @@ namespace TTGJ.Plant
         [SerializeField]
         protected GameObject realGo;
         protected PlantState currentState = PlantState.Seed;
-        protected int growthTime = 1; 
-        [SerializeField]
-        protected int [] growthScale = { 1, 2, 3};
         protected int currentGrouthCount = 0;
 
         private Color originalColor;
         protected Transform modelRoot;
 
-        protected void Start()
-        {
-            
-        }
 
         public void OnWatering()
         {
-            if(currentGrouthCount >= growthScale.Length) {
+
+            if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
+            {
                 return;
             }
-            Debug.Log("Watering");
             if (currentState == PlantState.Germination)
-            { 
+            {
                 ChangeState(PlantState.Mature);
                 ++currentGrouthCount;
                 return;
             }
-            if (!FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos,
-                                                growthScale[currentGrouthCount - 1],
-                                                growthScale[currentGrouthCount]))
+
+            int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
+            int willOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount + 1);
+
+            if (currentGrouthCount == willOccupiedFieldSize)
             {
-                return;
+                ++currentGrouthCount;
+                transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
             }
-            ++currentGrouthCount;
-            transform.DOScale(growthScale[currentGrouthCount - 1],0.5f);
+            else if (FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos, currentOccupiedFieldSize, willOccupiedFieldSize))
+            {
+                ++currentGrouthCount;
+                transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
+            }
+
+            CheckEvolution();
         }
         protected virtual void OnHarvest()
         {
@@ -83,7 +87,7 @@ namespace TTGJ.Plant
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
-            transform.localScale = Vector3.one;
+            transform.localScale = ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount);
             transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
             isLiftable = true;
             rigidbody.constraints = RigidbodyConstraints.None;
@@ -110,41 +114,50 @@ namespace TTGJ.Plant
         }
 
         public virtual void SpecialAction(PlantSpacialParam param)
-        { 
-            
+        {
+
         }
 
         public void Dyeing(Color color)
         {
             //GetComponentInChildren<Renderer>().material.color = color;
         }
-        private void InitModel() {
+        private void InitModel()
+        {
             Debug.Log("InitModel: " + currentState);
-            if(modelRoot == null) {
+            if (modelRoot == null)
+            {
                 modelRoot = transform.GetChild(0);
             }
             DestoryPreModel();
             GameObject go = null;
-            if (currentState == PlantState.Seed) {
+            if (currentState == PlantState.Seed)
+            {
                 go = GameObject.Instantiate(sackGo);
-            }else if (currentState == PlantState.Germination) { 
+            }
+            else if (currentState == PlantState.Germination)
+            {
                 go = GameObject.Instantiate(grothGo);
-            }else if (currentState == PlantState.Mature) { 
+            }
+            else if (currentState == PlantState.Mature)
+            {
                 go = GameObject.Instantiate(realGo);
             }
             go.transform.SetParent(modelRoot);
             go.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             go.transform.localScale = Vector3.one;
         }
-        private void DestoryPreModel() {
-            if(modelRoot.childCount > 0) {
+        private void DestoryPreModel()
+        {
+            if (modelRoot.childCount > 0)
+            {
                 Destroy(modelRoot.GetChild(0).gameObject);
             }
         }
 
         public virtual void OnEat()
         {
-           
+
         }
         public override bool CheckCanLift()
         {
@@ -154,6 +167,13 @@ namespace TTGJ.Plant
         public bool CanEat()
         {
             return currentState == PlantState.Harvest;
+        }
+        private void CheckEvolution()
+        {
+            if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
+            {
+                itemType = (ItemType)LubanManager.Instance.GetItemNew((int)itemType).EvoId;
+            }
         }
     }
 }

@@ -14,6 +14,7 @@
         public const string Prefab_UI = "Prefab/UI";
         public const string UI_Panel = "UI/Panel";
         public const string Config_BuffConfigAsset = "Config/BuffConfigAsset";
+        public const string Config_PlantGrowthConfigAsset = "Config/PlantGrowthConfigAsset";
         public const string Shader_RenderBorder = "Shader/RenderBorder";
         public const string UI_File_829123__ratolojanaharyaro__stede_golena_san_massimo_4 = "UI/829123__ratolojanaharyaro__stede-golena-san-massimo-4";
         public const string Player_PlayerAnimator = "Animation/Player/PlayerAnimator";

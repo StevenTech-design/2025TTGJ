@@ -21,8 +21,8 @@ namespace TTGJ.Buff
                 RemoveAllBuff(target);
             }
             T buffer = target.gameObject.AddComponent<T>();
-            buffer.duration = GetBuffDuration(buffer);
-            buffer.checkInterval = GetBuffCheckInterval(buffer);
+            buffer.duration = ConfigManager.Instance.GetBuffDuration(buffer);
+            buffer.checkInterval = ConfigManager.Instance.GetBuffCheckInterval(buffer);
             buffs[target.gameObject].Add(buffer);
             return buffer;
         }
@@ -50,35 +50,6 @@ namespace TTGJ.Buff
                 buffs[target.gameObject][i].EndBuff();
             }
             buffs[target.gameObject].Clear();
-        }
-        private float GetBuffDuration(BuffBase buff)
-        {
-            if (buffConfigs == null)
-            { 
-                InitBuffConfigs();
-            }
-            if (!buffConfigs.TryGet(buff.GetBuffType(), out float duration))
-            {
-                return 30f;
-            }
-            return duration;
-        }
-        private float GetBuffCheckInterval(BuffBase buff)
-        {
-            if (buffConfigs == null)
-            {
-                InitBuffConfigs();
-            }
-            if (!buffConfigs.TryGet(buff.GetBuffType(), out float checkInterval))
-            {
-                return 0.1f;
-            }
-            return checkInterval;
-        }
-        private void InitBuffConfigs()
-        {
-            buffConfigs = StResources.Instance.LoadByResources<BuffConfigAsset>(ResPathConfig.Config_BuffConfigAsset);
-            buffConfigs.RebuildCache();
         }
     }
 }
