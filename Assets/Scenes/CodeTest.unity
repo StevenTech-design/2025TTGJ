@@ -5080,6 +5080,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2890083325222127482, guid: b364de5bf2076494ea714495a6532e4f,
+        type: 3}
+      propertyPath: dropForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890083325222127482, guid: b364de5bf2076494ea714495a6532e4f,
+        type: 3}
+      propertyPath: _longTimeDropforce
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3091722006690647096, guid: b364de5bf2076494ea714495a6532e4f,
         type: 3}
       propertyPath: m_LocalPosition.y

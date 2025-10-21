@@ -28,7 +28,7 @@ namespace TTGJ.Interactable
             collider.enabled = true;
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
-            rigidbody.AddForce(dir * force);
+            rigidbody.AddForce(dir * force, ForceMode.Impulse);
             isLiftable = true;
         }
         protected virtual void Initialize()
