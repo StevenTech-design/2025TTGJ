@@ -4,8 +4,9 @@
     "name": "土豆-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -19,15 +20,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1002,
     "name": "蘑菇-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -41,15 +46,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1003,
     "name": "南瓜-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -63,15 +72,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1004,
     "name": "胡萝卜-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -85,15 +98,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1005,
     "name": "水甜菜-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -107,15 +124,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1006,
     "name": "番茄-红-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -129,15 +150,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1007,
     "name": "番茄-橙-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -151,15 +176,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1008,
     "name": "番茄-黄-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -173,15 +202,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1009,
     "name": "番茄-绿-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -195,15 +228,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1010,
     "name": "番茄-青-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -217,15 +254,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1011,
     "name": "番茄-蓝-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -239,15 +280,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1012,
     "name": "番茄-紫-种子袋",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -261,15 +306,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1013,
     "name": "花椰菜-种子袋(一次性)",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -283,15 +332,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 1014,
     "name": "花椰菜-种子袋(永久)",
     "itemTips": "",
     "itemType": 1,
-    "model": "plant/sack",
+    "model": "plant/seedbag",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -305,15 +358,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2001,
     "name": "土豆",
     "itemTips": "",
     "itemType": 2,
-    "model": "plant/mushroom_002",
+    "model": "plant/PotatoModel",
     "model_size": 1,
+    "evo_id": 3001,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -327,7 +384,10 @@
     "buffid": "",
     "maturity_Effect": "太久没收获，变成5个自动收获",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2002,
@@ -336,10 +396,11 @@
     "itemType": 2,
     "model": "plant/mushroom_002",
     "model_size": 1,
+    "evo_id": 3002,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
-    "height": 100,
+    "height": 0.3,
     "if_door": 0,
     "if_pumpkin": 0,
     "if_hide": 1,
@@ -349,7 +410,10 @@
     "buffid": "",
     "maturity_Effect": "弹飞触碰到的道具，玩家",
     "if_eat": 1,
-    "eat_Effect": "玩家速度*2，按键反向"
+    "eat_Effect": "玩家速度*2，按键反向",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2003,
@@ -358,10 +422,11 @@
     "itemType": 2,
     "model": "plant/Pumpkin",
     "model_size": 1,
+    "evo_id": 3003,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
-    "height": 100,
+    "height": 0.35,
     "if_door": 0,
     "if_pumpkin": 0,
     "if_hide": 1,
@@ -371,7 +436,10 @@
     "buffid": "",
     "maturity_Effect": "闪烁",
     "if_eat": 1,
-    "eat_Effect": "玩家头闪烁，看到隐藏物品"
+    "eat_Effect": "玩家头闪烁，看到隐藏物品",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2004,
@@ -380,6 +448,7 @@
     "itemType": 2,
     "model": "plant/Carrot",
     "model_size": 1,
+    "evo_id": 3004,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -393,7 +462,10 @@
     "buffid": "",
     "maturity_Effect": "高度直接5倍",
     "if_eat": 1,
-    "eat_Effect": "玩家模型变大，相机抬高，视野变大"
+    "eat_Effect": "玩家模型变大，相机抬高，视野变大",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2005,
@@ -402,6 +474,7 @@
     "itemType": 2,
     "model": "plant/Beet",
     "model_size": 1,
+    "evo_id": 3005,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -415,7 +488,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，往周围浇一圈水",
     "if_eat": 1,
-    "eat_Effect": "无"
+    "eat_Effect": "无",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2006,
@@ -424,6 +500,7 @@
     "itemType": 2,
     "model": "plant/Tomato_red",
     "model_size": 1,
+    "evo_id": 3006,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -437,7 +514,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2007,
@@ -446,6 +526,7 @@
     "itemType": 2,
     "model": "plant/Tomato_red",
     "model_size": 1,
+    "evo_id": 3007,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -459,7 +540,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2008,
@@ -468,6 +552,7 @@
     "itemType": 2,
     "model": "plant/Tomato_yellow",
     "model_size": 1,
+    "evo_id": 3008,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -481,7 +566,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2009,
@@ -490,6 +578,7 @@
     "itemType": 2,
     "model": "plant/Tomato_green",
     "model_size": 1,
+    "evo_id": 3009,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -503,7 +592,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2010,
@@ -512,6 +604,7 @@
     "itemType": 2,
     "model": "plant/Tomato_red",
     "model_size": 1,
+    "evo_id": 3010,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -525,7 +618,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2011,
@@ -534,6 +630,7 @@
     "itemType": 2,
     "model": "plant/Tomato_red",
     "model_size": 1,
+    "evo_id": 3011,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -547,7 +644,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2012,
@@ -556,6 +656,7 @@
     "itemType": 2,
     "model": "plant/Tomato_red",
     "model_size": 1,
+    "evo_id": 3012,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -569,7 +670,10 @@
     "buffid": "",
     "maturity_Effect": "有物品碰到，染色，浇水",
     "if_eat": 1,
-    "eat_Effect": "到处染色喷水"
+    "eat_Effect": "到处染色喷水",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2013,
@@ -578,6 +682,7 @@
     "itemType": 2,
     "model": "plant/mushroom_002",
     "model_size": 1,
+    "evo_id": 3013,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -591,7 +696,10 @@
     "buffid": "",
     "maturity_Effect": "碰到播放音效，“咩”",
     "if_eat": 1,
-    "eat_Effect": "无"
+    "eat_Effect": "无",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2014,
@@ -600,6 +708,7 @@
     "itemType": 2,
     "model": "plant/mushroom_002",
     "model_size": 1,
+    "evo_id": 3013,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -613,15 +722,19 @@
     "buffid": "",
     "maturity_Effect": "缩小",
     "if_eat": 1,
-    "eat_Effect": "缩小"
+    "eat_Effect": "缩小",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2015,
     "name": "猕猴桃",
     "itemTips": "",
     "itemType": 2,
-    "model": "plant/Kiwi",
+    "model": "plant/mihoutao",
     "model_size": 1,
+    "evo_id": 3014,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -635,7 +748,10 @@
     "buffid": "",
     "maturity_Effect": "无",
     "if_eat": 1,
-    "eat_Effect": "变成保龄球，滚动走"
+    "eat_Effect": "变成保龄球，滚动走",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 2016,
@@ -644,6 +760,7 @@
     "itemType": 2,
     "model": "plant/mushroom_002",
     "model_size": 1,
+    "evo_id": 3015,
     "drawing": 0,
     "collision": 1,
     "lift": 0,
@@ -657,7 +774,10 @@
     "buffid": "",
     "maturity_Effect": "无",
     "if_eat": 1,
-    "eat_Effect": "吃下后可以和羊npc对话"
+    "eat_Effect": "吃下后可以和羊npc对话",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3001,
@@ -666,6 +786,7 @@
     "itemType": 3,
     "model": "plant/mushroom_002",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -679,7 +800,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3002,
@@ -688,6 +812,7 @@
     "itemType": 3,
     "model": "plant/mushroom_002",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -701,7 +826,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3003,
@@ -710,6 +838,7 @@
     "itemType": 3,
     "model": "plant/Pumpkin",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -723,7 +852,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3004,
@@ -732,6 +864,7 @@
     "itemType": 3,
     "model": "plant/Carrot",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -745,7 +878,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3005,
@@ -754,6 +890,7 @@
     "itemType": 3,
     "model": "plant/Beet",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -767,7 +904,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3006,
@@ -776,6 +916,7 @@
     "itemType": 3,
     "model": "plant/Tomato_red",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -789,7 +930,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3007,
@@ -798,6 +942,7 @@
     "itemType": 3,
     "model": "plant/Tomato_red",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -811,7 +956,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3008,
@@ -820,6 +968,7 @@
     "itemType": 3,
     "model": "plant/Tomato_yellow",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -833,7 +982,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3009,
@@ -842,6 +994,7 @@
     "itemType": 3,
     "model": "plant/Tomato_green",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -855,7 +1008,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3010,
@@ -864,6 +1020,7 @@
     "itemType": 3,
     "model": "plant/Tomato_red",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -877,7 +1034,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3011,
@@ -886,6 +1046,7 @@
     "itemType": 3,
     "model": "plant/Tomato_red",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -899,7 +1060,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3012,
@@ -908,6 +1072,7 @@
     "itemType": 3,
     "model": "plant/Tomato_red",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -921,7 +1086,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3013,
@@ -930,6 +1098,7 @@
     "itemType": 3,
     "model": "plant/mushroom_002",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -943,7 +1112,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3014,
@@ -952,6 +1124,7 @@
     "itemType": 3,
     "model": "plant/Kiwi",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -965,7 +1138,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 3015,
@@ -974,6 +1150,7 @@
     "itemType": 3,
     "model": "plant/mushroom_002",
     "model_size": 4,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 0,
@@ -987,7 +1164,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4001,
@@ -996,6 +1176,7 @@
     "itemType": 4,
     "model": "plant/mushroom_002",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1009,7 +1190,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4002,
@@ -1018,6 +1202,7 @@
     "itemType": 4,
     "model": "plant/mushroom_002",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1031,7 +1216,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4003,
@@ -1040,6 +1228,7 @@
     "itemType": 4,
     "model": "plant/Pumpkin",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1053,7 +1242,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4004,
@@ -1062,6 +1254,7 @@
     "itemType": 4,
     "model": "plant/Carrot",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1075,7 +1268,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4005,
@@ -1084,6 +1280,7 @@
     "itemType": 4,
     "model": "plant/Beet",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1097,7 +1294,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4006,
@@ -1106,6 +1306,7 @@
     "itemType": 4,
     "model": "plant/Tomato_red",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1119,7 +1320,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4007,
@@ -1128,6 +1332,7 @@
     "itemType": 4,
     "model": "plant/Tomato_red",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1141,7 +1346,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4008,
@@ -1150,6 +1358,7 @@
     "itemType": 4,
     "model": "plant/Tomato_yellow",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1163,7 +1372,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4009,
@@ -1172,6 +1384,7 @@
     "itemType": 4,
     "model": "plant/Tomato_green",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1185,7 +1398,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4010,
@@ -1194,6 +1410,7 @@
     "itemType": 4,
     "model": "plant/Tomato_red",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1207,7 +1424,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4011,
@@ -1216,6 +1436,7 @@
     "itemType": 4,
     "model": "plant/Tomato_red",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1229,7 +1450,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4012,
@@ -1238,6 +1462,7 @@
     "itemType": 4,
     "model": "plant/Tomato_red",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1251,7 +1476,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4013,
@@ -1260,6 +1488,7 @@
     "itemType": 4,
     "model": "plant/mushroom_002",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1273,7 +1502,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4014,
@@ -1282,6 +1514,7 @@
     "itemType": 4,
     "model": "plant/Kiwi",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1295,7 +1528,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 4015,
@@ -1304,6 +1540,7 @@
     "itemType": 4,
     "model": "plant/mushroom_002",
     "model_size": 0.5,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 0,
@@ -1317,7 +1554,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5001,
@@ -1326,6 +1566,7 @@
     "itemType": 5,
     "model": "Item/Watering_Can",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1339,7 +1580,10 @@
     "buffid": "",
     "maturity_Effect": "无",
     "if_eat": 1,
-    "eat_Effect": "删除染色"
+    "eat_Effect": "删除染色",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5002,
@@ -1348,6 +1592,7 @@
     "itemType": 5,
     "model": "Item/Lotus_Leaf",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 1,
@@ -1361,7 +1606,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5003,
@@ -1370,6 +1618,7 @@
     "itemType": 5,
     "model": "Item/Kiwi_Tree",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1383,7 +1632,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5004,
@@ -1392,6 +1644,7 @@
     "itemType": 5,
     "model": "Item/Bush_Root",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 0,
@@ -1405,7 +1658,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5005,
@@ -1414,6 +1670,7 @@
     "itemType": 5,
     "model": "Item/Portal",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 1,
@@ -1427,7 +1684,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5006,
@@ -1436,6 +1696,7 @@
     "itemType": 5,
     "model": "Item/Hidden_Door",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 1,
@@ -1449,7 +1710,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5007,
@@ -1458,6 +1722,7 @@
     "itemType": 5,
     "model": "Item/Key",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1471,7 +1736,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5008,
@@ -1480,6 +1748,7 @@
     "itemType": 5,
     "model": "Item/Popcorn_Machine",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1493,7 +1762,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 5009,
@@ -1502,6 +1774,7 @@
     "itemType": 5,
     "model": "Item/Popcorn_Cauliflower_Soup_Flavor",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1515,7 +1788,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 1,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6001,
@@ -1524,6 +1800,7 @@
     "itemType": 6,
     "model": "Bulit/mushroom_002",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1537,7 +1814,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6002,
@@ -1546,6 +1826,7 @@
     "itemType": 6,
     "model": "Bulit/mushroom_002",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1559,7 +1840,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6003,
@@ -1568,6 +1852,7 @@
     "itemType": 6,
     "model": "Bulit/Pumpkin",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1581,7 +1866,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6004,
@@ -1590,6 +1878,7 @@
     "itemType": 6,
     "model": "Bulit/Carrot",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1603,7 +1892,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6005,
@@ -1612,6 +1904,7 @@
     "itemType": 6,
     "model": "Bulit/Beet",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1625,7 +1918,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6006,
@@ -1634,6 +1930,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_red",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1647,7 +1944,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6007,
@@ -1656,6 +1956,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_red",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1669,7 +1970,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6008,
@@ -1678,6 +1982,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_yellow",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1691,7 +1996,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6009,
@@ -1700,6 +2008,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_green",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1713,7 +2022,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6010,
@@ -1722,6 +2034,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_red",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1735,7 +2048,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6011,
@@ -1744,6 +2060,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_red",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1757,7 +2074,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6012,
@@ -1766,6 +2086,7 @@
     "itemType": 6,
     "model": "Bulit/Tomato_red",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1779,7 +2100,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6013,
@@ -1788,6 +2112,7 @@
     "itemType": 6,
     "model": "Bulit/mushroom_002",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1801,7 +2126,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6014,
@@ -1810,6 +2138,7 @@
     "itemType": 6,
     "model": "Bulit/Kiwi",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1823,7 +2152,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 6015,
@@ -1832,6 +2164,7 @@
     "itemType": 6,
     "model": "Bulit/mushroom_002",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 0,
@@ -1845,7 +2178,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 7001,
@@ -1854,6 +2190,7 @@
     "itemType": 7,
     "model": "Npc/Ms_Beet",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1867,7 +2204,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 7002,
@@ -1876,6 +2216,7 @@
     "itemType": 7,
     "model": "Npc/Cauliflower_Sheep_White",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1889,7 +2230,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 7003,
@@ -1898,6 +2242,7 @@
     "itemType": 7,
     "model": "Npc/Cauliflower_Sheep_Green",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1911,7 +2256,10 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 7004,
@@ -1920,6 +2268,7 @@
     "itemType": 7,
     "model": "Npc/Mr_Monkey",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 0,
     "lift": 0,
@@ -1933,15 +2282,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8001,
     "name": "土豆-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -1955,15 +2308,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8002,
     "name": "蘑菇-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -1977,15 +2334,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8003,
     "name": "南瓜-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -1999,15 +2360,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8004,
     "name": "胡萝卜-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2021,15 +2386,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8005,
     "name": "水甜菜-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2043,15 +2412,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8006,
     "name": "番茄-红-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2065,15 +2438,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8007,
     "name": "番茄-橙-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2087,15 +2464,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8008,
     "name": "番茄-黄-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2109,15 +2490,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8009,
     "name": "番茄-绿-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2131,15 +2516,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8010,
     "name": "番茄-青-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2153,15 +2542,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8011,
     "name": "番茄-蓝-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2175,15 +2568,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8012,
     "name": "番茄-紫-幼苗",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2197,15 +2594,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8013,
     "name": "花椰菜-幼苗(一次性)",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2219,15 +2620,19 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   },
   {
     "id": 8014,
     "name": "花椰菜-幼苗(永久)",
     "itemTips": "",
     "itemType": 8,
-    "model": "Seedling/seedling",
+    "model": "plant/Seedling",
     "model_size": 1,
+    "evo_id": -1,
     "drawing": 0,
     "collision": 1,
     "lift": 1,
@@ -2241,6 +2646,9 @@
     "buffid": "",
     "maturity_Effect": "",
     "if_eat": 0,
-    "eat_Effect": ""
+    "eat_Effect": "",
+    "if_popcorn": 0,
+    "if_hidden_door": 0,
+    "if_lake": 0
   }
 ]
