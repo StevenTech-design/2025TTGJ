@@ -11,7 +11,7 @@ namespace TTGJ.Plant
     {
         private void OnTriggerEnter(Collider other)
         {
-            if(currentState != PlantState.Mature) { 
+            if(currentState <= PlantState.Mature) { 
                 return;
             }
             WateringOther();
@@ -33,6 +33,9 @@ namespace TTGJ.Plant
         }
         private void OnCollisionStay(Collision collision)
         {
+            if(currentState <= PlantState.Mature) { 
+                return;
+            }
             if (collision.transform.TryGetComponent<Cell>(out var cell))
             {
                 WateringOther();

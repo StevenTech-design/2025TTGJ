@@ -40,6 +40,7 @@ namespace TTGJ.Plant
         {
             base.OnTeleport(baseTeleportPos);
             blinkTween?.Kill();
+            modelRoot.gameObject.SetActive(true);
         }
         public override void OnMature()
         {
@@ -50,15 +51,17 @@ namespace TTGJ.Plant
         {
             base.OnHarvest();
             transform.DOKill();
+            modelRoot.gameObject.SetActive(true);
         }
         private async void OnCollisionEnter(Collision collision) {
-            GameObject other = GetOther(collision);
+            GameObject other = collision.collider.gameObject;
             if (currentState != PlantState.Harvest 
             || other.CompareTag("Field") 
             || other.layer == LayerMask.NameToLayer("Building") 
-            || currentEatObject != null || isLiftable) { 
+            || currentEatObject != null) { 
                 return;
             }
+            Debug.Log("OnCollisionEnter111: " + other.name);
             currentEatObject = other;
             other.SetActive(false);
             await UniTask.Delay(1000);
@@ -68,21 +71,6 @@ namespace TTGJ.Plant
                 rigidbody.AddForce(force * Time.deltaTime * Vector3.left, ForceMode.Impulse);
             }
             currentEatObject = null;
-        }
-        public GameObject GetOther(Collision collision)
-        {
-            Debug.Log("GetOther: " + collision.collider.gameObject.name);
-            if (collision?.collider == null)
-            {
-                return null;
-            }
-
-            if (collision.collider.attachedRigidbody != null ? collision.collider.attachedRigidbody.gameObject : null == this.gameObject)
-            {
-                return collision.collider.gameObject;
-            }
-
-            return collision.collider.attachedRigidbody != null ? collision.collider.attachedRigidbody.gameObject : null ?? collision.collider.gameObject;
         }
     }
 }
