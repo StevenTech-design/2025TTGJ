@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6554257452408873293}
+  - {fileID: 7806662477156811020}
   m_Father: {fileID: 4881499964770252082}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7173281482994152992
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af750f935c42aad44857c54850f60101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantType: 1
+  itemType: 2004
   sackGo: {fileID: 1106296420532212970, guid: 7f180331596174ee787b82513367f043, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 7695927303821115883, guid: b09db9be679e8d34984536a421018c26, type: 3}
@@ -95,7 +95,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -104,7 +104,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -200,9 +200,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b09db9be679e8d34984536a421018c26, type: 3}
---- !u!4 &6554257452408873293 stripped
+--- !u!4 &7806662477156811020 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7027512863103949649, guid: b09db9be679e8d34984536a421018c26,
+  m_CorrespondingSourceObject: {fileID: 6279440593752472336, guid: b09db9be679e8d34984536a421018c26,
     type: 3}
   m_PrefabInstance: {fileID: 4284009401561725468}
   m_PrefabAsset: {fileID: 0}
