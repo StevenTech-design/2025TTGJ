@@ -2623,7 +2623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &254377828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4878,7 +4878,7 @@ PrefabInstance:
     - target: {fileID: 797915943572842848, guid: 24339f2ca6e3933479a742ac45891a7b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.1787643
+      value: -1.29
       objectReference: {fileID: 0}
     - target: {fileID: 797915943572842848, guid: 24339f2ca6e3933479a742ac45891a7b,
         type: 3}
@@ -10910,8 +10910,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -10969,13 +10969,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445261386}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.46136385, y: -0.09042807, z: -0.061815605, w: 0.8804232}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.81454873, y: 0.53753495, z: -0.19509074, w: 0.09750013}
+  m_LocalPosition: {x: -15.85, y: -22.5, z: 52.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 319917349}
-  m_LocalEulerAnglesHint: {x: 53.246, y: -21.188, z: -18.744}
+  m_LocalEulerAnglesHint: {x: 21.628, y: 913.246, z: 115.698}
 --- !u!114 &1445261389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12873,6 +12873,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_SkySphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 569e463d9909e8c48a44fa39b0f50af1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15801,7 +15806,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1913514716
 AudioListener:
   m_ObjectHideFlags: 0
