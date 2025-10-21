@@ -6,8 +6,10 @@ namespace TTGJ.Buff
 {
     public class BuffBase : MonoBehaviour
     {
-        public float duration = 30;
+        public float duration;
+        public float checkInterval;
         private int timerTaskId;
+        private float lastCheckTime;
         public Action OnBuffStartCallback;
         public Action<float> OnBuffUpdateCallback;
         public Action OnBuffEndCallback;
@@ -33,6 +35,11 @@ namespace TTGJ.Buff
         }
         protected virtual void OnBuffUpdate(float remainingTime)
         {
+            if (Time.time - lastCheckTime < checkInterval)
+            {
+                return;
+            }
+            lastCheckTime = Time.time;
             OnBuffUpdateCallback?.Invoke(remainingTime);
         }
 

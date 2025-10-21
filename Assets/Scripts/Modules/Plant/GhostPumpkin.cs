@@ -56,7 +56,7 @@ namespace TTGJ.Plant
             if (currentState != PlantState.Harvest 
             || other.CompareTag("Field") 
             || other.layer == LayerMask.NameToLayer("Building") 
-            || currentEatObject != null) { 
+            || currentEatObject != null || isLiftable) { 
                 return;
             }
             currentEatObject = other;

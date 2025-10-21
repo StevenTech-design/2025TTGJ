@@ -23,6 +23,7 @@ public sealed partial class ItemNew : Luban.BeanBase
         { if(!_buf["itemType"].IsNumber) { throw new SerializationException(); }  ItemType = _buf["itemType"]; }
         { if(!_buf["model"].IsString) { throw new SerializationException(); }  Model = _buf["model"]; }
         { if(!_buf["model_size"].IsNumber) { throw new SerializationException(); }  ModelSize = _buf["model_size"]; }
+        { if(!_buf["evo_id"].IsNumber) { throw new SerializationException(); }  EvoId = _buf["evo_id"]; }
         { if(!_buf["drawing"].IsNumber) { throw new SerializationException(); }  Drawing = _buf["drawing"]; }
         { if(!_buf["collision"].IsNumber) { throw new SerializationException(); }  Collision = _buf["collision"]; }
         { if(!_buf["lift"].IsNumber) { throw new SerializationException(); }  Lift = _buf["lift"]; }
@@ -68,6 +69,10 @@ public sealed partial class ItemNew : Luban.BeanBase
     /// 道具模型大小
     /// </summary>
     public readonly float ModelSize;
+    /// <summary>
+    /// 进化id
+    /// </summary>
+    public readonly int EvoId;
     /// <summary>
     /// 是否看染色
     /// </summary>
@@ -141,6 +146,7 @@ public sealed partial class ItemNew : Luban.BeanBase
         + "itemType:" + ItemType + ","
         + "model:" + Model + ","
         + "modelSize:" + ModelSize + ","
+        + "evoId:" + EvoId + ","
         + "drawing:" + Drawing + ","
         + "collision:" + Collision + ","
         + "lift:" + Lift + ","

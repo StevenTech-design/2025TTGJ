@@ -21,7 +21,8 @@ namespace TTGJ.Buff
                 RemoveAllBuff(target);
             }
             T buffer = target.gameObject.AddComponent<T>();
-            Debug.Log("AddBuff");
+            buffer.duration = GetBuffDuration(buffer);
+            buffer.checkInterval = GetBuffCheckInterval(buffer);
             buffs[target.gameObject].Add(buffer);
             return buffer;
         }
@@ -50,7 +51,7 @@ namespace TTGJ.Buff
             }
             buffs[target.gameObject].Clear();
         }
-        private float GetBuffDuration<T>(T buff) where T : BuffBase
+        private float GetBuffDuration(BuffBase buff)
         {
             if (buffConfigs == null)
             { 
@@ -61,6 +62,18 @@ namespace TTGJ.Buff
                 return 30f;
             }
             return duration;
+        }
+        private float GetBuffCheckInterval(BuffBase buff)
+        {
+            if (buffConfigs == null)
+            {
+                InitBuffConfigs();
+            }
+            if (!buffConfigs.TryGet(buff.GetBuffType(), out float checkInterval))
+            {
+                return 0.1f;
+            }
+            return checkInterval;
         }
         private void InitBuffConfigs()
         {

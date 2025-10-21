@@ -106,6 +106,37 @@ namespace TTGJ.Luban
         {
             return _tables.TbItemNew.Get(id);
         }
+        private cfg.TBItemCombine GetTBItemCombine()
+        {
+            return _tables.TBItemCombine;
+        }
+        public cfg.ItemCombine GetItemCombine(int id)
+        {
+            return _tables.TBItemCombine.Get(id);
+        }
+        public cfg.ItemCombine GetCombineItem(int itemId1, int itemId2)
+        {
+            var itemCombine = GetTBItemCombine();
+            foreach (var item in itemCombine.DataList)
+            {
+                if ((item.CostMainBuckets1 == itemId1 && item.CostMainBuckets2 == itemId2)
+                || item.CostMainBuckets1 == itemId2 && item.CostMainBuckets2 == itemId1)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public int EvolutionId(int id)
+        {
+            var item = GetItemNew(id);
+            if (item == null)
+            {
+                return -1;
+            }
+            return item.EvoId;
+        }
+
 
         #endregion
     }

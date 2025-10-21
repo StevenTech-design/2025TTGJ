@@ -7,6 +7,7 @@ namespace TTGJ.Config
     public class BuffConfig
     {
         public BuffType buffType;
-        public float duration;
+        public float duration = 30f;
+        public float checkInterval = 0.1f;
     }
 }
