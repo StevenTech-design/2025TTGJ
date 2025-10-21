@@ -87,6 +87,7 @@ namespace TTGJ.Plant
                         continue;
 
                     PlantBase plant = fields[x][y].GetOccupiedPlant();
+                    Debug.Log("GetSurroundPlants: " + plant);
                     if (plant != null && !plants.Contains(plant))
                     {
                         plants.Add(plant);

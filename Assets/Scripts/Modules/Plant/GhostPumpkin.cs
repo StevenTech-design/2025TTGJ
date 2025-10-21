@@ -71,17 +71,18 @@ namespace TTGJ.Plant
         }
         public GameObject GetOther(Collision collision)
         {
+            Debug.Log("GetOther: " + collision.collider.gameObject.name);
             if (collision?.collider == null)
             {
                 return null;
             }
 
-            if (collision.collider.attachedRigidbody?.gameObject == this.gameObject)
+            if (collision.collider.attachedRigidbody != null ? collision.collider.attachedRigidbody.gameObject : null == this.gameObject)
             {
                 return collision.collider.gameObject;
             }
 
-            return collision.collider.attachedRigidbody?.gameObject ?? collision.collider.gameObject;
+            return collision.collider.attachedRigidbody != null ? collision.collider.attachedRigidbody.gameObject : null ?? collision.collider.gameObject;
         }
     }
 }

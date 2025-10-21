@@ -21,7 +21,7 @@ namespace TTGJ.Plant
         protected Transform modelRoot;
 
         private void Start() { 
-            InitModel();
+            //InitModel();
         }
 
 
