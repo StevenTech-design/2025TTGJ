@@ -8,7 +8,7 @@
 
         [Header(Diffuse)]
         _Toon_Theshold("中间阴影范围",range(0,1)) = 0.5
-        _Toon_Hardness("阴影硬边过渡强度",float) = 20.0
+        _Toon_Hardness("阴影硬边过渡强度",float) = 80.0
         _colorA("阴影颜色",Color)= (0.5,0.5,0.5,1)
         _colorB("中间阴影颜色",Color)= (0.5,0.5,0.5,1)
 
@@ -17,12 +17,12 @@
         Pow_spec("高光范围",Range(0.01,100)) = 1.0
         
         [Header(Fresnel)]
-        [Enum(Off, 0, On, 1)]fresnelOFF ("边缘光 OFF or ON",Int) = 1 
+        [Enum(Off, 0, On, 1)]fresnelOFF ("边缘光 OFF or ON",Int) = 0 
         _FresnelPow ("边缘光范围", Range(0, 10))= 0
         _FresnelColor("边缘光颜色",color) = (1,1,1,0)
 
         [Header(Outline)]
-        _OutlineWidth ("外描边宽度", Range(0, 10)) = 0.24
+        _OutlineWidth ("外描边宽度", Range(0, 10)) = 0.5
         [HDR]_OutLineColor ("外描边颜色强度", color) = (0.5,0,0,1)
 
         [Header(PostProcess)]
