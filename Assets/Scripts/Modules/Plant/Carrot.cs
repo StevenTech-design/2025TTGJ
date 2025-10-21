@@ -24,7 +24,7 @@ namespace TTGJ.Plant
         public void OnFallCollision(Collider other)
         {
             if (other.gameObject.TryGetComponent<PlantBase>(out var plant)
-               && plant.plantType == PlantType.Carrot) { 
+               && plant.itemType == ItemType.Carrot) { 
 
             }
         }

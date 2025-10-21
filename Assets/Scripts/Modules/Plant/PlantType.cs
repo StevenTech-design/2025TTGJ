@@ -1,7 +1,8 @@
 namespace TTGJ.Plant
 {
-    public enum PlantType
+    public enum ItemType
     {
+        //Plants
         Potato = 2001,
         Mushroom = 2002,
         GhostPumpkin = 2003,

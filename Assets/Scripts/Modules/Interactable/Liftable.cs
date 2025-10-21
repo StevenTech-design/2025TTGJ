@@ -1,3 +1,4 @@
+using TTGJ.Plant;
 using UnityEngine;
 
 namespace TTGJ.Interactable
@@ -6,6 +7,7 @@ namespace TTGJ.Interactable
     {
 
         protected bool isLiftable = true;
+        public ItemType itemType;
         protected Collider collider;
         protected Rigidbody rigidbody;
         private void Awake() {

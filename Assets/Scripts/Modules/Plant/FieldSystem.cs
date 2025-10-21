@@ -36,87 +36,35 @@ namespace TTGJ.Plant
             }
         }
 
-        private bool CheckCanPlant(Vector2Int cellPos, int currentSize, int preSize)
-        {
-            if (cellPos.x - preSize < 0 || cellPos.x + currentSize >= fields.Length
-            || cellPos.y - preSize < 0 || cellPos.y + currentSize >= fields[0].Length)
-            {
-                return false;
-            }
-
-            int leftColumn = cellPos.x - preSize;
-            int rightColumn = cellPos.x + currentSize;
-            int topRow = cellPos.y - preSize;
-            int bottomRow = cellPos.y + currentSize;
-
-            for (int i = topRow; i < bottomRow; ++i)
-            {
-                if (fields[leftColumn][i].IsPlanted())
-                {
-                    return false;
-                }
-            }
-
-            for (int i = topRow; i < bottomRow; ++i)
-            {
-                if (fields[rightColumn][i].IsPlanted())
-                {
-                    return false;
-                }
-            }
-
-            for (int i = leftColumn; i < rightColumn; ++i)
-            {
-                if (fields[i][topRow].IsPlanted())
-                {
-                    return false;
-                }
-            }
-
-            for (int i = leftColumn; i < rightColumn; ++i)
-            {
-                if (fields[i][bottomRow].IsPlanted())
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
         public bool ToOccupied(Vector2Int cellPos, int currentSize, int preSize)
         {
-            currentSize = Mathf.CeilToInt(currentSize / 2.0f);
-            preSize = Mathf.CeilToInt(preSize / 2.0f);
-            if (!CheckCanPlant(cellPos, currentSize, preSize))
-            {
-                return false;
-            }
-            int leftColumn = cellPos.x - preSize;
-            int rightColumn = cellPos.x + currentSize;
-            int topRow = cellPos.y - preSize;
-            int bottomRow = cellPos.y + currentSize;
+            int halfSize = preSize / 2;
+            int leftBound = cellPos.x - halfSize - 1;
+            int rightBound = cellPos.x + halfSize + 1;
+            int topBound = cellPos.y - halfSize - 1;
+            int bottomBound = cellPos.y + halfSize + 1;
 
-            for (int i = topRow; i < bottomRow; ++i)
+            for (int x = leftBound; x <= rightBound; x++)
             {
-                fields[leftColumn][i].ToOccupied();
-            }
+                for (int y = topBound; y <= bottomBound; y++)
+                {
+                    int currentHalfSize = currentSize / 2;
+                    bool isInnerArea = (x >= cellPos.x - currentHalfSize &&
+                                       x <= cellPos.x + currentHalfSize &&
+                                       y >= cellPos.y - currentHalfSize &&
+                                       y <= cellPos.y + currentHalfSize);
+                    if (isInnerArea)
+                        continue;
 
-            for (int i = topRow; i < bottomRow; ++i)
-            {
-                fields[rightColumn][i].ToOccupied();
-            }
+                    if (x < 0 || x >= fields.Length || y < 0 || y >= fields[0].Length)
+                        return false;
 
-
-            for (int i = leftColumn; i < rightColumn; ++i)
-            {
-                fields[i][topRow].ToOccupied();
+                    fields[x][y].ToOccupied();
+                }
             }
 
-            for (int i = leftColumn; i < rightColumn; ++i)
-            {
-                fields[i][bottomRow].ToOccupied();
-            }
             return true;
-        }
+}
         public List<PlantBase> GetSurroundPlants(Vector2Int cellPos, int currentSize)
         {
             List<PlantBase> plants = new List<PlantBase>();

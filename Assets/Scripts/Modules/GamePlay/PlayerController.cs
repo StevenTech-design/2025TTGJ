@@ -3,6 +3,7 @@ using TTGJ.Plant;
 using TTGJ.Interactable;
 using UnityEngine;
 using TTGJ.Framework;
+using TTGJ.Luban;
 
 namespace TTGJ.GamePlay
 {
@@ -17,8 +18,6 @@ namespace TTGJ.GamePlay
         private Transform liftArea;
 
         private Queue<GameObject> _liftList = new();
-        [SerializeField]
-        private float listOffset = 1f;
         private float _currentHeight = 0;
         [SerializeField]
         private float _longTimeDropforce = 0;
@@ -53,7 +52,7 @@ namespace TTGJ.GamePlay
 
             target.transform.SetParent(liftArea);
             target.transform.SetLocalPositionAndRotation(new Vector3(0, _currentHeight, 0), Quaternion.identity);
-            _currentHeight += listOffset;
+            _currentHeight += GetTargetHeight(liftable);
             PlayLiftAnimation();
             IsLift = _liftList.Count > 0;
         }
@@ -61,7 +60,7 @@ namespace TTGJ.GamePlay
         public void ToDrop()
         {
             Vector3 dropDirection = (transform.forward + Vector3.up).normalized;
-            var target =_liftList.Dequeue();
+            var target = _liftList.Dequeue();
             target.GetComponent<Liftable>().OnDrop(dropDirection, dropForce);
             target.transform.SetParent(null);
             IsLift = _liftList.Count > 0;
@@ -85,7 +84,7 @@ namespace TTGJ.GamePlay
         {
             return _liftList.Count > 0;
         }
-        
+
 
         public void ToPlant(Field field)
         {
@@ -112,7 +111,9 @@ namespace TTGJ.GamePlay
             {
                 eatable.OnEat();
                 Destroy(target);
-            }else if (target.TryGetComponent<Rigidbody>(out var rigidbody)) { 
+            }
+            else if (target.TryGetComponent<Rigidbody>(out var rigidbody))
+            {
                 rigidbody.isKinematic = false;
                 rigidbody.AddForce(-transform.forward * 10, ForceMode.Impulse);
                 target.transform.GetComponent<Collider>().isTrigger = false;
@@ -122,17 +123,23 @@ namespace TTGJ.GamePlay
             IsLift = _liftList.Count > 0;
             RefreshLiftQueue();
         }
-        public GameObject GetLiftObject() { 
+        public GameObject GetLiftObject()
+        {
             if (_liftList.Count == 0) return null;
             return _liftList.Peek();
         }
-        private void RefreshLiftQueue() { 
+        private void RefreshLiftQueue()
+        {
             _currentHeight = 0;
             foreach (var target in _liftList)
             {
                 target.transform.localPosition = new Vector3(0, _currentHeight, 0);
-                _currentHeight += listOffset;
+                _currentHeight += GetTargetHeight(target.GetComponent<Liftable>());
             }
+        }
+        private float GetTargetHeight(Liftable liftable)
+        { 
+            return LubanManager.Instance.GetItemNew((int)liftable.itemType).Height * liftable.transform.localScale.y;
         }
     }
 }

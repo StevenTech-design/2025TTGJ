@@ -6,7 +6,6 @@ namespace TTGJ.Plant
 {
     public class PlantBase : Liftable, ITeleport, IDyeingable, IEatable
     {
-        public PlantType plantType;
         [SerializeField]
         protected GameObject sackGo;
         [SerializeField]
