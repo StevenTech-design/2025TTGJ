@@ -11,7 +11,6 @@ namespace TTGJ.Common
                 
             if (gameObject.TryGetComponent<T>(out var existingComponent))
                 return existingComponent;
-            Debug.Log("AddComponent");
             return gameObject.AddComponent<T>();
         }
         public static T TryAddComponent<T>(this Transform transform) where T : Component

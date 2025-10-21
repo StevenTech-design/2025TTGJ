@@ -18,12 +18,13 @@ namespace TTGJ.Interactable
 
             collider.enabled = false;
             rigidbody.isKinematic = true;
-            rigidbody.interpolation = RigidbodyInterpolation.None;
+            rigidbody.useGravity = false;
             isLiftable = false;
         }
         public virtual void OnDrop(Vector3 dir, float force)
         {
             collider.enabled = true;
+            rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
             rigidbody.AddForce(dir * force);
             isLiftable = true;
