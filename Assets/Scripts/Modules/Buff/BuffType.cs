@@ -10,7 +10,7 @@ namespace TTGJ.Buff
         FallCollision,
         FieldDyeing,
         BigModel,
-        ReplaceHead,
+        ReplaceModel,
         Reveal,
         ReverseDir,
         FieldWatering,

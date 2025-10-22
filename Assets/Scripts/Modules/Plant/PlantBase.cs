@@ -22,7 +22,7 @@ namespace TTGJ.Plant
         protected Transform modelRoot;
 
 
-        public void OnWatering()
+        public virtual void OnWatering()
         {
             if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
             {
