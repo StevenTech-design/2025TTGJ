@@ -11,10 +11,10 @@ Material:
   m_Shader: {fileID: 4800000, guid: 3a998de7b83f3584dba4631e4a811f1c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _RECEIVE_SHADOWS_OFF
+  m_ValidKeywords: []
   m_InvalidKeywords:
   - _RECEIVESHADOWS_OFF
+  - _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -112,12 +112,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _CousticsInt: 0.1
-    - _CousticsRange: 10
+    - _CousticsInt: 0.8
+    - _CousticsRange: 2
     - _CousticsScale: 5
-    - _CousticsViewInt: 4
+    - _CousticsViewInt: 3
     - _CousticsViewRange: 2
-    - _DeepRange: 0.04
+    - _DeepRange: 0.68
     - _DepthPower: 0.32
     - _EdgeOpacity: -5.12
     - _EnvironmentReflections: 1
@@ -133,15 +133,15 @@ Material:
     - _FoamDissolve: 5.5
     - _FoamDissolve1: 2
     - _FoamFrequency: 56.41
-    - _FoamFrequency1: 15.34
+    - _FoamFrequency1: 25.87
     - _FoamNoiseTiing: 0.5
     - _FoamRange: 1.47
     - _FoamRange1: 0.5
     - _FoamSpeed: -2
     - _FoamSpeed1: -0.5
     - _FoamWidth: 0.8
-    - _FresnelPow: 20
-    - _FresnelScale: 1.4
+    - _FresnelPow: 8
+    - _FresnelScale: 0
     - _LightEnd: 100
     - _LightStart: 20
     - _NormalInt: 0
@@ -205,7 +205,7 @@ Material:
     - _FoamNoise: {r: 20, g: 20, b: 0, a: 0}
     - _FoamNoise1: {r: 50, g: 0, b: 0, a: 0}
     - _FormCol: {r: 1, g: 1, b: 1, a: 0}
-    - _FresnelCol: {r: 0, g: 0.6722915, b: 0.9559748, a: 0}
+    - _FresnelCol: {r: 0, g: 0.7019608, b: 1, a: 0}
     - _NormalSpeed: {r: -5, g: 3, b: 0, a: 0}
     - _ReflNormalSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _SSS_Col: {r: 0.21686237, g: 0.3506429, b: 0.5345911, a: 0}
