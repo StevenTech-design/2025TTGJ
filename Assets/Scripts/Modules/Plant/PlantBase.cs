@@ -15,14 +15,12 @@ namespace TTGJ.Plant
         [SerializeField]
         protected GameObject realGo;
         protected PlantState currentState = PlantState.Seed;
+        [SerializeField]
+        protected PlantState startState = PlantState.Seed;
         protected int currentGrouthCount = 0;
 
         private Color originalColor;
         protected Transform modelRoot;
-
-        private void Start() { 
-            InitModel();
-        }
 
 
         public void OnWatering()
@@ -68,9 +66,15 @@ namespace TTGJ.Plant
         }
         public virtual void ChangeState(PlantState state)
         {
+            if(currentState == state) { 
+                return;
+            }
             currentState = state;
             switch (state)
             {
+                case PlantState.Seed:
+                    InitModel();
+                    break;
                 case PlantState.Germination:
                     InitModel();
                     OnGermination();
@@ -83,6 +87,7 @@ namespace TTGJ.Plant
                     OnHarvest();
                     break;
             }
+            
         }
 
         public virtual void OnTeleport(Transform baseTeleportPos)
@@ -103,7 +108,6 @@ namespace TTGJ.Plant
             collider.enabled = true;
             collider.isTrigger = true;
             rigidbody.isKinematic = true;
-            Debug.Log("OnGermination: " + collider.isTrigger);
         }
 
         public virtual void OnMature()

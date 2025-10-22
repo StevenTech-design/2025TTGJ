@@ -51,6 +51,7 @@ MonoBehaviour:
   sackGo: {fileID: 5696905122054284051, guid: 56c23bd4268811047b4242b50bec1f59, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 919132149155446097, guid: be4626243ff14634fa941b8b2f73bb13, type: 3}
+  sheepPrefab: {fileID: 0}
 --- !u!54 &396154875452297536
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,10 +129,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9191076777795488728}
+  - {fileID: 4777150396476995351}
   m_Father: {fileID: 5498065468484279238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &8649157447042919475
+--- !u!1001 &1953860152230769194
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -139,69 +140,69 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7328662459941231556}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 5696905122054284051, guid: 56c23bd4268811047b4242b50bec1f59,
+        type: 3}
+      propertyPath: m_Name
+      value: SeedBag CauliFlower
+      objectReference: {fileID: 0}
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+    - target: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: be4626243ff14634fa941b8b2f73bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Cauliflower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: be4626243ff14634fa941b8b2f73bb13, type: 3}
---- !u!4 &9191076777795488728 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 56c23bd4268811047b4242b50bec1f59, type: 3}
+--- !u!4 &4777150396476995351 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: be4626243ff14634fa941b8b2f73bb13,
+  m_CorrespondingSourceObject: {fileID: 6437431181614105917, guid: 56c23bd4268811047b4242b50bec1f59,
     type: 3}
-  m_PrefabInstance: {fileID: 8649157447042919475}
+  m_PrefabInstance: {fileID: 1953860152230769194}
   m_PrefabAsset: {fileID: 0}
