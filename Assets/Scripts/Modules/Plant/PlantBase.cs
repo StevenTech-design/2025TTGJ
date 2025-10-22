@@ -186,5 +186,8 @@ namespace TTGJ.Plant
             base.OnLift();
             
         }
+        public virtual void OnPlant() { 
+
+        }
     }
 }
