@@ -14,12 +14,13 @@ namespace TTGJ.Plant
         {
             BounceObject(collision.collider);
         }
-        private void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
             BounceObject(other);
         }
         private void BounceObject(Collider collider)
         {
+            Debug.Log("Mushroom BounceObject: " + collider.gameObject.name);
             if (currentState < PlantState.Mature)
             {
                 return;
@@ -31,7 +32,7 @@ namespace TTGJ.Plant
             Vector3 direction = collider.transform.position - transform.position;
             if (collider.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
             {
-                rigidbody.AddForce(bounceForce * Time.deltaTime * direction.normalized, ForceMode.Impulse);
+                rigidbody.AddForce(bounceForce *  direction.normalized, ForceMode.Impulse);
             }
         }
         public override void OnTeleport(Transform baseTeleportPos)
@@ -50,7 +51,7 @@ namespace TTGJ.Plant
             }
             Vector3 dir = collision.transform.position - transform.position;
             dir.y = 0;
-            rigidbody.AddForce(dir.normalized * bounceForce * Time.deltaTime, ForceMode.Impulse);
+            rigidbody.AddForce(dir.normalized * bounceForce, ForceMode.Impulse);
         }
         public override void OnEat()
         {

@@ -20,6 +20,10 @@ namespace TTGJ.Plant
         private Color originalColor;
         protected Transform modelRoot;
 
+        private void Start() { 
+            InitModel();
+        }
+
 
         public void OnWatering()
         {

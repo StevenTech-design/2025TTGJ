@@ -23,5 +23,15 @@ namespace TTGJ.Plant
             BuffBase buffBase = BuffManager.Instance.AddBuff<BigModelBuff>(PlayerController.Instance.transform);
             buffBase.StartBuff();
         }
+        public override void OnTeleport(Transform baseTeleportPos)
+        {
+            base.OnTeleport(baseTeleportPos);
+            rigidbody.centerOfMass = new Vector3(0, -1, 0);
+        }
+        public override void OnDrop(Vector3 dir, float force)
+        {
+             base.OnDrop(dir, force);
+             rigidbody.centerOfMass = new Vector3(0, -1, 0);
+        }
     }
 }
