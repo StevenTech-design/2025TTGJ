@@ -51,7 +51,9 @@ MonoBehaviour:
   sackGo: {fileID: 5696905122054284051, guid: 56c23bd4268811047b4242b50bec1f59, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 919132149155446097, guid: be4626243ff14634fa941b8b2f73bb13, type: 3}
-  sheepPrefab: {fileID: 0}
+  currentState: 0
+  sheepPrefab: {fileID: 3488041096985739121, guid: eebbd075859d444fcbc021e82715b31a,
+    type: 3}
 --- !u!54 &396154875452297536
 Rigidbody:
   m_ObjectHideFlags: 0
