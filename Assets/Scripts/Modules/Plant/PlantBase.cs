@@ -14,9 +14,8 @@ namespace TTGJ.Plant
         protected GameObject grothGo;
         [SerializeField]
         protected GameObject realGo;
-        protected PlantState currentState = PlantState.Seed;
         [SerializeField]
-        protected PlantState startState = PlantState.Seed;
+        protected PlantState currentState = PlantState.Seed;
         protected int currentGrouthCount = 0;
 
         private Color originalColor;
@@ -25,7 +24,6 @@ namespace TTGJ.Plant
 
         public void OnWatering()
         {
-
             if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
             {
                 return;
