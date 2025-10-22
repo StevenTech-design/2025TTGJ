@@ -51,6 +51,8 @@
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
             #pragma multi_compile _ _SHADOWS_SOFT
+            #pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
+
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
@@ -122,13 +124,14 @@
                 
                 // 阴影衰减 (URP中的阴影处理)
                 //float atten = mainLight.shadowAttenuation * mainLight.distanceAttenuation;
-
+                half shadowAtten = mainLight.shadowAttenuation * mainLight.distanceAttenuation;
+                shadowAtten = smoothstep(0.1,0.7,shadowAtten);
                 // 漫反射光照
                 half ndotl = dot(normalDir, lightDir) ;
-                half toon_diffuse = lerp(_colorA, 1.0, saturate(ndotl * _Toon_Hardness));
+                half toon_diffuse = lerp(_colorA, 1.0, saturate(ndotl * _Toon_Hardness)) ;
                 half toon_middiffuse = lerp(_colorB, 1.0, saturate((ndotl - _Toon_Theshold) * _Toon_Hardness));
-                half final_toon = toon_diffuse * toon_middiffuse;
-
+                half final_toon = toon_diffuse * toon_middiffuse ;
+                final_toon *= shadowAtten;
                 // 镜面反射光照
                 float3 half_dir = normalize(lightDir + view_dir);
                 half ndoth = dot(normalDir, half_dir);
@@ -140,7 +143,7 @@
                 float3 fresnel = pow(max(0.0, 1.0 - vdotn), _FresnelPow) * _FresnelColor;
 
                 // 最终颜色合成
-                half3 final = BaseCol * final_toon * mainLight.color + spec + fresnel * fresnelOFF;
+                half3 final = (BaseCol * final_toon * mainLight.color + spec) + fresnel * fresnelOFF;
                 final = sqrt(max(exp2(log2(max(final, 0.0)) * _colorSaturation), 0.0));
                 
                 return half4(final, 1.0);
