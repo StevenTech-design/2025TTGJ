@@ -32,7 +32,11 @@ namespace TTGJ.Modules.TaskSystem
                 // 检查是否是对话类任务（GoalCount为0或空）并且NPC匹配
                 if ((string.IsNullOrEmpty(task.GoalCount) || task.GoalCount == "0") && task.NpcId == npcId)
                 {
-                    // 对话任务直接完成
+                    // 对话任务：将进度补满再完成，避免构造时即完成的UX问题
+                    if (!task.IsCompleted)
+                    {
+                        task.RestoreProgress(task.RequiredProgress);
+                    }
                     TaskManager.Instance.CompleteTask(task.TaskId);
                     break;
                 }
