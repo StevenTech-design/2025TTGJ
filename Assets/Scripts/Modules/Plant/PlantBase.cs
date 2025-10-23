@@ -55,7 +55,7 @@ namespace TTGJ.Plant
                 Sequence mySequence = DOTween.Sequence();
                 mySequence.Append(transform.DOScale(1.5f, 1f)); //生长阶段
                 mySequence.Append(transform.DOScale(new Vector3(2, 2, 2), 0.5f).SetEase(Ease.OutElastic)); //成熟时刻
-                
+                 
               
                 // 落地动画
                 // transform.DOPunchScale(new Vector3(-0.2f, 0.5f, -0.2f), 0.2f);
