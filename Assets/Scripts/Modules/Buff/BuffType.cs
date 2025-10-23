@@ -16,5 +16,6 @@ namespace TTGJ.Buff
         FieldWatering,
         ForwardWateringBuff,
         SmallModel,
+        SheepTalk,
     }
 }

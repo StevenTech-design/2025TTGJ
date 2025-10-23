@@ -17,5 +17,7 @@ namespace TTGJ.Plant
         ColorfulTomato,
         Kivi = 2015,
         KiwiFruitTree,
+
+        Grass = 2016,
     }
 }
