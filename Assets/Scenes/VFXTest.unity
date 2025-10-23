@@ -4867,7 +4867,7 @@ PrefabInstance:
     - target: {fileID: 5268210731825288645, guid: 63ff23ec584c16b4387f14aab91cb43e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.388
+      value: -4.63
       objectReference: {fileID: 0}
     - target: {fileID: 5268210731825288645, guid: 63ff23ec584c16b4387f14aab91cb43e,
         type: 3}
@@ -4949,11 +4949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b69eac90e6d1e4246ac2ca95848d3b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanPlay: 0
-  duration: 0.5
-  mod: 1
-  cur_time: 0
-  scale: {x: 1, y: 1, z: 1}
 --- !u!65 &614262230
 BoxCollider:
   m_ObjectHideFlags: 0
