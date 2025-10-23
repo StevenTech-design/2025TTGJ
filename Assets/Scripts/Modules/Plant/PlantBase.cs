@@ -58,7 +58,7 @@ namespace TTGJ.Plant
                 
               
                 // 落地动画
-                // transform.DOPunchScale(new Vector3(-1.0f, 0.5f,-1.0f), 0.2f);
+                // transform.DOPunchScale(new Vector3(-0.2f, 0.5f, -0.2f), 0.2f);
             }
             else if (FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos, currentOccupiedFieldSize, willOccupiedFieldSize))
             {
