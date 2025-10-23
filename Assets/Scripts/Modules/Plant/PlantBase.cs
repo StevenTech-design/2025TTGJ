@@ -41,12 +41,36 @@ namespace TTGJ.Plant
             if (currentGrouthCount == willOccupiedFieldSize)
             {
                 ++currentGrouthCount;
-                transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
+              
+                
+                // 成熟动画1
+                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
+                // 成熟动画2
+                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic);
+                
+                // 生长动画3 + 成熟动画
+                Sequence mySequence = DOTween.Sequence();
+                mySequence.Append(transform.DOScale(1.5f, 1f)); //生长阶段
+                mySequence.Append(transform.DOScale(new Vector3(2, 2, 2), 0.5f).SetEase(Ease.OutElastic)); //成熟时刻
+                
+                // TODO:落地动画
+                // transform.DOPunchScale(new Vector3(-0.2f, 0.5f, -0.2f), 0.2f);
+
+
             }
             else if (FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos, currentOccupiedFieldSize, willOccupiedFieldSize))
             {
                 ++currentGrouthCount;
-                transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
+                // 成熟动画1
+                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
+                // 成熟动画2
+                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic);
+                
+                // 生长动画3 + 成熟动画
+                Sequence mySequence = DOTween.Sequence();
+                mySequence.Append(transform.DOScale(1.5f, 1f)); //生长阶段
+                mySequence.Append(transform.DOScale(new Vector3(2, 2, 2), 0.5f).SetEase(Ease.OutElastic)); //成熟时刻
+
             }
 
             CheckEvolution();
