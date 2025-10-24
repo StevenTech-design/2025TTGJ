@@ -9660,7 +9660,7 @@ MonoBehaviour:
     back: 115
     left: 97
     right: 100
-  player: {fileID: 1525640481}
+  player: {fileID: 0}
   longTimeDropTime: 1
   interactionLayers:
     serializedVersion: 2
@@ -13383,18 +13383,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 139009308}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1525640481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2890083325222127482, guid: b364de5bf2076494ea714495a6532e4f,
-    type: 3}
-  m_PrefabInstance: {fileID: 3155843566897782395}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86aa04ac998894fb4bca4d08360f53a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1531218180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22740,8 +22728,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913514715}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08285382, y: 0.681578, z: -0.07794218, w: 0.7228498}
-  m_LocalPosition: {x: 59.900894, y: -4.7756624, z: 106.6501}
+  m_LocalRotation: {x: -0.096429765, y: -0.3904076, z: 0.04105994, w: -0.914657}
+  m_LocalPosition: {x: 60.139435, y: -4.4128075, z: 104.71711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24867,7 +24855,7 @@ PrefabInstance:
     - target: {fileID: 7073817831538275227, guid: 278b133211817ad449128f385677f503,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 62.915
+      value: 62.885
       objectReference: {fileID: 0}
     - target: {fileID: 7073817831538275227, guid: 278b133211817ad449128f385677f503,
         type: 3}
