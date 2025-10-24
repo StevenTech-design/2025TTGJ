@@ -1,60 +1,51 @@
 using UnityEngine;
 using TTGJ.GamePlay;
+using System.Collections;
 
 namespace TTGJ.Plant
 {
     public class KiwiFruitTree : PlantBase
     {
         [SerializeField]
-        private GameObject kiwiFruitPrefab; // 猕猴桃预制体
+        private GameObject kiwiFruitPrefab;
+        private KiwiFruit kiwiFruit;
         [SerializeField]
-        private float spawnInterval = 5f; 
+        private float interval = 0.5f;
         [SerializeField]
-        private float fruitForce = 2f; // 果实掉落的力量
-        
-        private float timer = 0f;
-        
-        public override void OnMature()
-        {
-            base.OnMature();
-            // 成熟后立即开始生成猕猴桃
-            timer = spawnInterval; 
+        private Transform fruitSpawnPoint;
+
+        private void Start() { 
+            SpawnKiwiFruit();
         }
-        
-        private void Update()
-        {
-            if (currentState != PlantState.Mature)
+
+         public override bool IsLiftable() { return false; }
+
+
+        private IEnumerator SpawnKiwiFruitCoroutine() { 
+            yield return new WaitForSeconds(interval);
+            SpawnKiwiFruit();
+        }
+        public override void OnWatering() { 
+            kiwiFruit.OnWatering();
+        }
+        private void SpawnKiwiFruit() { 
+            kiwiFruit = Instantiate(kiwiFruitPrefab).GetComponent<KiwiFruit>();
+            kiwiFruit.transform.SetParent(fruitSpawnPoint);
+            kiwiFruit.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            kiwiFruit.transform.localScale = Vector3.one;
+            currentState = PlantState.Mature;
+        }
+        protected override void OnHarvest() {
+            //TODO: Harvest kiwi fruit
+            if (kiwiFruit == null) {
                 return;
-            
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
-            {
-                SpawnKiwiFruit();
-                timer = spawnInterval;
             }
-        }
-        
-        private void SpawnKiwiFruit()
-        {
-            if (kiwiFruitPrefab != null)
-            {
-                // 生成猕猴桃
-                GameObject kiwi = Instantiate(kiwiFruitPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
-                
-                // 给猕猴桃一个随机的水平方向力，使其掉落
-                Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0.5f, Random.Range(-1f, 1f)).normalized;
-                Rigidbody rb = kiwi.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.AddForce(randomDirection * fruitForce, ForceMode.Impulse);
-                }
-            }
-        }
-        
-        protected override void OnHarvest()
-        {
-            // 猕猴桃树不能移动，但仍然需要响应收获操作
-            Debug.Log("猕猴桃树不能被移动");
-        }
+            kiwiFruit.ChangeState(PlantState.Harvest);
+            kiwiFruit.transform.SetParent(null);
+            kiwiFruit = null;
+            StartCoroutine(SpawnKiwiFruitCoroutine());
+            currentState = PlantState.Germination;
+        }   
+
     }
 }

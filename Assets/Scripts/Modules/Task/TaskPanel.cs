@@ -94,17 +94,11 @@ namespace TTGJ.Modules.TaskSystem
         /// </summary>
         private void ClearTaskItems()
         {
-            foreach (var item in taskItems)
-            {
-                Destroy(item.gameObject);
-            }
-            taskItems.Clear();
-            
-            // 清除所有子对象（包括可能的提示文本）
-            for (int i = 0; i < taskListContent.childCount; i++)
+            for (int i = taskListContent.childCount - 1; i >= 0; i--)
             {
                 Destroy(taskListContent.GetChild(i).gameObject);
             }
+            taskItems.Clear();
         }
         
         /// <summary>

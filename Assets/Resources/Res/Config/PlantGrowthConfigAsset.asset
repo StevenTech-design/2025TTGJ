@@ -12,8 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a726d5b45a237304d9526793aa00096e, type: 3}
   m_Name: PlantGrowthConfigAsset
   m_EditorClassIdentifier: 
-  configs:
-  - itemType: 2001
-    modelSize: []
-    occupiedFieldSize: 
-    haverstSize: 
+  configs: []

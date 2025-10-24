@@ -71,7 +71,7 @@ namespace TTGJ.Modules.TaskSystem
                 acceptPlotId = "M_0003", 
                 progressPlotId = "M_0003_1", 
                 completePlotId = "M_0003_2", 
-                nextGoalId = 1004
+                nextGoalId = 0
             });
         }
 
@@ -307,22 +307,85 @@ namespace TTGJ.Modules.TaskSystem
         /// </summary>
         private void LoadPlotData()
         {
-            // 模拟加载剧情数据
+            // 与任务数据一致的剧情条目
             AddPlotData(new PlotData {
-                id = "G001", 
-                name = "开场主线", 
-                npcId = 111000, 
-                textTime = "欢迎来到尾砂岛！#无", 
-                emoTime = "", 
+                id = "M_0001", 
+                name = "接受初始任务", 
+                npcId = 0, 
+                textTime = "先到农场试试手吧！#2", 
+                emoTime = "微笑#1", 
                 nextId = 0
             });
 
             AddPlotData(new PlotData {
-                id = "F001", 
-                name = "npc日常对话", 
-                npcId = 111002, 
-                textTime = "想念做发型和帽子#悲伤表情", 
-                emoTime = "", 
+                id = "M_0001_1", 
+                name = "进行中剧情", 
+                npcId = 0, 
+                textTime = "成为农场主，种植是关键！#2", 
+                emoTime = "思考#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0001_2", 
+                name = "完成初始任务", 
+                npcId = 0, 
+                textTime = "你已经是合格的农场主了！#2", 
+                emoTime = "开心#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0002", 
+                name = "接受种植任务", 
+                npcId = 0, 
+                textTime = "想成为合格的农场主，就先种10个土豆吧！#2", 
+                emoTime = "鼓励#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0002_1", 
+                name = "种植任务进行中", 
+                npcId = 0, 
+                textTime = "真奇怪，甜菜种子总是给我更多收获！#2", 
+                emoTime = "疑惑#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0002_2", 
+                name = "完成种植任务", 
+                npcId = 0, 
+                textTime = "你种好了，可以让我作物生长更快！#2", 
+                emoTime = "满意#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0003", 
+                name = "接受清理任务", 
+                npcId = 0, 
+                textTime = "我讨厌杂草，它们总是给我更多麻烦！#2", 
+                emoTime = "生气#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0003_1", 
+                name = "清理任务进行中", 
+                npcId = 0, 
+                textTime = "清洁是时代发展的重要因素，真好！#2", 
+                emoTime = "认真#1", 
+                nextId = 0
+            });
+
+            AddPlotData(new PlotData {
+                id = "M_0003_2", 
+                name = "完成清理任务", 
+                npcId = 0, 
+                textTime = "高效率！没有了杂草，农场看起来清爽多了！#2", 
+                emoTime = "高兴#1", 
                 nextId = 0
             });
         }
@@ -393,11 +456,37 @@ namespace TTGJ.Modules.TaskSystem
         /// </summary>
         private void LoadUserTaskProgress()
         {
-            // 这里应该从PlayerPrefs或保存文件加载进度
-            // 初始状态下，添加第一个任务
+            // 从存档加载当前任务与已完成任务
+            int savedCount = PlayerPrefs.GetInt("TaskCount", 0);
+            if (savedCount > 0)
+            {
+                currentTasks.Clear();
+                for (int i = 0; i < savedCount; i++)
+                {
+                    int tid = PlayerPrefs.GetInt($"Task_{i}_Id", 0);
+                    int prog = PlayerPrefs.GetInt($"Task_{i}_Progress", 0);
+                    var data = GetTaskData(tid);
+                    if (data != null)
+                    {
+                        var t = new UserTask(data);
+                        t.RestoreProgress(prog);
+                        currentTasks.Add(t);
+                    }
+                }
+
+                completedTaskIds.Clear();
+                int doneCount = PlayerPrefs.GetInt("CompletedTaskCount", 0);
+                for (int i = 0; i < doneCount; i++)
+                {
+                    completedTaskIds.Add(PlayerPrefs.GetInt($"CompletedTask_{i}", 0));
+                }
+                return;
+            }
+
+            // 首次启动给第一个任务
             if (currentTasks.Count == 0)
             {
-                AcceptTask(1);
+                AcceptTask(1001);
             }
         }
 
@@ -459,6 +548,11 @@ namespace TTGJ.Modules.TaskSystem
                     if (goalParts.Length == 2 && int.TryParse(goalParts[0], out int requiredItemId) && requiredItemId == itemId)
                     {
                         task.UpdateProgress(quantity);
+                        // 触发进行中剧情
+                        if (!string.IsNullOrEmpty(task.ProgressPlotId))
+                        {
+                            TriggerPlot(task.ProgressPlotId);
+                        }
                         
                         // 检查任务是否完成
                         if (task.IsCompleted)

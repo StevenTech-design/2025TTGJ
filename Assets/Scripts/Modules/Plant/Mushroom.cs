@@ -57,6 +57,8 @@ namespace TTGJ.Plant
         {
             BuffBase buffBase = BuffManager.Instance.AddBuff<ReverseDirBuff>(PlayerController.Instance.transform);
             buffBase.StartBuff();
+            FastMoveBuff buff = BuffManager.Instance.AddBuff<FastMoveBuff>(PlayerController.Instance.transform,false);
+            buff.StartBuff();
         }
     }
 }

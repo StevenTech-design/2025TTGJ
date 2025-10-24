@@ -15,6 +15,9 @@ namespace TTGJ.Plant
         CauliFlowerForever = 2014,
         Tomato,
         ColorfulTomato,
-        Kivi,
+        Kivi = 2015,
+        KiwiFruitTree,
+
+        Grass = 2016,
     }
 }

@@ -52,7 +52,7 @@ namespace TTGJ.Modules.TaskSystem
             {
                 // 对话类任务或无需进度的任务
                 RequiredProgress = 1;
-                CurrentProgress = 1; // 自动完成
+                CurrentProgress = 0; // 不自动完成，由事件驱动完成
                 return;
             }
             
@@ -77,6 +77,16 @@ namespace TTGJ.Modules.TaskSystem
                 CurrentProgress = Mathf.Min(CurrentProgress + amount, RequiredProgress);
                 Debug.Log($"任务 {TaskName} 进度更新: {CurrentProgress}/{RequiredProgress}");
             }
+        }
+
+        /// <summary>
+        /// 恢复或设置任务当前进度（用于读档或事件直接完成）
+        /// </summary>
+        public void RestoreProgress(int progress)
+        {
+            int clamped = Mathf.Clamp(progress, 0, RequiredProgress);
+            CurrentProgress = clamped;
+            Debug.Log($"任务 {TaskName} 进度恢复: {CurrentProgress}/{RequiredProgress}");
         }
         
         /// <summary>

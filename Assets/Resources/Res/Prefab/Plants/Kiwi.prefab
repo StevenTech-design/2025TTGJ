@@ -58,7 +58,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -95,7 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec91253abb91d43b9b1cc1e2b9ead2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSoundInterval: 0.5
+  itemType: 2015
+  sackGo: {fileID: 0}
+  grothGo: {fileID: 0}
+  realGo: {fileID: 0}
+  currentState: 0
+  force: 1
 --- !u!1 &4901949992989290657
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,6 +21,7 @@ namespace TTGJ.GamePlay
         private float _currentHeight = 0;
         [SerializeField]
         private float _longTimeDropforce = 0;
+        public Transform modelTransform;
 
 
 
@@ -44,10 +45,8 @@ namespace TTGJ.GamePlay
 
         public void ToLift(GameObject target)
         {
-            if (target.TryGetComponent<Liftable>(out var liftable))
-            {
-                liftable.OnLift();
-            }
+            if(!target.TryGetComponent<Liftable>(out var liftable) || !liftable.IsLiftable()) return;
+            liftable.OnLift();
             _liftList.Enqueue(target.gameObject);
 
             target.transform.SetParent(liftArea);
@@ -104,6 +103,7 @@ namespace TTGJ.GamePlay
             seed.GetComponent<Collider>().enabled = true;
             seed.AddComponent<Rigidbody>();
             field.ToPlanting(seed.GetComponent<PlantBase>());
+            targetPlant.OnPlant();
         }
         public void ToEat()
         {

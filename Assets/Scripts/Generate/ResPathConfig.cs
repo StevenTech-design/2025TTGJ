@@ -10,9 +10,12 @@
         public const string UI = "UI";
         public const string Animation_Player = "Animation/Player";
         public const string Generate_Luban = "Generate/Luban";
+        public const string Prefab_NPC = "Prefab/NPC";
         public const string Prefab_Plants = "Prefab/Plants";
+        public const string Prefab_Player = "Prefab/Player";
         public const string Prefab_UI = "Prefab/UI";
         public const string UI_Panel = "UI/Panel";
+        public const string Plants_OriginModel = "Prefab/Plants/OriginModel";
         public const string Config_BuffConfigAsset = "Config/BuffConfigAsset";
         public const string Config_PlantGrowthConfigAsset = "Config/PlantGrowthConfigAsset";
         public const string Shader_RenderBorder = "Shader/RenderBorder";
@@ -22,16 +25,22 @@
         public const string Luban_tbglobal = "Generate/Luban/tbglobal";
         public const string Luban_tbitemcombine = "Generate/Luban/tbitemcombine";
         public const string Luban_tbitemnew = "Generate/Luban/tbitemnew";
+        public const string NPC_Sheep = "Prefab/NPC/Sheep";
         public const string Plants_Carrot = "Prefab/Plants/Carrot";
+        public const string Plants_Cauliflower = "Prefab/Plants/Cauliflower";
+        public const string Plants_CauliflowerForever = "Prefab/Plants/CauliflowerForever";
         public const string Plants_Kettle = "Prefab/Plants/Kettle";
+        public const string Plants_KiviTree = "Prefab/Plants/KiviTree";
         public const string Plants_Kiwi = "Prefab/Plants/Kiwi";
         public const string Plants_Mushroom = "Prefab/Plants/Mushroom";
         public const string Plants_Potato = "Prefab/Plants/Potato";
         public const string Plants_Pumpkin = "Prefab/Plants/Pumpkin";
-        public const string Plants_Sack = "Prefab/Plants/Sack";
-        public const string Plants_Seedling = "Prefab/Plants/Seedling";
         public const string Plants_Tomato = "Prefab/Plants/Tomato";
         public const string Plants_WaterBeet = "Prefab/Plants/WaterBeet";
+        public const string Player_Player = "Prefab/Player/Player";
         public const string UI_CommandInfo = "Prefab/UI/CommandInfo";
+        public const string OriginModel_Kivi = "Prefab/Plants/OriginModel/Kivi";
+        public const string OriginModel_Sack = "Prefab/Plants/OriginModel/Sack";
+        public const string OriginModel_Seedling = "Prefab/Plants/OriginModel/Seedling";
     }
 }
