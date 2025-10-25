@@ -1772,7 +1772,7 @@
     "name": "爆米花-花椰菜汤味",
     "itemTips": "",
     "itemType": 5,
-    "model": "prefab/Item/Popcorn_Cauliflower_Soup_Flavor",
+    "model": "Prefab/Plants/Kettle",
     "model_size": 1,
     "evo_id": 0,
     "drawing": 0,

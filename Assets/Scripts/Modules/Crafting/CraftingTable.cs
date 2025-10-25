@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using TTGJ.Framework;
+using TTGJ.Generate;
 using TTGJ.Interactable;
 using TTGJ.Luban;
 using UnityEngine;
@@ -26,23 +29,36 @@ namespace TTGJ.Crafting
         }
         private void ToCraft()
         {
-            var combineItem = GetTargetCraftObject();
-            if (combineItem != null)
-            {
-                Debug.Log("ToCraft: " + combineItem.Name);
+            var stringPath = GetTargetCraftObject();
+            if(string.IsNullOrEmpty(stringPath)) {
+                liftables[0].gameObject.SetActive(true);
+                liftables[1].gameObject.SetActive(true);
+                liftables[0].transform.position = transform.position + transform.forward * 2f;
+                liftables[1].transform.position = transform.position + transform.forward * 3f;
+                liftables.Clear();
+                return;
             }
-            else
-            { 
-                Debug.Log("No combine item back to player");
-            }
+            var obj = GameObject.Instantiate(StResources.Instance.LoadByResources<GameObject>(stringPath));
+            obj.transform.position = transform.position + transform.forward * 2f;
             liftables.Clear();
         }
-        private cfg.ItemCombine GetTargetCraftObject()
+        private string GetTargetCraftObject()
         {
             var combineItem = LubanManager.Instance.GetCombineItem((int)liftables[0].itemType, (int)liftables[1].itemType);
-            Debug.Log(combineItem);
-            return combineItem;
-            
+            if (combineItem == null) {
+                Debug.LogError("No combine item id: " + liftables[0].itemType + " " + liftables[1].itemType);
+                return null;
+            }
+             var itemNew = LubanManager.Instance.GetItemNew(combineItem.RewardBoxId);
+
+             if(itemNew == null) {
+                Debug.LogError("No item new id: " + combineItem.RewardBoxId);
+                return null;
+             }
+
+             return itemNew.Model;
+             
+
         }
     }
 }
