@@ -43,6 +43,7 @@ namespace TTGJ.Plant
             int rightBound = cellPos.x + halfSize + 1;
             int topBound = cellPos.y - halfSize - 1;
             int bottomBound = cellPos.y + halfSize + 1;
+            Debug.Log("ToOccupied: " + cellPos + " " + currentSize + " " + preSize + " " + leftBound + " " + rightBound + " " + topBound + " " + bottomBound);
 
             for (int x = leftBound; x <= rightBound; x++)
             {
@@ -105,6 +106,10 @@ namespace TTGJ.Plant
         }
         public void RemovePlant(PlantBase plant)
         {
+            if (!plantDic.ContainsKey(plant))
+            {
+                return;
+            }
             Vector2Int cellPos = plantDic[plant];
             plantDic.Remove(plant);
             fields[cellPos.x][cellPos.y].Release();

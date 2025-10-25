@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
@@ -13,12 +14,12 @@ namespace TTGJ.Plant
         [SerializeField]
         private float matureBoomTime = 10;
         private float matureTime;
-        private
+        private bool isNormalHarvest = true;
 
-        protected void OnMature()
+        public override void OnMature()
         {
-            base.OnMature();
             matureTime = Time.time;
+            base.OnMature();
         }
 
         private void OnTriggerStay(Collider other)
@@ -29,19 +30,15 @@ namespace TTGJ.Plant
             if (Time.time - matureTime >= matureBoomTime)
             {
                 //TODO: Create 5 havest potato
-                for (int i = 0; i < 5; i++)
-                {
-                    GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y * i, transform.rotation);
-                    potato.GetComponent<Potato>().ChangeState(PlantState.Harvest);
-                }
+                isNormalHarvest = false;
+                ChangeState(PlantState.Harvest);
+
             }
         }
         public override void OnTeleport(Transform baseTeleportPos)
         {
             base.OnTeleport(baseTeleportPos);
-            GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
-            potato.GetComponent<Potato>().ChangeState(PlantState.Harvest);
-            potato.GetComponent<Potato>().OnTeleport(baseTeleportPos);
+            _ = SpawnMorePotato(isNormalHarvest ? 2 : 5);
             FallCollisionBuff fallCollisionBuff = BuffManager.Instance.AddBuff<FallCollisionBuff>(transform);
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
             fallCollisionBuff.StartBuff();
@@ -56,5 +53,19 @@ namespace TTGJ.Plant
             BuffBase buffBase = BuffManager.Instance.AddBuff<FastMoveBuff>(PlayerController.Instance.transform);
             buffBase.StartBuff();
         }
+        private async UniTask SpawnMorePotato(int count)
+        {
+            transform.GetComponent<Rigidbody>().AddForce(Vector3.left * 1, ForceMode.Impulse);
+            for (int i = 0; i < count-1; i++)
+            {
+            GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
+            potato.GetComponent<Potato>().currentState = PlantState.Harvest;
+            potato.GetComponent<Potato>().InitModel();
+            potato.transform.localScale = transform.localScale;
+            transform.GetComponent<Rigidbody>().AddForce(Vector3.left * 1, ForceMode.Impulse);
+            await UniTask.Delay(100);
+            }
+        }
+
     }
 }

@@ -11,7 +11,7 @@ namespace TTGJ.Plant
     {
         private void OnTriggerEnter(Collider other)
         {
-            if(currentState <= PlantState.Mature) { 
+            if(currentState < PlantState.Mature) { 
                 return;
             }
             WateringOther();
