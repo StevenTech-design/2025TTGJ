@@ -2,6 +2,8 @@ using TTGJ.GamePlay;
 using TTGJ.Buff;
 using TTGJ.Generate;
 using UnityEngine;
+using DG.Tweening;
+using TTGJ.Config;
 
 namespace TTGJ.Plant
 {
@@ -23,6 +25,14 @@ namespace TTGJ.Plant
             Vector3 direction = other.transform.position - transform.position;
             rigidbody.AddForce(direction.normalized * force, ForceMode.Impulse);
             PlaySound();
+        }
+
+        public override void OnWatering() { 
+            ++currentGrouthCount;
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
+            mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
+            mySequence.Play();
         }
 
         private void PlaySound() { 

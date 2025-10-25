@@ -13,6 +13,7 @@ namespace TTGJ.Config
         private BuffConfigAsset buffConfigs;
         private List<int> defaultOccupiedFieldSize = new List<int> { 1, 1, 3, 3, 3 };
         private List<int> defaultHaverstSize = new List<int> { 1, 2, 2, 2, 5 };
+        private List<float> defaultGrowthSize = new List<float> { 1f, 2f, 3f, 4f, 5f };
         public void Init()
         {
             InitBuffConfigs();
@@ -64,12 +65,15 @@ namespace TTGJ.Config
             }
             if (!plantGrowthConfigs.TryGet(itemType, out PlantGrowthConfig config))
             {
-                return Vector3.one * growthCount;
+                return Vector3.one * (growthCount < defaultGrowthSize.Count ? defaultGrowthSize[growthCount - 1] : defaultGrowthSize[^1]);
             }
             return config.modelSize[growthCount - 1];
         }
         public int GetOccupiedFieldSize(ItemType itemType, int growthCount)
         {
+            if(growthCount <= 0) { 
+                return 1;
+            }
             if (plantGrowthConfigs == null)
             {
                 InitPlantGrowthConfigs();
