@@ -23,6 +23,7 @@ namespace TTGJ.Config
         {
             plantGrowthConfigs = StResources.Instance.LoadByResources<PlantGrowthConfigAsset>(ResPathConfig.Config_PlantGrowthConfigAsset);
             plantGrowthConfigs.RebuildCache();
+            Debug.Log("InitPlantGrowthConfigs: " + plantGrowthConfigs.configs.Count);
         }
         private void InitBuffConfigs()
         {
@@ -63,6 +64,7 @@ namespace TTGJ.Config
             {
                 InitPlantGrowthConfigs();
             }
+
             if (!plantGrowthConfigs.TryGet(itemType, out PlantGrowthConfig config))
             {
                 return Vector3.one * (growthCount < defaultGrowthSize.Count ? defaultGrowthSize[growthCount - 1] : defaultGrowthSize[^1]);

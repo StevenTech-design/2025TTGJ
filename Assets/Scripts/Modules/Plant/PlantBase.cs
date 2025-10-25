@@ -37,7 +37,8 @@ namespace TTGJ.Plant
             int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
             int willOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount + 1);
             ++currentGrouthCount;
-            if (currentGrouthCount == willOccupiedFieldSize)
+            Debug.Log("OnWatering: " + currentOccupiedFieldSize + " " + willOccupiedFieldSize + " " + currentGrouthCount);
+            if (currentOccupiedFieldSize == willOccupiedFieldSize)
             {
               
                 Sequence mySequence = DOTween.Sequence();
@@ -51,8 +52,6 @@ namespace TTGJ.Plant
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
             }
-
-            CheckEvolution();
         }
         protected virtual void OnHarvest()
         {
@@ -64,6 +63,7 @@ namespace TTGJ.Plant
             isLiftable = false;
             transform.SetParent(null);
             FieldSystem.Instance.RemovePlant(this);
+            CheckEvolution();
         }
         public virtual void ChangeState(PlantState state)
         {
