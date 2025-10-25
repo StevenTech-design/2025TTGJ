@@ -19,9 +19,10 @@ public sealed partial class ItemNew : Luban.BeanBase
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
-        { if(!_buf["itemTips"].IsString) { throw new SerializationException(); }  ItemTips = _buf["itemTips"]; }
+        { if(!_buf["itemTip"].IsString) { throw new SerializationException(); }  ItemTip = _buf["itemTip"]; }
         { if(!_buf["itemType"].IsNumber) { throw new SerializationException(); }  ItemType = _buf["itemType"]; }
         { if(!_buf["model"].IsString) { throw new SerializationException(); }  Model = _buf["model"]; }
+        { if(!_buf["icon"].IsString) { throw new SerializationException(); }  Icon = _buf["icon"]; }
         { if(!_buf["model_size"].IsNumber) { throw new SerializationException(); }  ModelSize = _buf["model_size"]; }
         { if(!_buf["evo_id"].IsNumber) { throw new SerializationException(); }  EvoId = _buf["evo_id"]; }
         { if(!_buf["drawing"].IsNumber) { throw new SerializationException(); }  Drawing = _buf["drawing"]; }
@@ -41,6 +42,7 @@ public sealed partial class ItemNew : Luban.BeanBase
         { if(!_buf["if_popcorn"].IsNumber) { throw new SerializationException(); }  IfPopcorn = _buf["if_popcorn"]; }
         { if(!_buf["if_hidden_door"].IsNumber) { throw new SerializationException(); }  IfHiddenDoor = _buf["if_hidden_door"]; }
         { if(!_buf["if_lake"].IsNumber) { throw new SerializationException(); }  IfLake = _buf["if_lake"]; }
+        { var __json0 = _buf["BuffType"]; if(!__json0.IsArray) { throw new SerializationException(); } BuffType = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  BuffType.Add(__v0); }   }
     }
 
     public static ItemNew DeserializeItemNew(JSONNode _buf)
@@ -59,7 +61,7 @@ public sealed partial class ItemNew : Luban.BeanBase
     /// <summary>
     /// 道具描述
     /// </summary>
-    public readonly string ItemTips;
+    public readonly string ItemTip;
     /// <summary>
     /// 类型
     /// </summary>
@@ -68,6 +70,10 @@ public sealed partial class ItemNew : Luban.BeanBase
     /// 道具模型
     /// </summary>
     public readonly string Model;
+    /// <summary>
+    /// 道具图标
+    /// </summary>
+    public readonly string Icon;
     /// <summary>
     /// 道具模型大小
     /// </summary>
@@ -144,6 +150,10 @@ public sealed partial class ItemNew : Luban.BeanBase
     /// 是否会被湖神吃
     /// </summary>
     public readonly int IfLake;
+    /// <summary>
+    /// buff效果
+    /// </summary>
+    public readonly System.Collections.Generic.List<int> BuffType;
    
     public const int __ID__ = -514125459;
     public override int GetTypeId() => __ID__;
@@ -157,9 +167,10 @@ public sealed partial class ItemNew : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "name:" + Name + ","
-        + "itemTips:" + ItemTips + ","
+        + "itemTip:" + ItemTip + ","
         + "itemType:" + ItemType + ","
         + "model:" + Model + ","
+        + "icon:" + Icon + ","
         + "modelSize:" + ModelSize + ","
         + "evoId:" + EvoId + ","
         + "drawing:" + Drawing + ","
@@ -179,6 +190,7 @@ public sealed partial class ItemNew : Luban.BeanBase
         + "ifPopcorn:" + IfPopcorn + ","
         + "ifHiddenDoor:" + IfHiddenDoor + ","
         + "ifLake:" + IfLake + ","
+        + "BuffType:" + Luban.StringUtil.CollectionToString(BuffType) + ","
         + "}";
     }
 }

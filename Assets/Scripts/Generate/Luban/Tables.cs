@@ -17,12 +17,16 @@ public partial class Tables
     public TbGlobal TbGlobal {get; }
     public TbItemNew TbItemNew {get; }
     public TBItemCombine TBItemCombine {get; }
+    public TbPlot TbPlot {get; }
+    public TbTask TbTask {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
         TbGlobal = new TbGlobal(loader("tbglobal"));
         TbItemNew = new TbItemNew(loader("tbitemnew"));
         TBItemCombine = new TBItemCombine(loader("tbitemcombine"));
+        TbPlot = new TbPlot(loader("tbplot"));
+        TbTask = new TbTask(loader("tbtask"));
         ResolveRef();
     }
     
@@ -31,6 +35,8 @@ public partial class Tables
         TbGlobal.ResolveRef(this);
         TbItemNew.ResolveRef(this);
         TBItemCombine.ResolveRef(this);
+        TbPlot.ResolveRef(this);
+        TbTask.ResolveRef(this);
     }
 }
 

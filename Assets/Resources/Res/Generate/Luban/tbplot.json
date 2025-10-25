@@ -1,0 +1,317 @@
+[
+  {
+    "id": 1,
+    "name": "主线对话",
+    "npc_id": 11004,
+    "text_time": "这里是……#2",
+    "next_id": 2
+  },
+  {
+    "id": 2,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "人类！你跟过来了！#3",
+    "next_id": 3
+  },
+  {
+    "id": 3,
+    "name": "主线对话",
+    "npc_id": 11004,
+    "text_time": "你好啊小甜菜#3",
+    "next_id": 4
+  },
+  {
+    "id": 4,
+    "name": "主线对话",
+    "npc_id": 11004,
+    "text_time": "我是格蕾丝#2",
+    "next_id": 5
+  },
+  {
+    "id": 5,
+    "name": "主线对话",
+    "npc_id": 11004,
+    "text_time": "这个挂件是你的吗？#3",
+    "next_id": 6
+  },
+  {
+    "id": 6,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "嗯……#2",
+    "next_id": 7
+  },
+  {
+    "id": 7,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "是我的，谢谢你！#3",
+    "next_id": 8
+  },
+  {
+    "id": 8,
+    "name": "主线对话",
+    "npc_id": 11004,
+    "text_time": "不客气#2",
+    "next_id": 9
+  },
+  {
+    "id": 9,
+    "name": "主线对话",
+    "npc_id": 11004,
+    "text_time": "这是哪里啊？#3",
+    "next_id": 10
+  },
+  {
+    "id": 10,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "欢迎来到尾砂岛！#3",
+    "next_id": 11
+  },
+  {
+    "id": 11,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "吓到你了吗？#3",
+    "next_id": 12
+  },
+  {
+    "id": 12,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "我是尾砂岛的守护者#3",
+    "next_id": 13
+  },
+  {
+    "id": 13,
+    "name": "主线对话",
+    "npc_id": 11000,
+    "text_time": "",
+    "next_id": 14
+  },
+  {
+    "id": 14,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 15
+  },
+  {
+    "id": 15,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 16
+  },
+  {
+    "id": 16,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 17
+  },
+  {
+    "id": 17,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 18
+  },
+  {
+    "id": 18,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 19
+  },
+  {
+    "id": 19,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 20
+  },
+  {
+    "id": 20,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 21
+  },
+  {
+    "id": 21,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 22
+  },
+  {
+    "id": 22,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 23
+  },
+  {
+    "id": 23,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 24
+  },
+  {
+    "id": 24,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 25
+  },
+  {
+    "id": 25,
+    "name": "主线对话",
+    "npc_id": 0,
+    "text_time": "",
+    "next_id": 26
+  },
+  {
+    "id": 201,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "想成为农场主",
+    "next_id": 202
+  },
+  {
+    "id": 202,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "种植是最关键的一步",
+    "next_id": 203
+  },
+  {
+    "id": 203,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "种下种子",
+    "next_id": 204
+  },
+  {
+    "id": 204,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "浇水可以让作物生长更快",
+    "next_id": 205
+  },
+  {
+    "id": 205,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "先拿土豆试试手吧",
+    "next_id": 206
+  },
+  {
+    "id": 206,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "甜菜爱吃土豆",
+    "next_id": 207
+  },
+  {
+    "id": 207,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "你已经是合格的农场主了",
+    "next_id": 208
+  },
+  {
+    "id": 208,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "我讨厌杂草！",
+    "next_id": 209
+  },
+  {
+    "id": 209,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "它们总是霸占我的田地",
+    "next_id": 210
+  },
+  {
+    "id": 210,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "是时候发动所有居民清理杂草了",
+    "next_id": 211
+  },
+  {
+    "id": 211,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "农场美丽多了！",
+    "next_id": 212
+  },
+  {
+    "id": 212,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "农场还有一位新居民",
+    "next_id": 213
+  },
+  {
+    "id": 213,
+    "name": "任务对话",
+    "npc_id": 11000,
+    "text_time": "你去找找他吧",
+    "next_id": 214
+  },
+  {
+    "id": 214,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "你好！",
+    "next_id": 215
+  },
+  {
+    "id": 215,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "你也是新居民吗？",
+    "next_id": 216
+  },
+  {
+    "id": 216,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "我叫程序猿",
+    "next_id": 217
+  },
+  {
+    "id": 217,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "谢谢你帮我",
+    "next_id": 218
+  },
+  {
+    "id": 218,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "谢谢你！",
+    "next_id": 219
+  },
+  {
+    "id": 219,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "送你几包花椰菜种子",
+    "next_id": 220
+  },
+  {
+    "id": 220,
+    "name": "任务对话",
+    "npc_id": 11002,
+    "text_time": "",
+    "next_id": 0
+  }
+]
