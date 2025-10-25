@@ -26,6 +26,9 @@ namespace TTGJ.Plant
             SpawnKiwiFruit();
         }
         public override void OnWatering() { 
+            if(kiwiFruit == null) { 
+                return;
+            }
             kiwiFruit.OnWatering();
         }
         private void SpawnKiwiFruit() { 
