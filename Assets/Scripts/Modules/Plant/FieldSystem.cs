@@ -43,6 +43,7 @@ namespace TTGJ.Plant
             int rightBound = cellPos.x + halfSize + 1;
             int topBound = cellPos.y - halfSize - 1;
             int bottomBound = cellPos.y + halfSize + 1;
+            Debug.Log("ToOccupied: " + cellPos + " " + currentSize + " " + preSize + " " + leftBound + " " + rightBound + " " + topBound + " " + bottomBound);
 
             for (int x = leftBound; x <= rightBound; x++)
             {
@@ -87,7 +88,6 @@ namespace TTGJ.Plant
                         continue;
 
                     PlantBase plant = fields[x][y].GetOccupiedPlant();
-                    Debug.Log("GetSurroundPlants: " + plant);
                     if (plant != null && !plants.Contains(plant))
                     {
                         plants.Add(plant);
@@ -105,9 +105,16 @@ namespace TTGJ.Plant
         }
         public void RemovePlant(PlantBase plant)
         {
+            if (!plantDic.ContainsKey(plant))
+            {
+                return;
+            }
             Vector2Int cellPos = plantDic[plant];
             plantDic.Remove(plant);
             fields[cellPos.x][cellPos.y].Release();
+        }
+        public void WateringField(Vector2Int cellPos) { 
+            fields[cellPos.x][cellPos.y].ToWet();
         }
     }    
 }

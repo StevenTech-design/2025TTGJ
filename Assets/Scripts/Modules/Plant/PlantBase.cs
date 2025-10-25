@@ -14,8 +14,7 @@ namespace TTGJ.Plant
         protected GameObject grothGo;
         [SerializeField]
         protected GameObject realGo;
-        [SerializeField]
-        protected PlantState currentState = PlantState.Seed;
+        public PlantState currentState = PlantState.Seed;
         protected int currentGrouthCount = 0;
 
         private Color originalColor;
@@ -31,49 +30,28 @@ namespace TTGJ.Plant
             if (currentState == PlantState.Germination)
             {
                 ChangeState(PlantState.Mature);
-                ++currentGrouthCount;
-                return;
             }
+            
 
             int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
             int willOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount + 1);
-
-            if (currentGrouthCount == willOccupiedFieldSize)
+            
+            Debug.Log("OnWatering: " + currentOccupiedFieldSize + " " + willOccupiedFieldSize + " " + currentGrouthCount);
+            if (currentOccupiedFieldSize == willOccupiedFieldSize)
             {
                 ++currentGrouthCount;
-              
-                
-                // 成熟动画1
-                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
-                // 成熟动画2
-                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic);
-                
-                // 生长动画3 + 成熟动画
                 Sequence mySequence = DOTween.Sequence();
-                mySequence.Append(transform.DOScale(1.5f, 1f)); //生长阶段
-                mySequence.Append(transform.DOScale(new Vector3(2, 2, 2), 0.5f).SetEase(Ease.OutElastic)); //成熟时刻
+                mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
+                mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
                 
-                // TODO:落地动画
-                // transform.DOPunchScale(new Vector3(-0.2f, 0.5f, -0.2f), 0.2f);
-
-
             }
             else if (FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos, currentOccupiedFieldSize, willOccupiedFieldSize))
             {
                 ++currentGrouthCount;
-                // 成熟动画1
-                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f);
-                // 成熟动画2
-                // transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic);
-                
-                // 生长动画3 + 成熟动画
                 Sequence mySequence = DOTween.Sequence();
-                mySequence.Append(transform.DOScale(1.5f, 1f)); //生长阶段
-                mySequence.Append(transform.DOScale(new Vector3(2, 2, 2), 0.5f).SetEase(Ease.OutElastic)); //成熟时刻
-
+                mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
+                mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
             }
-
-            CheckEvolution();
         }
         protected virtual void OnHarvest()
         {
@@ -118,10 +96,13 @@ namespace TTGJ.Plant
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
-            transform.localScale = ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount);
+            transform.localScale = Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount);;
             transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
             isLiftable = true;
             rigidbody.constraints = RigidbodyConstraints.None;
+            CheckEvolution();
+
+
         }
 
         public virtual void OnGermination()
@@ -152,7 +133,7 @@ namespace TTGJ.Plant
         {
             //GetComponentInChildren<Renderer>().material.color = color;
         }
-        private void InitModel()
+        public void InitModel()
         {
             Debug.Log("InitModel: " + currentState);
             if (modelRoot == null)
@@ -169,7 +150,7 @@ namespace TTGJ.Plant
             {
                 go = GameObject.Instantiate(grothGo);
             }
-            else if (currentState == PlantState.Mature)
+            else if (currentState >= PlantState.Mature)
             {
                 go = GameObject.Instantiate(realGo);
             }

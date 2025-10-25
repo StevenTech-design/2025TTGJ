@@ -1,4 +1,5 @@
 using TTGJ.Framework.Timer;
+using TTGJ.GamePlay;
 using UnityEngine;
 
 namespace TTGJ.Plant {
@@ -22,16 +23,18 @@ namespace TTGJ.Plant {
         }
 
         private void CreateGrass(int index) { 
+            Debug.Log("CreateGrass: " + index);
             GameObject grass = GameObject.Instantiate(grassPrefab);
             grass.transform.SetParent(spawnPoint[index]);
             grass.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             grass.transform.localScale = Vector3.one;
-            grass.GetComponent<Grass>().ChangeState(PlantState.Harvest);
+            grass.GetComponent<Grass>().currentState = PlantState.Mature;
             grass.GetComponent<Grass>().index = index;
             grass.GetComponent<Grass>().OnGrassHarvested += OnGrassHarvested;
         }
-        private void OnGrassHarvested(int index) { 
+        private void OnGrassHarvested(GameObject grass,int index) { 
             TimerManager.Instance.StartTimer(spawnInterval, () => { CreateGrass(index); });
+            PlayerController.Instance.ToLift(grass);
         }
     }
 }

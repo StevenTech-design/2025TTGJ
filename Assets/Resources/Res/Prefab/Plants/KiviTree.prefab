@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bac038e8ec6142ffbbaabed6457df45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2018
+  itemType: 2016
   sackGo: {fileID: 0}
   grothGo: {fileID: 0}
   realGo: {fileID: 0}
