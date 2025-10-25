@@ -111,7 +111,6 @@ namespace TTGJ.GamePlay
             seed.AddComponent<Rigidbody>();
             field.ToPlanting(seed.GetComponent<PlantBase>());
             targetPlant.OnPlant();
-            RefreshLiftQueue();
         }
         public void ToEat()
         {

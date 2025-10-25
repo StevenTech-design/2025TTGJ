@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TTGJ.GamePlay;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -26,6 +27,7 @@ namespace TTGJ.Plant
         }
         public override void OnPlant() { 
             base.OnPlant();
+            PlayerController.Instance.ToDrop();
             Destroy(this.gameObject);
         }
 
