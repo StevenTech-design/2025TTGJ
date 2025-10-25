@@ -63,7 +63,6 @@ namespace TTGJ.Plant
             isLiftable = false;
             transform.SetParent(null);
             FieldSystem.Instance.RemovePlant(this);
-            CheckEvolution();
         }
         public virtual void ChangeState(PlantState state)
         {
@@ -97,10 +96,13 @@ namespace TTGJ.Plant
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
-            transform.localScale = ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount);
+            transform.localScale = Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount);;
             transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
             isLiftable = true;
             rigidbody.constraints = RigidbodyConstraints.None;
+            CheckEvolution();
+
+
         }
 
         public virtual void OnGermination()
