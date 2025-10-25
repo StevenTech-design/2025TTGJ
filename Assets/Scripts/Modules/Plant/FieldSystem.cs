@@ -88,7 +88,6 @@ namespace TTGJ.Plant
                         continue;
 
                     PlantBase plant = fields[x][y].GetOccupiedPlant();
-                    Debug.Log("GetSurroundPlants: " + plant);
                     if (plant != null && !plants.Contains(plant))
                     {
                         plants.Add(plant);
@@ -113,6 +112,9 @@ namespace TTGJ.Plant
             Vector2Int cellPos = plantDic[plant];
             plantDic.Remove(plant);
             fields[cellPos.x][cellPos.y].Release();
+        }
+        public void WateringField(Vector2Int cellPos) { 
+            fields[cellPos.x][cellPos.y].ToWet();
         }
     }    
 }

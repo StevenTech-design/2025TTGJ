@@ -69,7 +69,7 @@ namespace TTGJ.Config
             {
                 return Vector3.one * (growthCount < defaultGrowthSize.Count ? defaultGrowthSize[growthCount - 1] : defaultGrowthSize[^1]);
             }
-            return config.modelSize[growthCount - 1];
+            return config.modelSize[growthCount < config.modelSize.Count ? growthCount - 1 : config.modelSize.Count - 1];
         }
         public int GetOccupiedFieldSize(ItemType itemType, int growthCount)
         {
