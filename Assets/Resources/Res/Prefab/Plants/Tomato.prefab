@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11141b8079a7dee4d8dccae9e8329838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2006
+  itemType: 1006
   sackGo: {fileID: 8370064568671317185, guid: 3f7e1d3e082c1d74facd761ec4f456c0, type: 3}
   grothGo: {fileID: 919132149155446097, guid: 63228f9d6402eaa4d927c5c608da438c, type: 3}
   realGo: {fileID: 919132149155446097, guid: 146c5d637d335eb4f85aa45321555beb, type: 3}
+  currentState: 0
   dyeingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!54 &2169373708225191922
 Rigidbody:

@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4befa7bd3a1d74b439742626096f15c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemType: 2014
+  itemType: 1014
   sackGo: {fileID: 5696905122054284051, guid: 56c23bd4268811047b4242b50bec1f59, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
   realGo: {fileID: 919132149155446097, guid: be4626243ff14634fa941b8b2f73bb13, type: 3}
+  currentState: 0
 --- !u!54 &7802674335933489155
 Rigidbody:
   m_ObjectHideFlags: 0

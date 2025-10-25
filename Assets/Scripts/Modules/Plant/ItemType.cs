@@ -4,6 +4,22 @@ namespace TTGJ.Plant
     {
         Kettle = 5001,
         NPC = 7001,
+
+        //SeedBag
+        PotatoSeedBag = 1001,
+        MushroomSeedBag = 1002,
+        PumpkinSeedBag = 1003,
+        CarrotSeedBag = 1004,
+        WaterBeetSeedBag = 1005,
+        TomatoRedSeedBag = 1006,
+        TomatoOrangeSeedBag = 1007,
+        TomatoYellowSeedBag = 1008,
+        TomatoGreenSeedBag = 1009,
+        TomatoCyanSeedBag = 1010,
+        TomatoBlueSeedBag = 1011,
+        TomatoPurpleSeedBag = 1012,
+        CauliFlowerSeedBag = 1013,
+        CauliFlowerForeverSeedBag = 1014,
         //Plants
         Potato = 2001,
         Mushroom = 2002,

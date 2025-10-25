@@ -192,7 +192,11 @@ namespace TTGJ.Plant
             
         }
         public virtual void OnPlant() { 
-
+           var itemNew = LubanManager.Instance.GetItemNew((int)itemType);
+           if (itemNew != null)
+           {
+                itemType = (ItemType)itemNew.EvoId;
+           }
         }
     }
 }
