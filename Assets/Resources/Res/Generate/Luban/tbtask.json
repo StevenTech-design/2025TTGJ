@@ -3,14 +3,25 @@
     "goalId": 1001,
     "name": "初来乍到",
     "npc": 0,
-    "goalCount": "",
-    "reward": "1001#10&5001#1",
+    "goalCount": [],
+    "reward": [
+      {
+        "ItemId": 1001,
+        "count": 10
+      },
+      {
+        "ItemId": 5001,
+        "count": 1
+      }
+    ],
     "accept_dialog": [
-      201202
+      201,
+      202
     ],
     "progress_hint": [],
     "complete_dialog": [
-      203204
+      203,
+      204
     ],
     "next_goalId": 1002,
     "npc_quest_bubble": ""
@@ -19,8 +30,18 @@
     "goalId": 1002,
     "name": "种出十个土豆",
     "npc": 0,
-    "goalCount": "2001#10",
-    "reward": "1013#1",
+    "goalCount": [
+      {
+        "ItemId": 2001,
+        "count": 10
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 1013,
+        "count": 1
+      }
+    ],
     "accept_dialog": [
       205
     ],
@@ -37,16 +58,29 @@
     "goalId": 1003,
     "name": "清理十个杂草",
     "npc": 0,
-    "goalCount": "2016#10",
-    "reward": "1004#11",
+    "goalCount": [
+      {
+        "ItemId": 2016,
+        "count": 10
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 1004,
+        "count": 11
+      }
+    ],
     "accept_dialog": [
-      208209
+      208,
+      209
     ],
     "progress_hint": [
       210
     ],
     "complete_dialog": [
-      211212213
+      211,
+      212,
+      213
     ],
     "next_goalId": 1004,
     "npc_quest_bubble": "Art/Images/Icons/Group 62@2x#10"
@@ -55,8 +89,8 @@
     "goalId": 1004,
     "name": "新朋友",
     "npc": 0,
-    "goalCount": "",
-    "reward": "",
+    "goalCount": [],
+    "reward": [],
     "accept_dialog": [],
     "progress_hint": [],
     "complete_dialog": [],
@@ -67,16 +101,29 @@
     "goalId": 1005,
     "name": "新朋友程序猿",
     "npc": 2,
-    "goalCount": "1004#1",
-    "reward": "1014#10",
+    "goalCount": [
+      {
+        "ItemId": 1004,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 1014,
+        "count": 10
+      }
+    ],
     "accept_dialog": [
-      214215216
+      214,
+      215,
+      216
     ],
     "progress_hint": [
       217
     ],
     "complete_dialog": [
-      218219
+      218,
+      219
     ],
     "next_goalId": 1006,
     "npc_quest_bubble": "Art/Images/Icons/Group 62@2x#10"
@@ -85,8 +132,8 @@
     "goalId": 1006,
     "name": "奇怪的花椰菜",
     "npc": 2,
-    "goalCount": "",
-    "reward": "",
+    "goalCount": [],
+    "reward": [],
     "accept_dialog": [],
     "progress_hint": [],
     "complete_dialog": [],
@@ -97,8 +144,8 @@
     "goalId": 1007,
     "name": "爆米花机",
     "npc": 1,
-    "goalCount": "",
-    "reward": "",
+    "goalCount": [],
+    "reward": [],
     "accept_dialog": [],
     "progress_hint": [],
     "complete_dialog": [],
@@ -109,8 +156,8 @@
     "goalId": 1008,
     "name": "蔬菜房子",
     "npc": 2,
-    "goalCount": "",
-    "reward": "",
+    "goalCount": [],
+    "reward": [],
     "accept_dialog": [],
     "progress_hint": [],
     "complete_dialog": [],
@@ -121,8 +168,8 @@
     "goalId": 1009,
     "name": "七色番茄",
     "npc": 3,
-    "goalCount": "",
-    "reward": "",
+    "goalCount": [],
+    "reward": [],
     "accept_dialog": [],
     "progress_hint": [],
     "complete_dialog": [],
@@ -133,8 +180,8 @@
     "goalId": 1010,
     "name": "999土豆",
     "npc": 4,
-    "goalCount": "",
-    "reward": "",
+    "goalCount": [],
+    "reward": [],
     "accept_dialog": [],
     "progress_hint": [],
     "complete_dialog": [],

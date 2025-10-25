@@ -133,6 +133,14 @@ namespace TTGJ.Luban
             }
             return item.EvoId;
         }
+        public cfg.plot GetPlot(int id)
+        {
+            return _tables.TbPlot.Get(id);
+        }
+        public cfg.task GetTask(int id)
+        {
+            return _tables.TbTask.Get(id);
+        }
 
 
         #endregion

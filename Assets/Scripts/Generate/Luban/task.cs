@@ -20,8 +20,8 @@ public sealed partial class task : Luban.BeanBase
         { if(!_buf["goalId"].IsNumber) { throw new SerializationException(); }  GoalId = _buf["goalId"]; }
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
         { if(!_buf["npc"].IsNumber) { throw new SerializationException(); }  Npc = _buf["npc"]; }
-        { if(!_buf["goalCount"].IsString) { throw new SerializationException(); }  GoalCount = _buf["goalCount"]; }
-        { if(!_buf["reward"].IsString) { throw new SerializationException(); }  Reward = _buf["reward"]; }
+        { var __json0 = _buf["goalCount"]; if(!__json0.IsArray) { throw new SerializationException(); } GoalCount = new System.Collections.Generic.List<ItemConfig>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { ItemConfig __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.ItemConfig.DeserializeItemConfig(__e0);  }  GoalCount.Add(__v0); }   }
+        { var __json0 = _buf["reward"]; if(!__json0.IsArray) { throw new SerializationException(); } Reward = new System.Collections.Generic.List<ItemConfig>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { ItemConfig __v0;  { if(!__e0.IsObject) { throw new SerializationException(); }  __v0 = global::cfg.ItemConfig.DeserializeItemConfig(__e0);  }  Reward.Add(__v0); }   }
         { var __json0 = _buf["accept_dialog"]; if(!__json0.IsArray) { throw new SerializationException(); } AcceptDialog = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  AcceptDialog.Add(__v0); }   }
         { var __json0 = _buf["progress_hint"]; if(!__json0.IsArray) { throw new SerializationException(); } ProgressHint = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  ProgressHint.Add(__v0); }   }
         { var __json0 = _buf["complete_dialog"]; if(!__json0.IsArray) { throw new SerializationException(); } CompleteDialog = new System.Collections.Generic.List<int>(__json0.Count); foreach(JSONNode __e0 in __json0.Children) { int __v0;  { if(!__e0.IsNumber) { throw new SerializationException(); }  __v0 = __e0; }  CompleteDialog.Add(__v0); }   }
@@ -49,11 +49,11 @@ public sealed partial class task : Luban.BeanBase
     /// <summary>
     /// 任务要求
     /// </summary>
-    public readonly string GoalCount;
+    public readonly System.Collections.Generic.List<ItemConfig> GoalCount;
     /// <summary>
     /// 奖励
     /// </summary>
-    public readonly string Reward;
+    public readonly System.Collections.Generic.List<ItemConfig> Reward;
     /// <summary>
     /// 接取时剧情id
     /// </summary>
@@ -80,6 +80,8 @@ public sealed partial class task : Luban.BeanBase
 
     public  void ResolveRef(Tables tables)
     {
+        foreach (var _e in GoalCount) { _e?.ResolveRef(tables); }
+        foreach (var _e in Reward) { _e?.ResolveRef(tables); }
     }
 
     public override string ToString()
@@ -88,8 +90,8 @@ public sealed partial class task : Luban.BeanBase
         + "goalId:" + GoalId + ","
         + "name:" + Name + ","
         + "npc:" + Npc + ","
-        + "goalCount:" + GoalCount + ","
-        + "reward:" + Reward + ","
+        + "goalCount:" + Luban.StringUtil.CollectionToString(GoalCount) + ","
+        + "reward:" + Luban.StringUtil.CollectionToString(Reward) + ","
         + "acceptDialog:" + Luban.StringUtil.CollectionToString(AcceptDialog) + ","
         + "progressHint:" + Luban.StringUtil.CollectionToString(ProgressHint) + ","
         + "completeDialog:" + Luban.StringUtil.CollectionToString(CompleteDialog) + ","

@@ -3,6 +3,8 @@ using TTGJ.Interactable;
 using TTGJ.Task;
 using System.Collections.Generic;
 using cfg;
+using TTGJ.Luban;
+using TTGJ.Framework;
 
 namespace TTGJ.Task
 {
@@ -10,17 +12,139 @@ namespace TTGJ.Task
     {
         [SerializeField]
         protected NPCType npcType;
-        protected int currentTaskId;
+        [SerializeField]
+        protected Plot plot;
+        [SerializeField]
+        protected TaskInfo taskInfo;
         protected task currentTask;
+        protected TaskConfig currentTaskConfig = new TaskConfig() { 
+            TaskId = 1001,
+            TaskState = TaskState.NotAccept,
+        };
 
-        protected List<int>currentItemIds = new List<int>();
+        protected Dictionary<int, int> currentItemCount = new Dictionary<int, int>();
+        private HashSet<GameObject> goalItems = new HashSet<GameObject>();
 
-        protected bool CheckFinishTask() {
-           // currentTask.goal
+        protected virtual void OnTriggerEnter(Collider other) {
+            Debug.Log("OnTriggerEnter: " + other.gameObject.layer);
+            if(other.gameObject.layer == LayerMask.NameToLayer("Player")) {
+                ToCompleteTask();
+                return;
+            }
+
+            if (!other.gameObject.TryGetComponent<Liftable>(out var liftable)) { 
+                return;
+            }
+
+            if (CheckNeedItem((int)liftable.itemType, currentTask.GoalCount)) { 
+                currentItemCount[(int)liftable.itemType]++;
+                goalItems.Add(liftable.gameObject);
+            }
+        }
+        protected virtual void OnTriggerExit(Collider other) {
+            if(!other.gameObject.TryGetComponent<Liftable>(out var liftable)) {
+                return;
+            }
+            if(goalItems.Contains(liftable.gameObject)) {
+                currentItemCount[(int)liftable.itemType]--;
+                goalItems.Remove(liftable.gameObject);
+            }
+        }
+        protected bool CheckNeedItem(int itemId, List<ItemConfig> goalCount) { 
+            if(goalCount == null || goalCount.Count == 0) {
+                return false;
+            }
+            foreach(var item in goalCount) {
+                if(item.ItemId == itemId) {
+                    return true;
+                }
+            }
             return false;
         }
 
-        
+        protected void ToAcceptTask(int taskId)
+        {
+            currentTask = LubanManager.Instance.GetTask(taskId);
+            Debug.Log("ToAcceptTask: " + taskId + currentTask);
+            plot.onPlotComplete = () => { 
+                taskInfo.SetTaskInfo(taskId);
+                currentTaskConfig.TaskState = TaskState.NotComplete;
+                ToCompleteTask(taskId);
+            };
+            plot.SetPlot(currentTask.AcceptDialog);
+        }
+        protected bool CheckFinishTask() {
+            if (currentTask.GoalCount.Count == 0) {
+                return true;
+            }
+            if(currentItemCount.Count != currentTask.GoalCount.Count) {
+                return false;
+            }
+            foreach(var item in currentTask.GoalCount) {
+                if(!currentItemCount.ContainsKey(item.ItemId) && currentItemCount[item.ItemId] != item.Count) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        protected void ToCompleteTask(int taskId)
+        {
+            currentTask = LubanManager.Instance.GetTask(taskId);
+            Debug.Log("ToCompleteTask: " + taskId + currentTask + currentTask.ProgressHint);
+            plot.onPlotComplete = () => { 
+                if(CheckFinishTask()) {
+                    Debug.Log("CheckFinishTask: true " );
+                    currentTaskConfig.TaskState = TaskState.NotReward;
+                    ClearGoalItems();
+                    ToRewardTask();
+                }
+            };
+            plot.SetPlot(currentTask.ProgressHint);
+            taskInfo.SetTaskInfo(taskId);
+            
+        }
+        protected virtual void ToRewardTask() { 
+            plot.SetPlot(currentTask.CompleteDialog);
+            plot.onPlotComplete = () => { 
+                taskInfo.SetTaskInfo(currentTaskConfig.TaskId);
+                ClaimRewardTask();
+            };
+        }
 
+        protected virtual void ClaimRewardTask() {
+            for (int i = 0; i < currentTask.Reward.Count; i++) { 
+                var itemConfig = LubanManager.Instance.GetItemNew(currentTask.Reward[i].ItemId);
+                string path = itemConfig.Model;
+                Debug.Log("ClaimRewardTask: " + path + " " + currentTask.Reward[i].ItemId);
+                var item = Instantiate(StResources.Instance.LoadByResources<GameObject>(path));
+                item.transform.position = transform.position + transform.forward * (i + 1);
+                item.transform.localScale = Vector3.one;
+            }
+            currentTaskConfig.TaskId = currentTask.NextGoalId;
+            currentTaskConfig.TaskState = TaskState.NotAccept;
+            var nextTask = LubanManager.Instance.GetTask(currentTaskConfig.TaskId);
+            if (nextTask.Npc != (int)npcType) {
+                return;
+            }
+            ToAcceptTask(currentTaskConfig.TaskId);
+        }
+
+        protected virtual void ToCompleteTask() {
+            if (currentTaskConfig.TaskState == TaskState.NotAccept) { 
+                ToAcceptTask(currentTaskConfig.TaskId);
+            }
+            if (currentTaskConfig.TaskState == TaskState.NotComplete) {
+                CheckFinishTask();
+            }
+            if (currentTaskConfig.TaskState == TaskState.NotReward) {
+                ToRewardTask();
+            }
+        }
+        protected virtual void ClearGoalItems() {
+            foreach(var item in goalItems) {
+                Destroy(item);
+            }
+            goalItems.Clear();
+        }
     }
 }
