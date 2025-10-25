@@ -1,11 +1,13 @@
 using System;
 using TTGJ.Buff;
 using TTGJ.GamePlay;
+using UnityEngine;
 
 namespace TTGJ.Plant {
     public class Grass : PlantBase {
         public Action <int> OnGrassHarvested;
         public int index;
+        private bool isHarvested = false;
         public override void OnMature() { 
 
         }
@@ -15,7 +17,13 @@ namespace TTGJ.Plant {
         public override void OnWatering() { 
 
         }
-        protected override void OnHarvest() { 
+        public override void OnLift() { 
+            base.OnLift();
+            if(isHarvested) { 
+                return;
+            }
+            isHarvested = true;
+            Debug.Log("Grass OnHarvest: " + index);
             OnGrassHarvested?.Invoke(index);
         }
         public override void OnEat() { 

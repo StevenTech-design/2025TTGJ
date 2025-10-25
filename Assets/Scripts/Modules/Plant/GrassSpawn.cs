@@ -22,11 +22,12 @@ namespace TTGJ.Plant {
         }
 
         private void CreateGrass(int index) { 
+            Debug.Log("CreateGrass: " + index);
             GameObject grass = GameObject.Instantiate(grassPrefab);
             grass.transform.SetParent(spawnPoint[index]);
             grass.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             grass.transform.localScale = Vector3.one;
-            grass.GetComponent<Grass>().ChangeState(PlantState.Harvest);
+            grass.GetComponent<Grass>().currentState = PlantState.Harvest;
             grass.GetComponent<Grass>().index = index;
             grass.GetComponent<Grass>().OnGrassHarvested += OnGrassHarvested;
         }

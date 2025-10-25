@@ -14,8 +14,7 @@ namespace TTGJ.Plant
         protected GameObject grothGo;
         [SerializeField]
         protected GameObject realGo;
-        [SerializeField]
-        protected PlantState currentState = PlantState.Seed;
+        public PlantState currentState = PlantState.Seed;
         protected int currentGrouthCount = 0;
 
         private Color originalColor;
