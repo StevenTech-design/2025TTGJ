@@ -98,7 +98,8 @@ MonoBehaviour:
   itemType: 2001
   sackGo: {fileID: 3018594825997760935, guid: 2615070ea29b45a469d387039930325e, type: 3}
   grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
-  realGo: {fileID: 1825261040610285934}
+  realGo: {fileID: 919132149155446097, guid: d464bca357ad2b14a9db67fd3a49e874, type: 3}
+  currentState: 0
   matureBoomTime: 10
 --- !u!1 &6495424408358200534
 GameObject:
@@ -124,14 +125,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6495424408358200534}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.0013089952, z: 0, w: 0.9999992}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1907000440644349962}
   m_Father: {fileID: 3734246146714202786}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.15, z: 0}
 --- !u!1001 &7338293609810208203
 PrefabInstance:
   m_ObjectHideFlags: 0

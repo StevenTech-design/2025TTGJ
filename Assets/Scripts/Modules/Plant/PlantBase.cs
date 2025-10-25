@@ -36,11 +36,11 @@ namespace TTGJ.Plant
 
             int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
             int willOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount + 1);
-            ++currentGrouthCount;
+            
             Debug.Log("OnWatering: " + currentOccupiedFieldSize + " " + willOccupiedFieldSize + " " + currentGrouthCount);
             if (currentOccupiedFieldSize == willOccupiedFieldSize)
             {
-              
+                ++currentGrouthCount;
                 Sequence mySequence = DOTween.Sequence();
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
@@ -48,6 +48,7 @@ namespace TTGJ.Plant
             }
             else if (FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos, currentOccupiedFieldSize, willOccupiedFieldSize))
             {
+                ++currentGrouthCount;
                 Sequence mySequence = DOTween.Sequence();
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
@@ -133,7 +134,7 @@ namespace TTGJ.Plant
         {
             //GetComponentInChildren<Renderer>().material.color = color;
         }
-        private void InitModel()
+        public void InitModel()
         {
             Debug.Log("InitModel: " + currentState);
             if (modelRoot == null)
@@ -150,7 +151,7 @@ namespace TTGJ.Plant
             {
                 go = GameObject.Instantiate(grothGo);
             }
-            else if (currentState == PlantState.Mature)
+            else if (currentState >= PlantState.Mature)
             {
                 go = GameObject.Instantiate(realGo);
             }
