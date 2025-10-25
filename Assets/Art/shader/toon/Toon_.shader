@@ -53,6 +53,11 @@
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
 
+            #pragma multi_compile _ DOTS_INSTANCING_ON
+            #pragma prefer_hlslcc gles
+            #pragma exclude_renderers gles
+            #pragma target 2.0
+
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
