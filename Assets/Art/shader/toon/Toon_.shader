@@ -27,6 +27,11 @@
 
         [Header(PostProcess)]
         _colorSaturation("饱和度" ,range(0,10)) = 2.5
+            [Header(Shadow Settings)]
+        [Toggle]_ReceiveSelfShadow("接收自身阴影", Float) = 0
+        _SelfShadowThreshold("自身阴影阈值", Range(0, 0.1)) = 0.01
+
+
     }
     
     SubShader
@@ -45,6 +50,7 @@
             Name "ForwardLit"
             Tags { "LightMode"="UniversalForward" }
             
+
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -52,6 +58,7 @@
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _RECEIVE_SHADOWS_OFF
 
             #pragma multi_compile _ DOTS_INSTANCING_ON
             #pragma prefer_hlslcc gles
@@ -94,6 +101,8 @@
                 half4 _FresnelColor;
                 float _FresnelPow;
                 float fresnelOFF;
+                float _ReceiveSelfShadow;  // 新增
+                float _SelfShadowThreshold; // 新增
 
 
             CBUFFER_END
@@ -117,7 +126,9 @@
             {
                 // 获取主光源信息
                 Light mainLight = GetMainLight(input.shadowCoord);
-                
+   
+
+
                 // 采样纹理
                 half3 BaseCol = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, input.uv0).xyz;
                 half ao = SAMPLE_TEXTURE2D(_ao, sampler_ao, input.uv0).r;
@@ -127,10 +138,15 @@
                 float3 lightDir = normalize(mainLight.direction);
                 float3 view_dir = normalize(GetWorldSpaceNormalizeViewDir(input.positionWS));
                 
-                // 阴影衰减 (URP中的阴影处理)
-                //float atten = mainLight.shadowAttenuation * mainLight.distanceAttenuation;
+
                 half shadowAtten = mainLight.shadowAttenuation * mainLight.distanceAttenuation;
                 shadowAtten = smoothstep(0.1,0.7,shadowAtten);
+                half selfMask = saturate(dot(normalize(input.normalWS), normalize(_MainLightPosition.xyz)));//lambert
+                // 当角度接近90°时认为是自遮挡，让阴影影响更小
+                shadowAtten = lerp(shadowAtten, 0.5, pow(1 - selfMask , 3.0));
+                
+                
+
                 // 漫反射光照
                 half ndotl = dot(normalDir, lightDir) ;
                 half toon_diffuse = lerp(_colorA, 1.0, saturate(ndotl * _Toon_Hardness)) ;
@@ -145,11 +161,11 @@
 
                 // 边缘光
                 float vdotn = dot(view_dir, normalDir);
-                float3 fresnel = pow(max(0.0, 1.0 - vdotn), _FresnelPow) * _FresnelColor;
+                float3 fresnel = pow(max(0.0, 1.0 - vdotn), _FresnelPow) * _FresnelColor ;
 
                 // 最终颜色合成
-                half3 final = (BaseCol * final_toon * mainLight.color + spec) + fresnel * fresnelOFF;
-                final = sqrt(max(exp2(log2(max(final, 0.0)) * _colorSaturation), 0.0));
+                half3 final = (BaseCol * final_toon * mainLight.color + spec) + fresnel * fresnelOFF ;
+                final = sqrt(max(exp2(log2(max(final, 0.0)) * _colorSaturation), 0.0))  ;
                 
                 return half4(final, 1.0);
             }
