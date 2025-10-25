@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TTGJ.Framework;
 using UnityEngine;
+using TTGJ.Generate;
 namespace TTGJ.UI
 {
     public class UIManager : Singleton<UIManager>
     {
         private static Dictionary<Type, string> UIPanelPathDic = new Dictionary<Type, string>()
         {
-            { typeof(UIPanel), "UI/MainPanel" },
+            //{ typeof(UIPanel), "UI/MainPanel" },
+            { typeof(ExitPanel), ResPathConfig.UI_ExitPannel},
         };
 
         public async UniTask<T> ShowPanel<T>() where T : UIPanel{

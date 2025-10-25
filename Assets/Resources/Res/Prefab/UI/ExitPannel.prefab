@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 2490424599920684508}
   - component: {fileID: 602034244381302878}
   - component: {fileID: 2830436606728745195}
+  - component: {fileID: 6271187289504175103}
   m_Layer: 5
   m_Name: ExitPannel
   m_TagString: Untagged
@@ -545,7 +546,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &602034244381302878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,6 +590,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6271187289504175103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527170714448884267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73466c2aa51ad4a22a3016309fd52528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _closeBtn: {fileID: 8942432368469614058}
+  _confirmBtn: {fileID: 6430237868480355999}
 --- !u!1 &5766998072053070365
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +902,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6581412648312470010}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6430237868480355999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 173692784411420517, guid: faa1141ba66118c43ab14181e1a5fc69,
+    type: 3}
+  m_PrefabInstance: {fileID: 6581412648312470010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8674612935041347294
 PrefabInstance:
   m_ObjectHideFlags: 0

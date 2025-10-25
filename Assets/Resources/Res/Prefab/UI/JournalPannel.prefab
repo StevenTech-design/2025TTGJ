@@ -332,7 +332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1167897357499341490
 RectTransform:
   m_ObjectHideFlags: 0
@@ -350,7 +350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -741.00195, y: -55.598145}
+  m_AnchoredPosition: {x: -741.00195, y: -190}
   m_SizeDelta: {x: 223.2, y: 95.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8206751184372540435
@@ -4205,6 +4205,7 @@ GameObject:
   - component: {fileID: 2490424599920684508}
   - component: {fileID: 602034244381302878}
   - component: {fileID: 2830436606728745195}
+  - component: {fileID: 7605947342667869840}
   m_Layer: 5
   m_Name: JournalPannel
   m_TagString: Untagged
@@ -4228,12 +4229,12 @@ RectTransform:
   - {fileID: 1020881996674200231}
   - {fileID: 1988586450872257918}
   - {fileID: 1167897357499341490}
-  - {fileID: 1715858846750138726}
   - {fileID: 5903157621260526217}
-  - {fileID: 1284260889804674205}
-  - {fileID: 7500574010739530845}
-  - {fileID: 4410847226653203927}
   - {fileID: 8735647646525074885}
+  - {fileID: 7500574010739530845}
+  - {fileID: 1284260889804674205}
+  - {fileID: 1715858846750138726}
+  - {fileID: 4410847226653203927}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4330,6 +4331,23 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &7605947342667869840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527170714448884267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 955bc6c0e3c2741d5b65788d69ee36a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _closeBtn: {fileID: 8942432368469614058}
+  _allPlantsBtn: {fileID: 0}
+  _allNpcBtn: {fileID: 0}
+  _collectionBtn: {fileID: 0}
+  _receipBtn: {fileID: 0}
 --- !u!1 &5625019935531968894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,7 +5789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -741.0049, y: 52.203125}
+  m_AnchoredPosition: {x: -741.0049, y: 45}
   m_SizeDelta: {x: 223.2, y: 95.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8416380674373080812
