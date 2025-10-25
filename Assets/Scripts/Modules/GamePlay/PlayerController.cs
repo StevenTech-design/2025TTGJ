@@ -10,6 +10,7 @@ namespace TTGJ.GamePlay
     public partial class PlayerController : MonoSingleton<PlayerController>
     {
         public float speed = 3.5f;
+        public float rotationSpeed = 5.0f;
         [SerializeField]
         private float dropForce = 10;
         private Rigidbody _rigidbody;
@@ -39,7 +40,13 @@ namespace TTGJ.GamePlay
                 return;
             }
             IsMove = true;
-            transform.rotation = Quaternion.LookRotation(direction);
+           
+            
+            // 自然转向
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            
+            // transform.rotation = Quaternion.LookRotation(direction);
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
 
