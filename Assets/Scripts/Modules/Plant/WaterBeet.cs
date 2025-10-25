@@ -9,12 +9,16 @@ namespace TTGJ.Plant
 {
     public class WaterBeet : PlantBase
     {
+        [SerializeField]
+        private float wateringInterval = 0.5f;
+        private float lastWateringTime = 0f;
         private void OnTriggerEnter(Collider other)
         {
-            if(currentState < PlantState.Mature) { 
+            if(currentState < PlantState.Mature && Time.time - lastWateringTime < wateringInterval) { 
                 return;
             }
             WateringOther();
+            lastWateringTime = Time.time;
         }
         public override void OnTeleport(Transform baseTeleportPos) { 
             base.OnTeleport(baseTeleportPos);
@@ -25,10 +29,11 @@ namespace TTGJ.Plant
         { 
             int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
             List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos, currentOccupiedFieldSize);
-            Debug.Log("WateringOther: " + plants.Count);
+            Debug.Log("WateringOther: " + plants.Count + "  " + GetComponent<Cell>().cellPos +"  "+currentOccupiedFieldSize);
             foreach (var plant in plants)
             {
                 plant.OnWatering();
+                Debug.Log("WateringOther: " + plant.gameObject.name + "  "+plant.GetComponent<Cell>().cellPos);
             }
         }
         private void OnCollisionStay(Collision collision)
