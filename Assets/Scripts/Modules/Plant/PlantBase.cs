@@ -31,16 +31,14 @@ namespace TTGJ.Plant
             if (currentState == PlantState.Germination)
             {
                 ChangeState(PlantState.Mature);
-                ++currentGrouthCount;
-                return;
             }
+            
 
             int currentOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount);
             int willOccupiedFieldSize = ConfigManager.Instance.GetOccupiedFieldSize(itemType, currentGrouthCount + 1);
-
+            ++currentGrouthCount;
             if (currentGrouthCount == willOccupiedFieldSize)
             {
-                ++currentGrouthCount;
               
                 Sequence mySequence = DOTween.Sequence();
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
@@ -49,7 +47,6 @@ namespace TTGJ.Plant
             }
             else if (FieldSystem.Instance.ToOccupied(GetComponent<Cell>().cellPos, currentOccupiedFieldSize, willOccupiedFieldSize))
             {
-                ++currentGrouthCount;
                 Sequence mySequence = DOTween.Sequence();
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
                 mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
