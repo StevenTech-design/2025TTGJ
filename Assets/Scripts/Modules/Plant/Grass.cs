@@ -1,30 +1,29 @@
 using System;
+using DG.Tweening;
 using TTGJ.Buff;
+using TTGJ.Config;
 using TTGJ.GamePlay;
 using UnityEngine;
 
 namespace TTGJ.Plant {
     public class Grass : PlantBase {
-        public Action <int> OnGrassHarvested;
+        public Action <GameObject,int> OnGrassHarvested;
         public int index;
-        private bool isHarvested = false;
         public override void OnMature() { 
 
         }
         public override void OnGermination() { 
 
         }
-        public override void OnWatering() { 
-
+        public override void OnWatering() {
+            ++currentGrouthCount;
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
+            mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
         }
-        public override void OnLift() { 
-            base.OnLift();
-            if(isHarvested) { 
-                return;
-            }
-            isHarvested = true;
-            Debug.Log("Grass OnHarvest: " + index);
-            OnGrassHarvested?.Invoke(index);
+        protected override void OnHarvest() { 
+            currentState = PlantState.Harvest;
+            OnGrassHarvested?.Invoke(gameObject,index);
         }
         public override void OnEat() { 
             SheepTalkBuff buff = BuffManager.Instance.AddBuff<SheepTalkBuff>(PlayerController.Instance.transform);

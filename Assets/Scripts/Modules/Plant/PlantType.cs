@@ -21,7 +21,6 @@ namespace TTGJ.Plant
         Tomato_Purple=2012,
         ColorfulTomato,
         Kivi = 2015,
-        KiwiFruitTree,
         Grass = 2016,
         Big_Potato = 3001,
         Big_Mushroom=3002,
@@ -37,6 +36,9 @@ namespace TTGJ.Plant
         Big_Tomato_Purple=3012,
         Big_CauliFlowerForever=3013,
         Big_Kivi=3014,
-        Big_Grass=3015
+        Big_Grass=3015,
+
+        //
+        KiwiFruitTree = 9001,
     }
 }
