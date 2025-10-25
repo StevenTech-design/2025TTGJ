@@ -27,9 +27,8 @@
 
         [Header(PostProcess)]
         _colorSaturation("饱和度" ,range(0,10)) = 2.5
-            [Header(Shadow Settings)]
-        [Toggle]_ReceiveSelfShadow("接收自身阴影", Float) = 0
-        _SelfShadowThreshold("自身阴影阈值", Range(0, 0.1)) = 0.01
+
+
 
 
     }
@@ -101,8 +100,7 @@
                 half4 _FresnelColor;
                 float _FresnelPow;
                 float fresnelOFF;
-                float _ReceiveSelfShadow;  // 新增
-                float _SelfShadowThreshold; // 新增
+
 
 
             CBUFFER_END

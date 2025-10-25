@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Pow_spec: 14
+    - Pow_spec: 23.6
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -113,13 +113,13 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FresnelPow: 0
+    - _FresnelPow: 3.79
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.91
+    - _OutlineWidth: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -130,19 +130,19 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 0
     - _Toon_Hardness: 100
-    - _Toon_Theshold: 0.333
+    - _Toon_Theshold: 0.3
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _colorSaturation: 2.2
-    - _specInt: 0
+    - _specInt: 0.16
     - fresnelOFF: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
+    - _FresnelColor: {r: 1, g: 0.5695251, b: 0.216981, a: 0}
     - _OutLineColor: {r: 0.30817598, g: 0.30817598, b: 0.30817598, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _colorA: {r: 0.67295593, g: 0.67295593, b: 0.67295593, a: 1}
-    - _colorB: {r: 0.61635214, g: 0.61635214, b: 0.61635214, a: 1}
+    - _colorA: {r: 0.72327036, g: 0.72327036, b: 0.72327036, a: 1}
+    - _colorB: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}
   m_BuildTextureStacks: []
