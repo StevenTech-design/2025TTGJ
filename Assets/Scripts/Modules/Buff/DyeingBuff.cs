@@ -5,8 +5,7 @@ namespace TTGJ.Buff
 {
     public class DyeingBuff : BuffBase
     {
-        [SerializeField]
-        private Color dyeingColor;
+        private int colorID;
         [SerializeField]
         private LayerMask dyeingLayerMask;
         public override void StartBuff()
@@ -22,7 +21,7 @@ namespace TTGJ.Buff
                 IDyeingable dyeingable = collider.GetComponent<IDyeingable>();
                 if (dyeingable != null)
                 {
-                    dyeingable.Dyeing(dyeingColor);
+                    dyeingable.Dyeing(colorID);
                 }
             }
         }

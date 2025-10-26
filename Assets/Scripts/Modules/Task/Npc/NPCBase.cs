@@ -32,9 +32,11 @@ namespace TTGJ.Task
                 return;
             }
 
-            if (!other.gameObject.TryGetComponent<Liftable>(out var liftable)) { 
+            if (!other.gameObject.TryGetComponent<Liftable>(out var liftable) || currentTask == null) { 
                 return;
             }
+
+
 
             if (CheckNeedItem((int)liftable.itemType, currentTask.GoalCount)) { 
                 currentItemCount[(int)liftable.itemType]++;

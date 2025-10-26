@@ -49,9 +49,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 1013
   sackGo: {fileID: 5696905122054284051, guid: 56c23bd4268811047b4242b50bec1f59, type: 3}
-  grothGo: {fileID: 7048930366728434684, guid: 012676fc22d3d46c2af9fb0b2aa22e16, type: 3}
+  grothGo: {fileID: 5234753815911012807, guid: 711a1724917ce8a4d95e8debce3ad645, type: 3}
   realGo: {fileID: 919132149155446097, guid: be4626243ff14634fa941b8b2f73bb13, type: 3}
   currentState: 0
+  InitModelInStart: 0
+  InitBigModelInStart: 0
   sheepPrefab: {fileID: 919132149155446097, guid: 191d79db999fde04ba5c49c8c57a6539,
     type: 3}
 --- !u!54 &396154875452297536

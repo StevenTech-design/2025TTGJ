@@ -114,7 +114,7 @@ Material:
     - _PaintColorID: 0
     - _PaintCoverIntensity: 0.8
     - _PaintInt: 0.5
-    - _PaintStrength: 1
+    - _PaintStrength: 0.785
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveSelfShadow: 0

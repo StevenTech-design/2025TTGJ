@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using TTGJ.Config;
+using TTGJ.Interactable;
 using UnityEngine;
 
 namespace TTGJ.Plant
 {
     public class ColorfulTomato : PlantBase
     {
-            [SerializeField]
+        [SerializeField]
         private int colorID;
         private void OnTriggerEnter(Collider other)
         {
@@ -21,5 +22,12 @@ namespace TTGJ.Plant
                 plant.Dyeing(colorID);
              }
         }
+        private void OnCollisionEnter(Collision collision) {
+            if (collision.collider.gameObject.TryGetComponent<IDyeingable>(out var dye)) { 
+                Debug.Log("ColorfulTomato OnCollisionEnter: " + collision.collider.gameObject.name);
+                dye.Dyeing(colorID);
+            }
+        }
+
     }
 }
