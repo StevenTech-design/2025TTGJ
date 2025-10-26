@@ -28,9 +28,11 @@
         [Header(PostProcess)]
         _colorSaturation("饱和度" ,range(0,10)) = 2.5
 
-        
+        [Header(PaintingSystem)]
         _PaintStrength ("染色强度", Range(0, 1)) = 1.0
-        _PaintColorID ("颜色ID", Range(0, 1)) = 0.0
+        _PaintColorID ("颜色ID", Range(0, 6)) = 0.0
+
+
 
     }
     
@@ -110,6 +112,7 @@
                 float _PaintColorID        ;// 直接从材质属性获取
 
 
+
             CBUFFER_END
 
             Varyings vert (Attributes input)
@@ -141,7 +144,7 @@
                 };
     
                 // 直接整数索引
-                int index = clamp(int(colorID * 7.0), 0, 6);
+                int index = int(colorID);
                 return tomatoColors[index];
             }
 

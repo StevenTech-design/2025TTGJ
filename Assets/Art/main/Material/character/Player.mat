@@ -59,6 +59,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PaintMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -70,7 +74,10 @@ Material:
     m_Ints: []
     m_Floats:
     - Pow_spec: 100
+    - _Alpha: 1
+    - _Blend: 0
     - _BumpScale: 1
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -82,25 +89,38 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutLineColor: 1
-    - _OutlineWidth: 1
+    - _OutlineWidth: 0.8
+    - _PaintColorID: 0
+    - _PaintCoverIntensity: 0.8
+    - _PaintInt: 0.5
+    - _PaintStrength: 1
     - _Parallax: 0.02
     - _ReceiveSelfShadow: 0
     - _SelfShadowThreshold: 0.01
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Surface: 0
     - _Toon_Hardness: 100
-    - _Toon_Theshold: 0.166
+    - _Toon_Theshold: 0.2
     - _UVSec: 0
     - _ZWrite: 1
-    - _colorSaturation: 2
+    - _colorSaturation: 2.2
     - _specInt: 0
     - fresnelOFF: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
-    - _OutLineColor: {r: 0.8050314, g: 0.8050314, b: 0.8050314, a: 1}
+    - _OutLineColor: {r: 0.45911938, g: 0.45911938, b: 0.45911938, a: 1}
+    - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
+    - _PaintColor1: {r: 1, g: 0, b: 0, a: 1}
+    - _PaintColor2: {r: 1, g: 0.5, b: 0, a: 1}
+    - _PaintColor3: {r: 1, g: 1, b: 0, a: 1}
+    - _PaintColor4: {r: 0, g: 1, b: 0, a: 1}
+    - _PaintColor5: {r: 0, g: 1, b: 1, a: 1}
+    - _PaintColor6: {r: 0, g: 0, b: 1, a: 1}
+    - _PaintColor7: {r: 0.5, g: 0, b: 1, a: 1}
     - _colorA: {r: 0.7987421, g: 0.7987421, b: 0.7987421, a: 1}
     - _colorB: {r: 0.8930817, g: 0.8930817, b: 0.8930817, a: 1}
   m_BuildTextureStacks: []

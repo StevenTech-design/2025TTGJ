@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 44204e1d8c6d37a4d91877753d18d36a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 742dca2b845da314d86933c88bf61289, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -72,6 +72,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _PaintMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -98,7 +102,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Pow_spec: 1
+    - Pow_spec: 0.01
+    - _Alpha: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -119,7 +124,11 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 1
+    - _OutlineWidth: 0.12
+    - _PaintColorID: 0
+    - _PaintCoverIntensity: 0.8
+    - _PaintInt: 0.5
+    - _PaintStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveSelfShadow: 0
@@ -131,20 +140,28 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Toon_Hardness: 20
-    - _Toon_Theshold: 0.5
+    - _Toon_Hardness: 80
+    - _Toon_Theshold: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _colorSaturation: 2.5
+    - _colorSaturation: 2
     - _specInt: 0
-    - fresnelOFF: 1
+    - fresnelOFF: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 0.75229007, b: 0, a: 0}
-    - _OutLineColor: {r: 0.6855345, g: 0.6855345, b: 0.6855345, a: 1}
+    - _OutLineColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
+    - _PaintColor1: {r: 1, g: 0, b: 0, a: 1}
+    - _PaintColor2: {r: 1, g: 0.5, b: 0, a: 1}
+    - _PaintColor3: {r: 1, g: 1, b: 0, a: 1}
+    - _PaintColor4: {r: 0, g: 1, b: 0, a: 1}
+    - _PaintColor5: {r: 0, g: 1, b: 1, a: 1}
+    - _PaintColor6: {r: 0, g: 0, b: 1, a: 1}
+    - _PaintColor7: {r: 0.5, g: 0, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _colorA: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
-    - _colorB: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _colorA: {r: 0.9685534, g: 0.9685534, b: 0.9685534, a: 1}
+    - _colorB: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   m_BuildTextureStacks: []
