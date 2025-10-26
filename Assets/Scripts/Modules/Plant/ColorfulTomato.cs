@@ -6,8 +6,8 @@ namespace TTGJ.Plant
 {
     public class ColorfulTomato : PlantBase
     {
-        [SerializeField]
-        private Color dyeingColor;
+            [SerializeField]
+        private int colorID;
         private void OnTriggerEnter(Collider other)
         {
             if(currentState != PlantState.Mature) { 
@@ -18,7 +18,7 @@ namespace TTGJ.Plant
              foreach (var plant in plants)
              {
                 plant.OnWatering();
-                plant.Dyeing(dyeingColor);
+                plant.Dyeing(colorID);
              }
         }
     }

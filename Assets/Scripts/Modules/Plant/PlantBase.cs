@@ -17,8 +17,6 @@ namespace TTGJ.Plant
         protected GameObject realGo;
         public PlantState currentState = PlantState.Seed;
         protected int currentGrouthCount = 0;
-
-        private Color originalColor;
         protected Transform modelRoot;
         [SerializeField]
         protected bool InitModelInStart = false;
@@ -28,6 +26,7 @@ namespace TTGJ.Plant
         private void Start() { 
             if(InitModelInStart) {
                 InitModel();
+
             }
             if(InitBigModelInStart) { 
                 InitBigModel();
@@ -43,6 +42,7 @@ namespace TTGJ.Plant
 
         public virtual void OnWatering()
         {
+            ResetDyeing();
             if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
             {
                 return;
@@ -149,9 +149,10 @@ namespace TTGJ.Plant
 
         }
 
-        public void Dyeing(Color color)
+        public void Dyeing(int colorID)
         {
-            //GetComponentInChildren<Renderer>().material.color = color;
+            GetComponentInChildren<Renderer>().material.SetFloat("_PaintStrength", 0.7f);
+            GetComponentInChildren<Renderer>().material.SetFloat("_PaintColorID", colorID);
         }
         public void InitModel()
         {
@@ -218,6 +219,11 @@ namespace TTGJ.Plant
            {
                 itemType = (ItemType)itemNew.EvoId;
            }
+        }
+
+        public void ResetDyeing()
+        {
+            GetComponentInChildren<Renderer>().material.SetFloat("_PaintStrength", 1);
         }
     }
 }

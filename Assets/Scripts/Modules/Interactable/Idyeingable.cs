@@ -4,6 +4,7 @@ namespace TTGJ.Interactable
 {
     public interface IDyeingable
     {
-        void Dyeing(Color color);
+        void Dyeing(int colorID);
+        void ResetDyeing();
     }
 }
