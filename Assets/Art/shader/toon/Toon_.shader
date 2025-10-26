@@ -30,7 +30,9 @@
 
         [Header(PaintingSystem)]
         _PaintStrength ("染色强度", Range(0, 1)) = 1.0
-        _PaintColorID ("颜色ID", Range(0, 1)) = 0.0
+        _PaintColorID ("颜色ID", Range(0, 6)) = 0.0
+
+
 
     }
     
@@ -142,7 +144,7 @@
                 };
     
                 // 直接整数索引
-                int index = clamp(int(colorID * 7.0), 0, 6);
+                int index = int(colorID);
                 return tomatoColors[index];
             }
 
