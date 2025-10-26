@@ -48,6 +48,7 @@ namespace TTGJ.UI
         private void Init() { 
             this._valueImage.fillAmount = DataManager.Instance.GetShowTipUIState() ? 1 : 0;
             this._musicVolume.value = DataManager.Instance.GetMusicVolume();
+            this._fieldOfViewSlider.value = DataManager.Instance.GetFieldOfView() / 90f;
         }
 
         public override void Show()
