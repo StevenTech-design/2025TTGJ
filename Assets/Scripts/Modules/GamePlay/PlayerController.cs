@@ -85,6 +85,7 @@ namespace TTGJ.GamePlay
                 }
             }
             IsLift = _liftList.Count > 0;
+            RefreshLiftQueue();
         }
         public bool CanDrop()
         {

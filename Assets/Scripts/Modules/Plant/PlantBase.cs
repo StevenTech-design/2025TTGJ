@@ -19,8 +19,14 @@ namespace TTGJ.Plant
 
         private Color originalColor;
         protected Transform modelRoot;
+        [SerializeField]
+        protected bool InitModelInStart = false;
 
-
+        private void Start() { 
+            if(InitModelInStart) {
+                InitModel();
+            }
+        }
         public virtual void OnWatering()
         {
             if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
