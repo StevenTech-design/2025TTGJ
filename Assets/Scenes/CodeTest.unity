@@ -855,6 +855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4614262895966316362, guid: cc530bfacf0077b4d8d2cdd19dea3ead,
         type: 3}
+      propertyPath: cursorSprite
+      value: 
+      objectReference: {fileID: 2800000, guid: e227f2bde99f041479b7a1a9bfb765fd, type: 3}
+    - target: {fileID: 4614262895966316362, guid: cc530bfacf0077b4d8d2cdd19dea3ead,
+        type: 3}
       propertyPath: commandInfoUI
       value: 
       objectReference: {fileID: 1860753965}
