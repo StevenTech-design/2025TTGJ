@@ -21,6 +21,7 @@ public sealed partial class plot : Luban.BeanBase
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
         { if(!_buf["npc_id"].IsNumber) { throw new SerializationException(); }  NpcId = _buf["npc_id"]; }
         { if(!_buf["text_time"].IsString) { throw new SerializationException(); }  TextTime = _buf["text_time"]; }
+        { if(!_buf["time"].IsNumber) { throw new SerializationException(); }  Time = _buf["time"]; }
         { if(!_buf["next_id"].IsNumber) { throw new SerializationException(); }  NextId = _buf["next_id"]; }
     }
 
@@ -46,6 +47,10 @@ public sealed partial class plot : Luban.BeanBase
     /// </summary>
     public readonly string TextTime;
     /// <summary>
+    /// 剧情文字持续时间
+    /// </summary>
+    public readonly float Time;
+    /// <summary>
     /// 下个剧情id
     /// </summary>
     public readonly int NextId;
@@ -64,6 +69,7 @@ public sealed partial class plot : Luban.BeanBase
         + "name:" + Name + ","
         + "npcId:" + NpcId + ","
         + "textTime:" + TextTime + ","
+        + "time:" + Time + ","
         + "nextId:" + NextId + ","
         + "}";
     }
