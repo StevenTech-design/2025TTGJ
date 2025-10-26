@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1204891638609067379}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.201, y: 2.008, z: -0.075}
+  m_LocalPosition: {x: -0.235, y: 2.217, z: -0.075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,8 +85,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6280632, y: 0.9530174, z: 0.58132935}
+  m_Center: {x: 0.00349617, y: 0.4607328, z: 0.026069641}
 --- !u!114 &6003888486853617518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,9 @@ MonoBehaviour:
   grothGo: {fileID: 0}
   realGo: {fileID: 0}
   currentState: 0
-  kiwiFruitPrefab: {fileID: 3662259093720581875, guid: 7c83f1aba92d344d3a94eb91b605cd0d,
+  InitModelInStart: 0
+  InitBigModelInStart: 0
+  kiwiFruitPrefab: {fileID: 1297850779637328479, guid: 8b05e8357497cf449bbe1751643bc66c,
     type: 3}
   interval: 2
   fruitSpawnPoint: {fileID: 249397323847045724}
@@ -119,12 +121,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e4aa2170d62d29e4b9925b89dde476d6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4aa2170d62d29e4b9925b89dde476d6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4aa2170d62d29e4b9925b89dde476d6,
         type: 3}
@@ -144,12 +146,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e4aa2170d62d29e4b9925b89dde476d6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4aa2170d62d29e4b9925b89dde476d6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e4aa2170d62d29e4b9925b89dde476d6,
         type: 3}
