@@ -7,6 +7,7 @@ using TTGJ.GamePlay;
 using System;
 using TTGJ.Plant;
 using cfg;
+using TTGJ.Data;
 
 namespace TTGJ.GamePlay
 {
@@ -249,7 +250,7 @@ namespace TTGJ.GamePlay
 
         private void RefreshCommandInfo()
         {
-            if (CheckCommandEqual()) {
+            if (CheckCommandEqual() || !DataManager.Instance.GetShowTipUIState()) {
                 return;
             }
             commandInfoUI.ShowCommandInfo(currentCommandinfo);

@@ -16,5 +16,11 @@ namespace TTGJ.Data {
         public void SetMusicVolume(float volume) { 
             PlayerPrefs.SetFloat("MusicVolume", volume);
         }
+        public int GetFieldOfView() { 
+            return PlayerPrefs.GetInt("FieldOfView", 60);
+        }
+        public void SetFieldOfView(int fieldOfView) { 
+            PlayerPrefs.SetInt("FieldOfView", fieldOfView);
+        }
     }
 }
