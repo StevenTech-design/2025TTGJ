@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using TTGJ.Config;
 using TTGJ.Luban;
+using System;
 namespace TTGJ.Plant
 {
     public class PlantBase : Liftable, ITeleport, IDyeingable, IEatable
@@ -21,12 +22,25 @@ namespace TTGJ.Plant
         protected Transform modelRoot;
         [SerializeField]
         protected bool InitModelInStart = false;
+        [SerializeField]
+        protected bool InitBigModelInStart = false;
 
         private void Start() { 
             if(InitModelInStart) {
                 InitModel();
             }
+            if(InitBigModelInStart) { 
+                InitBigModel();
+            }
         }
+
+        private void InitBigModel()
+        {
+            Sequence mySequence = DOTween.Sequence();
+            mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
+            mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
+        }
+
         public virtual void OnWatering()
         {
             if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
