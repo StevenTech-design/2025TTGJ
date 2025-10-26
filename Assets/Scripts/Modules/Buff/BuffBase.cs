@@ -14,7 +14,6 @@ namespace TTGJ.Buff
         public Action OnBuffStartCallback;
         public Action<float> OnBuffUpdateCallback;
         public Action OnBuffEndCallback;
-        protected PlantGrowthConfig plantGrowthConfig;
 
 
         public virtual void StartBuff()
@@ -56,10 +55,6 @@ namespace TTGJ.Buff
         public virtual BuffType GetBuffType()
         {
             return BuffType.None;
-        }
-        protected void InitPlantGrowthConfig()
-        { 
-            
         }
     }
 }

@@ -10,13 +10,13 @@ namespace TTGJ.Framework
         private Dictionary<string, Queue<GameObject>> _objectPools = new Dictionary<string, Queue<GameObject>>();
         private GameObject _objectPoolRoot;
 
-        public async UniTask<GameObject> GetGameObject(string path)
+        public GameObject GetGameObject(string path)
         {
             string fileName = Path.GetFileName(path);
             GameObject res = GetGameObjectByPool(fileName);
             if (res == null)
             {
-                res = await StResources.Instance.LoadAsync<GameObject>(path);
+                res = GameObject.Instantiate(StResources.Instance.LoadByResources<GameObject>(path));
             }
             return res;
         }
@@ -44,6 +44,7 @@ namespace TTGJ.Framework
             if (_objectPools.TryGetValue(key, out var queue))
             {
                 queue.Enqueue(obj);
+                ResetGameObject(obj);
                 return;
             }
             _objectPools[key] = new Queue<GameObject>();
@@ -60,8 +61,7 @@ namespace TTGJ.Framework
             }
             obj.SetActive(false);
             obj.transform.SetParent(_objectPoolRoot.transform);
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
+            obj.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             obj.transform.localScale = Vector3.one;
         }
     }
