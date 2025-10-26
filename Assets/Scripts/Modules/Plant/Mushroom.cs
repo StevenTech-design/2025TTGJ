@@ -30,6 +30,8 @@ namespace TTGJ.Plant
                 return;
             }
             Vector3 direction = collider.transform.position - transform.position;
+            direction.y = Mathf.Max(direction.y, 0);
+            Debug.Log("Mushroom BounceObject direction: " + direction);
             if (collider.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
             {
                 rigidbody.AddForce(bounceForce *  direction.normalized, ForceMode.Impulse);
