@@ -29,6 +29,7 @@ public class TaskInfo : MonoBehaviour
         if (index >= items.Count) { 
             var itemObj = Instantiate(itemPrefab, content);
             items.Add(itemObj.GetComponent<Item>());
+            itemObj.SetActive(true);
         }
         return items[index];
     }

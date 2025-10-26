@@ -120,11 +120,10 @@ namespace TTGJ.GamePlay
                 eatable.OnEat();
                 Destroy(target);
             }
-            else if (target.TryGetComponent<Rigidbody>(out var rigidbody))
+            else 
             {
-                rigidbody.isKinematic = false;
-                rigidbody.AddForce(-transform.forward * 10, ForceMode.Impulse);
-                target.transform.GetComponent<Collider>().isTrigger = false;
+               ToDrop();
+                return;
             }
             PlayEatAnimation();
             _liftList.Dequeue();
