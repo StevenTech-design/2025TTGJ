@@ -1,4 +1,4 @@
-﻿Shader "Universal Render Pipeline/Custom/ToonShader"
+﻿Shader "Universal Render Pipeline/Custom/ToonHeadShader"
 {
     Properties
     {   
@@ -32,26 +32,36 @@
         _PaintStrength ("染色强度", Range(0, 1)) = 1.0
         _PaintColorID ("颜色ID", Range(0, 1)) = 0.0
 
+        [Header(Transparency)]
+        _Alpha("透明度", float) = 1.0
+        _Cutoff("透明裁剪阈值", Range(0, 1)) = 0.5  // 新增
+
     }
     
     SubShader
     {
         Tags 
         { 
-            "RenderType"="Opaque"
-            "RenderPipeline"="UniversalPipeline"
-            "Queue"="Geometry"
+        "RenderType" = "TransparentCutout"  // 改为裁剪透明
+        "RenderPipeline" = "UniversalPipeline"
+        "Queue" = "AlphaTest"  // 改为Alpha测试队列
         }
-        LOD 200
 
+
+        LOD 200
+        AlphaToMask On
         // 主Pass
         Pass
         {
+
             Name "ForwardLit"
             Tags { "LightMode"="UniversalForward" }
-            
+
+
+            Cull Off
 
             HLSLPROGRAM
+            
             #pragma vertex vert
             #pragma fragment frag
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
@@ -108,6 +118,9 @@
 
                 float _PaintStrength ; // 直接从材质属性获取
                 float _PaintColorID        ;// 直接从材质属性获取
+
+                float _Alpha;
+                float _Cutoff;
 
 
 
@@ -197,8 +210,8 @@
                 half3 final = (finalBaseCol * final_toon * mainLight.color + spec) + fresnel * fresnelOFF ;
                 final = sqrt(max(exp2(log2(max(final, 0.0)) * _colorSaturation), 0.0))  ;
 
-                
-                return half4(final,1.0);
+                clip(_Alpha - _Cutoff);
+                return half4(final,_Alpha);
             }
             ENDHLSL
         }
@@ -237,6 +250,7 @@
             CBUFFER_START(UnityPerMaterial)
                 float _OutlineWidth;
                 half4 _OutLineColor;
+                float _Alpha;
             CBUFFER_END
 
 
@@ -269,7 +283,7 @@
                 saturatedColor = lerp(BaseCol.rgb, saturatedColor, 0.6);
                 
                 half3 outlineColor = 0.8 * saturatedColor * BaseCol * input.outlineColor.rgb;
-                return half4(outlineColor, 1.0);
+                return half4(outlineColor,_Alpha);
             }
             ENDHLSL
         }
