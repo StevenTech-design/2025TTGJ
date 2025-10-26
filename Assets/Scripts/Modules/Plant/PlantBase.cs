@@ -96,7 +96,7 @@ namespace TTGJ.Plant
             rigidbody.isKinematic = false;
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Building");
             collider.excludeLayers -= 1 << LayerMask.NameToLayer("Default");
-            transform.localScale = Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount);;
+            transform.localScale = Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount);
             transform.position = new Vector3(transform.position.x, baseTeleportPos.position.y, transform.position.z);
             isLiftable = true;
             rigidbody.constraints = RigidbodyConstraints.None;
@@ -192,6 +192,7 @@ namespace TTGJ.Plant
             
         }
         public virtual void OnPlant() { 
+           Debug.Log("OnPlant: " + itemType + "   ");
            var itemNew = LubanManager.Instance.GetItemNew((int)itemType);
            if (itemNew != null)
            {

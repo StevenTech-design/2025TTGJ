@@ -90,6 +90,9 @@ namespace TTGJ.Config
         }
         public int GetHaverstSize(ItemType itemType, int growthCount)
         {
+            if(growthCount <= 0) { 
+                return 1;
+            }
             if (plantGrowthConfigs == null)
             {
                 InitPlantGrowthConfigs();

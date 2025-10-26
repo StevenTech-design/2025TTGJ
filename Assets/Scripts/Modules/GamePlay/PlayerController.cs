@@ -110,7 +110,7 @@ namespace TTGJ.GamePlay
             seed.GetComponent<Collider>().enabled = true;
             seed.AddComponent<Rigidbody>();
             field.ToPlanting(seed.GetComponent<PlantBase>());
-            targetPlant.OnPlant();
+            seed.GetComponent<PlantBase>().OnPlant();
         }
         public void ToEat()
         {
@@ -123,7 +123,7 @@ namespace TTGJ.GamePlay
             else 
             {
                ToDrop();
-                return;
+               return;
             }
             PlayEatAnimation();
             _liftList.Dequeue();
