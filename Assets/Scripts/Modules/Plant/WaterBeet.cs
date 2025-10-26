@@ -14,7 +14,7 @@ namespace TTGJ.Plant
         private float lastWateringTime = 0f;
         private void OnTriggerEnter(Collider other)
         {
-            if(currentState < PlantState.Mature && Time.time - lastWateringTime < wateringInterval) { 
+            if(currentState < PlantState.Mature || Time.time - lastWateringTime < wateringInterval) { 
                 return;
             }
             WateringOther();

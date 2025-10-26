@@ -72,8 +72,8 @@ namespace TTGJ.GamePlay
             if (liftObject == null) { 
                 return;
             }
-            currentCommandinfo.Add((KeyCode.J,"Use"));
-            if (!Input.GetKeyDown(KeyCode.J)) { 
+            currentCommandinfo.Add((KeyCode.Mouse0,"Use"));
+            if (!Input.GetMouseButtonDown(0)) { 
                 return;
             }
             Field currentField = null;
@@ -119,12 +119,12 @@ namespace TTGJ.GamePlay
             {
                 return;
             }
-            currentCommandinfo.Add((KeyCode.K, "Drop"));
-            if(Input.GetKeyDown(KeyCode.K)) { 
+            currentCommandinfo.Add((KeyCode.Mouse1, "Drop"));
+            if(Input.GetMouseButtonDown(1)) { 
                 _pressDropTime = Time.time;
                 return;
             }
-            if(!Input.GetKeyUp(KeyCode.K)) { 
+            if(!Input.GetMouseButtonUp(1)) { 
                 return;
             }
             if(Time.time - _pressDropTime >= longTimeDropTime) { 
