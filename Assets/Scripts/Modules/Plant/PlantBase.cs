@@ -23,6 +23,9 @@ namespace TTGJ.Plant
         [SerializeField]
         protected bool InitBigModelInStart = false;
 
+        [SerializeField]
+        protected float bigVelocityThreshold = 1f;
+
         private void Start() { 
             if(InitModelInStart) {
                 InitModel();
@@ -224,6 +227,17 @@ namespace TTGJ.Plant
         public void ResetDyeing()
         {
             GetComponentInChildren<Renderer>().material.SetFloat("_PaintStrength", 1);
+        }
+
+        protected virtual void OnCollisionEnter(Collision collision)
+        {
+            if(currentState < PlantState.Harvest)
+            {
+                return;
+            }
+            if (collision.relativeVelocity.magnitude < bigVelocityThreshold) { 
+                return;
+            }
         }
     }
 }

@@ -63,7 +63,7 @@ namespace TTGJ.GamePlay
             //CheckPlayerWatering();
             //CheckInteraction();
             RefreshCommandInfo();
-            if (Input.GetKeyDown(KeyCode.Alpha0)) { 
+            if (Input.GetKeyDown(KeyCode.Alpha0)) {
                 UIManager.Instance.ShowPanel<JournalPanel>();
             }
             if (Input.GetKeyDown(KeyCode.Alpha1)) { 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using TTGJ.Luban;
 using TTGJ.Plant;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace TTGJ.UI
         [SerializeField] private Transform itemRoot;
         [SerializeField] private GameObject itemPrefab;
         private List<GameObject> _itemObjects = new List<GameObject>();
+        [SerializeField] private TMP_Text _currentContentText;
+        [SerializeField] private Slider _progressSlider;
 
         private void OnEnable()
         {
@@ -41,12 +44,16 @@ namespace TTGJ.UI
         }
 
         private void ShowItems(List<int> items) {
-            foreach (var item in items) { 
-                var itemObj = GetItemObject(item);
+            Debug.Log("ShowItems: " + items.Count);
+            for(int i = 0; i < items.Count; i++) {
+                var itemObj = GetItemObject(i);
                 itemObj.SetActive(true);
-                itemObj.GetComponent<ItemInfo>().SetItemInfo(item);
+                int index = i;
+                itemObj.GetComponent<ItemInfo>().SetItemInfo(items[i],()=>{RefreshPreviewInfo(items[index]);});
             }
+            RefreshPreviewInfo(items[0]);
             for(int i = items.Count; i < _itemObjects.Count; i++) {
+                Debug.Log("HideItems: " + i);
                 _itemObjects[i].SetActive(false);
             }
         }
@@ -59,8 +66,19 @@ namespace TTGJ.UI
             return _itemObjects[index];
         }
 
-        private List<int> GetItemsBytype(int itemType) { 
-            return LubanManager.Instance.GetItemsByType(itemType);
+        private List<int> GetItemsBytype(int itemType) {
+            var items = LubanManager.Instance.GetItemsByType(itemType);
+            if (itemType == 2) { 
+                _currentContentText.text = "0%";
+                _progressSlider.value = 0;
+            }else { 
+                _currentContentText.text = "100%";
+                _progressSlider.value = 1;
+            }
+            return items;
+        }
+        private void RefreshPreviewInfo(int itemId) { 
+            _previewInfo.SetInfo(itemId);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TTGJ.Framework
         private Dictionary<string, Queue<GameObject>> _objectPools = new Dictionary<string, Queue<GameObject>>();
         private GameObject _objectPoolRoot;
 
-        public async UniTask<GameObject> GetGameObject(string path)
+        public GameObject GetGameObject(string path)
         {
             string fileName = Path.GetFileName(path);
             GameObject res = GetGameObjectByPool(fileName);
@@ -44,6 +44,7 @@ namespace TTGJ.Framework
             if (_objectPools.TryGetValue(key, out var queue))
             {
                 queue.Enqueue(obj);
+                ResetGameObject(obj);
                 return;
             }
             _objectPools[key] = new Queue<GameObject>();
