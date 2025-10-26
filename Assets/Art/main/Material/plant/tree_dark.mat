@@ -123,15 +123,17 @@ Material:
     - _OutlineWidth: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
+    - _ReceiveSelfShadow: 0
     - _ReceiveShadows: 1
+    - _SelfShadowThreshold: 0.01
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Toon_Hardness: 10
-    - _Toon_Theshold: 0.248
+    - _Toon_Hardness: 80
+    - _Toon_Theshold: 0.434
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _colorSaturation: 2.54

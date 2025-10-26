@@ -84,6 +84,8 @@ Material:
     - _OutLineColor: 1
     - _OutlineWidth: 1
     - _Parallax: 0.02
+    - _ReceiveSelfShadow: 0
+    - _SelfShadowThreshold: 0.01
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

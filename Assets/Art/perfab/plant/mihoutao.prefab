@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cf7d5bdf1dd82e24e80bbe6206481583,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.621
+      value: 56.400227
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf7d5bdf1dd82e24e80bbe6206481583,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.418
+      value: -6.4228706
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf7d5bdf1dd82e24e80bbe6206481583,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 104.36702
+      value: 108.512436
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf7d5bdf1dd82e24e80bbe6206481583,
         type: 3}
@@ -66,7 +66,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cf7d5bdf1dd82e24e80bbe6206481583,
         type: 3}
       propertyPath: m_Name
-      value: mihoutao 1
+      value: mihoutao
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
