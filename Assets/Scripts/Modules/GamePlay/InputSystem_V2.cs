@@ -43,6 +43,7 @@ namespace TTGJ.GamePlay
         [SerializeField]
         private CameraViewController cameraController;
 
+
         private void Start()
         {
 
@@ -55,14 +56,6 @@ namespace TTGJ.GamePlay
         
         private void Update()
         {
-
-            CheckLiftOrHaverstObject();
-            CheckPlayerDrop();
-            CheckInteractLiftObject();
-            //CheckPlayerEat();
-            //CheckPlayerWatering();
-            //CheckInteraction();
-            RefreshCommandInfo();
             if (Input.GetKeyDown(KeyCode.Alpha0)) {
                 UIManager.Instance.ShowPanel<JournalPanel>();
             }
@@ -75,6 +68,17 @@ namespace TTGJ.GamePlay
             if (Input.GetKeyDown(KeyCode.Alpha3)) { 
                 UIManager.Instance.ShowPanel<ExitPanel>();
             }
+            if (UIManager.Instance.GetUICount() > 0) {
+                return;
+            }
+
+            CheckLiftOrHaverstObject();
+            CheckPlayerDrop();
+            CheckInteractLiftObject();
+            //CheckPlayerEat();
+            //CheckPlayerWatering();
+            //CheckInteraction();
+            RefreshCommandInfo();
             currentCommandinfo.Clear();
         }
 

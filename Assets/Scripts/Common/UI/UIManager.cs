@@ -54,5 +54,8 @@ namespace TTGJ.UI
                 Cursor.visible = false;
             }
         }
+        public int GetUICount() {
+            return panels.Count;
+        }
     }
 }
