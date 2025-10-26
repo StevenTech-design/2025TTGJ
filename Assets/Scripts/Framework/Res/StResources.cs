@@ -26,6 +26,7 @@ namespace TTGJ.Framework
 
         private T LoadInEditor<T>(string assetPath) where T : UnityEngine.Object
         {
+            #if UNITY_EDITOR
             string[] files = Directory.GetFiles(_resourcesPathRoot + Path.GetDirectoryName(assetPath),
                 Path.GetFileName(assetPath) + ".*");
 
@@ -45,6 +46,8 @@ namespace TTGJ.Framework
                 Debug.LogWarning("No matching files found for " + assetPath);
                 return null;
             }
+            #endif
+            return null;
         }
 
         public void Release(UnityEngine.Object obj)
