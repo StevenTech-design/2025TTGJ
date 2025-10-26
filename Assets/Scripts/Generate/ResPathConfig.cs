@@ -10,6 +10,7 @@
         public const string Sprite = "Sprite";
         public const string Animation_Player = "Animation/Player";
         public const string Generate_Luban = "Generate/Luban";
+        public const string Prefab_Buildings = "Prefab/Buildings";
         public const string Prefab_GameController = "Prefab/GameController";
         public const string Prefab_NPC = "Prefab/NPC";
         public const string Prefab_Plants = "Prefab/Plants";
@@ -17,6 +18,7 @@
         public const string Prefab_Props = "Prefab/Props";
         public const string Prefab_UI = "Prefab/UI";
         public const string Sprite_Input = "Sprite/Input";
+        public const string Buildings_TreeHouse = "Prefab/Buildings/TreeHouse";
         public const string Plants_OriginModel = "Prefab/Plants/OriginModel";
         public const string Config_BuffConfigAsset = "Config/BuffConfigAsset";
         public const string Config_PlantGrowthConfigAsset = "Config/PlantGrowthConfigAsset";
@@ -62,6 +64,9 @@
         public const string Input_Mouse0 = "Sprite/Input/Mouse0";
         public const string Input_Mouse1 = "Sprite/Input/Mouse1";
         public const string Input_Space = "Sprite/Input/Space";
+        public const string TreeHouse_Chairs = "Prefab/Buildings/TreeHouse/Chairs";
+        public const string TreeHouse_Table = "Prefab/Buildings/TreeHouse/Table";
+        public const string TreeHouse_Window = "Prefab/Buildings/TreeHouse/Window";
         public const string OriginModel_Kivi = "Prefab/Plants/OriginModel/Kivi";
         public const string OriginModel_Sack = "Prefab/Plants/OriginModel/Sack";
         public const string OriginModel_Seedling = "Prefab/Plants/OriginModel/Seedling";

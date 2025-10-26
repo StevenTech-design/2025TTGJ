@@ -16,7 +16,7 @@ namespace TTGJ.Framework
             GameObject res = GetGameObjectByPool(fileName);
             if (res == null)
             {
-                res = await StResources.Instance.LoadAsync<GameObject>(path);
+                res = GameObject.Instantiate(StResources.Instance.LoadByResources<GameObject>(path));
             }
             return res;
         }
@@ -60,8 +60,7 @@ namespace TTGJ.Framework
             }
             obj.SetActive(false);
             obj.transform.SetParent(_objectPoolRoot.transform);
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
+            obj.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             obj.transform.localScale = Vector3.one;
         }
     }

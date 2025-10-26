@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using SimpleJSON;
 using TTGJ.Framework;
@@ -140,6 +142,10 @@ namespace TTGJ.Luban
         public cfg.task GetTask(int id)
         {
             return _tables.TbTask.Get(id);
+        }
+        public List<int> GetItemsByType(int itemType) { 
+            var items = _tables.TbItemNew.DataList;
+            return items.Where(item => item.ItemType == itemType).Select(item => item.Id).ToList();
         }
 
 

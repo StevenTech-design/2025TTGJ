@@ -2,8 +2,10 @@ namespace TTGJ.Plant
 {
     public enum ItemType
     {
-        Kettle = 5001,
-        NPC = 7001,
+
+
+
+       
 
         //SeedBag
         PotatoSeedBag = 1001,
@@ -53,7 +55,8 @@ namespace TTGJ.Plant
         Big_Kivi=3014,
         Big_Grass=3015,
 
-        //
+        Kettle = 5001,
+        NPC = 7001,
         KiwiFruitTree = 9001,
     }
 }

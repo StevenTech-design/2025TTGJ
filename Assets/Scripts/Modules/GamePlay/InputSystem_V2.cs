@@ -63,7 +63,18 @@ namespace TTGJ.GamePlay
             //CheckPlayerWatering();
             //CheckInteraction();
             RefreshCommandInfo();
-
+            if (Input.GetKeyDown(KeyCode.Alpha0)) { 
+                UIManager.Instance.ShowPanel<JournalPanel>();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1)) { 
+                UIManager.Instance.ShowPanel<SettingPanel>();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) { 
+                UIManager.Instance.ShowPanel<ThanksPanel>();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3)) { 
+                UIManager.Instance.ShowPanel<ExitPanel>();
+            }
             currentCommandinfo.Clear();
         }
 

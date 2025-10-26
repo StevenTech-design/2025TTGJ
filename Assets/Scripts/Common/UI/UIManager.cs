@@ -12,6 +12,9 @@ namespace TTGJ.UI
         {
             //{ typeof(UIPanel), "UI/MainPanel" },
             { typeof(ExitPanel), ResPathConfig.UI_ExitPannel},
+            { typeof(JournalPanel), ResPathConfig.UI_JournalPannel},
+            { typeof(SettingPanel), ResPathConfig.UI_SettingPannel},
+            { typeof(ThanksPanel), ResPathConfig.UI_ThanksPannel},
         };
 
         public async UniTask<T> ShowPanel<T>() where T : UIPanel{
