@@ -40,7 +40,7 @@ namespace TTGJ.Task
                     yield break;
                 }
                 plotText.text = plot.TextTime;
-                yield return new WaitForSeconds(2);
+                yield return new WaitForSeconds(plot.Time);
                 currentPlotIndex++;
             }
             gameObject.SetActive(false);
