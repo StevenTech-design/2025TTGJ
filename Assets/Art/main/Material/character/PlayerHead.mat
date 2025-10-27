@@ -74,7 +74,7 @@ Material:
     m_Ints: []
     m_Floats:
     - Pow_spec: 0.01
-    - _Alpha: 0
+    - _Alpha: 1
     - _Blend: 1
     - _BumpScale: 1
     - _Cull: 2
