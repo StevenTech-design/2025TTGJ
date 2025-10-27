@@ -5808,11 +5808,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato
       objectReference: {fileID: 0}
-    - target: {fileID: 9017178365971350854, guid: 5e8b06190b27147a5ad83b2a6a86c169,
-        type: 3}
-      propertyPath: colorID
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6869,26 +6864,6 @@ PrefabInstance:
     - target: {fileID: 9152040515989166213, guid: a9c85dcc79fa0446d958254b8e8f4710,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9183116696832330896, guid: a9c85dcc79fa0446d958254b8e8f4710,
-        type: 3}
-      propertyPath: itemType
-      value: 1002
-      objectReference: {fileID: 0}
-    - target: {fileID: 9183116696832330896, guid: a9c85dcc79fa0446d958254b8e8f4710,
-        type: 3}
-      propertyPath: bounceForce
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9183116696832330896, guid: a9c85dcc79fa0446d958254b8e8f4710,
-        type: 3}
-      propertyPath: currentState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9183116696832330896, guid: a9c85dcc79fa0446d958254b8e8f4710,
-        type: 3}
-      propertyPath: InitModelInStart
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

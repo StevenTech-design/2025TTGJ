@@ -82,7 +82,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.15
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!114 &2250023350473863727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
+  bigVelocityThreshold: 1
   matureBoomTime: 10
 --- !u!1 &6495424408358200534
 GameObject:
