@@ -2214,7 +2214,9 @@ MonoBehaviour:
   _confirmBtn: {fileID: 6430237868480355999}
   _toggleShowUIBtn: {fileID: 8934396528079374732}
   _valueImage: {fileID: 8225020528203519420}
-  _slider: {fileID: 5097617777643151946}
+  _musicVolume: {fileID: 5097617777643151946}
+  _fieldOfViewSlider: {fileID: 891367907131322045}
+  fieldOfView: 53
 --- !u!1 &5570097359465052129
 GameObject:
   m_ObjectHideFlags: 0

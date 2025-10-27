@@ -16,21 +16,28 @@ namespace TTGJ.UI
         [SerializeField]
         private Image _valueImage;
         [SerializeField]
-        private Slider _slider;
+        private Slider _musicVolume;
+        [SerializeField]
+        private Slider _fieldOfViewSlider;
+        [SerializeField]
+        [Range(45, 90)]
+        private int fieldOfView = 60;
         private void OnEnable()
         {
             _closeBtn.onClick.AddListener(OnCloseBtnClick);
             _toggleShowUIBtn.onClick.AddListener(OnToggleShowUIBtnClick);
-            _slider.onValueChanged.AddListener(OnSliderValueChanged);
+            _musicVolume.onValueChanged.AddListener(OnSliderMusicVolumeValueChanged);
             _confirmBtn.onClick.AddListener(OnCloseBtnClick);
+            _fieldOfViewSlider.onValueChanged.AddListener(OnSliderFieldOfViewValueChanged);
         }
 
         private void OnDisable()
         {
             _closeBtn.onClick.RemoveListener(OnCloseBtnClick);
             _toggleShowUIBtn.onClick.RemoveListener(OnToggleShowUIBtnClick);
-            _slider.onValueChanged.RemoveListener(OnSliderValueChanged);
+            _musicVolume.onValueChanged.RemoveListener(OnSliderMusicVolumeValueChanged);
             _confirmBtn.onClick.RemoveListener(OnCloseBtnClick);
+            _fieldOfViewSlider.onValueChanged.RemoveListener(OnSliderFieldOfViewValueChanged);
         }
 
         private void OnCloseBtnClick()
@@ -40,7 +47,8 @@ namespace TTGJ.UI
 
         private void Init() { 
             this._valueImage.fillAmount = DataManager.Instance.GetShowTipUIState() ? 1 : 0;
-            this._slider.value = DataManager.Instance.GetMusicVolume();
+            this._musicVolume.value = DataManager.Instance.GetMusicVolume();
+            this._fieldOfViewSlider.value = DataManager.Instance.GetFieldOfView() / 90f;
         }
 
         public override void Show()
@@ -63,11 +71,17 @@ namespace TTGJ.UI
             _valueImage.DOFillAmount(targetValue, 0.5f);
         }
 
-        private void OnSliderValueChanged(float value)
+        private void OnSliderMusicVolumeValueChanged(float value)
         {
             DataManager.Instance.SetMusicVolume(value);
         }
 
-
+        private void OnSliderFieldOfViewValueChanged(float value)
+        {
+            int fov = (int)Mathf.Lerp(60, 90, value);
+            Camera.main.fieldOfView = fov;
+            Debug.Log("FieldOfView: " + fov);
+            DataManager.Instance.SetFieldOfView(fov);
+        }
     }
 }

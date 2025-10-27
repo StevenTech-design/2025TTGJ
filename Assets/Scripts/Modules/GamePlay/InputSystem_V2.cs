@@ -7,6 +7,7 @@ using TTGJ.GamePlay;
 using System;
 using TTGJ.Plant;
 using cfg;
+using TTGJ.Data;
 
 namespace TTGJ.GamePlay
 {
@@ -42,6 +43,8 @@ namespace TTGJ.GamePlay
         
         [SerializeField]
         private CameraViewController cameraController;
+        [SerializeField]
+        private Texture2D cursorSprite;
 
 
         private void Start()
@@ -51,6 +54,7 @@ namespace TTGJ.GamePlay
             {
                 cameraController = FindObjectOfType<CameraViewController>();
             }
+            Cursor.SetCursor(cursorSprite, Vector2.zero, CursorMode.Auto);
             
         }
         
@@ -249,7 +253,7 @@ namespace TTGJ.GamePlay
 
         private void RefreshCommandInfo()
         {
-            if (CheckCommandEqual()) {
+            if (CheckCommandEqual() || !DataManager.Instance.GetShowTipUIState()) {
                 return;
             }
             commandInfoUI.ShowCommandInfo(currentCommandinfo);
