@@ -2,6 +2,7 @@
   {
     "id": 1001,
     "name": "土豆-房子",
+    "type": 1,
     "costMainBuckets_1": 3001,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6001,
@@ -10,6 +11,7 @@
   {
     "id": 1002,
     "name": "蘑菇-房子",
+    "type": 1,
     "costMainBuckets_1": 3002,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6002,
@@ -18,6 +20,7 @@
   {
     "id": 1003,
     "name": "南瓜-房子",
+    "type": 1,
     "costMainBuckets_1": 3003,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6003,
@@ -26,6 +29,7 @@
   {
     "id": 1004,
     "name": "胡萝卜-房子",
+    "type": 1,
     "costMainBuckets_1": 3004,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6004,
@@ -34,6 +38,7 @@
   {
     "id": 1005,
     "name": "水甜菜-房子",
+    "type": 1,
     "costMainBuckets_1": 3005,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6005,
@@ -42,6 +47,7 @@
   {
     "id": 1006,
     "name": "番茄-红-房子",
+    "type": 1,
     "costMainBuckets_1": 3006,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6006,
@@ -50,6 +56,7 @@
   {
     "id": 1007,
     "name": "番茄-橙-房子",
+    "type": 1,
     "costMainBuckets_1": 3007,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6007,
@@ -58,6 +65,7 @@
   {
     "id": 1008,
     "name": "番茄-黄-房子",
+    "type": 1,
     "costMainBuckets_1": 3008,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6008,
@@ -66,6 +74,7 @@
   {
     "id": 1009,
     "name": "番茄-绿-房子",
+    "type": 1,
     "costMainBuckets_1": 3009,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6009,
@@ -74,6 +83,7 @@
   {
     "id": 1010,
     "name": "番茄-青-房子",
+    "type": 1,
     "costMainBuckets_1": 3010,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6010,
@@ -82,6 +92,7 @@
   {
     "id": 1011,
     "name": "番茄-蓝-房子",
+    "type": 1,
     "costMainBuckets_1": 3011,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6011,
@@ -90,6 +101,7 @@
   {
     "id": 1012,
     "name": "番茄-紫-房子",
+    "type": 1,
     "costMainBuckets_1": 3012,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6012,
@@ -98,6 +110,7 @@
   {
     "id": 1013,
     "name": "花椰菜-房子",
+    "type": 1,
     "costMainBuckets_1": 3013,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6013,
@@ -106,6 +119,7 @@
   {
     "id": 1014,
     "name": "猕猴桃-房子",
+    "type": 1,
     "costMainBuckets_1": 3014,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6014,
@@ -114,6 +128,7 @@
   {
     "id": 1015,
     "name": "野草-房子",
+    "type": 1,
     "costMainBuckets_1": 3015,
     "costMainBuckets_2": 2016,
     "rewardBoxId": 6015,
@@ -122,6 +137,7 @@
   {
     "id": 2001,
     "name": "爆米花-土豆&蘑菇味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2002,
     "rewardBoxId": 5009,
@@ -130,6 +146,7 @@
   {
     "id": 2002,
     "name": "爆米花-土豆&南瓜味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2003,
     "rewardBoxId": 5010,
@@ -138,6 +155,7 @@
   {
     "id": 2003,
     "name": "爆米花-土豆&胡萝卜味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2004,
     "rewardBoxId": 5011,
@@ -146,6 +164,7 @@
   {
     "id": 2004,
     "name": "爆米花-土豆&水甜菜味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2005,
     "rewardBoxId": 5012,
@@ -154,6 +173,7 @@
   {
     "id": 2005,
     "name": "爆米花-土豆&红番茄味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2006,
     "rewardBoxId": 5013,
@@ -162,6 +182,7 @@
   {
     "id": 2006,
     "name": "爆米花-土豆&花椰菜味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2007,
     "rewardBoxId": 5014,
@@ -170,6 +191,7 @@
   {
     "id": 2007,
     "name": "爆米花-土豆&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5015,
@@ -178,6 +200,7 @@
   {
     "id": 2008,
     "name": "爆米花-土豆&野草味",
+    "type": 2,
     "costMainBuckets_1": 2001,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5016,
@@ -186,6 +209,7 @@
   {
     "id": 2009,
     "name": "爆米花-蘑菇&南瓜味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2003,
     "rewardBoxId": 5017,
@@ -194,6 +218,7 @@
   {
     "id": 2010,
     "name": "爆米花-蘑菇&胡萝卜味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2004,
     "rewardBoxId": 5018,
@@ -202,6 +227,7 @@
   {
     "id": 2011,
     "name": "爆米花-蘑菇&水甜菜味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2005,
     "rewardBoxId": 5019,
@@ -210,6 +236,7 @@
   {
     "id": 2012,
     "name": "爆米花-蘑菇&红番茄味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2006,
     "rewardBoxId": 5020,
@@ -218,6 +245,7 @@
   {
     "id": 2013,
     "name": "爆米花-蘑菇&花椰菜味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2007,
     "rewardBoxId": 5021,
@@ -226,6 +254,7 @@
   {
     "id": 2014,
     "name": "爆米花-蘑菇&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5022,
@@ -234,6 +263,7 @@
   {
     "id": 2015,
     "name": "爆米花-蘑菇&野草味",
+    "type": 2,
     "costMainBuckets_1": 2002,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5023,
@@ -242,6 +272,7 @@
   {
     "id": 2016,
     "name": "爆米花-南瓜&胡萝卜味",
+    "type": 2,
     "costMainBuckets_1": 2003,
     "costMainBuckets_2": 2004,
     "rewardBoxId": 5024,
@@ -250,6 +281,7 @@
   {
     "id": 2017,
     "name": "爆米花-南瓜&水甜菜味",
+    "type": 2,
     "costMainBuckets_1": 2003,
     "costMainBuckets_2": 2005,
     "rewardBoxId": 5025,
@@ -258,6 +290,7 @@
   {
     "id": 2018,
     "name": "爆米花-南瓜&红番茄味",
+    "type": 2,
     "costMainBuckets_1": 2003,
     "costMainBuckets_2": 2006,
     "rewardBoxId": 5026,
@@ -266,6 +299,7 @@
   {
     "id": 2019,
     "name": "爆米花-南瓜&花椰菜味",
+    "type": 2,
     "costMainBuckets_1": 2003,
     "costMainBuckets_2": 2007,
     "rewardBoxId": 5027,
@@ -274,6 +308,7 @@
   {
     "id": 2020,
     "name": "爆米花-南瓜&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2003,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5028,
@@ -282,6 +317,7 @@
   {
     "id": 2021,
     "name": "爆米花-南瓜&野草味",
+    "type": 2,
     "costMainBuckets_1": 2003,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5029,
@@ -290,6 +326,7 @@
   {
     "id": 2022,
     "name": "爆米花-胡萝卜&水甜菜味",
+    "type": 2,
     "costMainBuckets_1": 2004,
     "costMainBuckets_2": 2005,
     "rewardBoxId": 5030,
@@ -298,6 +335,7 @@
   {
     "id": 2023,
     "name": "爆米花-胡萝卜&红番茄味",
+    "type": 2,
     "costMainBuckets_1": 2004,
     "costMainBuckets_2": 2006,
     "rewardBoxId": 5031,
@@ -306,6 +344,7 @@
   {
     "id": 2024,
     "name": "爆米花-胡萝卜&花椰菜味",
+    "type": 2,
     "costMainBuckets_1": 2004,
     "costMainBuckets_2": 2007,
     "rewardBoxId": 5032,
@@ -314,6 +353,7 @@
   {
     "id": 2025,
     "name": "爆米花-胡萝卜&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2004,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5033,
@@ -322,6 +362,7 @@
   {
     "id": 2026,
     "name": "爆米花-胡萝卜&野草味",
+    "type": 2,
     "costMainBuckets_1": 2004,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5034,
@@ -330,6 +371,7 @@
   {
     "id": 2027,
     "name": "爆米花-水甜菜&红番茄味",
+    "type": 2,
     "costMainBuckets_1": 2005,
     "costMainBuckets_2": 2006,
     "rewardBoxId": 5035,
@@ -338,6 +380,7 @@
   {
     "id": 2028,
     "name": "爆米花-水甜菜&花椰菜味",
+    "type": 2,
     "costMainBuckets_1": 2005,
     "costMainBuckets_2": 2007,
     "rewardBoxId": 5036,
@@ -346,6 +389,7 @@
   {
     "id": 2029,
     "name": "爆米花-水甜菜&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2005,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5037,
@@ -354,6 +398,7 @@
   {
     "id": 2030,
     "name": "爆米花-水甜菜&野草味",
+    "type": 2,
     "costMainBuckets_1": 2005,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5038,
@@ -362,6 +407,7 @@
   {
     "id": 2031,
     "name": "爆米花-红番茄&花椰菜味",
+    "type": 2,
     "costMainBuckets_1": 2006,
     "costMainBuckets_2": 2007,
     "rewardBoxId": 5039,
@@ -370,6 +416,7 @@
   {
     "id": 2032,
     "name": "爆米花-红番茄&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2006,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5040,
@@ -378,6 +425,7 @@
   {
     "id": 2033,
     "name": "爆米花-红番茄&野草味",
+    "type": 2,
     "costMainBuckets_1": 2006,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5041,
@@ -386,6 +434,7 @@
   {
     "id": 2034,
     "name": "爆米花-花椰菜&猕猴桃味",
+    "type": 2,
     "costMainBuckets_1": 2007,
     "costMainBuckets_2": 2008,
     "rewardBoxId": 5042,
@@ -394,6 +443,7 @@
   {
     "id": 2035,
     "name": "爆米花-花椰菜&野草味",
+    "type": 2,
     "costMainBuckets_1": 2007,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5043,
@@ -402,6 +452,7 @@
   {
     "id": 2036,
     "name": "爆米花-猕猴桃&野草味",
+    "type": 2,
     "costMainBuckets_1": 2008,
     "costMainBuckets_2": 2009,
     "rewardBoxId": 5044,
