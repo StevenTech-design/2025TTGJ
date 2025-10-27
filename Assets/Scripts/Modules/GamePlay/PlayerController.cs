@@ -23,6 +23,7 @@ namespace TTGJ.GamePlay
         [SerializeField]
         private float _longTimeDropforce = 0;
         public Transform modelTransform;
+        public Transform headTransform;
 
 
 

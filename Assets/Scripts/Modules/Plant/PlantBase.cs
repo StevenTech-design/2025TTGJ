@@ -226,7 +226,11 @@ namespace TTGJ.Plant
 
         public void ResetDyeing()
         {
+            if (currentState <= PlantState.Harvest) {
+                return;
+            }
             GetComponentInChildren<Renderer>().material.SetFloat("_PaintStrength", 1);
+            
         }
 
         protected virtual void OnCollisionEnter(Collision collision)
