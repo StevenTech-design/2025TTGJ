@@ -74,11 +74,11 @@ Material:
     m_Ints: []
     m_Floats:
     - Pow_spec: 0.01
-    - _Alpha: 1
+    - _Alpha: 0
     - _Blend: 1
     - _BumpScale: 1
     - _Cull: 2
-    - _Cutoff: 1
+    - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FresnelPow: 0
