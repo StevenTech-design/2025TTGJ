@@ -56,9 +56,12 @@ namespace TTGJ.Plant
                                        y <= cellPos.y + currentHalfSize);
                     if (isInnerArea)
                         continue;
-
-                    if (x < 0 || x >= fields.Length || y < 0 || y >= fields[0].Length)
-                        return false;
+                        
+                    if (x < 0 || x >= fields.Length || fields[x] == null)
+                        continue;
+                    
+                    if (y < 0 || y >= fields[x].Length)
+                        continue;
 
                     fields[x][y].ToOccupied();
                 }
@@ -84,7 +87,11 @@ namespace TTGJ.Plant
                     if (isInnerArea)
                         continue;
 
-                    if (x < 0 || x >= fields.Length || y < 0 || y >= fields[0].Length)
+                    // 检查字段是否在边界内，并确保fields[x]不为null
+                    if (x < 0 || x >= fields.Length || fields[x] == null)
+                        continue;
+                    
+                    if (y < 0 || y >= fields[x].Length)
                         continue;
 
                     PlantBase plant = fields[x][y].GetOccupiedPlant();
