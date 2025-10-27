@@ -19,6 +19,7 @@ public partial class Tables
     public TBItemCombine TBItemCombine {get; }
     public TbPlot TbPlot {get; }
     public TbTask TbTask {get; }
+    public TbHouse TbHouse {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -27,6 +28,7 @@ public partial class Tables
         TBItemCombine = new TBItemCombine(loader("tbitemcombine"));
         TbPlot = new TbPlot(loader("tbplot"));
         TbTask = new TbTask(loader("tbtask"));
+        TbHouse = new TbHouse(loader("tbhouse"));
         ResolveRef();
     }
     
@@ -37,6 +39,7 @@ public partial class Tables
         TBItemCombine.ResolveRef(this);
         TbPlot.ResolveRef(this);
         TbTask.ResolveRef(this);
+        TbHouse.ResolveRef(this);
     }
 }
 
