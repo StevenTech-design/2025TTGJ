@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace TTGJ.Buff
 {
-    public class ReplaceModelBuff : BuffBase
+    public class ReplaceModelBuff : ReplaceModelBuffBase
     {
-        public string pathModelPath;
         public GameObject originalModel;
         private GameObject newModel;
         public override void StartBuff() { 
@@ -14,9 +13,8 @@ namespace TTGJ.Buff
             ReplaceModel();
         }
         private void ReplaceModel() { 
-            newModel = Instantiate(StResources.Instance.LoadByResources<GameObject>(pathModelPath));
+            newModel = Instantiate(modelPrefab,PlayerController.Instance.modelTransform.parent);
             newModel.SetActive(true);
-            newModel.transform.SetParent(PlayerController.Instance.modelTransform.parent);
             newModel.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             newModel.transform.localScale = Vector3.one;
             originalModel.SetActive(false);

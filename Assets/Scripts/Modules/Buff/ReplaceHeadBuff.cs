@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace TTGJ.Buff
 {
-    public class ReplaceHeadBuff : BuffBase
+    public class ReplaceHeadBuff : ReplaceModelBuffBase
     {
-        public GameObject headModel;
         private GameObject newModel;
         private Material playerHeadMaterial;
         public override void StartBuff() { 
@@ -14,9 +13,8 @@ namespace TTGJ.Buff
             ReplaceHead();
         }
         private void ReplaceHead() { 
-            newModel = Instantiate(headModel);
+            newModel = Instantiate(modelPrefab,PlayerController.Instance.headTransform);
             newModel.SetActive(true);
-            newModel.transform.SetParent(PlayerController.Instance.headTransform);
             newModel.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             newModel.transform.localScale = Vector3.one;
             HideHead();

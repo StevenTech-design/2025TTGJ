@@ -18,7 +18,7 @@ namespace TTGJ.Plant
              List<PlantBase> plants = FieldSystem.Instance.GetSurroundPlants(GetComponent<Cell>().cellPos,currentOccupiedFieldSize);
              foreach (var plant in plants)
              {
-                plant.OnWatering();
+                //plant.OnWatering();
                 plant.Dyeing(colorID);
              }
         }

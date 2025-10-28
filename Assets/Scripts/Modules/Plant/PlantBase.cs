@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using TTGJ.Config;
 using TTGJ.Luban;
+using TTGJ.House;
 using System;
 namespace TTGJ.Plant
 {
@@ -124,8 +125,7 @@ namespace TTGJ.Plant
             isLiftable = true;
             rigidbody.constraints = RigidbodyConstraints.None;
             CheckEvolution();
-
-
+            HouseManager.Instance.CollectPlant(this);
         }
 
         public virtual void OnGermination()

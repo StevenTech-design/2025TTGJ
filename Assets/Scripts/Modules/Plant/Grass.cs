@@ -3,6 +3,7 @@ using DG.Tweening;
 using TTGJ.Buff;
 using TTGJ.Config;
 using TTGJ.GamePlay;
+using TTGJ.House;
 using UnityEngine;
 
 namespace TTGJ.Plant {
@@ -21,9 +22,12 @@ namespace TTGJ.Plant {
             mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f));
             mySequence.Append(transform.DOScale(ConfigManager.Instance.GetPlantGrowthModelSize(itemType, currentGrouthCount), 0.5f).SetEase(Ease.OutElastic));
         }
-        protected override void OnHarvest() { 
+        protected override void OnHarvest()
+        {
             currentState = PlantState.Harvest;
-            OnGrassHarvested?.Invoke(gameObject,index);
+            transform.localScale = Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount);
+            OnGrassHarvested?.Invoke(gameObject, index);
+            HouseManager.Instance.CollectPlant(this);
         }
         public override void OnEat() { 
             SheepTalkBuff buff = BuffManager.Instance.AddBuff<SheepTalkBuff>(PlayerController.Instance.transform);

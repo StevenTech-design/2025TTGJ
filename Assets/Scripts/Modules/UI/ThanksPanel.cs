@@ -21,7 +21,7 @@ namespace TTGJ.UI
 
         private void OnExitBtnClick()
         {
-            UIManager.Instance.HidePanel(this);
+            UIManager.Instance.PopUp();
         }
     }
 }

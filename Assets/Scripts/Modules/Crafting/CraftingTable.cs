@@ -5,12 +5,16 @@ using TTGJ.Generate;
 using TTGJ.Interactable;
 using TTGJ.Luban;
 using UnityEngine;
+using TTGJ.Config;
+using TTGJ.House;
 
 namespace TTGJ.Crafting
 {
     public class CraftingTable : MonoBehaviour
     {
         private List<Liftable> liftables = new List<Liftable>();
+        [SerializeField]
+        private CraftingTableType craftingTableType;
         private void OnCollisionEnter(Collision other)
         {
             if (liftables.Count >= 2)
@@ -29,8 +33,8 @@ namespace TTGJ.Crafting
         }
         private void ToCraft()
         {
-            var stringPath = GetTargetCraftObject();
-            if(string.IsNullOrEmpty(stringPath)) {
+            var obj = GetTargetCraftObject();
+            if(obj == null) {
                 liftables[0].gameObject.SetActive(true);
                 liftables[1].gameObject.SetActive(true);
                 liftables[0].transform.position = transform.position + transform.forward * 2f;
@@ -38,27 +42,33 @@ namespace TTGJ.Crafting
                 liftables.Clear();
                 return;
             }
-            var obj = GameObject.Instantiate(StResources.Instance.LoadByResources<GameObject>(stringPath));
             obj.transform.position = transform.position + transform.forward * 2f;
             liftables.Clear();
         }
-        private string GetTargetCraftObject()
+        private GameObject GetTargetCraftObject()
         {
-            var combineItem = LubanManager.Instance.GetCombineItem((int)liftables[0].itemType, (int)liftables[1].itemType);
+            var combineItem = LubanManager.Instance.GetCombineItem((int)craftingTableType,(int)liftables[0].itemType, (int)liftables[1].itemType);
             if (combineItem == null) {
                 Debug.LogError("No combine item id: " + liftables[0].itemType + " " + liftables[1].itemType);
                 return null;
             }
-             var itemNew = LubanManager.Instance.GetItemNew(combineItem.RewardBoxId);
+            var itemNew = LubanManager.Instance.GetItemNew(combineItem.RewardBoxId);
 
              if(itemNew == null) {
                 Debug.LogError("No item new id: " + combineItem.RewardBoxId);
                 return null;
              }
+            GameObject res = null;
+            if (itemNew.ItemType == (int)ItemCatagory.Room)
+            {
+                res = HouseManager.Instance.CreateHouse(itemNew.Id);
+            }
+            else
+            {
+                res = Instantiate(StResources.Instance.LoadByResources<GameObject>(itemNew.Model));
+            }
 
-             return itemNew.Model;
-             
-
+             return res;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using cfg;
 using TTGJ.Framework;
 using TTGJ.Luban;
 using TTGJ.Plant;
@@ -6,10 +7,12 @@ using UnityEngine;
 namespace TTGJ.House {
     public class HouseManager : Singleton<HouseManager> {
         private List<HouseBase> _currentHouse = new List<HouseBase>();
-        public void CreateRoom(ItemType itemType) {
-            var item = LubanManager.Instance.GetItemNew((int)itemType);
-            GameObject game = StResources.Instance.LoadByResources<GameObject>(item.Model);
-            _currentHouse.Add(game.GetComponent<HouseBase>());
+        public GameObject CreateHouse(int id)
+        {
+            var item = LubanManager.Instance.GetItemNew(id);
+            GameObject house = GameObject.Instantiate<GameObject>(StResources.Instance.LoadByResources<GameObject>(item.Model));
+            _currentHouse.Add(house.GetComponent<HouseBase>());
+            return house;
         }
 
         public void CollectPlant(PlantBase plant) {

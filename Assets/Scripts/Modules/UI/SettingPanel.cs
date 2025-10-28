@@ -12,6 +12,8 @@ namespace TTGJ.UI
         [SerializeField]
         private Button _confirmBtn;
         [SerializeField]
+        private Button _quitBtn;
+        [SerializeField]
         private Button _toggleShowUIBtn;
         [SerializeField]
         private Image _valueImage;
@@ -29,8 +31,8 @@ namespace TTGJ.UI
             _musicVolume.onValueChanged.AddListener(OnSliderMusicVolumeValueChanged);
             _confirmBtn.onClick.AddListener(OnCloseBtnClick);
             _fieldOfViewSlider.onValueChanged.AddListener(OnSliderFieldOfViewValueChanged);
+            _quitBtn.onClick.AddListener(OnQuitBtnClick);
         }
-
         private void OnDisable()
         {
             _closeBtn.onClick.RemoveListener(OnCloseBtnClick);
@@ -38,11 +40,12 @@ namespace TTGJ.UI
             _musicVolume.onValueChanged.RemoveListener(OnSliderMusicVolumeValueChanged);
             _confirmBtn.onClick.RemoveListener(OnCloseBtnClick);
             _fieldOfViewSlider.onValueChanged.RemoveListener(OnSliderFieldOfViewValueChanged);
+            _quitBtn.onClick.RemoveListener(OnQuitBtnClick);
         }
 
         private void OnCloseBtnClick()
         {
-            UIManager.Instance.HidePanel(this);
+            UIManager.Instance.PopUp();
         }
 
         private void Init() { 
@@ -82,6 +85,10 @@ namespace TTGJ.UI
             Camera.main.fieldOfView = fov;
             Debug.Log("FieldOfView: " + fov);
             DataManager.Instance.SetFieldOfView(fov);
+        }
+        
+        private void OnQuitBtnClick() {
+            UIManager.Instance.PushSecondTip<ExitPanel>();
         }
     }
 }

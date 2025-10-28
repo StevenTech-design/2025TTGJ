@@ -114,16 +114,17 @@ namespace TTGJ.Luban
         {
             return _tables.TBItemCombine.Get(id);
         }
-        public cfg.ItemCombine GetCombineItem(int itemId1, int itemId2)
+        public cfg.ItemCombine GetCombineItem(int craftingTableType, int itemId1, int itemId2)
         {
             var itemCombine = GetTBItemCombine();
-            foreach (var item in itemCombine.DataList)
+            var dataList = itemCombine.DataList.Where(item => item.Type == craftingTableType);
+            foreach (var item in dataList)
             {
                 if ((item.CostMainBuckets1 == itemId1 && item.CostMainBuckets2 == itemId2)
-                || item.CostMainBuckets1 == itemId2 && item.CostMainBuckets2 == itemId1)
+                || (item.CostMainBuckets1 == itemId2 && item.CostMainBuckets2 == itemId1))
                 {
                     return item;
-                }
+                }   
             }
             return null;
         }
