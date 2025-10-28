@@ -53,6 +53,7 @@ MonoBehaviour:
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
+  bigVelocityThreshold: 1
   index: 0
 --- !u!65 &8549490942201042632
 BoxCollider:
