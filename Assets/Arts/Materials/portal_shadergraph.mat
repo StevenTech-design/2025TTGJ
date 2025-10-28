@@ -44,7 +44,7 @@ Material:
     - _QueueOffset: 0
     - _Rotation: 30
     - _Speed: 1
-    - _Transparency: 0
+    - _Transparency: 1.46
     m_Colors:
     - _Color: {r: 0.16300634, g: 0.066037595, b: 1, a: 0}
   m_BuildTextureStacks: []

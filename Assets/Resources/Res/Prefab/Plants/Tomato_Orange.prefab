@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2169373708225191922}
   - component: {fileID: 2994850981695753243}
   m_Layer: 0
-  m_Name: Tomato
+  m_Name: Tomato_Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,13 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1006
-  sackGo: {fileID: 8370064568671317185, guid: 3f7e1d3e082c1d74facd761ec4f456c0, type: 3}
+  sackGo: {fileID: 5926678816803975886, guid: 8c15b10a82f92084ca46fb02459651a0, type: 3}
   grothGo: {fileID: 5234753815911012807, guid: 711a1724917ce8a4d95e8debce3ad645, type: 3}
-  realGo: {fileID: 919132149155446097, guid: 146c5d637d335eb4f85aa45321555beb, type: 3}
+  realGo: {fileID: 9178883381469275334, guid: 117545dac2f4c6445a262cc274ffe958, type: 3}
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
-  colorID: 0
+  bigVelocityThreshold: 1
+  colorID: 1
 --- !u!54 &2169373708225191922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c3fd491b2f4bfa94ca937b74959da38b, type: 2}
+      objectReference: {fileID: 2100000, guid: 21b83e241ffb4df46a54f2619c2aefa4, type: 2}
     - target: {fileID: 2930945738722330662, guid: e66bd3e9645c1074983e627376bd3bba,
         type: 3}
       propertyPath: m_LocalPosition.x
