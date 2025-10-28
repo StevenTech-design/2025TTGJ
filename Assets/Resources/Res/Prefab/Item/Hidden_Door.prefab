@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436686545804103868}
-  m_Layer: 0
+  - component: {fileID: 6307806909401290169}
+  m_Layer: 8
   m_Name: Hidden_Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,6 +37,19 @@ Transform:
   - {fileID: 8502082540778551669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6307806909401290169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318893601162005748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47acf3eda45484de498848c19344a24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyType: 5007
 --- !u!1001 &4477448252643547204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wood_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2bc33402ee3fd01459d0ef2511394773,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -202,6 +221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3dce6fa6a608c2342a7083c09a4cffd7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -323,6 +347,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wood_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2bc33402ee3fd01459d0ef2511394773,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -411,6 +440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wood_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406fe5c2810bcdb44bba6122f6cef501,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -531,6 +565,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wood_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 406fe5c2810bcdb44bba6122f6cef501,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
