@@ -56,14 +56,17 @@ namespace TTGJ.Plant
         Big_Grass=3015,
 
         Kettle = 5001,
+        Key = 5007,
 
 
-        Potato_House = 2001,
-        Mushroom_House = 2002,
-        GhostPumpkin_House = 2003,
-        Carrot_House = 2004,
-        WaterBeet_House = 2005,
-        Tomato_Red_House=2006,
+
+
+        // Potato_House = 2001,
+        // Mushroom_House = 2002,
+        // GhostPumpkin_House = 2003,
+        // Carrot_House = 2004,
+        // WaterBeet_House = 2005,
+        // Tomato_Red_House=2006,
         // Tomato_Orange_House=2007,
         // Tomato_Yellow_House=2008,
         // Tomato_Green_House=2009,
