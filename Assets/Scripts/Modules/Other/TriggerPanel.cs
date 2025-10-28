@@ -1,10 +1,12 @@
 using TTGJ.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TTGJ.Other
 {
     public enum PanelType
     {
+        EnterGame,
         Journal,
         Setting,
         Thanks,
@@ -36,6 +38,9 @@ namespace TTGJ.Other
                     break;
                 case PanelType.Exit:
                     UIManager.Instance.Push<ExitPanel>();
+                    break;
+                case PanelType.EnterGame:
+                    SceneManager.LoadScene(1);
                     break;
                 default:
                     break;
