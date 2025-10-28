@@ -98,9 +98,9 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BubbleSpeed: 1.18
+    - _BubbleSpeed: 2
     - _BumpScale: 1
-    - _ChromaticAberration: 0.0044
+    - _ChromaticAberration: 0.0188
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -108,13 +108,13 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Distortion: 0.02
-    - _DistortionStrength: 0.514
+    - _DistortionStrength: 0.535
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EdgeBrightness: 2
     - _EnvironmentReflections: 1
     - _FresnelPower: 2
-    - _FresnelScale: 0.963
+    - _FresnelScale: 0.21
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -123,7 +123,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _RimPower: 0.91
+    - _RimPower: 2.56
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

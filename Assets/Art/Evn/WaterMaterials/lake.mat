@@ -112,9 +112,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaCutoff: 0.5
-    - _CousticsInt: 1
+    - _CousticsInt: 0.5
     - _CousticsRange: 10
-    - _CousticsScale: 4
+    - _CousticsScale: 5
     - _CousticsViewInt: 4
     - _CousticsViewRange: 2.22
     - _DeepRange: 0.2

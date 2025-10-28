@@ -38,7 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DownFresnelPower: 2.17
+    - _DownFresnelPower: 8.58
     - _DownLine: 1
     - _DownSmooth: 0.63
     - _Fresnelpower: 1.8
@@ -48,13 +48,14 @@ Material:
     - _TopFresnelPower: 0.6
     - _TopLine: 0.395
     - _TopSmooth: 0.792
-    - _metallic: 0.439
-    - _smoothness: 0.72
+    - _alpha: 0
+    - _metallic: 0
+    - _smoothness: 1
     m_Colors:
-    - _BaseCol: {r: 0.18729976, g: 0.5754717, b: 0.29534763, a: 1}
+    - _BaseCol: {r: 0.34290266, g: 2, b: 0, a: 1}
     - _BottomCol: {r: 1, g: 1, b: 1, a: 0.5058824}
     - _DownCol: {r: 1024, g: 0, b: 855.3877, a: 1}
-    - _TopCol: {r: 35.302185, g: 37.233215, b: 13.172129, a: 1}
+    - _TopCol: {r: 53.023205, g: 114.14465, b: 148.93285, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2379325797146977798
 MonoBehaviour:
