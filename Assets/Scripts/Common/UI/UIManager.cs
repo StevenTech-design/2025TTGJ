@@ -15,6 +15,9 @@ namespace TTGJ.UI
             { typeof(JournalPanel), ResPathConfig.UI_JournalPannel},
             { typeof(SettingPanel), ResPathConfig.UI_SettingPannel},
             { typeof(ThanksPanel), ResPathConfig.UI_ThanksPannel},
+            { typeof(TeamPanel), ResPathConfig.UI_TeamPannel},
+            { typeof(OperationPanel), ResPathConfig.UI_OperationPannel},
+            
         };
         private Stack<UIPanel> _panels = new Stack<UIPanel>();
         private Dictionary<Type, UIPanel> panelDic = new Dictionary<Type, UIPanel>();

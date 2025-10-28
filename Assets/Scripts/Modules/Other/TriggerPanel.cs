@@ -11,6 +11,10 @@ namespace TTGJ.Other
         Setting,
         Thanks,
         Exit,
+        StartGame,
+        OperationPanel,
+        TeamPanel,
+
     }
     public class TriggerPanel : MonoBehaviour
     {
@@ -41,6 +45,9 @@ namespace TTGJ.Other
                     break;
                 case PanelType.EnterGame:
                     SceneManager.LoadScene(1);
+                    break;
+                case PanelType.StartGame:
+                    SceneManager.LoadScene(0);
                     break;
                 default:
                     break;
