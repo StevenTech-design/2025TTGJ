@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using cfg;
 using Cysharp.Threading.Tasks;
 using SimpleJSON;
 using TTGJ.Framework;
@@ -146,6 +147,9 @@ namespace TTGJ.Luban
         public List<int> GetItemsByType(int itemType) { 
             var items = _tables.TbItemNew.DataList;
             return items.Where(item => item.ItemType == itemType).Select(item => item.Id).ToList();
+        }
+        public house GetHouse(int id) {
+            return _tables.TbHouse.Get(id);
         }
 
 

@@ -11,8 +11,7 @@ namespace TTGJ.GamePlay
     {
         public float speed = 3.5f;
         public float rotationSpeed = 5.0f;
-        [SerializeField]
-        private float dropForce = 10;
+        public float dropForce = 10;
         private Rigidbody _rigidbody;
 
         [SerializeField]
@@ -23,6 +22,7 @@ namespace TTGJ.GamePlay
         [SerializeField]
         private float _longTimeDropforce = 0;
         public Transform modelTransform;
+        public Transform headTransform;
 
 
 

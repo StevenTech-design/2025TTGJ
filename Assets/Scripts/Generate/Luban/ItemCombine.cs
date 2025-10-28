@@ -19,6 +19,7 @@ public sealed partial class ItemCombine : Luban.BeanBase
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
+        { if(!_buf["type"].IsNumber) { throw new SerializationException(); }  Type = _buf["type"]; }
         { if(!_buf["costMainBuckets_1"].IsNumber) { throw new SerializationException(); }  CostMainBuckets1 = _buf["costMainBuckets_1"]; }
         { if(!_buf["costMainBuckets_2"].IsNumber) { throw new SerializationException(); }  CostMainBuckets2 = _buf["costMainBuckets_2"]; }
         { if(!_buf["rewardBoxId"].IsNumber) { throw new SerializationException(); }  RewardBoxId = _buf["rewardBoxId"]; }
@@ -38,6 +39,10 @@ public sealed partial class ItemCombine : Luban.BeanBase
     /// 配方名
     /// </summary>
     public readonly string Name;
+    /// <summary>
+    /// 合成机类型
+    /// </summary>
+    public readonly int Type;
     /// <summary>
     /// 材料1
     /// </summary>
@@ -67,6 +72,7 @@ public sealed partial class ItemCombine : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "name:" + Name + ","
+        + "type:" + Type + ","
         + "costMainBuckets1:" + CostMainBuckets1 + ","
         + "costMainBuckets2:" + CostMainBuckets2 + ","
         + "rewardBoxId:" + RewardBoxId + ","
