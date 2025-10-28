@@ -43,6 +43,12 @@ namespace TTGJ.Other
                 case PanelType.Exit:
                     UIManager.Instance.Push<ExitPanel>();
                     break;
+                case PanelType.OperationPanel:
+                    UIManager.Instance.Push<OperationPanel>();
+                    break;
+                case PanelType.TeamPanel:
+                    UIManager.Instance.Push<TeamPanel>();
+                    break;
                 case PanelType.EnterGame:
                     SceneManager.LoadScene(1);
                     break;
