@@ -14,7 +14,7 @@ namespace TTGJ.Plant
         private float force = 1f;
         public override void OnEat() { 
             ReplaceModelBuff buffBase = BuffManager.Instance.AddBuff<ReplaceModelBuff>(PlayerController.Instance.transform);
-            buffBase.pathModelPath = ResPathConfig.OriginModel_Kivi;
+            buffBase.modelPrefab = this.gameObject;
             buffBase.originalModel = PlayerController.Instance.modelTransform.gameObject;
             buffBase.StartBuff();
         }

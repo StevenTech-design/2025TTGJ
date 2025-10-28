@@ -35,9 +35,9 @@ namespace TTGJ.Plant
             base.OnEat();
             RevealBuff revealBuff = BuffManager.Instance.AddBuff<RevealBuff>(PlayerController.Instance.transform,false);
             revealBuff.StartBuff();
-            ReplaceHeadBuff replaceHeadBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.Instance.headTransform,false);
-            replaceHeadBuff.headModel = this.gameObject;
-            replaceHeadBuff.StartBuff();
+            ReplaceHeadBuff headBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.Instance.headTransform,false);
+            headBuff.modelPrefab = this.gameObject;
+            headBuff.StartBuff();
         }
         public override void OnTeleport(Transform baseTeleportPos)
         {

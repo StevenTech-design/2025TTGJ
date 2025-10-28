@@ -17,5 +17,6 @@ namespace TTGJ.Buff
         ForwardWateringBuff = 1013,
         SmallModel = 1014,
         SheepTalk = 1015,
+        ReplaceHead = 1016,
     }
 }

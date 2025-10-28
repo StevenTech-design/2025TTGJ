@@ -13,6 +13,8 @@ namespace TTGJ.Crafting
     public class CraftingTable : MonoBehaviour
     {
         private List<Liftable> liftables = new List<Liftable>();
+        [SerializeField]
+        private CraftingTableType craftingTableType;
         private void OnCollisionEnter(Collision other)
         {
             if (liftables.Count >= 2)
@@ -45,12 +47,12 @@ namespace TTGJ.Crafting
         }
         private GameObject GetTargetCraftObject()
         {
-            var combineItem = LubanManager.Instance.GetCombineItem((int)liftables[0].itemType, (int)liftables[1].itemType);
+            var combineItem = LubanManager.Instance.GetCombineItem((int)craftingTableType,(int)liftables[0].itemType, (int)liftables[1].itemType);
             if (combineItem == null) {
                 Debug.LogError("No combine item id: " + liftables[0].itemType + " " + liftables[1].itemType);
                 return null;
             }
-             var itemNew = LubanManager.Instance.GetItemNew(combineItem.RewardBoxId);
+            var itemNew = LubanManager.Instance.GetItemNew(combineItem.RewardBoxId);
 
              if(itemNew == null) {
                 Debug.LogError("No item new id: " + combineItem.RewardBoxId);
