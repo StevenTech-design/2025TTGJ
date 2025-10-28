@@ -572,7 +572,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -854,7 +854,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.01
+  m_Intensity: 0.005
   m_Range: 1
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -893,7 +893,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1145,7 +1145,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1549,7 +1549,7 @@ Transform:
   m_GameObject: {fileID: 315536521}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.32062712, z: -0, w: 0.94720554}
-  m_LocalPosition: {x: -0.026, y: -0.125, z: -0}
+  m_LocalPosition: {x: -0.02, y: -0.08, z: 0}
   m_LocalScale: {x: 0.5861826, y: 0.5861824, z: 0.5861826}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4690,7 +4690,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -7086,7 +7086,7 @@ PrefabInstance:
     - target: {fileID: 821275259444770052, guid: 5628d76a72a3ef94f823b63d971787b4,
         type: 3}
       propertyPath: m_Lightmapping
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 821275259444770052, guid: 5628d76a72a3ef94f823b63d971787b4,
         type: 3}
@@ -7536,7 +7536,7 @@ PrefabInstance:
     - target: {fileID: 5912351370177870476, guid: 06ca3578c654a0e459ae2ca718078ac3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.637
+      value: -1.32
       objectReference: {fileID: 0}
     - target: {fileID: 5912351370177870476, guid: 06ca3578c654a0e459ae2ca718078ac3,
         type: 3}
