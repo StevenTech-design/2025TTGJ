@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using cfg;
 using TTGJ.Luban;
 using TTGJ.Framework;
+using System;
 
 namespace TTGJ.Task
 {
@@ -17,15 +18,16 @@ namespace TTGJ.Task
         [SerializeField]
         protected TaskInfo taskInfo;
         protected task currentTask;
-        protected TaskConfig currentTaskConfig = new TaskConfig() { 
-            TaskId = 1001,
-            TaskState = TaskState.NotAccept,
-        };
+        private bool isInit = false;
+        [SerializeField]
+        private int InitTaskId = 1001;
+        protected TaskConfig currentTaskConfig;
 
         protected Dictionary<int, int> currentItemCount = new Dictionary<int, int>();
         private HashSet<GameObject> goalItems = new HashSet<GameObject>();
 
         protected virtual void OnTriggerEnter(Collider other) {
+            Init();
             Debug.Log("OnTriggerEnter: " + other.gameObject.layer);
             if(other.gameObject.layer == LayerMask.NameToLayer("Player")) {
                 ToCompleteTask();
@@ -151,6 +153,16 @@ namespace TTGJ.Task
                 Destroy(item);
             }
             goalItems.Clear();
+        }
+        private void Init() { 
+            if(isInit) {
+                return;
+            }
+            currentTaskConfig = new TaskConfig() { 
+                TaskId = InitTaskId,
+                TaskState = TaskState.NotAccept,
+            };
+            isInit = true;
         }
     }
 }
