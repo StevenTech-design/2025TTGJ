@@ -5,6 +5,7 @@ using cfg;
 using Cysharp.Threading.Tasks;
 using SimpleJSON;
 using TTGJ.Framework;
+using TTGJ.Plant;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -151,6 +152,14 @@ namespace TTGJ.Luban
         }
         public house GetHouse(int id) {
             return _tables.TbHouse.Get(id);
+        }
+        public house GetHouseByItemId(int id) {
+            foreach (var item in _tables.TbHouse.DataList) {
+                if (item.CropList.Contains(id)) {
+                    return item;
+                }
+            }
+            return null;
         }
 
 
