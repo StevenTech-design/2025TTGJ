@@ -24,12 +24,12 @@ namespace TTGJ.UI
 
         private void OnCloseBtnClick()
         {
-            UIManager.Instance.HidePanel(this);
+            UIManager.Instance.PopUp();
         }
 
         private void OnConfirmBtnClick()
         {
-            UIManager.Instance.HidePanel(this);
+            UIManager.Instance.PopUp();
             Application.Quit();
         }
     }

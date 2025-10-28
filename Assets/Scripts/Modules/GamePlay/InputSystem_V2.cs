@@ -61,16 +61,16 @@ namespace TTGJ.GamePlay
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha0)) {
-                UIManager.Instance.ShowPanel<JournalPanel>();
+                UIManager.Instance.Push<JournalPanel>();
             }
             if (Input.GetKeyDown(KeyCode.Alpha1)) { 
-                UIManager.Instance.ShowPanel<SettingPanel>();
+                UIManager.Instance.Push<SettingPanel>();
             }
             if (Input.GetKeyDown(KeyCode.Alpha2)) { 
-                UIManager.Instance.ShowPanel<ThanksPanel>();
+                UIManager.Instance.Push<ThanksPanel>();
             }
             if (Input.GetKeyDown(KeyCode.Alpha3)) { 
-                UIManager.Instance.ShowPanel<ExitPanel>();
+                UIManager.Instance.Push<ExitPanel>();
             }
             if (UIManager.Instance.GetUICount() > 0) {
                 return;

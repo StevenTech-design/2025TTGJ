@@ -16,37 +16,67 @@ namespace TTGJ.UI
             { typeof(SettingPanel), ResPathConfig.UI_SettingPannel},
             { typeof(ThanksPanel), ResPathConfig.UI_ThanksPannel},
         };
-        private List<UIPanel> panels = new List<UIPanel>();
+        private Stack<UIPanel> _panels = new Stack<UIPanel>();
+        private Dictionary<Type, UIPanel> panelDic = new Dictionary<Type, UIPanel>();
+        private UIPanel _currentSecondPanel;
 
-        public T ShowPanel<T>() where T : UIPanel{
-            if(!UIPanelPathDic.TryGetValue(typeof(T), out string path)){
+        public T Push<T>() where T : UIPanel
+        {
+            if (!UIPanelPathDic.TryGetValue(typeof(T), out string path))
+            {
                 return null;
             }
-            if(panels.Find(p => p is T) != null) {
-                return panels.Find(p => p is T) as T;
+            if (!panelDic.ContainsKey(typeof(T)))
+            {
+                return null;
+            }
+            if (_panels != null && _panels.Count > 0) {
+                _panels.Peek().Pause();
             }
             GameObject obj = ObjectPoolManager.Instance.GetGameObject(path);
-            obj.transform.SetParent(transform);
-            obj.transform.localScale = Vector3.one;
-            obj.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            obj.SetActive(true);
-            var panel = obj.GetComponent<T>();
-            panels.Add(panel);
+            var panel = InitPanel<T>(obj);
+            _panels?.Push(panel);
+            panelDic.Add(typeof(T), panel);
             panel.Show();
             SetCursorState();
-            Debug.Log("ShowPanel: " + panel.name);
             return panel;
         }
-        public void HidePanel<T>(T panel) where T : UIPanel{
-            panel.Hide();
-            panels.Remove(panel);
-            ObjectPoolManager.Instance.ReturnGameObjectToPool(panel.gameObject);
-            Debug.Log("HidePanel: " + panel.name);
-            SetCursorState();
+        public T PushSecondTip<T>()where T: UIPanel{
+            if (!UIPanelPathDic.TryGetValue(typeof(T), out string path))
+            {
+                return null;
+            }
+            if (_currentSecondPanel != null) {
+                _currentSecondPanel.Hide();
+                ObjectPoolManager.Instance.ReturnGameObjectToPool(_currentSecondPanel.gameObject);
+            }
+            GameObject obj = ObjectPoolManager.Instance.GetGameObject(path);
+            var panel = InitPanel<T>(obj);
+            _currentSecondPanel = panel;
+            _currentSecondPanel.Show();
+            return panel;
+        }
+        public void PopUp(){
+            if (_panels == null || _panels.Count == 0) {
+                return;
+            }
+            if (_currentSecondPanel != null ) {
+                _currentSecondPanel.Hide();
+                ObjectPoolManager.Instance.ReturnGameObjectToPool(_currentSecondPanel.gameObject);
+                _currentSecondPanel = null;
+                return;
+            }
+            UIPanel currentPanel = _panels.Pop();
+            panelDic.Remove(currentPanel.GetType());
+            currentPanel.Hide();
+            ObjectPoolManager.Instance.ReturnGameObjectToPool(currentPanel.gameObject);
+            if (_panels.TryPeek(out UIPanel peekedPanel)) {
+                peekedPanel.Resume();
+            }
         }
 
         private void SetCursorState() { 
-            if(panels.Count > 0) {
+            if(_panels.Count > 0) {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             } else {
@@ -55,7 +85,14 @@ namespace TTGJ.UI
             }
         }
         public int GetUICount() {
-            return panels.Count;
+            return _panels.Count;
+        }
+        private T InitPanel<T>(GameObject panel) where T : UIPanel{
+            panel.transform.SetParent(transform);
+            panel.transform.localScale = Vector3.one;
+            panel.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            panel.SetActive(true);
+            return panel.GetComponent<T>();
         }
     }
 }
