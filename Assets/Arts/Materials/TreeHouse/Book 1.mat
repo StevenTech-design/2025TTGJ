@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.62
     - _PaintColorID: 0
     - _PaintStrength: 1
     - _Parallax: 0.02
@@ -146,7 +146,7 @@ Material:
     - _Color: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _FresnelColor: {r: 0.3333333, g: 0.2608567, b: 0, a: 0}
-    - _OutLineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutLineColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _colorA: {r: 0.47798735, g: 0.47798735, b: 0.47798735, a: 1}
     - _colorB: {r: 0.57232696, g: 0.57232696, b: 0.57232696, a: 1}
