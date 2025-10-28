@@ -38,10 +38,14 @@ namespace TTGJ.Task
 
 
 
-            if (CheckNeedItem((int)liftable.itemType, currentTask.GoalCount)) { 
-                currentItemCount[(int)liftable.itemType]++;
-                goalItems.Add(liftable.gameObject);
+            if (!CheckNeedItem((int)liftable.itemType, currentTask.GoalCount)) {
+                return;
             }
+            if (!currentItemCount.ContainsKey((int)liftable.itemType)){
+                currentItemCount.Add((int)liftable.itemType, 0);
+            }
+            currentItemCount[(int)liftable.itemType]++;
+            goalItems.Add(liftable.gameObject);
         }
         protected virtual void OnTriggerExit(Collider other) {
             if(!other.gameObject.TryGetComponent<Liftable>(out var liftable)) {
