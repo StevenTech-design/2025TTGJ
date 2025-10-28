@@ -13,6 +13,8 @@ namespace TTGJ.GamePlay
         public float rotationSpeed = 5.0f;
         public float dropForce = 10;
         private Rigidbody _rigidbody;
+        
+        public bool smoothRotation = true;
 
         [SerializeField]
         private Transform liftArea;
@@ -43,10 +45,19 @@ namespace TTGJ.GamePlay
            
             
             // 自然转向
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            if (smoothRotation)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            }
+            else
+            {
+                transform.rotation = Quaternion.LookRotation(direction);
+            }
             
-            // transform.rotation = Quaternion.LookRotation(direction);
+           
+            
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
 
