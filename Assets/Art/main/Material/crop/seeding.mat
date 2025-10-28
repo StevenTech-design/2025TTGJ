@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: seeding
-  m_Shader: {fileID: 4800000, guid: 533f531b31336044bafdb32a571d5b4f, type: 3}
+  m_Shader: {fileID: 4800000, guid: bea4b5f3e0a3269408b40fff3c76f59e, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -118,18 +118,19 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FresnelPow: 2.64
+    - _FresnelPow: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.12
+    - _OutlineWidth: 0.5
     - _PaintColorID: 0
     - _PaintCoverIntensity: 0.8
     - _PaintInt: 0.5
     - _PaintStrength: 1
     - _Parallax: 0.005
+    - _PointLightIntensity: 1
     - _QueueOffset: 0
     - _ReceiveSelfShadow: 0
     - _ReceiveShadows: 1
@@ -145,14 +146,14 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _colorSaturation: 2
-    - _specInt: 0
+    - _specInt: 0.11
     - fresnelOFF: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 1, g: 0.75229007, b: 0, a: 0}
-    - _OutLineColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    - _FresnelColor: {r: 0.408805, g: 0.30997303, b: 0, a: 0}
+    - _OutLineColor: {r: 0.106918216, g: 0.106918216, b: 0.106918216, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
     - _PaintColor1: {r: 1, g: 0, b: 0, a: 1}
     - _PaintColor2: {r: 1, g: 0.5, b: 0, a: 1}

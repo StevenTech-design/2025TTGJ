@@ -38,15 +38,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Distortion: 0.2
+    - _Distortion: 0.367
     - _Distortion_Size: 4
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Rotation: 15
-    - _Speed: 0.5
-    - _Transparency: 9
+    - _Rotation: 30
+    - _Speed: 1
+    - _Transparency: 0
     m_Colors:
-    - _Color: {r: 3.7196903, g: 9.227653, b: 21.31282, a: 0}
+    - _Color: {r: 0.16300634, g: 0.066037595, b: 1, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8591456011268810629
 MonoBehaviour:
