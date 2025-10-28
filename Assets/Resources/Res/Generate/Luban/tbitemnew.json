@@ -394,7 +394,7 @@
   {
     "id": 2001,
     "name": "土豆",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一颗土豆，甜菜女士最爱的食物，至于为什么甜菜会爱吃土豆，她自己也很困惑。",
     "itemType": 2,
     "model": "Prefab/Plant/Potato",
     "icon": "img/Potato",
@@ -422,7 +422,7 @@
   {
     "id": 2002,
     "name": "蘑菇",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "尾砂岛的北边有一位钟情穿搭技艺的蘑菇小姐，在程序猿还没有因为不好好搭配服装而被赶出她的岛屿前，曾从事为蘑菇们改花刀的工作。",
     "itemType": 2,
     "model": "Prefab/Plant/Mushroom",
     "icon": "img/Mushroom",
@@ -450,7 +450,7 @@
   {
     "id": 2003,
     "name": "南瓜",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "南瓜先生居住在尾砂岛东边的岛屿上，神出鬼没、神秘莫测。他钟情富有探险精神的居民，梦想是成为冒险王。",
     "itemType": 2,
     "model": "Prefab/Plant/Pumpkin",
     "icon": "img/Pumpkin",
@@ -478,7 +478,7 @@
   {
     "id": 2004,
     "name": "胡萝卜",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "胡萝卜，很奇怪的作物，甜菜女士经常怀疑胡萝卜和兔子其实是同一个种族，她们看上去都不高，但都会突然拉长自己。",
     "itemType": 2,
     "model": "Prefab/Plant/Carrot",
     "icon": "img/Carrot",
@@ -506,7 +506,7 @@
   {
     "id": 2005,
     "name": "水甜菜",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "湖中之神的造物，据说有人曾集齐所有的作物投入湖中向祂许愿，愿干旱不再。",
     "itemType": 2,
     "model": "Prefab/Plant/WaterBeet",
     "icon": "img/Beet",
@@ -534,7 +534,7 @@
   {
     "id": 2006,
     "name": "番茄-红",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒红番茄，时常幻想自己力大无穷。也许它真有兄弟。",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_red",
     "icon": "img/Tomato_Red",
@@ -562,7 +562,7 @@
   {
     "id": 2007,
     "name": "番茄-橙",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒橙番茄，时常幻想自己有远超常茄的视力和听力。为了看得更高，望得更远，它踏上瀑布之巅。",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_orange",
     "icon": "img/Tomato_Orange",
@@ -590,7 +590,7 @@
   {
     "id": 2008,
     "name": "番茄-黄",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒黄番茄，时常幻想自己钢皮铁肉、锄斧不入。说不定挠挠叶子就破功了。",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_yellow",
     "icon": "img/Tomato_Yellow",
@@ -618,7 +618,7 @@
   {
     "id": 2009,
     "name": "番茄-绿",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒绿番茄，时常幻想自己能吞吐火焰，这样就不会被油炸。",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_green",
     "icon": "img/Tomato_Green",
@@ -646,7 +646,7 @@
   {
     "id": 2010,
     "name": "番茄-青",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒青番茄，时常幻想自己能吞吐波涛，然后把湖里的神也吸出来许愿，这不比找作物快多了？",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_cyan",
     "icon": "img/Tomato_Cyan",
@@ -674,7 +674,7 @@
   {
     "id": 2011,
     "name": "番茄-蓝",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒蓝番茄，时常幻想自己能隐身，但是小隐于野、大隐于市，最危险的地方往往最安全！（等等，这是一个隐吗？）",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_blue",
     "icon": "img/Tomato_Blue",
@@ -702,7 +702,7 @@
   {
     "id": 2012,
     "name": "番茄-紫",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "一粒紫番茄，番茄里最小的一个，目前处于叛逆期，并不想介绍自己的梦想，听说它一直觉得自己才是老大。",
     "itemType": 2,
     "model": "Prefab/Plant/Tomato_purple",
     "icon": "img/Tomato_Purple",
@@ -730,7 +730,7 @@
   {
     "id": 2013,
     "name": "花椰菜",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "花椰菜先生，看着平平无奇的一个植物，和甜菜女士关系不太好，前段时间刚失踪，看见他的请去西部岛屿集结大军，协力救助花椰菜逃出生天。",
     "itemType": 2,
     "model": "Prefab/Plant/Cauliflower",
     "icon": "img/CauliFlower",
@@ -758,7 +758,7 @@
   {
     "id": 2014,
     "name": "花椰菜(永久)",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "花椰菜，看着平平无奇的一个植物。",
     "itemType": 2,
     "model": "Prefab/Plant/Cauliflower",
     "icon": "img/CauliFlower",
@@ -786,7 +786,7 @@
   {
     "id": 2015,
     "name": "猕猴桃",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "最开始，猕猴桃只是安静地在树上睡觉，没想到真的有不顾扎嘴也要吃的家伙。",
     "itemType": 2,
     "model": "Prefab/Plant/Kiwi",
     "icon": "img/MiHouTao",
@@ -814,7 +814,7 @@
   {
     "id": 2016,
     "name": "野草",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "野草除不尽，甜菜气急败坏。",
     "itemType": 2,
     "model": "Prefab/Plant/Grass",
     "icon": "img/Yecao",
@@ -1929,7 +1929,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1017
+    ]
   },
   {
     "id": 5010,
@@ -1957,7 +1961,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017
+    ]
   },
   {
     "id": 5011,
@@ -1985,7 +1992,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1008,
+      1016,
+      1017
+    ]
   },
   {
     "id": 5012,
@@ -2013,7 +2024,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1017
+    ]
   },
   {
     "id": 5013,
@@ -2041,7 +2055,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1017
+    ]
   },
   {
     "id": 5014,
@@ -2069,7 +2086,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1014,
+      1017
+    ]
   },
   {
     "id": 5015,
@@ -2097,7 +2117,9 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1009
+    ]
   },
   {
     "id": 5016,
@@ -2125,7 +2147,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1015,
+      1017
+    ]
   },
   {
     "id": 5017,
@@ -2153,7 +2178,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1010,
+      1017
+    ]
   },
   {
     "id": 5018,
@@ -2181,7 +2211,13 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1008,
+      1016,
+      1017
+    ]
   },
   {
     "id": 5019,
@@ -2209,7 +2245,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5020,
@@ -2237,7 +2278,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5021,
@@ -2265,7 +2311,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1014,
+      1017
+    ]
   },
   {
     "id": 5022,
@@ -2293,7 +2344,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1009
+    ]
   },
   {
     "id": 5023,
@@ -2321,7 +2376,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1002,
+      1011,
+      1015,
+      1017
+    ]
   },
   {
     "id": 5024,
@@ -2349,7 +2409,13 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017,
+      1008,
+      1016,
+      1017
+    ]
   },
   {
     "id": 5025,
@@ -2377,7 +2443,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5026,
@@ -2405,7 +2476,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5027,
@@ -2433,7 +2509,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017,
+      1014,
+      1017
+    ]
   },
   {
     "id": 5028,
@@ -2461,7 +2542,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017,
+      1009
+    ]
   },
   {
     "id": 5029,
@@ -2489,7 +2574,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1010,
+      1017,
+      1015,
+      1017
+    ]
   },
   {
     "id": 5030,
@@ -2517,7 +2607,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1008,
+      1016,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5031,
@@ -2545,7 +2640,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1008,
+      1016,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5032,
@@ -2573,7 +2673,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1008,
+      1016,
+      1014,
+      1017
+    ]
   },
   {
     "id": 5033,
@@ -2601,7 +2706,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1008,
+      1016,
+      1009
+    ]
   },
   {
     "id": 5034,
@@ -2629,7 +2738,12 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1008,
+      1016,
+      1015,
+      1017
+    ]
   },
   {
     "id": 5035,
@@ -2657,7 +2771,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1013,
+      1017
+    ]
   },
   {
     "id": 5036,
@@ -2685,7 +2803,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1014,
+      1017
+    ]
   },
   {
     "id": 5037,
@@ -2713,7 +2835,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1009
+    ]
   },
   {
     "id": 5038,
@@ -2741,7 +2866,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1015,
+      1017
+    ]
   },
   {
     "id": 5039,
@@ -2769,7 +2898,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1014,
+      1017
+    ]
   },
   {
     "id": 5040,
@@ -2797,7 +2930,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1009
+    ]
   },
   {
     "id": 5041,
@@ -2825,7 +2961,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1013,
+      1015,
+      1017
+    ]
   },
   {
     "id": 5042,
@@ -2853,7 +2993,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1014,
+      1009
+    ]
   },
   {
     "id": 5043,
@@ -2881,7 +3024,11 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1014,
+      1015,
+      1017
+    ]
   },
   {
     "id": 5044,
@@ -2909,7 +3056,10 @@
     "if_popcorn": 0,
     "if_hidden_door": 0,
     "if_lake": 0,
-    "BuffType": []
+    "BuffType": [
+      1009,
+      1015
+    ]
   },
   {
     "id": 6001,
@@ -3334,7 +3484,7 @@
   {
     "id": 7001,
     "name": "格蕾丝",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "格蕾丝喜欢种植和探索，她和同龄人话题不多，有时候也会觉得孤独。但没什么，这是格蕾丝的生活之道，有的人喜爱交际，有的人喜欢自处，就像火与水，并不分对错。",
     "itemType": 7,
     "model": "Prefab/GameController/Player_V2",
     "icon": "img/Player",
@@ -3362,7 +3512,7 @@
   {
     "id": 7002,
     "name": "甜菜女士",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "谈起甜菜，居民们有很多话要讲：她富有童趣、善良可爱、……但要甜菜女士形容自己，她说：对，我就是一株很棒的甜菜。",
     "itemType": 7,
     "model": "Prefab/Npc/BeetNPC",
     "icon": "img/NPC_Beet",
@@ -3390,7 +3540,7 @@
   {
     "id": 7003,
     "name": "花椰菜羊-白",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "白羊，或者花椰菜先生，他喜爱有独特个性、不屈从大流的居民，喜欢谁就会很喜欢，反之亦然。",
     "itemType": 7,
     "model": "Prefab/Npc/SheepNPC",
     "icon": "img/NPC_Sheep",
@@ -3418,10 +3568,10 @@
   {
     "id": 7004,
     "name": "花椰菜羊-绿",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "绿羊，或者西兰花先生，有点社恐，并不喜欢和其他菜交流，干脆变成一只羊，没事躲起来，有事咩咩叫。",
     "itemType": 7,
     "model": "Prefab/Npc/GreenSheepNPC",
-    "icon": "img/NPC_Beet",
+    "icon": "img/NPC_Sheep_Green",
     "model_size": 1,
     "evo_id": 0,
     "drawing": 0,
@@ -3446,7 +3596,7 @@
   {
     "id": 7005,
     "name": "猴子先生",
-    "itemTip": "阿巴，这里等文案策划配置",
+    "itemTip": "他时常会想起改花刀的那些日子，作为程序员和理发师，他深爱着这两份工作，如果收集怪谈传说也有职业，他可能会身兼三职。",
     "itemType": 7,
     "model": "Prefab/Npc/MonkeyNPC",
     "icon": "img/NPC_Monkey",
