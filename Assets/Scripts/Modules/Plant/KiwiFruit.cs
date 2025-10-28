@@ -4,6 +4,7 @@ using TTGJ.Generate;
 using UnityEngine;
 using DG.Tweening;
 using TTGJ.Config;
+using TTGJ.House;
 
 namespace TTGJ.Plant
 {
@@ -38,11 +39,13 @@ namespace TTGJ.Plant
         private void PlaySound() { 
             Debug.Log("PlaySound");
         }
-        protected override void OnHarvest() {
+        protected override void OnHarvest()
+        {
             collider.enabled = true;
             collider.isTrigger = false;
             rigidbody.isKinematic = false;
             rigidbody.useGravity = true;
+            HouseManager.Instance.CollectPlant(this);
         }
     }
 }
