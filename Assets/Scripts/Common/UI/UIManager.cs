@@ -26,7 +26,7 @@ namespace TTGJ.UI
             {
                 return null;
             }
-            if (!panelDic.ContainsKey(typeof(T)))
+            if (panelDic.ContainsKey(typeof(T)))
             {
                 return null;
             }

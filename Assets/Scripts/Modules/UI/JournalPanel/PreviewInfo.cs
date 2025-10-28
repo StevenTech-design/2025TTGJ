@@ -21,6 +21,7 @@ namespace TTGJ.UI
 
         [SerializeField]
         private GameObject _modelRoot;
+        private GameObject _currentModel;
 
         public void SetInfo(int itemId) { 
             var item = LubanManager.Instance.GetItemNew(itemId);
@@ -30,18 +31,22 @@ namespace TTGJ.UI
             icon.sprite = StResources.Instance.LoadByResources<Sprite>(item.Icon);
             _name.text = item.Name;
             _description.text = item.ItemTip;
-            GameObject model = Instantiate(StResources.Instance.LoadByResources<GameObject>(item.Model), _modelRoot.transform);
-            if(model == null) {
+            if (_currentModel != null) {
+                Destroy(_currentModel);
+            }
+
+            _currentModel = Instantiate(StResources.Instance.LoadByResources<GameObject>(item.Model), _modelRoot.transform);
+            if(_currentModel == null) {
                 return;
             }
-            if (model.TryGetComponent<Rigidbody>(out var rigidbody)) { 
+            if (_currentModel.TryGetComponent<Rigidbody>(out var rigidbody)) { 
                 Destroy(rigidbody);
             }
-            if (model.TryGetComponent<Collider>(out var collider)) { 
+            if (_currentModel.TryGetComponent<Collider>(out var collider)) { 
                 Destroy(collider);
             }
-            model.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-            LayerUtility.ChangeLayerRecursively(model, LayerMask.NameToLayer("RenderModel"));
+            _currentModel.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            LayerUtility.ChangeLayerRecursively(_currentModel, LayerMask.NameToLayer("RenderModel"));
         }
 
 
