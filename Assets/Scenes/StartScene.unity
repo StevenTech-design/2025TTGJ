@@ -4416,7 +4416,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a49cbbc3cde63444ab5f8e4d1a507a59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.12
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a49cbbc3cde63444ab5f8e4d1a507a59,
         type: 3}
@@ -6792,8 +6792,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071325923}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32400662, y: 0.014189952, z: -0.004860442, w: 0.9459359}
-  m_LocalPosition: {x: 0.12037952, y: 4.142745, z: -4.422517}
+  m_LocalRotation: {x: -0.2260136, y: 0.010062898, z: -0.0026247127, w: -0.97406864}
+  m_LocalPosition: {x: -0.081492335, y: 3.5308962, z: -4.8962708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7577,6 +7577,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player_girl_high_point
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433168401305083958, guid: 06ca3578c654a0e459ae2ca718078ac3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

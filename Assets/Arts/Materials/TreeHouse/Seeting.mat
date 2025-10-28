@@ -98,7 +98,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Pow_spec: 6
+    - Pow_spec: 0.01
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -138,8 +138,8 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _colorSaturation: 3.2
-    - _specInt: 0.1
+    - _colorSaturation: 4
+    - _specInt: 0.4
     - fresnelOFF: 1
     m_Colors:
     - _BaseColor: {r: 0.7264151, g: 0.7048846, b: 0.60648805, a: 1}
