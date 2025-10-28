@@ -76,10 +76,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab61ee85814b46c89630f39fa30d1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassPrefab: {fileID: 8344213614294780047, guid: a96bf4e1a555143b493a52667e652bd7,
+  grassPrefab: {fileID: 5291219261795888307, guid: f0eb1c32a3d3b344cbd4497b54d8a393,
     type: 3}
-  spawnInterval: 1
+  spawnInterval: 60
   spawnPoint:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 2191082166341757601}

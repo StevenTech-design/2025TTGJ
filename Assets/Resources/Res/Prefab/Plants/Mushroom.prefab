@@ -50,10 +50,11 @@ MonoBehaviour:
   itemType: 1002
   sackGo: {fileID: 211334494667942650, guid: 650ca6078716994419b646a546dfbc93, type: 3}
   grothGo: {fileID: 5234753815911012807, guid: 711a1724917ce8a4d95e8debce3ad645, type: 3}
-  realGo: {fileID: 919132149155446097, guid: 74f7d7314d7479e44b420f651201f9fb, type: 3}
+  realGo: {fileID: 5416528169235921018, guid: 64c6399b62994414d812af22bf92ee21, type: 3}
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
+  bigVelocityThreshold: 1
   bounceForce: 5
 --- !u!54 &8672236734852264253
 Rigidbody:

@@ -34,8 +34,10 @@ namespace TTGJ.UI
             if (_currentModel != null) {
                 Destroy(_currentModel);
             }
+            var house = LubanManager.Instance.GetHouseByItemId(item.Id);
+            var houseItem = LubanManager.Instance.GetItemNew(house.Id);
 
-            _currentModel = Instantiate(StResources.Instance.LoadByResources<GameObject>(item.Model), _modelRoot.transform);
+            _currentModel = Instantiate(StResources.Instance.LoadByResources<GameObject>(houseItem.Model), _modelRoot.transform);
             if(_currentModel == null) {
                 return;
             }
