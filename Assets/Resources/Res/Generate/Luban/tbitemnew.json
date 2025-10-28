@@ -761,7 +761,7 @@
     "itemTip": "花椰菜，看着平平无奇的一个植物。",
     "itemType": 2,
     "model": "Prefab/Plant/Cauliflower",
-    "icon": "img/CauliFlower",
+    "icon": "img/CauliFlower_Green",
     "model_size": 1,
     "evo_id": 3013,
     "drawing": 0,
