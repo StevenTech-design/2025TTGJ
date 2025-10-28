@@ -1,3 +1,6 @@
+using TTGJ.UI;
+using UnityEngine;
+
 namespace TTGJ.Other
 {
     public enum PanelType
@@ -13,7 +16,7 @@ namespace TTGJ.Other
         private PanelType panelType;
         public void OnTriggerEnter(Collider other)
         {
-            if(other.layer != LayerMask.NameToLayer("Player"))
+            if(other.gameObject.layer != LayerMask.NameToLayer("Player"))
             {
                 return;
             }
