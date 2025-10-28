@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 7001
-  npcType: 0
+  npcType: 1
   plot: {fileID: 3596487200581124785}
   taskInfo: {fileID: 4475138892116748588}
 --- !u!114 &8427487541940112446
