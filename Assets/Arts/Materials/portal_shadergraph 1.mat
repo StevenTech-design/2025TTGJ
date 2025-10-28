@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: portal_shadergraph
+  m_Name: portal_shadergraph 1
   m_Shader: {fileID: -6465566751694194690, guid: e4d6e9a2fbdd97549a8fd86cd477bcce,
     type: 3}
   m_Parent: {fileID: 0}
@@ -46,7 +46,7 @@ Material:
     - _Speed: 0.5
     - _Transparency: 9
     m_Colors:
-    - _Color: {r: 3.7196903, g: 9.227653, b: 21.31282, a: 0}
+    - _Color: {r: 7.9818597, g: 4.7815857, b: 6.0361075, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8591456011268810629
 MonoBehaviour:
