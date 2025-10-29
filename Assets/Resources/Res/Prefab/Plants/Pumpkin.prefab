@@ -82,7 +82,7 @@ MonoBehaviour:
   itemType: 1003
   sackGo: {fileID: 187643349536211303, guid: c09296ff0e2d9864a9716a6f3d27036c, type: 3}
   grothGo: {fileID: 5234753815911012807, guid: 711a1724917ce8a4d95e8debce3ad645, type: 3}
-  realGo: {fileID: 4780466632502316927, guid: 63ff23ec584c16b4387f14aab91cb43e, type: 3}
+  realGo: {fileID: 3204691287540007579, guid: 08bda834c09f1ae4c90e20a39c0e4fb4, type: 3}
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
