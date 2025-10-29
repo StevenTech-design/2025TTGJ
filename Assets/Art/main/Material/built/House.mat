@@ -123,7 +123,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 1
+    - _OutlineWidth: 2
     - _PaintColorID: 0
     - _PaintCoverIntensity: 0.8
     - _PaintInt: 0.5
@@ -141,15 +141,15 @@ Material:
     - _Toon_Theshold: 0.3
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _colorSaturation: 2.2
-    - _specInt: 0.16
+    - _colorSaturation: 2.5
+    - _specInt: 0
     - fresnelOFF: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 0.5695251, b: 0.216981, a: 0}
-    - _OutLineColor: {r: 0.30817598, g: 0.30817598, b: 0.30817598, a: 1}
+    - _OutLineColor: {r: 0.13836467, g: 0.13836467, b: 0.13836467, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
     - _PaintColor1: {r: 1, g: 0, b: 0, a: 1}
     - _PaintColor2: {r: 1, g: 0.5, b: 0, a: 1}

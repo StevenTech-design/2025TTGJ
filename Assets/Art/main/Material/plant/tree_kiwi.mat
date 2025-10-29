@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutLineColor: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 2
     - _PaintColorID: 0
     - _PaintCoverIntensity: 0.8
     - _PaintStrength: 1
@@ -147,7 +147,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 0}
-    - _OutLineColor: {r: 0.11771604, g: 0.23270428, b: 0.0446382, a: 1}
+    - _OutLineColor: {r: 0.16352195, g: 0.16352195, b: 0.16352195, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
     - _PaintColor1: {r: 1, g: 0, b: 0, a: 1}
     - _PaintColor2: {r: 1, g: 0.5, b: 0, a: 1}

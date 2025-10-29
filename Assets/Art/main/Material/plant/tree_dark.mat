@@ -120,7 +120,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _OutLineColor: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 1.5
     - _PaintColorID: 0
     - _PaintStrength: 1
     - _Parallax: 0.005

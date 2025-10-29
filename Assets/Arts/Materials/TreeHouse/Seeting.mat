@@ -124,7 +124,7 @@ Material:
     - _PaintColorID: 0
     - _PaintStrength: 1
     - _Parallax: 0.02
-    - _PointLightIntensity: 1
+    - _PointLightIntensity: 0.15
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5

@@ -52,7 +52,7 @@ Material:
     - _metallic: 0.519
     - _smoothness: 0
     m_Colors:
-    - _BaseCol: {r: 0.27334905, g: 0.84276724, b: 0, a: 1}
+    - _BaseCol: {r: 0, g: 1, b: 0.0108447075, a: 1}
     - _BottomCol: {r: 1, g: 1, b: 1, a: 0.5058824}
     - _DownCol: {r: 39.628635, g: 8.4898405, b: 64.86237, a: 1}
     - _TopCol: {r: 0, g: 17.19842, b: 139.18686, a: 1}

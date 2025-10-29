@@ -119,7 +119,9 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.5
+    - _OutlineWidth: 1
+    - _PaintColorID: 0
+    - _PaintStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveSelfShadow: 0

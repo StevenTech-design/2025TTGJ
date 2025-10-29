@@ -119,7 +119,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0
+    - _OutlineWidth: 1
     - _PaintColorID: 0
     - _PaintStrength: 1
     - _Parallax: 0.005

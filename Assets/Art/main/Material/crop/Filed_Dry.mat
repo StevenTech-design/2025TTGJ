@@ -121,6 +121,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OutlineWidth: 0
+    - _PaintColorID: 0
+    - _PaintStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1

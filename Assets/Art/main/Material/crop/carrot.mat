@@ -124,7 +124,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 0.5
+    - _OutlineWidth: 0.8
     - _PaintColorID: 0
     - _PaintCoverIntensity: 0.8
     - _PaintInt: 0.5
@@ -140,7 +140,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _Toon_Hardness: 50
+    - _Toon_Hardness: 60
     - _Toon_Theshold: 0.5
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -152,7 +152,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 0.5345911, g: 0.50555843, b: 0.27065772, a: 0}
-    - _OutLineColor: {r: 0.49685526, g: 0.49685526, b: 0.49685526, a: 1}
+    - _OutLineColor: {r: 0.27044016, g: 0.27044016, b: 0.27044016, a: 1}
     - _OverlayColor: {r: 0, g: 0, b: 0, a: 0}
     - _PaintColor1: {r: 1, g: 0, b: 0, a: 1}
     - _PaintColor2: {r: 1, g: 0.5, b: 0, a: 1}
@@ -163,5 +163,5 @@ Material:
     - _PaintColor7: {r: 0.5, g: 0, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _colorA: {r: 1, g: 1, b: 1, a: 1}
-    - _colorB: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _colorB: {r: 0.8930817, g: 0.8930817, b: 0.8930817, a: 1}
   m_BuildTextureStacks: []
