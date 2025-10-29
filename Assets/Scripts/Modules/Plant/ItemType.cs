@@ -56,24 +56,26 @@ namespace TTGJ.Plant
         Big_Grass=3015,
 
         Kettle = 5001,
+        Key = 5007,
 
 
-        Potato_House = 2001,
-        Mushroom_House = 2002,
-        GhostPumpkin_House = 2003,
-        Carrot_House = 2004,
-        WaterBeet_House = 2005,
-        Tomato_Red_House=2006,
-        // Tomato_Orange_House=2007,
-        // Tomato_Yellow_House=2008,
-        // Tomato_Green_House=2009,
-        // Tomato_Cyan=2010,
-        // Tomato_Blue=2011,
-        // Tomato_Purple=2012,
-        // CauliFlower = 2013,
-        // CauliFlowerForever = 2014,
-        // Kivi = 2015,
-        // Grass = 2016,
+
+
+        Potato_House = 6001,
+        Mushroom_House = 6002,
+        GhostPumpkin_House = 6003,
+        Carrot_House = 6004,
+        WaterBeet_House = 6005,
+        Tomato_Red_House=6006,
+        Tomato_Orange_House=6007,
+        Tomato_Yellow_House=6008,
+        Tomato_Green_House=6009,
+        Tomato_Cyan_House=6010,
+        Tomato_Blue_House=6011,
+        Tomato_Purple_House=6012,
+        CauliFlower_House = 2013,
+        Kivi_House = 6014,
+        Grass_House = 6015,
 
         NPC = 7001,
 

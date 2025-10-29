@@ -54,7 +54,8 @@ MonoBehaviour:
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
-  sheepPrefab: {fileID: 919132149155446097, guid: 191d79db999fde04ba5c49c8c57a6539,
+  bigVelocityThreshold: 1
+  sheepPrefab: {fileID: 6219619102814150970, guid: 704a41dfe97adbe46b5512b875ddf934,
     type: 3}
 --- !u!54 &396154875452297536
 Rigidbody:

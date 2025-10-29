@@ -11,6 +11,10 @@ namespace TTGJ.Other
         Setting,
         Thanks,
         Exit,
+        StartGame,
+        OperationPanel,
+        TeamPanel,
+
     }
     public class TriggerPanel : MonoBehaviour
     {
@@ -39,8 +43,17 @@ namespace TTGJ.Other
                 case PanelType.Exit:
                     UIManager.Instance.Push<ExitPanel>();
                     break;
+                case PanelType.OperationPanel:
+                    UIManager.Instance.Push<OperationPanel>();
+                    break;
+                case PanelType.TeamPanel:
+                    UIManager.Instance.Push<TeamPanel>();
+                    break;
                 case PanelType.EnterGame:
                     SceneManager.LoadScene(1);
+                    break;
+                case PanelType.StartGame:
+                    SceneManager.LoadScene(0);
                     break;
                 default:
                     break;
