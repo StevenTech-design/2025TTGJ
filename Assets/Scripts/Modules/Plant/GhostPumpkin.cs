@@ -66,6 +66,7 @@ namespace TTGJ.Plant
             }
             Debug.Log("OnCollisionEnter111: " + other.name);
             currentEatObject = other;
+            GetComponentInChildren<Animator>().SetTrigger("Eat");
             other.SetActive(false);
             await UniTask.Delay(1000);
             other.SetActive(true);
