@@ -54,6 +54,7 @@ MonoBehaviour:
   currentState: 0
   InitModelInStart: 0
   InitBigModelInStart: 0
+  bigVelocityThreshold: 1
   wateringInterval: 0.5
 --- !u!54 &-6698914338722568918
 Rigidbody:
@@ -129,8 +130,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4454423338829965166}
   m_Father: {fileID: 311251672143991381}
@@ -192,6 +193,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056000617162766622, guid: df9d02448c8a47048844b4cfc2110c4b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056000617162766622, guid: df9d02448c8a47048844b4cfc2110c4b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056000617162766622, guid: df9d02448c8a47048844b4cfc2110c4b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7124481396365049284, guid: df9d02448c8a47048844b4cfc2110c4b,
         type: 3}
