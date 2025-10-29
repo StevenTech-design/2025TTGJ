@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ColorfulPopcorn 2
+  m_Name: ColorfulPopcorn 17
   m_Shader: {fileID: -6465566751694194690, guid: f4484de50a832d241b0dd8cc392d7013,
     type: 3}
   m_Parent: {fileID: 0}
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MaskTexture:
-        m_Texture: {fileID: 2800000, guid: 1705a664442d2734897cf9dc3f2dae2b, type: 3}
+        m_Texture: {fileID: 2800000, guid: c37c8af020e7068438029bbb2894509f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_7a3bb02f31fe416bbaf7f4ec89041dfd_Texture_1_Texture2D:
@@ -62,6 +62,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color_crop_1: {r: 1, g: 0.9715695, b: 0.9198113, a: 0}
-    - _Color_crop_2: {r: 0.5896226, g: 0.9043165, b: 1, a: 0}
+    - _Color_crop_1: {r: 0.9254902, g: 0.9037724, b: 0.4745098, a: 0}
+    - _Color_crop_2: {r: 1, g: 0.3726415, b: 0.80122674, a: 0}
   m_BuildTextureStacks: []

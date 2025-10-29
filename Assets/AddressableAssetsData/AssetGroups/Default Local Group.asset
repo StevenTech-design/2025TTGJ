@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: a5e019ec8a09f234d9cc90805a89cbf9
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: e1edc770e121ba348b12daf9f4becee7
+    m_Address: Assets/Arts/Materials/Popcorn/ColorfulPopcorn 2.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3831100ea9e3b514898eab932a54f436, type: 2}
   m_SchemaSet:
