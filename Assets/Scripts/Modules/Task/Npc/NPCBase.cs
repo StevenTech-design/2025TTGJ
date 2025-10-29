@@ -77,13 +77,16 @@ namespace TTGJ.Task
         }
         protected bool CheckFinishTask() {
             if (currentTask.GoalCount.Count == 0) {
+                Debug.Log("curren goal count is 0");
                 return true;
             }
             if(currentItemCount.Count != currentTask.GoalCount.Count) {
+                Debug.Log("----");
                 return false;
             }
             foreach(var item in currentTask.GoalCount) {
-                if(currentItemCount.ContainsKey(item.ItemId) && currentItemCount[item.ItemId] != item.Count) {
+                if(currentItemCount.ContainsKey(item.ItemId) && currentItemCount[item.ItemId] < item.Count) {
+                    Debug.Log("----"+ currentItemCount[item.ItemId]+"     "+item.Count);
                     return false;
                 }
             }
@@ -93,7 +96,7 @@ namespace TTGJ.Task
         protected void ToCompleteTask(int taskId)
         {
             currentTask = LubanManager.Instance.GetTask(taskId);
-            Debug.Log("ToCompleteTask: " + taskId + currentTask + currentTask.ProgressHint);
+            Debug.Log("ToCompleteTask: " + taskId + currentTask);
             plot.onPlotComplete = () => { 
                 if(CheckFinishTask()) {
                     Debug.Log("CheckFinishTask: true " );
