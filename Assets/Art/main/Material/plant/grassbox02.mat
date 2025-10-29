@@ -120,7 +120,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutlineWidth: 4
+    - _OutlineWidth: 0
     - _PaintColorID: 0
     - _PaintStrength: 1
     - _Parallax: 0.005
@@ -150,5 +150,5 @@ Material:
     - _OutLineColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _colorA: {r: 1, g: 1, b: 1, a: 1}
-    - _colorB: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+    - _colorB: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

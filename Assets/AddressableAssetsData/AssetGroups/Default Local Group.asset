@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: a5e019ec8a09f234d9cc90805a89cbf9
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 7b7fd9122c28c4d15b667c7040e3b3fd
+    m_Address: Assets/Settings/URP-HighFidelity.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3831100ea9e3b514898eab932a54f436, type: 2}
   m_SchemaSet:

@@ -246,19 +246,23 @@
             Varyings vert (Attributes input)
             {
                 Varyings output;
-                
-                // URP中的轮廓线计算 - 在观察空间进行法线扩展
-                float3 positionOS = input.positionOS.xyz;
-                float3 normalOS = input.normalOS;
-                
-                // 将法线转换到观察空间并进行扩展
-                float3 positionVS = TransformWorldToView(TransformObjectToWorld(positionOS));
-                float3 normalVS = TransformWorldToViewDir(TransformObjectToWorldNormal(normalOS));
-                //float outlineStrength = UNITY_ACCESS_INSTANCED_PROP(Props, _OutLineColor);
+    
+                // 修复：使用正确的SRP Batcher兼容变换
+                VertexPositionInputs vertexInput = GetVertexPositionInputs(input.positionOS.xyz);
+                VertexNormalInputs normalInput = GetVertexNormalInputs(input.normalOS);
+    
+                // 在观察空间进行法线扩展
+                float3 positionVS = vertexInput.positionVS; // 已经转换到观察空间
+                float3 normalVS = normalInput.normalWS;     // 世界空间法线
+    
+                // 将世界空间法线转换到观察空间
+                normalVS = mul((float3x3)UNITY_MATRIX_V, normalVS);
+    
                 positionVS += normalVS * _OutlineWidth * 0.01;
                 output.positionHCS = TransformWViewToHClip(positionVS);
+    
                 output.uv = input.uv0;
-                output.outlineColor = _OutLineColor; // HDR 高亮
+                output.outlineColor = _OutLineColor;
                 return output;
             }
 
