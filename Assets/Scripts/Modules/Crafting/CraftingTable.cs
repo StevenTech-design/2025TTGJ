@@ -40,7 +40,7 @@ namespace TTGJ.Crafting
         {
             await UniTask.Delay(500);
             animator.SetTrigger("making");
-            await UniTask.Delay(3000);
+            await UniTask.Delay(4000);
             var obj = GetTargetCraftObject();
             if(obj == null) {
                 animator.SetTrigger("finish");

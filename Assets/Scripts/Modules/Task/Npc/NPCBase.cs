@@ -48,7 +48,6 @@ namespace TTGJ.Task
             currentItemCount[(int)liftable.itemType]++;
             Debug.Log($"Receive id:{liftable.itemType} count:{currentItemCount[(int)liftable.itemType]}");
             taskInfo.UpdateTaskProcess(currentItemCount);
-            Debug.Log("Destroy gameobject:"+liftable.gameObject.name);
             Destroy(liftable.gameObject);
             ToCompleteTask(currentTaskConfig.TaskId);
         }
@@ -84,7 +83,7 @@ namespace TTGJ.Task
                 return false;
             }
             foreach(var item in currentTask.GoalCount) {
-                if(!currentItemCount.ContainsKey(item.ItemId) && currentItemCount[item.ItemId] != item.Count) {
+                if(currentItemCount.ContainsKey(item.ItemId) && currentItemCount[item.ItemId] != item.Count) {
                     return false;
                 }
             }
@@ -103,13 +102,10 @@ namespace TTGJ.Task
                 }
             };
             plot.SetPlot(currentTask.ProgressHint);
-            taskInfo.SetTaskInfo(taskId);
-            
         }
         protected virtual void ToRewardTask() { 
             plot.SetPlot(currentTask.CompleteDialog);
             plot.onPlotComplete = () => { 
-                taskInfo.SetTaskInfo(currentTaskConfig.TaskId);
                 ClaimRewardTask();
             };
         }
