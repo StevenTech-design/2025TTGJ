@@ -124,6 +124,7 @@ namespace TTGJ.Task
             }
             currentTaskConfig.TaskId = currentTask.NextGoalId;
             currentTaskConfig.TaskState = TaskState.NotAccept;
+            currentItemCount.Clear();
             var nextTask = LubanManager.Instance.GetTask(currentTaskConfig.TaskId);
             if (nextTask.Npc != (int)npcType) {
                 return;

@@ -27,12 +27,7 @@ public class Item : MonoBehaviour
 
     public void UpdateCount(int currentCount)
     {
-        if (currentCount >= maxCount)
-        {
-            this.gameObject.SetActive(false);
-        }
-
-        itemCount.text = (maxCount - currentCount).ToString();
+        itemCount.text = Mathf.Min(0,maxCount - currentCount).ToString();
         Debug.Log($"itemId:{currentCount} count:{currentCount} maxCount:{maxCount}");
     }
 }
