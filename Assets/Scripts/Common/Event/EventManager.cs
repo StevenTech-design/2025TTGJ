@@ -7,7 +7,7 @@ namespace TTGJ.Common
 {
     public class EventManager : Singleton<EventManager>
     {
-        private Dictionary<EventType, List<Action<EventParam>>> eventHandlers;
+        private Dictionary<EventType, List<Action<EventParam>>> eventHandlers=new();
 
         public void RegisterEvent(EventType eventType, Action<EventParam> handler)
         {
