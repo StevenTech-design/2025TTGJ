@@ -23,6 +23,8 @@ namespace TTGJ.Task
                 onPlotComplete?.Invoke();
                 return;
             }
+            
+            Debug.Log("SetPlot");
             this.plotIds = plotIds;
             plotText.text = "";
             gameObject.SetActive(true);
@@ -36,7 +38,7 @@ namespace TTGJ.Task
 
         private IEnumerator StartPlot()
         {
-
+            Debug.Log("StartPlot");
             while (currentPlotIndex < plotIds.Count)
             {
                 Debug.Log("StartPlot: " + currentPlotIndex + " " + plotIds[currentPlotIndex]);
