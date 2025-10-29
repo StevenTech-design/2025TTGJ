@@ -62,6 +62,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color_crop_1: {r: 0.47777513, g: 0.9245283, b: 0.4753471, a: 0}
-    - _Color_crop_2: {r: 0.6414336, g: 0.745283, b: 0.2917853, a: 0}
+    - _Color_crop_1: {r: 0.9339623, g: 0.923613, b: 0.383277, a: 0}
+    - _Color_crop_2: {r: 0.8679245, g: 0.83001566, b: 0.7983268, a: 0}
   m_BuildTextureStacks: []

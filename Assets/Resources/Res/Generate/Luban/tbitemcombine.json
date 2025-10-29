@@ -4,7 +4,7 @@
     "name": "土豆-房子",
     "type": 1,
     "costMainBuckets_1": 3001,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6001,
     "sound": ""
   },
@@ -13,7 +13,7 @@
     "name": "蘑菇-房子",
     "type": 1,
     "costMainBuckets_1": 3002,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6002,
     "sound": ""
   },
@@ -22,7 +22,7 @@
     "name": "南瓜-房子",
     "type": 1,
     "costMainBuckets_1": 3003,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6003,
     "sound": ""
   },
@@ -31,7 +31,7 @@
     "name": "胡萝卜-房子",
     "type": 1,
     "costMainBuckets_1": 3004,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6004,
     "sound": ""
   },
@@ -40,7 +40,7 @@
     "name": "水甜菜-房子",
     "type": 1,
     "costMainBuckets_1": 3005,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6005,
     "sound": ""
   },
@@ -49,7 +49,7 @@
     "name": "番茄-红-房子",
     "type": 1,
     "costMainBuckets_1": 3006,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6006,
     "sound": ""
   },
@@ -58,7 +58,7 @@
     "name": "番茄-橙-房子",
     "type": 1,
     "costMainBuckets_1": 3007,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6007,
     "sound": ""
   },
@@ -67,7 +67,7 @@
     "name": "番茄-黄-房子",
     "type": 1,
     "costMainBuckets_1": 3008,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6008,
     "sound": ""
   },
@@ -76,7 +76,7 @@
     "name": "番茄-绿-房子",
     "type": 1,
     "costMainBuckets_1": 3009,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6009,
     "sound": ""
   },
@@ -85,7 +85,7 @@
     "name": "番茄-青-房子",
     "type": 1,
     "costMainBuckets_1": 3010,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6010,
     "sound": ""
   },
@@ -94,7 +94,7 @@
     "name": "番茄-蓝-房子",
     "type": 1,
     "costMainBuckets_1": 3011,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6011,
     "sound": ""
   },
@@ -103,17 +103,8 @@
     "name": "番茄-紫-房子",
     "type": 1,
     "costMainBuckets_1": 3012,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6012,
-    "sound": ""
-  },
-  {
-    "id": 1013,
-    "name": "花椰菜-房子",
-    "type": 1,
-    "costMainBuckets_1": 3013,
-    "costMainBuckets_2": 2016,
-    "rewardBoxId": 6013,
     "sound": ""
   },
   {
@@ -121,17 +112,8 @@
     "name": "猕猴桃-房子",
     "type": 1,
     "costMainBuckets_1": 3014,
-    "costMainBuckets_2": 2016,
+    "costMainBuckets_2": 5045,
     "rewardBoxId": 6014,
-    "sound": ""
-  },
-  {
-    "id": 1015,
-    "name": "野草-房子",
-    "type": 1,
-    "costMainBuckets_1": 3015,
-    "costMainBuckets_2": 2016,
-    "rewardBoxId": 6015,
     "sound": ""
   },
   {
