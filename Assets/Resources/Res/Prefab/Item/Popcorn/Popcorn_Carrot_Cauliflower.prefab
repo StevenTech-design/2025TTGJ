@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6381187025117489566}
   - component: {fileID: 1302014355919230523}
   - component: {fileID: 3031759882248494589}
+  - component: {fileID: 5605434931295605544}
   m_Layer: 0
   m_Name: Popcorn_Carrot_Cauliflower
   m_TagString: Untagged
@@ -76,6 +77,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5605434931295605544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412607696447031078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3e52e9a71194ac197d2559e70fe55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 5032
 --- !u!1001 &3332181889824926363
 PrefabInstance:
   m_ObjectHideFlags: 0
