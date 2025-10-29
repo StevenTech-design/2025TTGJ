@@ -117,7 +117,8 @@ namespace TTGJ.GamePlay
                 _currentHightlightObject = null;
                 return;
             }
-            currentCommandinfo.Add((KeyCode.Space, result.Item2.ToString()));
+            
+            currentCommandinfo.Add((KeyCode.Space, "举起"));
             HightlightTarget(result.Item1.gameObject);
             if (!Input.GetKeyDown(KeyCode.Space))
             {
