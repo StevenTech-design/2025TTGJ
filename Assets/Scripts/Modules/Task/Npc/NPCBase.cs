@@ -24,22 +24,21 @@ namespace TTGJ.Task
         protected TaskConfig currentTaskConfig;
 
         protected Dictionary<int, int> currentItemCount = new Dictionary<int, int>();
-        private HashSet<GameObject> goalItems = new HashSet<GameObject>();
 
         protected virtual void OnTriggerEnter(Collider other) {
             Init();
-            Debug.Log("OnTriggerEnter: " + other.gameObject.layer);
-            if(other.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            if(other.gameObject.layer == LayerMask.NameToLayer("Player") ) {
                 ToCompleteTask();
                 return;
             }
+        }
 
+        private void OnCollisionEnter(Collision other)
+        {
             if (!other.gameObject.TryGetComponent<Liftable>(out var liftable) || currentTask == null) { 
                 return;
             }
-
-
-
+            
             if (!CheckNeedItem((int)liftable.itemType, currentTask.GoalCount)) {
                 return;
             }
@@ -47,17 +46,13 @@ namespace TTGJ.Task
                 currentItemCount.Add((int)liftable.itemType, 0);
             }
             currentItemCount[(int)liftable.itemType]++;
-            goalItems.Add(liftable.gameObject);
+            Debug.Log($"Receive id:{liftable.itemType} count:{currentItemCount[(int)liftable.itemType]}");
+            taskInfo.UpdateTaskProcess(currentItemCount);
+            Debug.Log("Destroy gameobject:"+liftable.gameObject.name);
+            Destroy(liftable.gameObject);
+            ToCompleteTask(currentTaskConfig.TaskId);
         }
-        protected virtual void OnTriggerExit(Collider other) {
-            if(!other.gameObject.TryGetComponent<Liftable>(out var liftable)) {
-                return;
-            }
-            if(goalItems.Contains(liftable.gameObject)) {
-                currentItemCount[(int)liftable.itemType]--;
-                goalItems.Remove(liftable.gameObject);
-            }
-        }
+
         protected bool CheckNeedItem(int itemId, List<ItemConfig> goalCount) { 
             if(goalCount == null || goalCount.Count == 0) {
                 return false;
@@ -93,6 +88,7 @@ namespace TTGJ.Task
                     return false;
                 }
             }
+            Debug.Log("Finish task");
             return true;
         }
         protected void ToCompleteTask(int taskId)
@@ -103,7 +99,6 @@ namespace TTGJ.Task
                 if(CheckFinishTask()) {
                     Debug.Log("CheckFinishTask: true " );
                     currentTaskConfig.TaskState = TaskState.NotReward;
-                    ClearGoalItems();
                     ToRewardTask();
                 }
             };
@@ -147,12 +142,6 @@ namespace TTGJ.Task
             if (currentTaskConfig.TaskState == TaskState.NotReward) {
                 ToRewardTask();
             }
-        }
-        protected virtual void ClearGoalItems() {
-            foreach(var item in goalItems) {
-                Destroy(item);
-            }
-            goalItems.Clear();
         }
         private void Init() { 
             if(isInit) {

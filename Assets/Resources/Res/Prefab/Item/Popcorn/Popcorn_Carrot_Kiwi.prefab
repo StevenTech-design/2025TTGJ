@@ -11,7 +11,12 @@ PrefabInstance:
     - target: {fileID: 1412607696447031078, guid: 446b1bf9d175f5542ad2c7775fc8d145,
         type: 3}
       propertyPath: m_Name
-      value: Popcorn (1) Variant
+      value: Popcorn_Carrot_Kiwi
+      objectReference: {fileID: 0}
+    - target: {fileID: 3031759882248494589, guid: 446b1bf9d175f5542ad2c7775fc8d145,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6381187025117489566, guid: 446b1bf9d175f5542ad2c7775fc8d145,
         type: 3}

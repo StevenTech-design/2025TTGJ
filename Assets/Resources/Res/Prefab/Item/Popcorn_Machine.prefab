@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8800954409846338647}
+  - component: {fileID: 7277318907140890542}
+  - component: {fileID: 8241531743143048922}
   m_Layer: 0
   m_Name: Popcorn_Machine
   m_TagString: Untagged
@@ -32,6 +34,41 @@ Transform:
   - {fileID: 6215088258909314043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7277318907140890542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484080083160197672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3530cf6e639947579f387a561fe7759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2391931536564023272}
+  craftingTableType: 2
+--- !u!65 &8241531743143048922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484080083160197672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 6, z: 4}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1001 &3043831393780415640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48,22 +85,22 @@ PrefabInstance:
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.041
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
@@ -118,7 +155,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8590161081249005017, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2391931536564023272}
   m_SourcePrefab: {fileID: 100100000, guid: 51f7c36fcfdd6a146919a9886c9a3dc3, type: 3}
 --- !u!4 &6215088258909314043 stripped
 Transform:
@@ -126,3 +167,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3043831393780415640}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6704660807144030529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8590161081249005017, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3043831393780415640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2391931536564023272
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6704660807144030529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ad33d9d7da68e5468e47022d012f200, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

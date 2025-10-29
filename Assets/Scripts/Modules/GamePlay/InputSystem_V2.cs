@@ -91,7 +91,7 @@ namespace TTGJ.GamePlay
             if (liftObject == null) { 
                 return;
             }
-            currentCommandinfo.Add((KeyCode.Mouse0,"Use"));
+            currentCommandinfo.Add((KeyCode.Mouse0,"使用"));
             if (!Input.GetMouseButtonDown(0)) { 
                 return;
             }
@@ -138,7 +138,7 @@ namespace TTGJ.GamePlay
             {
                 return;
             }
-            currentCommandinfo.Add((KeyCode.Mouse1, "Drop"));
+            currentCommandinfo.Add((KeyCode.Mouse1, "丢出"));
             if(Input.GetMouseButtonDown(1)) { 
                 _pressDropTime = Time.time;
                 return;

@@ -11,16 +11,21 @@ public class TaskInfo : MonoBehaviour
     private GameObject itemPrefab;
     private List<Item> items = new List<Item>();
     private int currentItemCount = 0;
+    private Dictionary<int,Item>dic = new Dictionary<int, Item>();
 
     public void SetTaskInfo(int taskId) { 
+        dic.Clear();
         var task = LubanManager.Instance.GetTask(taskId);
         if (task == null || task.GoalCount.Count == 0) { 
             gameObject.SetActive(false);
             return;
         }
         gameObject.SetActive(true);
-        for (int i = 0; i < task.GoalCount.Count; i++) {
-            GetItem(i).SetItem(task.GoalCount[i].ItemId, task.GoalCount[i].Count);
+        for (int i = 0; i < task.GoalCount.Count; i++)
+        {
+            var item = GetItem(i);
+            item.SetItem(task.GoalCount[i].ItemId, task.GoalCount[i].Count);
+            dic.Add(task.GoalCount[i].ItemId,item);
         }
         currentItemCount = task.GoalCount.Count;
         HideMulItems();
@@ -36,6 +41,17 @@ public class TaskInfo : MonoBehaviour
     private void HideMulItems() { 
         for(int i = currentItemCount; i < items.Count; i++) {
             items[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void UpdateTaskProcess(Dictionary<int, int> currentCount)
+    {
+        foreach (var item in currentCount)
+        {
+            if (dic.ContainsKey(item.Key))
+            {
+                dic[item.Key].UpdateCount(item.Value);
+            }
         }
     }
 }

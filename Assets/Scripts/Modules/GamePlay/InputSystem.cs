@@ -79,7 +79,7 @@ namespace TTGJ.GamePlay
             if (liftObject == null) { 
                 return;
             }
-            currentCommandinfo.Add((KeyCode.J,"Use"));
+            currentCommandinfo.Add((KeyCode.J,"使用"));
             if (!Input.GetKeyDown(KeyCode.J)) { 
                 return;
             }
@@ -126,7 +126,7 @@ namespace TTGJ.GamePlay
             {
                 return;
             }
-            currentCommandinfo.Add((KeyCode.K, "Drop"));
+            currentCommandinfo.Add((KeyCode.K, "丢弃"));
             if(Input.GetKeyDown(KeyCode.K)) { 
                 _pressDropTime = Time.time;
                 return;
