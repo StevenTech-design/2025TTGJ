@@ -25,7 +25,8 @@ namespace TTGJ.Plant {
         protected override void OnHarvest()
         {
             currentState = PlantState.Harvest;
-            transform.localScale = Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount);
+            transform.DOKill();
+            transform.DOScale(Vector3.one * ConfigManager.Instance.GetHaverstSize(itemType, currentGrouthCount),1f);
             OnGrassHarvested?.Invoke(gameObject, index);
             HouseManager.Instance.CollectPlant(this);
         }

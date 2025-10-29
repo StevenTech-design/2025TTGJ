@@ -16,8 +16,10 @@ namespace TTGJ.Task
         private Coroutine plotCoroutine;
 
 
-        public void SetPlot(List<int> plotIds) { 
-            if(plotIds == null || plotIds.Count == 0) {
+        public void SetPlot(List<int> plotIds)
+        {
+            if (plotIds == null || plotIds.Count == 0)
+            {
                 onPlotComplete?.Invoke();
                 return;
             }
@@ -25,18 +27,22 @@ namespace TTGJ.Task
             plotText.text = "";
             gameObject.SetActive(true);
             currentPlotIndex = 0;
-            if(plotCoroutine != null) {
+            if (plotCoroutine != null)
+            {
                 StopCoroutine(plotCoroutine);
             }
             plotCoroutine = StartCoroutine(StartPlot());
         }
 
-        private IEnumerator StartPlot() { 
-            
-            while (currentPlotIndex < plotIds.Count) {
+        private IEnumerator StartPlot()
+        {
+
+            while (currentPlotIndex < plotIds.Count)
+            {
                 Debug.Log("StartPlot: " + currentPlotIndex + " " + plotIds[currentPlotIndex]);
                 var plot = LubanManager.Instance.GetPlot(plotIds[currentPlotIndex]);
-                if(plot == null) {
+                if (plot == null)
+                {
                     yield break;
                 }
                 plotText.text = plot.TextTime;
@@ -50,5 +56,11 @@ namespace TTGJ.Task
             this.onPlotComplete = null;
             onPlotComplete?.Invoke();
         }
+
+        public void UpdateFont(TMP_FontAsset font)
+        { 
+            plotText.font = font;
+        } 
+        
     }
 }
