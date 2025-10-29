@@ -7,12 +7,16 @@ using TTGJ.Luban;
 using UnityEngine;
 using TTGJ.Config;
 using TTGJ.House;
+using Cysharp.Threading.Tasks;
 
 namespace TTGJ.Crafting
 {
     public class CraftingTable : MonoBehaviour
     {
         private List<Liftable> liftables = new List<Liftable>();
+        [SerializeField]
+        private Animator animator;
+        private Transform craftPosition;
         [SerializeField]
         private CraftingTableType craftingTableType;
         private void OnCollisionEnter(Collision other)
@@ -25,23 +29,31 @@ namespace TTGJ.Crafting
             {
                 liftables.Add(liftable);
                 liftable.gameObject.SetActive(false);
+                animator.SetTrigger("eat");
             }
             if (liftables.Count == 2)
             {
                 ToCraft();
             }
         }
-        private void ToCraft()
+        private async UniTask ToCraft()
         {
+            await UniTask.Delay(500);
+            animator.SetTrigger("making");
+            await UniTask.Delay(3000);
             var obj = GetTargetCraftObject();
             if(obj == null) {
+                animator.SetTrigger("finish");
                 liftables[0].gameObject.SetActive(true);
+                await UniTask.Delay(500);
+                animator.SetTrigger("finish");
                 liftables[1].gameObject.SetActive(true);
                 liftables[0].transform.position = transform.position + transform.forward * 2f;
                 liftables[1].transform.position = transform.position + transform.forward * 3f;
                 liftables.Clear();
                 return;
             }
+            animator.SetTrigger("finish");
             obj.transform.position = transform.position + transform.forward * 2f;
             liftables.Clear();
         }
