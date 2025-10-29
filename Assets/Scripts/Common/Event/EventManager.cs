@@ -9,7 +9,7 @@ namespace TTGJ.Common
     {
         private Dictionary<EventType, List<Action<EventParam>>> eventHandlers;
 
-        private void RegisterEvent(EventType eventType, Action<EventParam> handler)
+        public void RegisterEvent(EventType eventType, Action<EventParam> handler)
         {
             if (!eventHandlers.ContainsKey(eventType))
             {
@@ -18,7 +18,7 @@ namespace TTGJ.Common
             eventHandlers[eventType].Add(handler);
         }
 
-        private void UnregisterEvent(EventType eventType, Action<EventParam> handler)
+        public void UnregisterEvent(EventType eventType, Action<EventParam> handler)
         {
             if (eventHandlers.ContainsKey(eventType))
             {
@@ -26,7 +26,7 @@ namespace TTGJ.Common
             }
         }
 
-        private void TriggerEvent(EventType eventType, EventParam eventParam)
+        public void TriggerEvent(EventType eventType, EventParam eventParam)
         {
             try
             {

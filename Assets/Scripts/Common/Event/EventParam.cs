@@ -4,4 +4,8 @@ namespace TTGJ.Common
     {
         public EventType eventType;
     }
+    public class EventParam<T> : EventParam
+    {
+        public T param;
+    }
 }
