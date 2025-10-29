@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8800954409846338647}
   - component: {fileID: 7277318907140890542}
+  - component: {fileID: 8241531743143048922}
   m_Layer: 0
   m_Name: Popcorn_Machine
   m_TagString: Untagged
@@ -47,6 +48,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2391931536564023272}
   craftingTableType: 2
+--- !u!65 &8241531743143048922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484080083160197672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &3043831393780415640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.041
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8970520995207784291, guid: 51f7c36fcfdd6a146919a9886c9a3dc3,
         type: 3}
