@@ -144,8 +144,8 @@
         public const string UI_TeamPannel = "Prefab/UI/TeamPannel";
         public const string UI_ThanksPannel = "Prefab/UI/ThanksPannel";
         public const string Input_Mouse0 = "Sprite/Input/Mouse0";
-        public const string Input_Mouse1 = "Sprite/Input/Mouse3";
-        public const string Input_Space = "Sprite/Input/Space2";
+        public const string Input_Mouse1 = "Sprite/Input/Mouse1";
+        public const string Input_Space = "Sprite/Input/Space";
         public const string TreeHouse_Chairs = "Prefab/Buildings/TreeHouse/Chairs";
         public const string TreeHouse_Table = "Prefab/Buildings/TreeHouse/Table";
         public const string TreeHouse_Window = "Prefab/Buildings/TreeHouse/Window";
