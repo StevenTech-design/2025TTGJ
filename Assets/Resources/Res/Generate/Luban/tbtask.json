@@ -7,7 +7,7 @@
     "reward": [
       {
         "ItemId": 1001,
-        "count": 10
+        "count": 1
       },
       {
         "ItemId": 5001,
@@ -28,12 +28,12 @@
   },
   {
     "goalId": 1002,
-    "name": "种出十个土豆",
+    "name": "种植土豆",
     "npc": 0,
     "goalCount": [
       {
         "ItemId": 2001,
-        "count": 1
+        "count": 10
       }
     ],
     "reward": [
@@ -49,14 +49,15 @@
       206
     ],
     "complete_dialog": [
-      207
+      207,
+      208
     ],
     "next_goalId": 1003,
-    "npc_quest_bubble": "Art/Images/Icons/Group 62@2x#10"
+    "npc_quest_bubble": "img/Potato"
   },
   {
     "goalId": 1003,
-    "name": "清理十个杂草",
+    "name": "清理杂草",
     "npc": 0,
     "goalCount": [
       {
@@ -66,54 +67,41 @@
     ],
     "reward": [
       {
-        "ItemId": 1004,
-        "count": 11
+        "ItemId": 1002,
+        "count": 1
       }
     ],
     "accept_dialog": [
-      208,
-      209
-    ],
-    "progress_hint": [
+      209,
       210
     ],
+    "progress_hint": [
+      211
+    ],
     "complete_dialog": [
-      211,
-      212,
-      213
+      212
     ],
     "next_goalId": 1004,
-    "npc_quest_bubble": "Art/Images/Icons/Group 62@2x#10"
+    "npc_quest_bubble": "img/Yecao"
   },
   {
     "goalId": 1004,
-    "name": "新朋友",
+    "name": "种植蘑菇",
     "npc": 0,
-    "goalCount": [],
-    "reward": [],
-    "accept_dialog": [],
-    "progress_hint": [],
-    "complete_dialog": [],
-    "next_goalId": 1005,
-    "npc_quest_bubble": ""
-  },
-  {
-    "goalId": 1005,
-    "name": "新朋友程序猿",
-    "npc": 2,
     "goalCount": [
       {
-        "ItemId": 1004,
-        "count": 1
+        "ItemId": 2002,
+        "count": 10
       }
     ],
     "reward": [
       {
-        "ItemId": 1014,
-        "count": 10
+        "ItemId": 1005,
+        "count": 1
       }
     ],
     "accept_dialog": [
+      213,
       214,
       215,
       216
@@ -125,67 +113,378 @@
       218,
       219
     ],
+    "next_goalId": 1005,
+    "npc_quest_bubble": "img/Mushroom"
+  },
+  {
+    "goalId": 1005,
+    "name": "爆米花机",
+    "npc": 0,
+    "goalCount": [],
+    "reward": [
+      {
+        "ItemId": 1006,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      220,
+      221
+    ],
+    "progress_hint": [
+      222,
+      223
+    ],
+    "complete_dialog": [
+      224
+    ],
     "next_goalId": 1006,
-    "npc_quest_bubble": "Art/Images/Icons/Group 62@2x#10"
+    "npc_quest_bubble": ""
   },
   {
     "goalId": 1006,
-    "name": "奇怪的花椰菜",
-    "npc": 2,
+    "name": "送东西",
+    "npc": 0,
     "goalCount": [],
-    "reward": [],
-    "accept_dialog": [],
-    "progress_hint": [],
-    "complete_dialog": [],
+    "reward": [
+      {
+        "ItemId": 5007,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      225,
+      226,
+      227
+    ],
+    "progress_hint": [
+      228,
+      229,
+      230
+    ],
+    "complete_dialog": [
+      231,
+      232
+    ],
     "next_goalId": 1007,
     "npc_quest_bubble": ""
   },
   {
     "goalId": 1007,
-    "name": "爆米花机",
-    "npc": 1,
-    "goalCount": [],
-    "reward": [],
-    "accept_dialog": [],
+    "name": "红番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 2006,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 1014,
+        "count": 1
+      },
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      234,
+      235,
+      236,
+      237
+    ],
     "progress_hint": [],
-    "complete_dialog": [],
+    "complete_dialog": [
+      238,
+      239,
+      240,
+      241
+    ],
     "next_goalId": 1008,
-    "npc_quest_bubble": ""
+    "npc_quest_bubble": "img/Tomato_Red"
   },
   {
     "goalId": 1008,
-    "name": "蔬菜房子",
-    "npc": 2,
-    "goalCount": [],
-    "reward": [],
-    "accept_dialog": [],
-    "progress_hint": [],
-    "complete_dialog": [],
+    "name": "花椰菜",
+    "npc": 0,
+    "goalCount": [
+      {
+        "ItemId": 2013,
+        "count": 10
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 1003,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      242,
+      243,
+      244,
+      245
+    ],
+    "progress_hint": [
+      246,
+      247
+    ],
+    "complete_dialog": [
+      248,
+      249,
+      250,
+      251
+    ],
     "next_goalId": 1009,
-    "npc_quest_bubble": ""
+    "npc_quest_bubble": "img/CauliFlower"
   },
   {
     "goalId": 1009,
-    "name": "七色番茄",
-    "npc": 3,
-    "goalCount": [],
-    "reward": [],
-    "accept_dialog": [],
-    "progress_hint": [],
-    "complete_dialog": [],
+    "name": "南瓜",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 2003,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      252,
+      253,
+      254
+    ],
+    "progress_hint": [
+      255,
+      256,
+      257
+    ],
+    "complete_dialog": [
+      258,
+      259,
+      260,
+      261,
+      262
+    ],
     "next_goalId": 1010,
-    "npc_quest_bubble": ""
+    "npc_quest_bubble": "img/Pumpkin"
   },
   {
     "goalId": 1010,
-    "name": "999土豆",
-    "npc": 4,
-    "goalCount": [],
-    "reward": [],
-    "accept_dialog": [],
+    "name": "橙番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 1007,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      263,
+      264,
+      265
+    ],
     "progress_hint": [],
-    "complete_dialog": [],
+    "complete_dialog": [
+      266,
+      267
+    ],
     "next_goalId": 1011,
-    "npc_quest_bubble": ""
+    "npc_quest_bubble": "img/Tomato_Orange"
+  },
+  {
+    "goalId": 1011,
+    "name": "黄番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 1008,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      269
+    ],
+    "progress_hint": [],
+    "complete_dialog": [
+      270,
+      271,
+      272
+    ],
+    "next_goalId": 1012,
+    "npc_quest_bubble": "img/Tomato_Yellow"
+  },
+  {
+    "goalId": 1012,
+    "name": "绿番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 1009,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      273,
+      274
+    ],
+    "progress_hint": [
+      275,
+      276,
+      277,
+      278
+    ],
+    "complete_dialog": [
+      279,
+      280,
+      281
+    ],
+    "next_goalId": 1013,
+    "npc_quest_bubble": "img/Tomato_Green"
+  },
+  {
+    "goalId": 1013,
+    "name": "青番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 1010,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      282,
+      283,
+      284
+    ],
+    "progress_hint": [
+      285,
+      286
+    ],
+    "complete_dialog": [
+      287,
+      288
+    ],
+    "next_goalId": 1014,
+    "npc_quest_bubble": "img/Tomato_Cyan"
+  },
+  {
+    "goalId": 1014,
+    "name": "蓝番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 1011,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      289,
+      290,
+      291
+    ],
+    "progress_hint": [
+      292
+    ],
+    "complete_dialog": [
+      293
+    ],
+    "next_goalId": 1015,
+    "npc_quest_bubble": "img/Tomato_Blue"
+  },
+  {
+    "goalId": 1015,
+    "name": "紫番茄",
+    "npc": 2,
+    "goalCount": [
+      {
+        "ItemId": 1012,
+        "count": 1
+      }
+    ],
+    "reward": [
+      {
+        "ItemId": 5045,
+        "count": 1
+      }
+    ],
+    "accept_dialog": [
+      294,
+      295
+    ],
+    "progress_hint": [],
+    "complete_dialog": [
+      296,
+      297,
+      298
+    ],
+    "next_goalId": 1016,
+    "npc_quest_bubble": "img/Tomato_Purple"
+  },
+  {
+    "goalId": 1016,
+    "name": "999土豆",
+    "npc": 0,
+    "goalCount": [
+      {
+        "ItemId": 1001,
+        "count": 999
+      }
+    ],
+    "reward": [],
+    "accept_dialog": [
+      299,
+      301,
+      302,
+      303
+    ],
+    "progress_hint": [
+      304,
+      305,
+      306
+    ],
+    "complete_dialog": [
+      307,
+      308
+    ],
+    "next_goalId": 0,
+    "npc_quest_bubble": "img/Potato"
   }
 ]
