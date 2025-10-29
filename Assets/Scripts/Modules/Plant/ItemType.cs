@@ -2,7 +2,42 @@ namespace TTGJ.Plant
 {
     public enum ItemType
     {
-
+        Popcorn_Potato_Mushroom=5009,
+        Popcorn_Potato_Pumpkin=5010,
+        Popcorn_Potato_Carrot=5011,
+        Popcorn_Potato_WaterBeet=5012,
+        Popcorn_Potato_RedTomato=5013,
+        Popcorn_Potato_Cauliflower=5014,
+        Popcorn_Potato_Kiwi=5015,
+        Popcorn_Potato_Weed=5016,
+        Popcorn_Mushroom_Pumpkin=5017,
+        Popcorn_Mushroom_Carrot=5018,
+        Popcorn_Mushroom_WaterBeet=5019,
+        Popcorn_Mushroom_RedTomato=5020,
+        Popcorn_Mushroom_Cauliflower=5021,
+        Popcorn_Mushroom_Kiwi=5022,
+        Popcorn_Mushroom_Weed=5023,
+        Popcorn_Pumpkin_Carrot=5024,
+        Popcorn_Pumpkin_WaterBeet=5025,
+        Popcorn_Pumpkin_RedTomato=5026,
+        Popcorn_Pumpkin_Cauliflower=5027,
+        Popcorn_Pumpkin_Kiwi=5028,
+        Popcorn_Pumpkin_Weed=5029,
+        Popcorn_Carrot_WaterBeet=5030,
+        Popcorn_Carrot_RedTomato=5031,
+        Popcorn_Carrot_Cauliflower=5032,
+        Popcorn_Carrot_Kiwi=5033,
+        Popcorn_Carrot_Weed=5034,
+        Popcorn_WaterBeet_RedTomato=5035,
+        Popcorn_WaterBeet_Cauliflower=5036,
+        Popcorn_WaterBeet_Kiwi=5037,
+        Popcorn_WaterBeet_Weed=5038,
+        Popcorn_RedTomato_Cauliflower=5039,
+        Popcorn_RedTomato_Kiwi=5040,
+        Popcorn_RedTomato_Weed=5041,
+        Popcorn_Cauliflower_Kiwi=5042,
+        Popcorn_Cauliflower_Weed=5043,
+        Popcorn_Kiwi_Weed=5044,
 
 
        
@@ -81,5 +116,10 @@ namespace TTGJ.Plant
 
 
         KiwiFruitTree = 9001,
+        Door=5045
+        
+        
+
+
     }
 }

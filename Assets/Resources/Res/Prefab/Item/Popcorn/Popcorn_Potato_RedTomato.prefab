@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 1412607696447031078, guid: 446b1bf9d175f5542ad2c7775fc8d145,
         type: 3}
       propertyPath: m_Name
-      value: Popcorn (1) Variant
+      value: Popcorn_Potato_RedTomato
       objectReference: {fileID: 0}
     - target: {fileID: 6381187025117489566, guid: 446b1bf9d175f5542ad2c7775fc8d145,
         type: 3}
@@ -71,5 +71,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1412607696447031078, guid: 446b1bf9d175f5542ad2c7775fc8d145,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -530469868089691321}
   m_SourcePrefab: {fileID: 100100000, guid: 446b1bf9d175f5542ad2c7775fc8d145, type: 3}
+--- !u!1 &1592060089055934652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1412607696447031078, guid: 446b1bf9d175f5542ad2c7775fc8d145,
+    type: 3}
+  m_PrefabInstance: {fileID: 397078730728816538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-530469868089691321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592060089055934652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3e52e9a71194ac197d2559e70fe55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 5013
