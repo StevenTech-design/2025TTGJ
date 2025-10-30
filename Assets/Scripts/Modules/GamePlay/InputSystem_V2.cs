@@ -60,9 +60,6 @@ namespace TTGJ.GamePlay
         
         private void Update()
         {
-            if (GameRoot.Instance._gameState != GameState.Gaming) {
-                return;
-            }
             if (Input.GetKeyDown(KeyCode.Alpha0))
             {
                 UIManager.Instance.Push<JournalPanel>();
