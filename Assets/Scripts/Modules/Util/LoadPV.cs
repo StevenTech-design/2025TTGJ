@@ -8,7 +8,7 @@ namespace TTGJ.Util
 {
     public class LoadPV : MonoBehaviour
     {
-        private async System.Threading.Tasks.Task StartAsyncAsync() { 
+        private async System.Threading.Tasks.Task Start() { 
             PVPanel pvPanel = UIManager.Instance.Push<PVPanel>();
             GameObject go = PlayerController.GetActivePlayer().gameObject;
             go.SetActive(false);
