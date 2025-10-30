@@ -20,6 +20,7 @@ public partial class Tables
     public TbPlot TbPlot {get; }
     public TbTask TbTask {get; }
     public TbHouse TbHouse {get; }
+    public TbAudio TbAudio {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -29,6 +30,7 @@ public partial class Tables
         TbPlot = new TbPlot(loader("tbplot"));
         TbTask = new TbTask(loader("tbtask"));
         TbHouse = new TbHouse(loader("tbhouse"));
+        TbAudio = new TbAudio(loader("tbaudio"));
         ResolveRef();
     }
     
@@ -40,6 +42,7 @@ public partial class Tables
         TbPlot.ResolveRef(this);
         TbTask.ResolveRef(this);
         TbHouse.ResolveRef(this);
+        TbAudio.ResolveRef(this);
     }
 }
 

@@ -64,7 +64,7 @@ namespace TTGJ.Framework
             T asset = Resources.Load<T>(fullPath);
             if (asset == null)
             {
-                Debug.LogWarning("Asset not found at " + fullPath);
+                Debug.LogError("Asset not found at " + fullPath);
             }
             return asset;
         }

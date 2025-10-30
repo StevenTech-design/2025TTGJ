@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using TTGJ.Audio;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
@@ -68,6 +69,7 @@ namespace TTGJ.Plant
             currentEatObject = other;
             GetComponentInChildren<Animator>().SetTrigger("Eat");
             other.SetActive(false);
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Pumpkin_Swallowing);
             await UniTask.Delay(1000);
             other.SetActive(true);
             if(other.TryGetComponent<Rigidbody>(out var rigidbody)) {

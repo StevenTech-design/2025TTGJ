@@ -8,6 +8,8 @@ using UnityEngine;
 using TTGJ.Config;
 using TTGJ.House;
 using Cysharp.Threading.Tasks;
+using TTGJ.Audio;
+using AudioType = TTGJ.Audio.AudioType;
 
 namespace TTGJ.Crafting
 {
@@ -30,6 +32,7 @@ namespace TTGJ.Crafting
                 liftables.Add(liftable);
                 liftable.gameObject.SetActive(false);
                 animator.SetTrigger("eat");
+                AudioManager.Instance.PlaySFX(AudioType.Popcorn_Machine_Loading_Crops);
             }
             if (liftables.Count == 2)
             {
@@ -40,13 +43,16 @@ namespace TTGJ.Crafting
         {
             await UniTask.Delay(500);
             animator.SetTrigger("making");
+            AudioManager.Instance.PlaySFX(AudioType.Popcorn_Machine_Sound_1);
             await UniTask.Delay(4000);
             var obj = GetTargetCraftObject();
             if(obj == null) {
                 animator.SetTrigger("finish");
+                AudioManager.Instance.PlaySFX(AudioType.Popcorn_Machine_Dispensing);
                 liftables[0].gameObject.SetActive(true);
                 await UniTask.Delay(500);
                 animator.SetTrigger("finish");
+                AudioManager.Instance.PlaySFX(AudioType.Popcorn_Machine_Dispensing);
                 liftables[1].gameObject.SetActive(true);
                 liftables[0].transform.position = transform.position + transform.forward * 2f;
                 liftables[1].transform.position = transform.position + transform.forward * 3f;

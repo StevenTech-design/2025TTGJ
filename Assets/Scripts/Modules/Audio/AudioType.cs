@@ -1,0 +1,37 @@
+namespace TTGJ.Audio
+{
+    public enum AudioType
+    {
+        Waterfall_Sound = 1,
+        Teleportation_Gate = 2,
+        Water_Spray_Sound = 3,
+        Kettle_Watering_Sound = 4,
+        Popcorn_Machine_Sound_1 = 5,
+        Popcorn_Machine_Dispensing = 6,
+        Popcorn_Machine_Loading_Crops = 7,
+        Key_Door_Opening_Closing_Sound = 8,
+        Magic_Sound_Effect = 9, 
+        Beet = 10,
+        Sheep_Bleat = 11,
+        Q_Bouncy_Crop = 12,
+        Character_Planting_Plant = 13,
+        Crop_Falling_to_Ground = 14,
+        Bowling_Pin_Falling_Sound = 15,
+        Bowling_Ball_Rolling_Sound = 16,
+        Bowling_Ball_Collision_Sound = 17,
+        Pumpkin_Swallowing = 18,
+        Billiard_Ball_Collision_2 = 19,
+        Billiard_Ball_Pocketing_Sound = 20,
+        Potato_Splitting = 21,
+        Character_Discarding_Item = 22,
+        Character_Lifting_Item = 23,
+        Character_Landing_after_Falling_from_Sky = 24,
+        Character_Eating_Food = 25,
+        Character_Picking_up_Item = 26,
+        Character_Walking_Wooden_Bridge = 27,
+        Character_Walking_Sand_Soil = 28,
+        Character_Walking_Beach = 29,
+        Character_Walking_Lotus_Leaf_Path = 30,
+        Character_Walking_Default = 31,
+    }
+}

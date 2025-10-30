@@ -82,7 +82,7 @@ namespace TTGJ.Luban
                 try
                 {
                     var asset = StResources.Instance.LoadByResources<TextAsset>(fileName);
-                    
+
 
                     if (asset != null)
                         return JSON.Parse(asset.text);
@@ -125,7 +125,7 @@ namespace TTGJ.Luban
                 || (item.CostMainBuckets1 == itemId2 && item.CostMainBuckets2 == itemId1))
                 {
                     return item;
-                }   
+                }
             }
             return null;
         }
@@ -146,22 +146,30 @@ namespace TTGJ.Luban
         {
             return _tables.TbTask.Get(id);
         }
-        public List<int> GetItemsByType(int itemType) { 
+        public List<int> GetItemsByType(int itemType)
+        {
             var items = _tables.TbItemNew.DataList;
             return items.Where(item => item.ItemType == itemType).Select(item => item.Id).ToList();
         }
-        public house GetHouse(int id) {
+        public house GetHouse(int id)
+        {
             return _tables.TbHouse.Get(id);
         }
-        public house GetHouseByItemId(int id) {
-            foreach (var item in _tables.TbHouse.DataList) {
-                if (item.CropList.Contains(id)) {
+        public house GetHouseByItemId(int id)
+        {
+            foreach (var item in _tables.TbHouse.DataList)
+            {
+                if (item.CropList.Contains(id))
+                {
                     return item;
                 }
             }
             return null;
+        } 
+        public audio GetAudio(int id)
+        {
+            return _tables.TbAudio.Get(id);
         }
-
 
         #endregion
     }

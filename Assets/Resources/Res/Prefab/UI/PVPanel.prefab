@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2490424599920684508}
   - component: {fileID: 602034244381302878}
   - component: {fileID: 2830436606728745195}
+  - component: {fileID: 3917976919416129017}
   m_Layer: 5
   m_Name: PVPanel
   m_TagString: Untagged
@@ -129,6 +130,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &3917976919416129017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5527170714448884267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ede4b862e68e524b967755343f12076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5766998072053070365
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +197,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
-  m_AspectRatio: 2
+  m_AspectRatio: 0
   m_DataSource: 0
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
