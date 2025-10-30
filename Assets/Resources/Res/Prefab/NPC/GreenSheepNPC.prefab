@@ -556,9 +556,9 @@ GameObject:
   - component: {fileID: 7060137020616440420}
   - component: {fileID: 3757801967725184248}
   - component: {fileID: 7665646683279007865}
-  - component: {fileID: 5582665255050735851}
   - component: {fileID: 5150934933370589305}
   - component: {fileID: 8480147030449758013}
+  - component: {fileID: 8313981323597534057}
   m_Layer: 0
   m_Name: GreenSheepNPC
   m_TagString: Untagged
@@ -654,23 +654,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &5582665255050735851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5663230658039637523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10540adb632957f449470898609a6f04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 7001
-  npcType: 0
-  plot: {fileID: 5562614016689089636}
-  taskInfo: {fileID: 9162573072644315213}
-  InitTaskId: 1001
 --- !u!114 &5150934933370589305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +690,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8313981323597534057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663230658039637523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c54c3b79fcbf34989904b4f61e060235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 7001
+  npcType: 3
+  plot: {fileID: 5562614016689089636}
+  taskInfo: {fileID: 9162573072644315213}
+  InitTaskId: 1001
+  specialFont: {fileID: 11400000, guid: 858e43f20394eaa4aa15b7fb9007f6fc, type: 2}
+  normalFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
 --- !u!1 &5699557685241305825
 GameObject:
   m_ObjectHideFlags: 0

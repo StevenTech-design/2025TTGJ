@@ -17,6 +17,7 @@ namespace TTGJ.UI
             { typeof(ThanksPanel), ResPathConfig.UI_ThanksPannel},
             { typeof(TeamPanel), ResPathConfig.UI_TeamPannel},
             { typeof(OperationPanel), ResPathConfig.UI_OperationPannel},
+            { typeof(PVPanel), ResPathConfig.UI_PVPanel},
             
         };
         private Stack<UIPanel> _panels = new Stack<UIPanel>();

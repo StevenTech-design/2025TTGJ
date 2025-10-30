@@ -1,3 +1,4 @@
+using TTGJ.Scene;
 using TTGJ.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -50,10 +51,10 @@ namespace TTGJ.Other
                     UIManager.Instance.Push<TeamPanel>();
                     break;
                 case PanelType.EnterGame:
-                    SceneManager.LoadScene(1);
+                    SceneLoaderManager.Instance.LoadScene(1);
                     break;
                 case PanelType.StartGame:
-                    SceneManager.LoadScene(0);
+                    SceneLoaderManager.Instance.LoadScene(0);
                     break;
                 default:
                     break;
