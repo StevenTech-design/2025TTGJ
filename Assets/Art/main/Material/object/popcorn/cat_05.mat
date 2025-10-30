@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: cat_03
+  m_Name: cat_05
   m_Shader: {fileID: 4800000, guid: 533f531b31336044bafdb32a571d5b4f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -24,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 39648f11fa9ed5c4c9dae1927b11e6b8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 009cf1932654ae9458859352f4e9c4e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
