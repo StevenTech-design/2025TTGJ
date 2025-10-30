@@ -67,7 +67,6 @@ namespace TTGJ.Task
         protected void ToAcceptTask(int taskId)
         {
             currentTask = LubanManager.Instance.GetTask(taskId);
-            Debug.Log("ToAcceptTask: " + taskId + currentTask);
             plot.onPlotComplete = () => { 
                 taskInfo.SetTaskInfo(taskId);
                 currentTaskConfig.TaskState = TaskState.NotComplete;
@@ -77,11 +76,9 @@ namespace TTGJ.Task
         }
         protected bool CheckFinishTask() {
             if (currentTask.GoalCount.Count == 0) {
-                Debug.Log("curren goal count is 0");
                 return true;
             }
             if(currentItemCount.Count != currentTask.GoalCount.Count) {
-                Debug.Log("----");
                 return false;
             }
             foreach(var item in currentTask.GoalCount) {
@@ -137,7 +134,7 @@ namespace TTGJ.Task
                 ToAcceptTask(currentTaskConfig.TaskId);
             }
             if (currentTaskConfig.TaskState == TaskState.NotComplete) {
-                CheckFinishTask();
+                ToCompleteTask(currentTaskConfig.TaskId);
             }
             if (currentTaskConfig.TaskState == TaskState.NotReward) {
                 ToRewardTask();

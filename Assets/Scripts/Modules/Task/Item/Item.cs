@@ -27,7 +27,7 @@ public class Item : MonoBehaviour
 
     public void UpdateCount(int currentCount)
     {
-        itemCount.text = Mathf.Min(0,maxCount - currentCount).ToString();
+        itemCount.text = Mathf.Max(0,maxCount - currentCount).ToString();
         Debug.Log($"itemId:{currentCount} count:{currentCount} maxCount:{maxCount}");
     }
 }

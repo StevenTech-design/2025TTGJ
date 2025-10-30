@@ -24,11 +24,14 @@ namespace TTGJ.Interactable
         public virtual void OnDrop(Vector3 dir, float force)
         {
             rigidbody = gameObject.AddComponent<Rigidbody>();
-            rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            if (rigidbody != null)
+            {
+                rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+                rigidbody.useGravity = true;
+                rigidbody.isKinematic = false;
+                rigidbody.AddForce(dir * force, ForceMode.Impulse);
+            }
             collider.enabled = true;
-            rigidbody.useGravity = true;
-            rigidbody.isKinematic = false;
-            rigidbody.AddForce(dir * force, ForceMode.Impulse);
             isLiftable = true;
         }
         protected virtual void Initialize()

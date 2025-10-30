@@ -28,13 +28,13 @@ namespace TTGJ.Common
 
         public void TriggerEvent(EventType eventType, EventParam eventParam)
         {
-            try
+            if (!eventHandlers.ContainsKey(eventType))
             {
-                eventHandlers[eventType]?.ForEach(handler => handler(eventParam));
+                return;
             }
-            catch (Exception e)
+            foreach (var handler in eventHandlers[eventType])
             {
-                Debug.LogError(e);
+                handler(eventParam);
             }
         }
     }
