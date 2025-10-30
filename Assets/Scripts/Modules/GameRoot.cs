@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using TTGJ.Framework;
+using TTGJ.GamePlay;
 using TTGJ.Luban;
 using TTGJ.UI;
 using UnityEngine;
@@ -22,11 +23,13 @@ namespace TTGJ
             await LubanManager.Instance.InitializeAsync();
             // Get data anytime after initialization
             PVPanel pvPanel = UIManager.Instance.Push<PVPanel>();
+            GameObject go = PlayerController.GetActivePlayer().gameObject;
+            go.SetActive(false);
             double pvTimeLength = pvPanel.GetPVTimeLength();
             Debug.Log("PVTimeLength: " + pvTimeLength);
             await UniTask.Delay(TimeSpan.FromSeconds(pvTimeLength));
             UIManager.Instance.PopUp();
-            
+            go.SetActive(true);
         }
     }
 }
