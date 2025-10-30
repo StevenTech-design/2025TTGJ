@@ -13,7 +13,7 @@ namespace TTGJ.GamePlay
         public float rotationSpeed = 5.0f;
         public float dropForce = 10;
         private Rigidbody _rigidbody;
-        
+
         public bool smoothRotation = true;
 
         [SerializeField]
@@ -42,8 +42,8 @@ namespace TTGJ.GamePlay
                 return;
             }
             IsMove = true;
-           
-            
+
+
             // 自然转向
             if (smoothRotation)
             {
@@ -55,15 +55,15 @@ namespace TTGJ.GamePlay
             {
                 transform.rotation = Quaternion.LookRotation(direction);
             }
-            
-           
-            
+
+
+
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
 
         public void ToLift(GameObject target)
         {
-            if(!target.TryGetComponent<Liftable>(out var liftable) || !liftable.IsLiftable()) return;
+            if (!target.TryGetComponent<Liftable>(out var liftable) || !liftable.IsLiftable()) return;
             liftable.OnLift();
             _liftList.Enqueue(target.gameObject);
 
@@ -132,10 +132,10 @@ namespace TTGJ.GamePlay
                 eatable.OnEat();
                 Destroy(target);
             }
-            else 
+            else
             {
-               ToDrop();
-               return;
+                ToDrop();
+                return;
             }
             PlayEatAnimation();
             _liftList.Dequeue();
@@ -157,10 +157,14 @@ namespace TTGJ.GamePlay
             }
         }
         private float GetTargetHeight(Liftable liftable)
-        { 
+        {
             var itemNew = LubanManager.Instance.GetItemNew((int)liftable.itemType);
             if (itemNew == null) return 1;
             return itemNew.Height;
+        }
+        public GameObject GetPeekGameObject()
+        {
+            return _liftList.Peek();
         }
     }
 }

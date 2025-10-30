@@ -25,10 +25,12 @@ namespace TTGJ.Plant
             sheep.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             sheep.transform.localScale = Vector3.one;
         }
-        public override void OnPlant() { 
+        public override void OnPlant()
+        {
             base.OnPlant();
+            GameObject peekObject = PlayerController.Instance.GetPeekGameObject();
             PlayerController.Instance.ToDrop();
-            Destroy(this.gameObject);
+            Destroy(peekObject);
         }
 
          
