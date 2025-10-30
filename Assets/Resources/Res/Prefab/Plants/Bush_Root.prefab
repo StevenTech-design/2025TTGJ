@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7390079491163895867}
   - component: {fileID: 230313277959097581}
   - component: {fileID: 8549490942201042632}
-  - component: {fileID: 3261490317401907808}
   m_Layer: 0
   m_Name: Bush_Root
   m_TagString: Untagged
@@ -77,30 +76,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.1, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3261490317401907808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8344213614294780047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bac038e8ec6142ffbbaabed6457df45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 0
-  sackGo: {fileID: 0}
-  grothGo: {fileID: 0}
-  realGo: {fileID: 0}
-  currentState: 0
-  InitModelInStart: 0
-  InitBigModelInStart: 0
-  bigVelocityThreshold: 1
-  kiwiFruitPrefab: {fileID: 5291219261795888307, guid: f0eb1c32a3d3b344cbd4497b54d8a393,
-    type: 3}
-  interval: 0.5
-  fruitSpawnPoint: {fileID: 0}
 --- !u!1001 &1698112505622311207
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6410,6 +6410,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom
       objectReference: {fileID: 0}
+    - target: {fileID: 6172739617382225729, guid: a9c85dcc79fa0446d958254b8e8f4710,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172739617382225729, guid: a9c85dcc79fa0446d958254b8e8f4710,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843054811765402797, guid: a9c85dcc79fa0446d958254b8e8f4710,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843054811765402797, guid: a9c85dcc79fa0446d958254b8e8f4710,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.64
+      objectReference: {fileID: 0}
     - target: {fileID: 9152040515989166213, guid: a9c85dcc79fa0446d958254b8e8f4710,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15175,7 +15195,7 @@ Transform:
   m_GameObject: {fileID: 780423782}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.646124, z: -0, w: 0.76323247}
-  m_LocalPosition: {x: 154.8, y: 5.08, z: 177.3}
+  m_LocalPosition: {x: 155.72, y: 5.08, z: 177.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24318,7 +24338,6 @@ Transform:
   - {fileID: 1349603705}
   - {fileID: 1452651971}
   - {fileID: 397064082}
-  - {fileID: 354199868}
   - {fileID: 1593580200}
   - {fileID: 1807704253}
   m_Father: {fileID: 935056370}
@@ -24976,6 +24995,7 @@ Transform:
   - {fileID: 232023188}
   - {fileID: 2054078106}
   - {fileID: 147841120}
+  - {fileID: 354199868}
   m_Father: {fileID: 6219618029026746842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172840475 stripped
@@ -33596,22 +33616,22 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1163376133}
+    m_TransformParent: {fileID: 1171232962}
     m_Modifications:
     - target: {fileID: 7390079491163895867, guid: d9b468967a043664fb76bd6c6b6d0e4a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 78.55501
       objectReference: {fileID: 0}
     - target: {fileID: 7390079491163895867, guid: d9b468967a043664fb76bd6c6b6d0e4a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16
+      value: -13.511101
       objectReference: {fileID: 0}
     - target: {fileID: 7390079491163895867, guid: d9b468967a043664fb76bd6c6b6d0e4a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -34.3
+      value: 0.34677124
       objectReference: {fileID: 0}
     - target: {fileID: 7390079491163895867, guid: d9b468967a043664fb76bd6c6b6d0e4a,
         type: 3}
