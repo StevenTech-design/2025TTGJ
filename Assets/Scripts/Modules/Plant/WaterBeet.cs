@@ -4,6 +4,7 @@ using UnityEngine;
 using TTGJ.Buff;
 using Unity.VisualScripting;
 using TTGJ.Config;
+using TTGJ.Audio;
 
 namespace TTGJ.Plant
 {
@@ -35,6 +36,7 @@ namespace TTGJ.Plant
                 plant.OnWatering();
                 Debug.Log("WateringOther: " + plant.gameObject.name + "  "+plant.GetComponent<Cell>().cellPos);
             }
+            
         }
         private void OnCollisionStay(Collision collision)
         {
@@ -43,6 +45,7 @@ namespace TTGJ.Plant
             }
             if (collision.transform.TryGetComponent<Cell>(out var cell))
             {
+                AudioManager.Instance.PlaySFX(Audio.AudioType.Water_Beet_Falling_to_Ground);
                 WateringOther();
                 Destroy(gameObject);
             }

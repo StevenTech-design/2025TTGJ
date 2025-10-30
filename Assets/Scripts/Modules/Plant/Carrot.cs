@@ -1,5 +1,6 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using TTGJ.Audio;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
@@ -14,7 +15,8 @@ namespace TTGJ.Plant
         public void OnFallCollision(Collider other)
         {
             if (other.gameObject.TryGetComponent<PlantBase>(out var plant)
-               && plant.itemType == ItemType.Carrot) { 
+               && plant.itemType == ItemType.Carrot)
+            {
 
             }
         }
@@ -30,8 +32,12 @@ namespace TTGJ.Plant
         }
         public override void OnDrop(Vector3 dir, float force)
         {
-             base.OnDrop(dir, force);
-             rigidbody.centerOfMass = new Vector3(0, -1, 0);
+            base.OnDrop(dir, force);
+            rigidbody.centerOfMass = new Vector3(0, -1, 0);
+        }
+        private void OnCollisionEnter(Collision collision)
+        {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Bowling_Pin_Falling_Sound);
         }
     }
 }

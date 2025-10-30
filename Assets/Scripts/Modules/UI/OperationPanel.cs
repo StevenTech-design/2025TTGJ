@@ -1,3 +1,4 @@
+using TTGJ.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 namespace TTGJ.UI
@@ -21,6 +22,7 @@ namespace TTGJ.UI
 
         private void OnExitBtnClick()
         {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Button_Click);
             UIManager.Instance.PopUp();
         }
     }

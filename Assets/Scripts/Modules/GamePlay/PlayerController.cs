@@ -4,6 +4,7 @@ using TTGJ.Interactable;
 using UnityEngine;
 using TTGJ.Framework;
 using TTGJ.Luban;
+using TTGJ.Audio;
 
 namespace TTGJ.GamePlay
 {
@@ -56,7 +57,7 @@ namespace TTGJ.GamePlay
                 transform.rotation = Quaternion.LookRotation(direction);
             }
 
-
+            PlayMoveAudio();
 
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
@@ -119,6 +120,7 @@ namespace TTGJ.GamePlay
             }
             if (targetPlant == null || targetPlant.GetCurrentState() != PlantState.Seed) return;
             GameObject seed = GameObject.Instantiate(targetPlant.gameObject);
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Character_Planting_Plant);
             seed.GetComponent<Collider>().enabled = true;
             seed.AddComponent<Rigidbody>();
             field.ToPlanting(seed.GetComponent<PlantBase>());
@@ -165,6 +167,26 @@ namespace TTGJ.GamePlay
         public GameObject GetPeekGameObject()
         {
             return _liftList.Peek();
+        }
+
+        public void PlayMoveAudio()
+        {
+            var plant = modelTransform.GetComponentInChildren<PlantBase>();
+            if (plant == null)
+            {
+                AudioManager.Instance.PlaySFX(Audio.AudioType.Character_Walking_Default);
+                return;
+            }
+            if (plant.itemType == ItemType.Kivi)
+            {
+                AudioManager.Instance.PlaySFX(Audio.AudioType.Bowling_Ball_Rolling_Sound);
+                return;
+            }
+            else
+            { 
+                AudioManager.Instance.PlaySFX(Audio.AudioType.Character_Walking_Default);
+            }
+          
         }
     }
 }

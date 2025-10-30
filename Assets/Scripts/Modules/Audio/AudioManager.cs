@@ -3,16 +3,30 @@ using TTGJ.Framework;
 using UnityEngine.Audio;
 using TTGJ.Generate;
 using TTGJ.Luban;
+using System;
 
 namespace TTGJ.Audio
 {
     public class AudioManager : MonoSingleton<AudioManager>
     {
 
-        [SerializeField]
         private AudioSource bgmSource;
-        [SerializeField]
         private AudioSource sfxSource;
+
+        private void Awake()
+        {
+            // BGM
+            bgmSource = gameObject.AddComponent<AudioSource>();
+            bgmSource.playOnAwake = false;
+            bgmSource.loop = true;
+            bgmSource.spatialBlend = 0f; // 2D 声音
+
+            // SFX
+            sfxSource = gameObject.AddComponent<AudioSource>();
+            sfxSource.playOnAwake = false;
+            sfxSource.loop = false;
+            sfxSource.spatialBlend = 0f; // 2D 声音
+        }
 
 
         public void PlayBGM(AudioClip clip, bool loop = true, float volume = 1f)
@@ -22,6 +36,13 @@ namespace TTGJ.Audio
             bgmSource.loop = loop;
             bgmSource.volume = Mathf.Clamp01(volume);
             bgmSource.Play();
+        }
+        public void PlayBGM(string path, bool loop = true, float volume = 1f)
+        { 
+            var clip = StResources.Instance.LoadByResources<AudioClip>(path);
+            if(clip != null) {
+                PlayBGM(clip);
+            }
         }
 
         public void StopBGM()
@@ -38,6 +59,18 @@ namespace TTGJ.Audio
             {
                 bgmSource.volume = Mathf.Clamp01(volume);
             }
+        }
+        public void SetSFXVolume(float volume)
+        {
+            if (sfxSource != null)
+            {
+                sfxSource.volume = Mathf.Clamp01(volume);
+            }
+        }
+        public void SetBVolume(float volume)
+        {
+            SetBGMVolume(volume);
+            SetSFXVolume(volume);
         }
 
 

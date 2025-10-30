@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TTGJ.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,11 +25,13 @@ namespace TTGJ.UI
 
         private void OnCloseBtnClick()
         {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Button_Click);
             UIManager.Instance.PopUp();
         }
 
         private void OnConfirmBtnClick()
         {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Button_Click);
             UIManager.Instance.PopUp();
             Application.Quit();
         }

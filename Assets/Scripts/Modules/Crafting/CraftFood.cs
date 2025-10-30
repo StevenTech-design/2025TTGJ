@@ -1,3 +1,4 @@
+using TTGJ.Audio;
 using TTGJ.Buff;
 using TTGJ.GamePlay;
 using TTGJ.Interactable;
@@ -14,6 +15,7 @@ namespace TTGJ.Crafting
             {
                 BuffManager.Instance.AddBuff((BuffType)item, PlayerController.Instance.transform, false);
             }
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Eat_Popcorn);
         }
         public virtual bool CanEat() {
             return true;

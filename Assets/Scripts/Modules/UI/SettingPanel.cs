@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TTGJ.Data;
 using DG.Tweening;
+using TTGJ.Audio;
 
 namespace TTGJ.UI
 {
@@ -45,6 +46,7 @@ namespace TTGJ.UI
 
         private void OnCloseBtnClick()
         {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Button_Click);
             UIManager.Instance.PopUp();
         }
 
@@ -72,11 +74,13 @@ namespace TTGJ.UI
             DataManager.Instance.SetShowTipUIState(!isShow);
             float targetValue = isShow ? 0 : 1;
             _valueImage.DOFillAmount(targetValue, 0.5f);
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Button_Click);
         }
 
         private void OnSliderMusicVolumeValueChanged(float value)
         {
             DataManager.Instance.SetMusicVolume(value);
+            AudioManager.Instance.SetBVolume(value);
         }
 
         private void OnSliderFieldOfViewValueChanged(float value)
@@ -88,6 +92,7 @@ namespace TTGJ.UI
         }
         
         private void OnQuitBtnClick() {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Button_Click);
             UIManager.Instance.PushSecondTip<ExitPanel>();
         }
     }

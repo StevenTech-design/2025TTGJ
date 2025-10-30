@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TTGJ.Audio;
 using TTGJ.GamePlay;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ namespace TTGJ.Plant
             sheep.transform.SetParent(modelRoot);
             sheep.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             sheep.transform.localScale = Vector3.one;
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Harvesting_Strange_Crop_2);
         }
         public override void OnPlant()
         {

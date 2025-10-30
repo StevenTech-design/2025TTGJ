@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using TTGJ.Audio;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
@@ -24,7 +25,8 @@ namespace TTGJ.Plant
 
         private void OnTriggerStay(Collider other)
         {
-            if(currentState != PlantState.Mature) { 
+            if (currentState != PlantState.Mature)
+            {
                 return;
             }
             if (Time.time - matureTime >= matureBoomTime)
@@ -39,6 +41,7 @@ namespace TTGJ.Plant
         {
             base.OnTeleport(baseTeleportPos);
             _ = SpawnMorePotato(isNormalHarvest ? 2 : 5);
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Potato_Splitting);
             FallCollisionBuff fallCollisionBuff = BuffManager.Instance.AddBuff<FallCollisionBuff>(transform);
             fallCollisionBuff.OnCollisionEnterCallback += OnFallCollision;
             fallCollisionBuff.StartBuff();
@@ -56,15 +59,19 @@ namespace TTGJ.Plant
         private async UniTask SpawnMorePotato(int count)
         {
             transform.GetComponent<Rigidbody>().AddForce(Vector3.left * 1, ForceMode.Impulse);
-            for (int i = 0; i < count-1; i++)
+            for (int i = 0; i < count - 1; i++)
             {
-            GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
-            potato.GetComponent<Potato>().currentState = PlantState.Harvest;
-            potato.GetComponent<Potato>().InitModel();
-            potato.transform.localScale = transform.localScale;
-            transform.GetComponent<Rigidbody>().AddForce(Vector3.left * 1, ForceMode.Impulse);
-            await UniTask.Delay(100);
+                GameObject potato = GameObject.Instantiate(gameObject, transform.position + Vector3.up * collider.bounds.size.y, transform.rotation);
+                potato.GetComponent<Potato>().currentState = PlantState.Harvest;
+                potato.GetComponent<Potato>().InitModel();
+                potato.transform.localScale = transform.localScale;
+                transform.GetComponent<Rigidbody>().AddForce(Vector3.left * 1, ForceMode.Impulse);
+                await UniTask.Delay(100);
             }
+        }
+        private void OnCollisionEnter(Collision collision)
+        {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Billiard_Ball_Collision_2);
         }
 
     }

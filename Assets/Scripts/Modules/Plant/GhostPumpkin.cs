@@ -6,6 +6,7 @@ using TTGJ.Audio;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
+using TTGJ.Generate;
 using UnityEngine;
 
 namespace TTGJ.Plant
@@ -34,11 +35,14 @@ namespace TTGJ.Plant
         public override void OnEat()
         {
             base.OnEat();
-            RevealBuff revealBuff = BuffManager.Instance.AddBuff<RevealBuff>(PlayerController.Instance.transform,false);
+            RevealBuff revealBuff = BuffManager.Instance.AddBuff<RevealBuff>(PlayerController.Instance.transform, false);
             revealBuff.StartBuff();
-            ReplaceHeadBuff headBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.Instance.headTransform,false);
+            ReplaceHeadBuff headBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.Instance.headTransform, false);
             headBuff.modelPrefab = this.gameObject;
             headBuff.StartBuff();
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Magic_Sound_Effect);
+            headBuff.OnBuffStartCallback += () => { AudioManager.Instance.PlayBGM(ResPathConfig.BGM_BGM_pumpkin); };
+            headBuff.OnBuffEndCallback += () => { AudioManager.Instance.PlayBGM(ResPathConfig.BGM_BGM_main); };
         }
         public override void OnTeleport(Transform baseTeleportPos)
         {

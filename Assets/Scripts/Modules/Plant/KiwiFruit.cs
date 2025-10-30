@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using TTGJ.Config;
 using TTGJ.House;
+using TTGJ.Audio;
 
 namespace TTGJ.Plant
 {
@@ -37,7 +38,7 @@ namespace TTGJ.Plant
         }
 
         private void PlaySound() { 
-            Debug.Log("PlaySound");
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Bowling_Ball_Collision_Sound);
         }
         protected override void OnHarvest()
         {

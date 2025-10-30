@@ -1,3 +1,4 @@
+using TTGJ.Audio;
 using TTGJ.Buff;
 using TTGJ.Common;
 using TTGJ.GamePlay;
@@ -32,9 +33,10 @@ namespace TTGJ.Plant
             Vector3 direction = collider.transform.position - transform.position;
             direction.y = Mathf.Max(direction.y, 0);
             Debug.Log("Mushroom BounceObject direction: " + direction);
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Q_Bouncy_Crop);
             if (collider.gameObject.TryGetComponent<Rigidbody>(out var rigidbody))
             {
-                rigidbody.AddForce(bounceForce *  direction.normalized, ForceMode.Impulse);
+                rigidbody.AddForce(bounceForce * direction.normalized, ForceMode.Impulse);
             }
         }
         public override void OnTeleport(Transform baseTeleportPos)

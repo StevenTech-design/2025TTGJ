@@ -325,7 +325,7 @@
   {
     "id": 35,
     "name": "Character_Walking_Beach",
-    "soundTip": "人物走路-沙滩（看情况，可以不做）",
+    "soundTip": "人物走路-沙滩（看情况,可以不做）",
     "soundType": 35,
     "assetPath": [
       "Sounds/RoleSound/Character_Walking_Beach",
@@ -349,7 +349,8 @@
     "soundTip": "人物走路-默认",
     "soundType": 37,
     "assetPath": [
-      "Sounds/RoleSound/Character_Walking_Default，Sounds/RoleSound/Character_Walking_Default_2"
+      "Sounds/RoleSound/Character_Walking_Default",
+      "Sounds/RoleSound/Character_Walking_Default_2"
     ]
   },
   {

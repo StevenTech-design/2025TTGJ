@@ -6,6 +6,7 @@ using TTGJ.Config;
 using TTGJ.Luban;
 using TTGJ.House;
 using System;
+using TTGJ.Audio;
 namespace TTGJ.Plant
 {
     public class PlantBase : Liftable, ITeleport, IDyeingable, IEatable
@@ -46,6 +47,7 @@ namespace TTGJ.Plant
 
         public virtual void OnWatering()
         {
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Kettle_Watering_Sound);
             ResetDyeing();
             if (currentGrouthCount >= ConfigManager.Instance.GetGrowthCount(itemType))
             {
@@ -87,6 +89,7 @@ namespace TTGJ.Plant
             isLiftable = false;
             transform.SetParent(null);
             FieldSystem.Instance.RemovePlant(this);
+            AudioManager.Instance.PlaySFX(Audio.AudioType.Harvesting_Regular_Crop);
         }
         public virtual void ChangeState(PlantState state)
         {
