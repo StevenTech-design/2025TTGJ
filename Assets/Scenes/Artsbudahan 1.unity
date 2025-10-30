@@ -17289,7 +17289,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cursorSprite
       value: 
-      objectReference: {fileID: 2800000, guid: e227f2bde99f041479b7a1a9bfb765fd, type: 3}
+      objectReference: {fileID: 2800000, guid: e64d8e6a7c8803f498c15d1037bde106, type: 3}
     - target: {fileID: -7606516086137191034, guid: f6b1aef3c127a53428d2118db39773d1,
         type: 3}
       propertyPath: commandInfoUI
@@ -51136,7 +51136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24ef5593fbbe0d14fb23f5e39d47263a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameState: 0
 --- !u!1001 &8437168701216469733
 PrefabInstance:
   m_ObjectHideFlags: 0
