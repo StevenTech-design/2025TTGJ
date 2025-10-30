@@ -134,7 +134,7 @@ namespace TTGJ.Task
                 ToAcceptTask(currentTaskConfig.TaskId);
             }
             if (currentTaskConfig.TaskState == TaskState.NotComplete) {
-                CheckFinishTask();
+                ToCompleteTask(currentTaskConfig.TaskId);
             }
             if (currentTaskConfig.TaskState == TaskState.NotReward) {
                 ToRewardTask();
