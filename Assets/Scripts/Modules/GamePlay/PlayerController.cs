@@ -37,7 +37,7 @@ namespace TTGJ.GamePlay
 
         public void ToMove(Vector3 direction)
         {
-            if (direction == Vector3.zero)
+            if (direction == Vector3.zero || !gameObject.activeSelf)
             {
                 IsMove = false;
                 return;
