@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1105221198783241609}
   m_Layer: 0
   m_Name: Player_V2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,9 +101,11 @@ MonoBehaviour:
   speed: 2.25
   rotationSpeed: 5
   dropForce: 5
+  smoothRotation: 1
   liftArea: {fileID: 4141489802786691649}
   _longTimeDropforce: 2
   modelTransform: {fileID: 0}
+  headTransform: {fileID: 0}
 --- !u!1 &4994519070563314594
 GameObject:
   m_ObjectHideFlags: 0

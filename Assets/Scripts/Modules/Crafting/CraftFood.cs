@@ -10,10 +10,10 @@ namespace TTGJ.Crafting
     {
         public virtual void OnEat() {
            var config = LubanManager.Instance.GetItemNew((int)itemType);
-           BuffManager.Instance.RemoveAllBuff(PlayerController.Instance.transform);
+           BuffManager.Instance.RemoveAllBuff(PlayerController.GetActivePlayer().transform);
            foreach (var item in config.BuffType)
             {
-                BuffManager.Instance.AddBuff((BuffType)item, PlayerController.Instance.transform, false);
+                BuffManager.Instance.AddBuff((BuffType)item, PlayerController.GetActivePlayer().transform, false);
             }
             AudioManager.Instance.PlaySFX(Audio.AudioType.Eat_Popcorn);
         }

@@ -18,16 +18,16 @@ namespace TTGJ.GamePlay
 
         public void OnEat()
         {
-            BuffBase buffBase = BuffManager.Instance.AddBuff<ForwardWateringBuff>(PlayerController.Instance.transform);
+            BuffBase buffBase = BuffManager.Instance.AddBuff<ForwardWateringBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.OnBuffEndCallback += OnForwardWateringBuffEnd;
             buffBase.StartBuff();
         }
         private void OnForwardWateringBuffEnd()
         {
             GameObject kettle = GameObject.Instantiate(StResources.Instance.LoadByResources<GameObject>(ResPathConfig.Plants_Kettle));
-            kettle.transform.position = PlayerController.Instance.transform.position - PlayerController.Instance.transform.forward * 2f;
-            kettle.transform.rotation = PlayerController.Instance.transform.rotation;
-            kettle.GetComponent<Rigidbody>().AddForce(-PlayerController.Instance.transform.forward * 3, ForceMode.Impulse);
+            kettle.transform.position = PlayerController.GetActivePlayer().transform.position - PlayerController.GetActivePlayer().transform.forward * 2f;
+            kettle.transform.rotation = PlayerController.GetActivePlayer().transform.rotation;
+            kettle.GetComponent<Rigidbody>().AddForce(-PlayerController.GetActivePlayer().transform.forward * 3, ForceMode.Impulse);
         }
     }
 }

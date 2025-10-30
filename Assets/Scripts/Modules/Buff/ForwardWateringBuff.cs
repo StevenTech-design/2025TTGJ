@@ -40,7 +40,7 @@ namespace TTGJ.Buff
         }
         private List<Collider> GetAdaptorObjs(Func<Collider,bool> checkInteractable)
         {
-            Vector3 center = PlayerController.Instance.transform.position + PlayerController.Instance.transform.forward * 0.2f;
+            Vector3 center = PlayerController.GetActivePlayer().transform.position + PlayerController.GetActivePlayer().transform.forward * 0.2f;
             Vector3 halfExtents = new Vector3(0.3f, 1f, 0.25f);
             Collider[] colliders = Physics.OverlapBox(
                 center,

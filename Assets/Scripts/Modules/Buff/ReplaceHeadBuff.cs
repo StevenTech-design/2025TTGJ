@@ -13,14 +13,14 @@ namespace TTGJ.Buff
             ReplaceHead();
         }
         private void ReplaceHead() { 
-            newModel = Instantiate(modelPrefab,PlayerController.Instance.headTransform);
+            newModel = Instantiate(modelPrefab,PlayerController.GetActivePlayer().headTransform);
             newModel.SetActive(true);
             newModel.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             newModel.transform.localScale = Vector3.one;
             HideHead();
         }
         private void HideHead() {
-            Renderer renderer = PlayerController.Instance.transform.GetComponentInChildren<Renderer>();
+            Renderer renderer = PlayerController.GetActivePlayer().transform.GetComponentInChildren<Renderer>();
             if (renderer == null) {
                 return;
             }

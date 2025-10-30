@@ -53,7 +53,7 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
-            BuffBase buffBase = BuffManager.Instance.AddBuff<FastMoveBuff>(PlayerController.Instance.transform);
+            BuffBase buffBase = BuffManager.Instance.AddBuff<FastMoveBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.StartBuff();
         }
         private async UniTask SpawnMorePotato(int count)

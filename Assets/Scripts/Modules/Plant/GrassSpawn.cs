@@ -34,7 +34,7 @@ namespace TTGJ.Plant {
         }
         private void OnGrassHarvested(GameObject grass,int index) { 
             TimerManager.Instance.StartTimer(spawnInterval, () => { CreateGrass(index); });
-            PlayerController.Instance.ToLift(grass);
+            PlayerController.GetActivePlayer().ToLift(grass);
         }
     }
 }

@@ -8,7 +8,7 @@ using TTGJ.Audio;
 
 namespace TTGJ.GamePlay
 {
-    public partial class PlayerController : MonoSingleton<PlayerController>
+    public partial class PlayerController : MonoBehaviour
     {
         public float speed = 3.5f;
         public float rotationSpeed = 5.0f;
@@ -183,10 +183,15 @@ namespace TTGJ.GamePlay
                 return;
             }
             else
-            { 
+            {
                 AudioManager.Instance.PlaySFX(Audio.AudioType.Character_Walking_Default);
             }
-          
+
+        }
+        public static PlayerController GetActivePlayer()
+        { 
+            Debug.Log("GetActivePlayer: " + GameObject.FindGameObjectWithTag("Player"));
+            return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         }
     }
 }

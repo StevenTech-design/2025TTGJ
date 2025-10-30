@@ -30,8 +30,8 @@ namespace TTGJ.Plant
         public override void OnPlant()
         {
             base.OnPlant();
-            GameObject peekObject = PlayerController.Instance.GetPeekGameObject();
-            PlayerController.Instance.ToDrop();
+            GameObject peekObject = PlayerController.GetActivePlayer().GetPeekGameObject();
+            PlayerController.GetActivePlayer().ToDrop();
             Destroy(peekObject);
         }
 

@@ -22,7 +22,7 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
-            BuffBase buffBase = BuffManager.Instance.AddBuff<BigModelBuff>(PlayerController.Instance.transform);
+            BuffBase buffBase = BuffManager.Instance.AddBuff<BigModelBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.StartBuff();
         }
         public override void OnTeleport(Transform baseTeleportPos)

@@ -59,9 +59,9 @@ namespace TTGJ.Plant
         }
         public override void OnEat()
         {
-            BuffBase buffBase = BuffManager.Instance.AddBuff<ReverseDirBuff>(PlayerController.Instance.transform);
+            BuffBase buffBase = BuffManager.Instance.AddBuff<ReverseDirBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.StartBuff();
-            FastMoveBuff buff = BuffManager.Instance.AddBuff<FastMoveBuff>(PlayerController.Instance.transform,false);
+            FastMoveBuff buff = BuffManager.Instance.AddBuff<FastMoveBuff>(PlayerController.GetActivePlayer().transform,false);
             buff.StartBuff();
         }
     }

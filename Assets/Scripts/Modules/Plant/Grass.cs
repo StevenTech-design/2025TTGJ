@@ -37,7 +37,7 @@ namespace TTGJ.Plant {
         }
         public override void OnEat()
         {
-            SheepTalkBuff buff = BuffManager.Instance.AddBuff<SheepTalkBuff>(PlayerController.Instance.transform);
+            SheepTalkBuff buff = BuffManager.Instance.AddBuff<SheepTalkBuff>(PlayerController.GetActivePlayer().transform);
             buff.StartBuff();
         }
         private void OnTriggerEnter(Collider other)

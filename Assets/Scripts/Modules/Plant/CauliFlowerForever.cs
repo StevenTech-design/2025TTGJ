@@ -12,11 +12,11 @@ namespace TTGJ.Plant
             if(currentState != PlantState.Mature) { 
                 return;
             }
-            BuffBase buffBase = BuffManager.Instance.AddBuff<SmallModelBuff>(PlayerController.Instance.transform);
+            BuffBase buffBase = BuffManager.Instance.AddBuff<SmallModelBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.StartBuff();
         }
-        public override void OnEat() { 
-            BuffBase buffBase = BuffManager.Instance.AddBuff<SmallModelBuff>(PlayerController.Instance.transform);
+        public override void OnEat() {  
+            BuffBase buffBase = BuffManager.Instance.AddBuff<SmallModelBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.StartBuff();
         }
         protected override void OnHarvest()

@@ -35,7 +35,10 @@ namespace TTGJ.Scene
 
         public void LoadScene(int sceneIndex)
         {
-            GetFirstRoot(_currentSceneIndex).SetActive(false);
+           if (GetFirstRoot(_currentSceneIndex) != null)
+            {
+                GetFirstRoot(_currentSceneIndex).SetActive(false);
+            }
             if (!_loadedSceneIndexes.Contains(sceneIndex))
             {
                 Debug.Log("LoadScene: dddd" + sceneIndex);

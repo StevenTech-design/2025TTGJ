@@ -14,9 +14,9 @@ namespace TTGJ.Plant
         [SerializeField]
         private float force = 1f;
         public override void OnEat() { 
-            ReplaceModelBuff buffBase = BuffManager.Instance.AddBuff<ReplaceModelBuff>(PlayerController.Instance.transform);
+            ReplaceModelBuff buffBase = BuffManager.Instance.AddBuff<ReplaceModelBuff>(PlayerController.GetActivePlayer().transform);
             buffBase.modelPrefab = this.gameObject;
-            buffBase.originalModel = PlayerController.Instance.modelTransform.gameObject;
+            buffBase.originalModel = PlayerController.GetActivePlayer().modelTransform.gameObject;
             buffBase.StartBuff();
         }
 

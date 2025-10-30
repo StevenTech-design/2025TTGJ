@@ -13,7 +13,7 @@ namespace TTGJ.Buff
             ReplaceModel();
         }
         private void ReplaceModel() { 
-            newModel = Instantiate(modelPrefab,PlayerController.Instance.modelTransform.parent);
+            newModel = Instantiate(modelPrefab,PlayerController.GetActivePlayer().modelTransform.parent);
             newModel.SetActive(true);
             newModel.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
             newModel.transform.localScale = Vector3.one;

@@ -35,9 +35,9 @@ namespace TTGJ.Plant
         public override void OnEat()
         {
             base.OnEat();
-            RevealBuff revealBuff = BuffManager.Instance.AddBuff<RevealBuff>(PlayerController.Instance.transform, false);
+            RevealBuff revealBuff = BuffManager.Instance.AddBuff<RevealBuff>(PlayerController.GetActivePlayer().transform, false);
             revealBuff.StartBuff();
-            ReplaceHeadBuff headBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.Instance.headTransform, false);
+            ReplaceHeadBuff headBuff = BuffManager.Instance.AddBuff<ReplaceHeadBuff>(PlayerController.GetActivePlayer().headTransform, false);
             headBuff.modelPrefab = this.gameObject;
             headBuff.StartBuff();
             AudioManager.Instance.PlaySFX(Audio.AudioType.Magic_Sound_Effect);

@@ -42,7 +42,7 @@ namespace TTGJ.House
             PlantBase go = _currentStorePlants.Dequeue();
             go.gameObject.SetActive(false);
             go.transform.SetPositionAndRotation(transform.position, transform.rotation);
-            go.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * PlayerController.Instance.dropForce, ForceMode.Impulse);
+            go.GetComponent<Rigidbody>().AddForce(transform.forward.normalized * PlayerController.GetActivePlayer().dropForce, ForceMode.Impulse);
         }
         // private float ChangeState() { 
 
