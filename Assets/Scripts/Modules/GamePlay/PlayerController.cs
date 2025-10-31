@@ -57,7 +57,7 @@ namespace TTGJ.GamePlay
                 transform.rotation = Quaternion.LookRotation(direction);
             }
 
-            PlayMoveAudio();
+            // PlayMoveAudio();
 
             _rigidbody.MovePosition(_rigidbody.position + speed * Time.fixedDeltaTime * transform.forward);
         }
