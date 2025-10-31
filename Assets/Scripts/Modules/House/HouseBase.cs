@@ -17,7 +17,7 @@ namespace TTGJ.House
 
         public bool CanEat()
         {
-            return true;
+            return false;
         }
 
         public bool CheckFull()
