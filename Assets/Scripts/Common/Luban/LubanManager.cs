@@ -5,7 +5,7 @@ using cfg;
 using Cysharp.Threading.Tasks;
 using SimpleJSON;
 using TTGJ.Framework;
-using TTGJ.Plant;
+// using TTGJ.Plant;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
