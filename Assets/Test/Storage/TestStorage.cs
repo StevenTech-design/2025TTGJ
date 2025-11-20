@@ -18,7 +18,7 @@ namespace TTGJ.Tests.PlayMode
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            StorageManager.Instance.Initialize("TestSaveData");
+            StorageManager.Instance.Init();
             if (StorageManager.Instance.Exists(TEST_KEY))
             {
                 StorageManager.Instance.Delete(TEST_KEY);
