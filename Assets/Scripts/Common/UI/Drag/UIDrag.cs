@@ -18,7 +18,7 @@ namespace TTGJ.UI
 
         public virtual void OnDrag(PointerEventData eventData)
         {
-            transform.position = Input.mousePosition;
+            //transform.position = Input.mousePosition;
             
         }
 
