@@ -2,12 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using cfg;
+using Steven.Framework;
+using UnityEngine;
 using Cysharp.Threading.Tasks;
 using SimpleJSON;
-using TTGJ.Framework;
-// using TTGJ.Plant;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace TTGJ.Luban
 {
@@ -103,73 +101,7 @@ namespace TTGJ.Luban
             };
         }
 
-        public cfg.ItemNew GetItemNew(int id)
-        {
-            return _tables.TbItemNew.Get(id);
-        }
-        private cfg.TBItemCombine GetTBItemCombine()
-        {
-            return _tables.TBItemCombine;
-        }
-        public cfg.ItemCombine GetItemCombine(int id)
-        {
-            return _tables.TBItemCombine.Get(id);
-        }
-        public cfg.ItemCombine GetCombineItem(int craftingTableType, int itemId1, int itemId2)
-        {
-            var itemCombine = GetTBItemCombine();
-            var dataList = itemCombine.DataList.Where(item => item.Type == craftingTableType);
-            foreach (var item in dataList)
-            {
-                if ((item.CostMainBuckets1 == itemId1 && item.CostMainBuckets2 == itemId2)
-                || (item.CostMainBuckets1 == itemId2 && item.CostMainBuckets2 == itemId1))
-                {
-                    return item;
-                }
-            }
-            return null;
-        }
-        public int EvolutionId(int id)
-        {
-            var item = GetItemNew(id);
-            if (item == null)
-            {
-                return -1;
-            }
-            return item.EvoId;
-        }
-        public cfg.plot GetPlot(int id)
-        {
-            return _tables.TbPlot.Get(id);
-        }
-        public cfg.task GetTask(int id)
-        {
-            return _tables.TbTask.Get(id);
-        }
-        public List<int> GetItemsByType(int itemType)
-        {
-            var items = _tables.TbItemNew.DataList;
-            return items.Where(item => item.ItemType == itemType).Select(item => item.Id).ToList();
-        }
-        public house GetHouse(int id)
-        {
-            return _tables.TbHouse.Get(id);
-        }
-        public house GetHouseByItemId(int id)
-        {
-            foreach (var item in _tables.TbHouse.DataList)
-            {
-                if (item.CropList.Contains(id))
-                {
-                    return item;
-                }
-            }
-            return null;
-        } 
-        public audio GetAudio(int id)
-        {
-            return _tables.TbAudio.Get(id);
-        }
+       
 
         #endregion
     }

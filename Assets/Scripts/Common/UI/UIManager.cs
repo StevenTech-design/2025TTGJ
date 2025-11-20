@@ -1,16 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
-using TTGJ.Framework;
+using Steven.Framework;
 using UnityEngine;
-using TTGJ.Generate;
 namespace TTGJ.UI
 {
     public class UIManager : MonoSingleton<UIManager>
     {
         private static Dictionary<Type, string> UIPanelPathDic = new Dictionary<Type, string>()
         {
-            //{ typeof(UIPanel), "UI/MainPanel" },
+            // //{ typeof(UIPanel), "UI/MainPanel" },
             // { typeof(ExitPanel), ResPathConfig.UI_ExitPannel},
             // { typeof(JournalPanel), ResPathConfig.UI_JournalPannel},
             // { typeof(SettingPanel), ResPathConfig.UI_SettingPannel},
