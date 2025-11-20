@@ -3,15 +3,17 @@ using System.IO;
 using UnityEngine;
 using Steven.Framework;
 using TTGJ.Serialize;
+using TTGJ.Manager;
 
 namespace TTGJ.Storage
 {
-    public class StorageManager : Singleton<StorageManager>
+    public class StorageManager : Singleton<StorageManager>, IManager
     {
         private bool _isInitialized = false;
-        private string _saveDirectory;  // ✅ 改为类成员字段
+        private string _saveDirectory; 
+        private string _saveFolderName = "SaveData";
 
-        public void Initialize(string folderName = "SaveData")
+        public void Init()
         {
             if (_isInitialized)
             {
@@ -19,8 +21,7 @@ namespace TTGJ.Storage
                 return;
             }
 
-            // ✅ 赋值给类成员字段
-            _saveDirectory = Path.Combine(Application.persistentDataPath, folderName);
+            _saveDirectory = Path.Combine(Application.persistentDataPath, _saveFolderName);
             
             if (!Directory.Exists(_saveDirectory))
             {
@@ -37,7 +38,7 @@ namespace TTGJ.Storage
             if (!_isInitialized)
             {
                 Debug.LogWarning("StorageManager: 未初始化，自动初始化...");
-                Initialize();
+                Init();
             }
         }
 
@@ -83,9 +84,6 @@ namespace TTGJ.Storage
             }
         }
 
-        /// <summary>
-        /// 加载实现了 ISerializable 接口的对象（JSON 格式）
-        /// </summary>
         public void LoadJson<T>(string key, out T result) where T : ISerializable<T>,new()
         {
             CheckInitialized();

@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using cfg;
+using cfg.Config;
 using Steven.Framework;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 using SimpleJSON;
+using TTGJ.Inventory;
 
 namespace TTGJ.Luban
 {
@@ -15,21 +17,12 @@ namespace TTGJ.Luban
     /// </summary>
     public class LubanManager : Singleton<LubanManager>
     {
-        #region Private Fields
-
         private cfg.Tables _tables;
         private bool _isInitialized = false;
-
-        #endregion
-
-        #region Public Properties
-
         public bool IsInitialized => _isInitialized;
+        
 
-        #endregion
-
-        #region Public Methods
-
+        #region Init
         public async UniTask InitializeAsync()
         {
             if (_isInitialized)
@@ -55,10 +48,6 @@ namespace TTGJ.Luban
                 throw;
             }
         }
-
-        #endregion
-
-        #region Private Methods
 
         private void CheckInitialized()
         {
@@ -100,9 +89,18 @@ namespace TTGJ.Luban
                 return JSON.Parse(textAsset.text);
             };
         }
+        #endregion
 
-       
+        #region GetDataInfo
 
+        public ItemDetail GetItemInfo(int itemId)
+        {
+            if (_tables.Item.DataMap.ContainsKey(itemId))
+            {
+                return _tables.Item.DataMap[itemId];
+            }
+            return null;
+        }
         #endregion
     }
 }

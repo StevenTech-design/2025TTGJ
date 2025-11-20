@@ -19,6 +19,7 @@ public sealed partial class ItemDetail : Luban.BeanBase
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
+        { if(!_buf["icon"].IsString) { throw new SerializationException(); }  Icon = _buf["icon"]; }
         { if(!_buf["des"].IsString) { throw new SerializationException(); }  Des = _buf["des"]; }
     }
 
@@ -35,6 +36,7 @@ public sealed partial class ItemDetail : Luban.BeanBase
     /// 物品名字
     /// </summary>
     public readonly string Name;
+    public readonly string Icon;
     /// <summary>
     /// 物品描述
     /// </summary>
@@ -52,6 +54,7 @@ public sealed partial class ItemDetail : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "name:" + Name + ","
+        + "icon:" + Icon + ","
         + "des:" + Des + ","
         + "}";
     }

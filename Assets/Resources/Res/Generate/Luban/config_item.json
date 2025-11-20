@@ -2,6 +2,7 @@
   {
     "id": 10001,
     "name": "test",
+    "icon": "Res/UI/item/Test",
     "des": "test"
   }
 ]

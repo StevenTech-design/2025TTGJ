@@ -57,7 +57,8 @@ namespace TTGJ.Inventory {
                 itemsList.Add(item);
             }
             
-            return JsonUtility.ToJson(itemsList.ToArray(), true);
+            var wrapper = new InventoryDataWrapper { items = itemsList.ToArray() };
+            return JsonUtility.ToJson(wrapper, true);
         }
 
         public void Deserialize(string jsonData)
@@ -67,14 +68,24 @@ namespace TTGJ.Inventory {
                 return;
             }
 
-            var itemsArray = JsonUtility.FromJson<InventoryItem[]>(jsonData);
-
-            var inventory = new InventoryData();
-            foreach (var item in itemsArray)
+            var wrapper = JsonUtility.FromJson<InventoryDataWrapper>(jsonData);
+            if (wrapper == null || wrapper.items == null)
             {
-                inventory.itemsDict[item.ItemId] = item;
-                inventory.itemsIndexDict[item.Index] = item.ItemId;
+                return;
+            }
+
+            itemsDict.Clear();
+            itemsIndexDict.Clear();
+            foreach (var item in wrapper.items)
+            {
+                itemsDict[item.ItemId] = item;
+                itemsIndexDict[item.Index] = item.ItemId;
             }
         }
+    }
+    [System.Serializable]
+    public class InventoryDataWrapper
+    {
+        public InventoryItem[] items;
     }
 }

@@ -39,21 +39,38 @@ namespace TTGJ.Tests.PlayMode
         [UnityTest]
         public IEnumerator Test_SaveAndLoad_InPlayMode()
         {
-            // Arrange
-            var inventory = new InventoryData();
-            inventory.AddItem(1001, 100);
-            inventory.AddItem(1002, 200);
+            // Arrange - 创建测试数据
+            var originalInventory = new InventoryData();
+            originalInventory.AddItem(1001, 100);
+            originalInventory.AddItem(1002, 200);
+            originalInventory.AddItem(1003, 50);
+
+            // 生成原始序列化字符串用于比较
+            string originalJson = originalInventory.Serialize(originalInventory);
 
             // Act - 保存
-            StorageManager.Instance.SaveJson(TEST_KEY, inventory);
+            bool saveResult = StorageManager.Instance.SaveJson(TEST_KEY, originalInventory);
+            Assert.IsTrue(saveResult, "保存应该成功");
             yield return null;
 
             // Act - 加载
-            InventoryData data = null;
-            StorageManager.Instance.LoadJson(TEST_KEY,out data);
+            InventoryData loadedInventory = null;
+            StorageManager.Instance.LoadJson(TEST_KEY, out loadedInventory);
 
-            // Assert
-            Assert.IsNotNull(data);
+            // Assert - 基本检查
+            Assert.IsNotNull(loadedInventory, "加载的数据不应该为 null");
+
+            // Assert - 通过序列化字符串比较验证数据完整性
+            string loadedJson = loadedInventory.Serialize(loadedInventory);
+            Assert.AreEqual(originalJson, loadedJson, "保存和加载后的数据应该完全一致");
+
+            // Assert - 进一步验证：加载的数据应该能正确累加物品（测试数据完整性）
+            bool addResult = loadedInventory.AddItem(1001, 50); // 尝试添加已存在的物品
+            Assert.IsTrue(addResult, "应该能成功添加已存在的物品");
+
+            // 再次序列化，应该与原始数据不同（因为数量增加了）
+            string modifiedJson = loadedInventory.Serialize(loadedInventory);
+            Assert.AreNotEqual(originalJson, modifiedJson, "修改后的数据应该与原始数据不同");
         }
     }
 }
