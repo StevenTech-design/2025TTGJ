@@ -1,4 +1,5 @@
 using UnityEngine;
+using TTGJ.Env;
 
 namespace TTGJ.Entity
 {
@@ -6,6 +7,9 @@ namespace TTGJ.Entity
     {
         [SerializeField] private float moveSpeed = 10f;
         private Rigidbody rigidbody;
+        private bool isMoor = false;
+        private bool isDriving = false;
+        private Vector3 moveOffset = Vector3.zero;
 
         private uint EntityId = 0;
         uint IEntity.EntityId {
@@ -24,8 +28,40 @@ namespace TTGJ.Entity
             rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Move(Vector3 direction) { 
-            rigidbody.MovePosition(rigidbody.position + direction * moveSpeed * Time.deltaTime);
+        public void Move(Vector3 direction) {
+            moveOffset += direction * moveSpeed;
+            Debug.Log("Move: " + moveOffset);
+        }
+
+        public void OnOperation() {
+            if(CheckInDrivingRoom() && !isDriving)
+            {
+                isDriving = true;
+                return;
+            }
+            if (CheckInPort() && isDriving) {
+                isMoor = !isMoor;
+            }
+
+        }
+
+        public bool CheckInPort() {
+            return true;
+        }
+        public bool CheckInDrivingRoom() {
+            return true;
+        }
+        public void CancelDriving() { 
+            isDriving = false;
+        }
+
+        private void FixedUpdate() {
+            if (isMoor) {
+                return;
+            }
+            moveOffset += Weather.Instance.GetWindAtPosition(transform.position);
+            rigidbody.MovePosition(rigidbody.position + moveOffset * UnityEngine.Time.deltaTime);
+            moveOffset = Vector3.zero;
         }
 
     }

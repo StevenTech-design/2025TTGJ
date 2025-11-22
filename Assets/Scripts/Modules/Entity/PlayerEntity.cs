@@ -6,6 +6,7 @@ namespace TTGJ.Entity
     {
         [SerializeField] private float moveSpeed = 1f;
         private CharacterController characterController;
+        private Vector3 moveOffset = Vector3.zero;
 
         private uint EntityId = 0;
         uint IEntity.EntityId {
@@ -25,12 +26,19 @@ namespace TTGJ.Entity
         }
 
         public void Move(Vector2 direction) { 
-            Debug.Log("Player Move: " + direction);
-            characterController.Move(new Vector3(direction.x, 0, direction.y) * moveSpeed * Time.deltaTime);
+            moveOffset += new Vector3(direction.x, 0, direction.y);
         }
 
         public void OnOperation() {
             Debug.Log("PLayer operation");
+        }
+
+        private void FixedUpdate() {
+            if (moveOffset == Vector3.zero) {
+                return;
+            }
+            characterController.Move(moveOffset * moveSpeed * UnityEngine.Time.deltaTime);
+            moveOffset = Vector3.zero;
         }
 
     }

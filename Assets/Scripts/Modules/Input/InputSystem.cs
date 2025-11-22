@@ -14,6 +14,7 @@ namespace TTGJ.Input
         private PlayerEntity player;
         private AirShipEntity airship;
 
+
         private void Awake()
         {
             inputController = new InputController();
@@ -21,8 +22,23 @@ namespace TTGJ.Input
             inputController.Player.Enable();
             inputController.Airship.Disable();
             inputController.Player.Operate.performed += OnPlayerOperation;
-            //inputController.Airship.
+            inputController.Airship.Operate.performed += OnAirshipOperation;
+            inputController.Airship.CancelOperate.performed += OnAirshipCancelOperate;
+            inputController.Airship.Disable();
 
+        }
+
+        private void OnAirshipOperation(InputAction.CallbackContext context)
+        {
+            GetAirShipEntity().OnOperation();
+            inputController.Player.Disable();
+        }
+
+        private void OnAirshipCancelOperate(InputAction.CallbackContext context)
+        {
+            GetAirShipEntity().CancelDriving();
+            inputController.Airship.Disable();
+            inputController.Player.Enable();
         }
 
         private PlayerEntity GetPlayer() { 
@@ -51,7 +67,12 @@ namespace TTGJ.Input
 
         private void OnPlayerOperation(InputAction.CallbackContext context)
         {
+
             GetPlayer().OnOperation();
+            if (airship.CheckInDrivingRoom()) { 
+                inputController.Airship.Enable();
+                inputController.Player.Disable();
+            }
 
         }
 
@@ -78,7 +99,7 @@ namespace TTGJ.Input
 
                 // 组合移动向量
                 Vector3 moveDirection = new Vector3(horizontalInput.x, verticalInput, horizontalInput.y);
-
+                Debug.Log("MoveDirection: " + moveDirection);
                 if (moveDirection.magnitude > 0.1f)
                 {
                     airship.Move(moveDirection);

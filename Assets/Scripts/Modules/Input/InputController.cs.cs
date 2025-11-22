@@ -187,6 +187,15 @@ namespace TTGJ.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Operate"",
+                    ""type"": ""Button"",
+                    ""id"": ""722e8a15-04b8-4fda-94de-c3013267666b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -233,6 +242,17 @@ namespace TTGJ.Input
                     ""action"": ""CancelOperate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""562b68c2-f588-4783-b783-6104d69c09d9"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Operate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -268,6 +288,7 @@ namespace TTGJ.Input
             m_Airship_FlyRise = m_Airship.FindAction("FlyRise", throwIfNotFound: true);
             m_Airship_FlyFall = m_Airship.FindAction("FlyFall", throwIfNotFound: true);
             m_Airship_CancelOperate = m_Airship.FindAction("CancelOperate", throwIfNotFound: true);
+            m_Airship_Operate = m_Airship.FindAction("Operate", throwIfNotFound: true);
             // UI
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         }
@@ -404,6 +425,7 @@ namespace TTGJ.Input
         private readonly InputAction m_Airship_FlyRise;
         private readonly InputAction m_Airship_FlyFall;
         private readonly InputAction m_Airship_CancelOperate;
+        private readonly InputAction m_Airship_Operate;
         public struct AirshipActions
         {
             private @InputController m_Wrapper;
@@ -412,6 +434,7 @@ namespace TTGJ.Input
             public InputAction @FlyRise => m_Wrapper.m_Airship_FlyRise;
             public InputAction @FlyFall => m_Wrapper.m_Airship_FlyFall;
             public InputAction @CancelOperate => m_Wrapper.m_Airship_CancelOperate;
+            public InputAction @Operate => m_Wrapper.m_Airship_Operate;
             public InputActionMap Get() { return m_Wrapper.m_Airship; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -433,6 +456,9 @@ namespace TTGJ.Input
                 @CancelOperate.started += instance.OnCancelOperate;
                 @CancelOperate.performed += instance.OnCancelOperate;
                 @CancelOperate.canceled += instance.OnCancelOperate;
+                @Operate.started += instance.OnOperate;
+                @Operate.performed += instance.OnOperate;
+                @Operate.canceled += instance.OnOperate;
             }
 
             private void UnregisterCallbacks(IAirshipActions instance)
@@ -449,6 +475,9 @@ namespace TTGJ.Input
                 @CancelOperate.started -= instance.OnCancelOperate;
                 @CancelOperate.performed -= instance.OnCancelOperate;
                 @CancelOperate.canceled -= instance.OnCancelOperate;
+                @Operate.started -= instance.OnOperate;
+                @Operate.performed -= instance.OnOperate;
+                @Operate.canceled -= instance.OnOperate;
             }
 
             public void RemoveCallbacks(IAirshipActions instance)
@@ -525,6 +554,7 @@ namespace TTGJ.Input
             void OnFlyRise(InputAction.CallbackContext context);
             void OnFlyFall(InputAction.CallbackContext context);
             void OnCancelOperate(InputAction.CallbackContext context);
+            void OnOperate(InputAction.CallbackContext context);
         }
         public interface IUIActions
         {
