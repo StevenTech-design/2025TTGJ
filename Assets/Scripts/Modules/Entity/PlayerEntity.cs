@@ -29,5 +29,9 @@ namespace TTGJ.Entity
             characterController.Move(new Vector3(direction.x, 0, direction.y) * moveSpeed * Time.deltaTime);
         }
 
+        public void OnOperation() {
+            Debug.Log("PLayer operation");
+        }
+
     }
 }
