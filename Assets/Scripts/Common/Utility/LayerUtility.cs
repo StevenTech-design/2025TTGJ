@@ -7,19 +7,6 @@ namespace TTGJ.Common
     /// </summary>
     public static class LayerUtility
     {
-        #region Layer Name Constants
-        
-        public const string DEFAULT_LAYER = "Default";
-        public const string TRANSPARENT_FX = "TransparentFX";
-        public const string IGNORE_RAYCAST = "Ignore Raycast";
-        public const string WATER = "Water";
-        public const string UI = "UI";
-        public const string PLAYER = "Player";
-        public const string GROUND = "Ground";
-        public const string INTERACTABLE = "Interactable";
-        public const string PICKABLE = "Pickable";
-        
-        #endregion
         
         #region Layer Management
         
