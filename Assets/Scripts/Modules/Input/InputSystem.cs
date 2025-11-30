@@ -78,6 +78,9 @@ namespace TTGJ.Input
 
         private void Update()
         {
+            Move();
+        }
+        private void Move() { 
             if (GetPlayer() != null && inputController.Player.enabled)
             {
                 Vector2 moveInput = inputController.Player.Move.ReadValue<Vector2>();
@@ -105,6 +108,10 @@ namespace TTGJ.Input
                     airship.Move(moveDirection);
                 }
             }
+        }
+
+        private void Interact() { 
+            
         }
     }
 }

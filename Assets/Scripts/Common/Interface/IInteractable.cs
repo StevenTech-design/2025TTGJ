@@ -5,5 +5,6 @@ using UnityEngine;
 public interface IInteractable
 {
     void Interact();
-    void GetInteractKeyCode();
+    KeyCode GetInteractKeyCode();
+    bool CheckCanInteract();
 }
